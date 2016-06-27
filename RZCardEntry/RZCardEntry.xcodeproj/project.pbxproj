@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002EECDE1D21A15C0005F19C /* RZCardNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */; };
 		00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A161D219EA100DB5839 /* AppDelegate.swift */; };
 		00F95A191D219EA100DB5839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A181D219EA100DB5839 /* ViewController.swift */; };
-		00F95A1C1D219EA100DB5839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F95A1A1D219EA100DB5839 /* Main.storyboard */; };
 		00F95A1E1D219EA100DB5839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F95A1D1D219EA100DB5839 /* Assets.xcassets */; };
-		00F95A211D219EA100DB5839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F95A1F1D219EA100DB5839 /* LaunchScreen.storyboard */; };
 		00F95A2C1D219EA100DB5839 /* RZCardEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A2B1D219EA100DB5839 /* RZCardEntryTests.swift */; };
 		00F95A371D219EA100DB5839 /* RZCardEntryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A361D219EA100DB5839 /* RZCardEntryUITests.swift */; };
 /* End PBXBuildFile section */
@@ -34,12 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardNumberTextField.swift; sourceTree = "<group>"; };
 		00F95A131D219EA100DB5839 /* RZCardEntry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZCardEntry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F95A161D219EA100DB5839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F95A181D219EA100DB5839 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		00F95A1B1D219EA100DB5839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00F95A1D1D219EA100DB5839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		00F95A201D219EA100DB5839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00F95A221D219EA100DB5839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00F95A271D219EA100DB5839 /* RZCardEntryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RZCardEntryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F95A2B1D219EA100DB5839 /* RZCardEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RZCardEntryTests.swift; sourceTree = "<group>"; };
@@ -98,10 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				00F95A161D219EA100DB5839 /* AppDelegate.swift */,
+				002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */,
 				00F95A181D219EA100DB5839 /* ViewController.swift */,
-				00F95A1A1D219EA100DB5839 /* Main.storyboard */,
 				00F95A1D1D219EA100DB5839 /* Assets.xcassets */,
-				00F95A1F1D219EA100DB5839 /* LaunchScreen.storyboard */,
 				00F95A221D219EA100DB5839 /* Info.plist */,
 			);
 			path = RZCardEntry;
@@ -229,9 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00F95A211D219EA100DB5839 /* LaunchScreen.storyboard in Resources */,
 				00F95A1E1D219EA100DB5839 /* Assets.xcassets in Resources */,
-				00F95A1C1D219EA100DB5839 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00F95A191D219EA100DB5839 /* ViewController.swift in Sources */,
+				002EECDE1D21A15C0005F19C /* RZCardNumberTextField.swift in Sources */,
 				00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,25 +287,6 @@
 			targetProxy = 00F95A331D219EA100DB5839 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		00F95A1A1D219EA100DB5839 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				00F95A1B1D219EA100DB5839 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		00F95A1F1D219EA100DB5839 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				00F95A201D219EA100DB5839 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00F95A391D219EA100DB5839 /* Debug */ = {
@@ -484,6 +461,7 @@
 				00F95A3D1D219EA100DB5839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00F95A3E1D219EA100DB5839 /* Build configuration list for PBXNativeTarget "RZCardEntryTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +470,7 @@
 				00F95A401D219EA100DB5839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00F95A411D219EA100DB5839 /* Build configuration list for PBXNativeTarget "RZCardEntryUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +479,7 @@
 				00F95A431D219EA100DB5839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
