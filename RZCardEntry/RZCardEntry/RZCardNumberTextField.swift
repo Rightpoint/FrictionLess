@@ -11,6 +11,8 @@ import UIKit
 final class RZCardNumberTextField: UITextField {
 
     private let internalDelegate = RZCardNumberTextFieldDelegate()
+    private var previousText = ""
+    private var previousSelection = UITextRange()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,6 +52,8 @@ private extension RZCardNumberTextField {
         if let targetPosition = positionFromPosition(beginningOfDocument, offset: curserOffset) {
             selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
         }
+
+
     }
 
     func removeNonDigits(text: String, inout cursorPosition: Int) -> String {
