@@ -18,36 +18,94 @@ enum CardType {
 
     static let allValues: [CardType] = [.Visa, .MasterCard, .Amex, .Diners, .Discover, .JCB]
 
-    var regex: String {
+    /* // IIN prefixes and length requriements retreived from https://en.wikipedia.org/wiki/Bank_card_number on June 28, 2016 */
+    var validationRules: [ValidationRule] {
         switch self {
-                            //All Visa card numbers start with a 4. New cards have 16 digits. Old cards have 13.
-        case Visa:          return "^4[0-9]{12}(?:[0-9]{3})?$"
 
-                            //MasterCard numbers either start with the numbers 51 through 55 or with the numbers 2221 through 2720. All have 16 digits.
-        case MasterCard:    return "^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$"
+        case Visa:         return [.beginsWith(4),
+                                    .length(13, 16, 19)]
 
-                            //American Express card numbers start with 34 or 37 and have 15 digits.
-        case Amex:          return "^3[47][0-9]{13}$"
+        case MasterCard:   return [.beginsBetween(51...55, 2221...2720),
+                                    .length(16)]
 
-                            //Diners Club card numbers begin with 300 through 305, 36 or 38. All have 14 digits.
-        case Diners:        return "^3(?:0[0-5]|[68][0-9])[0-9]{11}$"
+        case Amex:         return [.beginsWith(34, 37),
+                                    .length(15)]
 
-                            //Discover card numbers begin with 6011 or 65. All have 16 digits.
-        case Discover:      return "^6(?:011|5[0-9]{2})[0-9]{12}$"
+        case Diners:       return [.beginsBetween(300...305, 38...39),
+                                    .beginsWith(309, 36),
+                                    .length(14)]
 
-                            //JCB cards beginning with 2131 or 1800 have 15 digits. JCB cards beginning with 35 have 16 digits.
-        case JCB:           return "^(?:2131|1800|35[0-9]{3})[0-9]{11}$"
+        case Discover:     return [.beginsWith(6011, 65),
+                                    .length(16)]
+
+        case JCB:           return [.beginsBetween(3528...3589),
+                                    .length(16)]
+
         }
+    }
+
+    func isValidCardNumber(cardNumber: String) -> Bool {
+        return !validationRules.contains { !$0.isValid(cardNumber) }
     }
 
     static func fromNumber(cardNumber: String) -> CardType? {
         for cardType in CardType.allValues {
-            if cardNumber.rangeOfString(cardType.regex, options: .RegularExpressionSearch) != nil {
+            if cardType.isValidCardNumber(cardNumber) {
                 return cardType
             }
         }
 
         return nil
+    }
+
+    func isValidCardPrefix(cardPrefix: String) -> Bool {
+        return !validationRules.contains {
+            switch $0 {
+            case .Length(_): return false //ignore length requirement for prefix-matching
+            default: return !$0.isValid(cardPrefix)
+            }
+        }
+    }
+
+    static func fromPrefix(cardPrefix: String) -> [CardType]? {
+        return CardType.allValues.filter { $0.isValidCardPrefix(cardPrefix) }
+    }
+
+}
+
+enum ValidationRule {
+    case BeginsWith([Int])
+    case BeginsBetween([Range<Int>])
+    case Length([Int])
+
+    static func beginsWith(num: Int...) -> ValidationRule {
+        return .BeginsWith(num)
+    }
+
+    static func beginsBetween(ranges: Range<Int>...) -> ValidationRule {
+        return .BeginsBetween(ranges)
+    }
+
+    static func length(lengths: Int...) -> ValidationRule {
+        return .Length(lengths)
+    }
+
+    func isValid(text: String) -> Bool {
+        switch self {
+        case BeginsWith(let nums):
+            return nums.contains { text.hasPrefix(String($0)) }
+        case BeginsBetween(let ranges):
+            return ranges.contains { range in
+                let size = String(range.startIndex).characters.count
+                let substring = String(text.characters.prefix(size))
+                if let num = Int(substring) {
+                    return range ~= num
+                }
+                return false
+            }
+        case Length(let lengths):
+            return lengths.contains { $0 == text.characters.count }
+        }
     }
 
 }
