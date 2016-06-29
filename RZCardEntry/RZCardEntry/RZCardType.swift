@@ -81,6 +81,7 @@ extension CardType {
         return CardType.allValues.filter { $0.isValidCardPrefix(cardPrefix) }
     }
 
+    // from: https://gist.github.com/cwagdev/635ce973e8e86da0403a
     private static func luhnCheck(cardNumber: String) -> Bool {
         var sum = 0
         let reversedCharacters = cardNumber.characters.reverse().map { String($0) }

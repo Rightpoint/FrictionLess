@@ -11,8 +11,8 @@ import UIKit
 final class RZCardNumberTextField: UITextField {
 
     private let internalDelegate = RZCardNumberTextFieldDelegate()
-    private var previousText = ""
-    private var previousSelection = UITextRange()
+    private var previousText: String?
+    private var previousSelection: UITextRange?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +46,7 @@ private extension RZCardNumberTextField {
         }()
 
         let cardNumberWithoutSpaces = removeNonDigits(text, cursorPosition: &curserOffset)
+
         // derive card type
         // validate length
 
@@ -55,6 +56,12 @@ private extension RZCardNumberTextField {
         }
 
 
+    }
+
+    func rejectInput() {
+        text = previousText
+        selectedTextRange = previousSelection
+        shake()
     }
 
     func removeNonDigits(text: String, inout cursorPosition: Int) -> String {
@@ -121,8 +128,20 @@ final class RZCardNumberTextFieldDelegate: NSObject, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         guard let textField = textField as? RZCardNumberTextField else { return true }
 
+        // forward to next text field if necessary
+
+        // validate replacement
+
+        textField.previousText = textField.text
+        textField.previousSelection = textField.selectedTextRange
         textField.handleDeletionOfSingleCharacterInSet(.whitespaceCharacterSet(), range: range, replacementString: string)
         return true
     }
 
+}
+
+private extension UITextField {
+    func shake() {
+        print("shake")
+    }
 }
