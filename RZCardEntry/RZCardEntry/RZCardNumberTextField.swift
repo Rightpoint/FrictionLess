@@ -48,7 +48,8 @@ private extension RZCardNumberTextField {
         let cardNumberWithoutSpaces = removeNonDigits(text, cursorPosition: &curserOffset)
         // derive card type
         // validate length
-        self.text = insertSpacesIntoString(cardNumberWithoutSpaces, cursorPosition: &curserOffset, style: .Regular)
+
+        self.text = insertSpacesIntoString(cardNumberWithoutSpaces, cursorPosition: &curserOffset, groupings: CardType.Visa.segmentGroupings)
         if let targetPosition = positionFromPosition(beginningOfDocument, offset: curserOffset) {
             selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
         }
@@ -72,14 +73,28 @@ private extension RZCardNumberTextField {
         return digitsOnlyString
     }
 
-    func insertSpacesIntoString(text: String, inout cursorPosition: Int, style: CardFormatStyle) -> String {
+    func insertSpacesIntoString(text: String, inout cursorPosition: Int, groupings: [Int]) -> String {
 
         let cursorPositionInSpacelessString = cursorPosition
         var addedSpacesString = String()
 
+        let shouldAddSpace: (Int, [Int]) -> Bool = { idx, groups in
+            var sum = 0
+            for grouping in groups.dropLast() { //don't add a space after the card number
+                sum += grouping
+                if idx > sum {
+                    continue
+                }
+                else {
+                    return idx == sum - 1
+                }
+            }
+            return false
+        }
+
         for (index, character) in text.characters.enumerate() {
             addedSpacesString.append(character)
-            if style.shouldAddSpaceAtIndex(index) {
+            if shouldAddSpace(index, groupings) {
                 addedSpacesString.appendContentsOf(" ") //Em-space
                 if index < cursorPositionInSpacelessString {
                     cursorPosition += 1
@@ -88,18 +103,7 @@ private extension RZCardNumberTextField {
         }
 
         return addedSpacesString
-    }
 
-    enum CardFormatStyle {
-        case Regular
-        case Amex
-
-        func shouldAddSpaceAtIndex(index: Int) -> Bool {
-            switch self {
-            case Regular:   return [3, 7, 11].contains(index)
-            case Amex:      return [3, 9].contains(index)
-            }
-        }
     }
 
     func handleDeletionOfSingleCharacterInSet(characterSet: NSCharacterSet, range: NSRange, replacementString: String) {
@@ -108,7 +112,6 @@ private extension RZCardNumberTextField {
         if text.rangeOfCharacterFromSet(characterSet, options: NSStringCompareOptions(), range: range) != nil {
             self.text?.removeRange(range)
         }
-
     }
 
 }
