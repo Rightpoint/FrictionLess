@@ -47,10 +47,11 @@ private extension RZCardNumberTextField {
 
         let cardNumberWithoutSpaces = removeNonDigits(text, cursorPosition: &curserOffset)
 
+        let cardType = CardType.fromPrefix(cardNumberWithoutSpaces)
         // derive card type
         // validate length
 
-        self.text = insertSpacesIntoString(cardNumberWithoutSpaces, cursorPosition: &curserOffset, groupings: CardType.Visa.segmentGroupings)
+        self.text = insertSpacesIntoString(cardNumberWithoutSpaces, cursorPosition: &curserOffset, groupings: cardType.segmentGroupings)
         if let targetPosition = positionFromPosition(beginningOfDocument, offset: curserOffset) {
             selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
         }

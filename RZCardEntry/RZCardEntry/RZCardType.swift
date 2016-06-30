@@ -16,31 +16,36 @@ enum CardType {
     case Discover
     case JCB
 
+    case Indeterminate
+    case Invalid
+
     static let allValues: [CardType] = [.Visa, .MasterCard, .Amex, .Diners, .Discover, .JCB]
 
     /* // IIN prefixes and length requriements retreived from https://en.wikipedia.org/wiki/Bank_card_number on June 28, 2016 */
     var validationRules: [ValidationRule] {
         switch self {
 
-        case Visa:         return [.beginsWith("4"),
-                                   .length(13, 16, 19)]
+        case Visa:          return [.begins(.with("4")),
+                                    .length(13, 16, 19)]
 
-        case MasterCard:   return [.beginsBetween("51"..."55", "2221"..."2720"),
-                                   .length(16)]
-
-        case Amex:         return [.beginsWith("34", "37"),
-                                   .length(15)]
-
-        case Diners:       return [.beginsBetween("300"..."305", "38"..."39"),
-                                   .beginsWith("309", "36"),
-                                   .length(14)]
-
-        case Discover:     return [.beginsWith("6011", "65"),
-                                   .length(16)]
-
-        case JCB:           return [.beginsBetween("3528"..."3589"),
+        case MasterCard:    return [.begins(.between("51"..."55", "2221"..."2720")),
                                     .length(16)]
 
+        case Amex:          return [.begins(.with("34", "37")),
+                                    .length(15)]
+
+        case Diners:        return [.begins(.between("300"..."305", "38"..."39"),
+                                            .with("309")),
+                                    .length(14)]
+
+        case Discover:      return [.begins(.with("6011", "65")),
+                                    .length(16)]
+
+        case JCB:           return [.begins(.between("3528"..."3589")),
+                                    .length(16)]
+
+        default:            return [.length(16)]
+            
         }
     }
 
@@ -58,27 +63,40 @@ extension CardType {
         return !validationRules.contains { !$0.isValid(cardNumber) } && CardType.luhnCheck(cardNumber)
     }
 
-    static func fromNumber(cardNumber: String) -> CardType? {
+    static func fromNumber(cardNumber: String) -> CardType {
         for cardType in CardType.allValues {
             if cardType.isValidCardNumber(cardNumber) {
                 return cardType
             }
         }
 
-        return nil
+        return .Invalid
     }
 
     func isValidCardPrefix(cardPrefix: String) -> Bool {
         return !validationRules.contains {
             switch $0 {
-            case .Length(_): return false //ignore length requirement for prefix-matching
+            case .Lengths(_): return false //ignore length requirement for prefix-matching
             default: return !$0.isValid(cardPrefix)
             }
         }
     }
 
-    static func fromPrefix(cardPrefix: String) -> [CardType] {
-        return CardType.allValues.filter { $0.isValidCardPrefix(cardPrefix) }
+    static func fromPrefix(cardPrefix: String) -> CardType {
+        guard !cardPrefix.isEmpty else {
+            return .Indeterminate
+        }
+        
+        let possibleTypes = CardType.allValues.filter { $0.isValidCardPrefix(cardPrefix) }
+        guard let card = possibleTypes.first else {
+            return .Invalid
+        }
+        if possibleTypes.count == 1 {
+            return card
+        }
+        else {
+            return .Indeterminate
+        }
     }
 
     // from: https://gist.github.com/cwagdev/635ce973e8e86da0403a
@@ -99,30 +117,45 @@ extension CardType {
 }
 
 enum ValidationRule {
-    case BeginsWith([String])
-    case BeginsBetween([ClosedInterval<String>])
-    case Length([Int])
 
-    static func beginsWith(text: String...) -> ValidationRule {
-        return .BeginsWith(text)
-    }
+    case Prefixes([PrefixValidationRule])
+    case Lengths([Int])
 
-    static func beginsBetween(ranges: ClosedInterval<String>...) -> ValidationRule {
-        return .BeginsBetween(ranges)
+    static func begins(prefixRules: PrefixValidationRule...) -> ValidationRule {
+        return .Prefixes(prefixRules)
     }
 
     static func length(lengths: Int...) -> ValidationRule {
-        return .Length(lengths)
+        return .Lengths(lengths)
     }
 
     func isValid(text: String) -> Bool {
         switch self {
-        case BeginsWith(let prefixes):
-            return prefixes.contains { haveMatchingPrefix($0, text) }
-        case BeginsBetween(let ranges):
-            return ranges.contains { haveMatchingPrefix($0, text) }
-        case Length(let lengths):
+        case Prefixes(let prefixes):
+            return prefixes.contains{ $0.isValid(text) }
+        case Lengths(let lengths):
             return lengths.contains { $0 == text.characters.count }
+        }
+    }
+}
+
+enum PrefixValidationRule{
+    case With([String])
+    case Between([ClosedInterval<String>])
+
+    static func with(prefixes: String...) -> PrefixValidationRule {
+        return With(prefixes)
+    }
+    static func between(ranges: ClosedInterval<String>...) -> PrefixValidationRule {
+        return Between(ranges)
+    }
+
+    func isValid(text: String) -> Bool {
+        switch self {
+        case With(let prefixes):
+            return prefixes.contains { haveMatchingPrefix($0, text) }
+        case Between(let ranges):
+            return ranges.contains { haveMatchingPrefix($0, text) }
         }
     }
 
@@ -139,7 +172,8 @@ enum ValidationRule {
             let trimmedEnd = String(range.end.characters.prefix(length))
             return trimmedStart...trimmedEnd
         }()
-        return trimmedRange ~= text
-    }
 
+        let trimmedText = String(text.characters.prefix(trimmedRange.start.characters.count))
+        return trimmedRange ~= trimmedText
+    }
 }
