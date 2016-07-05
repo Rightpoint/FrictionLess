@@ -21,32 +21,38 @@ enum CardType {
 
     static let allValues: [CardType] = [.Visa, .MasterCard, .Amex, .Diners, .Discover, .JCB]
 
-    /* // IIN prefixes and length requriements retreived from https://en.wikipedia.org/wiki/Bank_card_number on June 28, 2016 */
-    var validationRules: [ValidationRule] {
+    private var validationRequirements: ValidationRequirement {
+        var prefix = [PrefixContainable](), length = [Int]()
+
         switch self {
+        /* // IIN prefixes and length requriements retreived from https://en.wikipedia.org/wiki/Bank_card_number on June 28, 2016 */
 
-        case Visa:          return [.begins(.with("4")),
-                                    .length(13, 16, 19)]
+        case Visa:          prefix = ["4"]
+                            length = [13, 16, 19]
 
-        case MasterCard:    return [.begins(.between("51"..."55", "2221"..."2720")),
-                                    .length(16)]
+        case MasterCard:    prefix = ["51"..."55", "2221"..."2720"]
+                            length = [16]
 
-        case Amex:          return [.begins(.with("34", "37")),
-                                    .length(15)]
+        case .Amex:         prefix = ["34", "37"]
+                            length = [15]
 
-        case Diners:        return [.begins(.between("300"..."305", "38"..."39"),
-                                            .with("309")),
-                                    .length(14)]
+        case Discover:      prefix = ["6011","65"]
+                            length = [16]
 
-        case Discover:      return [.begins(.with("6011", "65")),
-                                    .length(16)]
+        case Diners:        prefix = ["300"..."305", "309", "38"..."39"]
+                            length = [14]
 
-        case JCB:           return [.begins(.between("3528"..."3589")),
-                                    .length(16)]
+        case JCB:           prefix = ["3528"..."3589"]
+                            length = [16]
 
-        default:            return [.length(16)]
-            
+        default:
+                            length = [16]
         }
+
+        var card = ValidationRequirement()
+        card.prefixes = prefix
+        card.lengths = length
+        return card
     }
 
     var segmentGroupings: [Int] {
@@ -56,12 +62,43 @@ enum CardType {
         default:        return [4, 4, 4, 4]
         }
     }
+
+    var maxLength: Int {
+        return validationRequirements.lengths.maxElement() ?? 16
+    }
+
+    func isValidCardNumber(accountNumber: String) -> Bool {
+        return validationRequirements.isValid(accountNumber)
+    }
+
+    func isValidCardPrefix(accountNumber: String) -> Bool {
+        return validationRequirements.isValidPrefix(accountNumber)
+    }
+
+}
+
+private struct ValidationRequirement {
+
+    var prefixes = [PrefixContainable]()
+    var lengths = [Int]()
+
+    func isValid(accountNumber: String) -> Bool {
+        return isValidLength(accountNumber) && isValidPrefix(accountNumber) && isValidPrefix(accountNumber)
+    }
+
+    func isValidPrefix(accountNumber: String) -> Bool {
+        guard prefixes.count > 0 else { return true }
+        return prefixes.contains { $0.prefixMatches(accountNumber) }
+    }
+
+    func isValidLength(accountNumber: String) -> Bool {
+        guard lengths.count > 0 else { return true }
+        return lengths.contains { accountNumber.characters.count == $0 }
+    }
+
 }
 
 extension CardType {
-    func isValidCardNumber(cardNumber: String) -> Bool {
-        return !validationRules.contains { !$0.isValid(cardNumber) } && CardType.luhnCheck(cardNumber)
-    }
 
     static func fromNumber(cardNumber: String) -> CardType {
         for cardType in CardType.allValues {
@@ -71,15 +108,6 @@ extension CardType {
         }
 
         return .Invalid
-    }
-
-    func isValidCardPrefix(cardPrefix: String) -> Bool {
-        return !validationRules.contains {
-            switch $0 {
-            case .Lengths(_): return false //ignore length requirement for prefix-matching
-            default: return !$0.isValid(cardPrefix)
-            }
-        }
     }
 
     static func fromPrefix(cardPrefix: String) -> CardType {
@@ -116,60 +144,19 @@ extension CardType {
 
 }
 
-enum ValidationRule {
-
-    case Prefixes([PrefixValidationRule])
-    case Lengths([Int])
-
-    static func begins(prefixRules: PrefixValidationRule...) -> ValidationRule {
-        return .Prefixes(prefixRules)
-    }
-
-    static func length(lengths: Int...) -> ValidationRule {
-        return .Lengths(lengths)
-    }
-
-    func isValid(text: String) -> Bool {
-        switch self {
-        case Prefixes(let prefixes):
-            return prefixes.contains{ $0.isValid(text) }
-        case Lengths(let lengths):
-            return lengths.contains { $0 == text.characters.count }
-        }
-    }
+private protocol PrefixContainable {
+    func prefixMatches(text: String) -> Bool
 }
 
-enum PrefixValidationRule{
-    case With([String])
-    case Between([ClosedInterval<String>])
-
-    static func with(prefixes: String...) -> PrefixValidationRule {
-        return With(prefixes)
-    }
-    static func between(ranges: ClosedInterval<String>...) -> PrefixValidationRule {
-        return Between(ranges)
-    }
-
-    func isValid(text: String) -> Bool {
-        switch self {
-        case With(let prefixes):
-            return prefixes.contains { haveMatchingPrefix($0, text) }
-        case Between(let ranges):
-            return ranges.contains { haveMatchingPrefix($0, text) }
-        }
-    }
-
-    private func haveMatchingPrefix(text1: String, _ text2: String) -> Bool {
-        return text1.hasPrefix(text2) || text2.hasPrefix(text1)
-    }
-
-    private func haveMatchingPrefix(range: ClosedInterval<String>, _ text: String) -> Bool {
-        guard !text.isEmpty else { return false }
+extension ClosedInterval: PrefixContainable {
+    private func prefixMatches(text: String) -> Bool {
+        //cannot include Where clause in protocol conformance, so have to ensure Bound == String :(
+        guard !text.isEmpty, let start = start as? String, end = end as? String else { return false }
 
         let trimmedRange: ClosedInterval<String> = {
             let length = text.characters.count
-            let trimmedStart = String(range.start.characters.prefix(length))
-            let trimmedEnd = String(range.end.characters.prefix(length))
+            let trimmedStart = String(start.characters.prefix(length))
+            let trimmedEnd = String(end.characters.prefix(length))
             return trimmedStart...trimmedEnd
         }()
 
@@ -177,3 +164,10 @@ enum PrefixValidationRule{
         return trimmedRange ~= trimmedText
     }
 }
+
+extension String: PrefixContainable {
+    private func prefixMatches(text: String) -> Bool {
+        return hasPrefix(text) || text.hasPrefix(self)
+    }
+}
+
