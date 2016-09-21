@@ -35,7 +35,6 @@ private extension RZCardNumberTextField {
     }
 
     func reformatAsCardNumber() {
-
         guard let text = text else { return }
 
         var curserOffset: Int = {
@@ -46,17 +45,19 @@ private extension RZCardNumberTextField {
         }()
 
         let cardNumberWithoutSpaces = removeNonDigits(text, cursorPosition: &curserOffset)
-
         let cardType = CardType.fromPrefix(cardNumberWithoutSpaces)
-        // derive card type
-        // validate length
+
+        guard cardNumberWithoutSpaces.characters.count <= cardType.maxLength else {
+            rejectInput()
+            return
+        }
 
         self.text = insertSpacesIntoString(cardNumberWithoutSpaces, cursorPosition: &curserOffset, groupings: cardType.segmentGroupings)
         if let targetPosition = positionFromPosition(beginningOfDocument, offset: curserOffset) {
             selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
         }
 
-
+        
     }
 
     func rejectInput() {
@@ -82,7 +83,6 @@ private extension RZCardNumberTextField {
     }
 
     func insertSpacesIntoString(text: String, inout cursorPosition: Int, groupings: [Int]) -> String {
-
         let cursorPositionInSpacelessString = cursorPosition
         var addedSpacesString = String()
 
@@ -111,14 +111,13 @@ private extension RZCardNumberTextField {
         }
 
         return addedSpacesString
-
     }
 
     func handleDeletionOfSingleCharacterInSet(characterSet: NSCharacterSet, range: NSRange, replacementString: String) {
         let deletedSingleChar = range.length == 1
         let noTextSelected = selectedTextRange?.empty ?? true
         guard let text = text where deletedSingleChar && noTextSelected else { return }
-        
+
         let range = text.startIndex.advancedBy(range.location)..<text.startIndex.advancedBy(range.location + range.length)
         if text.rangeOfCharacterFromSet(characterSet, options: NSStringCompareOptions(), range: range) != nil {
             self.text?.removeRange(range)
