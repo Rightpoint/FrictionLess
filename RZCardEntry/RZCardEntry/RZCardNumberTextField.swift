@@ -44,25 +44,33 @@ private extension RZCardNumberTextField {
             return offsetFromPosition(beginningOfDocument, toPosition: startPosition)
         }()
 
-        let cardNumberWithoutSpaces = removeNonDigits(text, cursorPosition: &curserOffset)
-        let cardType = CardType.fromPrefix(cardNumberWithoutSpaces)
+        let cardNumber = removeNonDigits(text, cursorPosition: &curserOffset)
+        let cardType = CardType.fromPrefix(cardNumber)
 
-        guard cardNumberWithoutSpaces.characters.count <= cardType.maxLength else {
+        let cardLength = cardNumber.characters.count
+        guard cardLength <= cardType.maxLength else {
             rejectInput()
             return
         }
+        if cardLength == cardType.maxLength {
+            if cardType.isValidCardNumber(cardNumber) {
+                notifiyOfInvalidInput()
+            }
+        }
 
-        self.text = insertSpacesIntoString(cardNumberWithoutSpaces, cursorPosition: &curserOffset, groupings: cardType.segmentGroupings)
+        self.text = insertSpacesIntoString(cardNumber, cursorPosition: &curserOffset, groupings: cardType.segmentGroupings)
         if let targetPosition = positionFromPosition(beginningOfDocument, offset: curserOffset) {
             selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
         }
-
-        
     }
 
     func rejectInput() {
         text = previousText
         selectedTextRange = previousSelection
+        notifiyOfInvalidInput()
+    }
+
+    func notifiyOfInvalidInput() {
         shake()
     }
 
@@ -124,6 +132,12 @@ private extension RZCardNumberTextField {
         }
     }
 
+    func replacementStringIsValid(replacementString: String) -> Bool {
+        let validInputSet = NSCharacterSet(charactersInString: "1234567890 ")
+        let rangeOfInvalidChar = replacementString.rangeOfCharacterFromSet(validInputSet.invertedSet)
+        return rangeOfInvalidChar?.isEmpty ?? true
+    }
+
 }
 
 final class RZCardNumberTextFieldDelegate: NSObject, UITextFieldDelegate {
@@ -133,7 +147,10 @@ final class RZCardNumberTextFieldDelegate: NSObject, UITextFieldDelegate {
 
         // forward to next text field if necessary
 
-        // validate replacement
+        guard textField.replacementStringIsValid(string) else {
+            textField.notifiyOfInvalidInput()
+            return false
+        }
 
         textField.previousText = textField.text
         textField.previousSelection = textField.selectedTextRange
