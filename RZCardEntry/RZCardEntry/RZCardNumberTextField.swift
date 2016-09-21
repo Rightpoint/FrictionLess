@@ -8,17 +8,10 @@
 
 import UIKit
 
-final class RZCardNumberTextField: UITextField {
-
-    private let internalDelegate = RZCardNumberTextFieldDelegate()
-    private var previousText: String?
-    private var previousSelection: UITextRange?
+final class RZCardNumberTextField: RZCardEntryTextField {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        delegate = internalDelegate
-        addTarget(self, action: #selector(textFieldDidChange(_:)), forControlEvents: .EditingChanged)
         placeholder = "0000 0000 0000 0000"
     }
 
@@ -26,13 +19,24 @@ final class RZCardNumberTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
 
+    @objc override func textFieldDidChange(textField: UITextField) {
+        reformatAsCardNumber()
+        super.textFieldDidChange(textField)
+    }
+
+    override func replacementStringIsValid(replacementString: String) -> Bool {
+        let validInputSet = NSCharacterSet(charactersInString: "1234567890 ")
+        let rangeOfInvalidChar = replacementString.rangeOfCharacterFromSet(validInputSet.invertedSet)
+        return rangeOfInvalidChar?.isEmpty ?? true
+    }
+
+    override var formattingCharacterSet: NSCharacterSet {
+        return NSCharacterSet.whitespaceCharacterSet()
+    }
+
 }
 
 private extension RZCardNumberTextField {
-
-    @objc func textFieldDidChange(textField: UITextField) {
-        reformatAsCardNumber()
-    }
 
     func reformatAsCardNumber() {
         guard let text = text else { return }
@@ -62,32 +66,6 @@ private extension RZCardNumberTextField {
         if let targetPosition = positionFromPosition(beginningOfDocument, offset: curserOffset) {
             selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
         }
-    }
-
-    func rejectInput() {
-        text = previousText
-        selectedTextRange = previousSelection
-        notifiyOfInvalidInput()
-    }
-
-    func notifiyOfInvalidInput() {
-        shake()
-    }
-
-    func removeNonDigits(text: String, inout cursorPosition: Int) -> String {
-
-        let originalCursorPosition = cursorPosition
-        var digitsOnlyString = String()
-        for (index, character) in text.characters.enumerate() {
-            if "0"..."9" ~= character {
-                digitsOnlyString.append(character)
-            }
-            else if index < originalCursorPosition {
-                cursorPosition -= 1
-            }
-        }
-
-        return digitsOnlyString
     }
 
     func insertSpacesIntoString(text: String, inout cursorPosition: Int, groupings: [Int]) -> String {
@@ -121,47 +99,4 @@ private extension RZCardNumberTextField {
         return addedSpacesString
     }
 
-    func handleDeletionOfSingleCharacterInSet(characterSet: NSCharacterSet, range: NSRange, replacementString: String) {
-        let deletedSingleChar = range.length == 1
-        let noTextSelected = selectedTextRange?.empty ?? true
-        guard let text = text where deletedSingleChar && noTextSelected else { return }
-
-        let range = text.startIndex.advancedBy(range.location)..<text.startIndex.advancedBy(range.location + range.length)
-        if text.rangeOfCharacterFromSet(characterSet, options: NSStringCompareOptions(), range: range) != nil {
-            self.text?.removeRange(range)
-        }
-    }
-
-    func replacementStringIsValid(replacementString: String) -> Bool {
-        let validInputSet = NSCharacterSet(charactersInString: "1234567890 ")
-        let rangeOfInvalidChar = replacementString.rangeOfCharacterFromSet(validInputSet.invertedSet)
-        return rangeOfInvalidChar?.isEmpty ?? true
-    }
-
-}
-
-final class RZCardNumberTextFieldDelegate: NSObject, UITextFieldDelegate {
-
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        guard let textField = textField as? RZCardNumberTextField else { return true }
-
-        // forward to next text field if necessary
-
-        guard textField.replacementStringIsValid(string) else {
-            textField.notifiyOfInvalidInput()
-            return false
-        }
-
-        textField.previousText = textField.text
-        textField.previousSelection = textField.selectedTextRange
-        textField.handleDeletionOfSingleCharacterInSet(.whitespaceCharacterSet(), range: range, replacementString: string)
-        return true
-    }
-
-}
-
-private extension UITextField {
-    func shake() {
-        print("shake")
-    }
 }

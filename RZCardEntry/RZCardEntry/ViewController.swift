@@ -20,16 +20,26 @@ class ViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .lightGrayColor()
 
-        let textField = RZCardNumberTextField()
-        textField.backgroundColor = .whiteColor()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(textField)
+        let ccTextField = RZCardNumberTextField()
+        ccTextField.backgroundColor = .whiteColor()
+        ccTextField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ccTextField)
 
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .CenterX, relatedBy: .Equal, toItem: textField, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .CenterY, relatedBy: .Equal, toItem: textField, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-        textField.addConstraint(NSLayoutConstraint(item: textField, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 0.0, constant: 200.0))
+        let expTextField = RZExpirationDateTextField()
+        expTextField.backgroundColor = .whiteColor()
+        expTextField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(expTextField)
+
+            [NSLayoutConstraint(item: ccTextField, attribute: .Top, relatedBy: .Equal, toItem: view.layoutMarginsGuide, attribute: .Top, multiplier: 1.0, constant: 60.0),
+            NSLayoutConstraint(item: ccTextField, attribute: .Leading, relatedBy: .Equal, toItem: view.layoutMarginsGuide, attribute: .Leading, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: ccTextField, attribute: .Trailing, relatedBy: .Equal, toItem: view.layoutMarginsGuide, attribute: .Trailing, multiplier: 1.0, constant: 0.0),
+
+            NSLayoutConstraint(item: expTextField, attribute: .Top, relatedBy: .Equal, toItem: ccTextField, attribute: .Bottom, multiplier: 1.0, constant: 20.0),
+            NSLayoutConstraint(item: expTextField, attribute: .Leading, relatedBy: .Equal, toItem: view.layoutMarginsGuide, attribute: .Leading, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: expTextField, attribute: .Trailing, relatedBy: .Equal, toItem: view.layoutMarginsGuide, attribute: .Trailing, multiplier: 1.0, constant: 0.0)
+            ].forEach { $0.active = true }
     }
-
-
+    
+    
 }
 
