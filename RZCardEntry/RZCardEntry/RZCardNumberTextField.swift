@@ -115,7 +115,10 @@ private extension RZCardNumberTextField {
     }
 
     func handleDeletionOfSingleCharacterInSet(characterSet: NSCharacterSet, range: NSRange, replacementString: String) {
-        guard let text = text where range.length == 1 else { return }
+        let deletedSingleChar = range.length == 1
+        let noTextSelected = selectedTextRange?.empty ?? true
+        guard let text = text where deletedSingleChar && noTextSelected else { return }
+        
         let range = text.startIndex.advancedBy(range.location)..<text.startIndex.advancedBy(range.location + range.length)
         if text.rangeOfCharacterFromSet(characterSet, options: NSStringCompareOptions(), range: range) != nil {
             self.text?.removeRange(range)

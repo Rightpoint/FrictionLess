@@ -36,7 +36,7 @@ enum CardType {
         case .Amex:         prefix = ["34", "37"]
                             length = [15]
 
-        case Discover:      prefix = ["6011","65"]
+        case Discover:      prefix = ["6011", "65"]
                             length = [16]
 
         case Diners:        prefix = ["300"..."305", "309", "38"..."39"]
