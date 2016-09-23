@@ -153,9 +153,66 @@ class RZCardNumberTextFieldTests: XCTestCase {
         var expectedCursorPosition: Int
 
         //"12|34_", "5" added. excpect "125|3 4"
-        textField.deleteFromInitialText("1234 ", initialCursorPosition: 5, numToDelete: 1)
-        expectedOutpt = "123"
+        textField.addText("5", initialText: "1234 ", initialCursorPosition: 2, selectionLength: 0)
+        expectedOutpt = "1253 4"
         expectedCursorPosition = 3
+        XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
+        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+
+        //"123|", "4" added. excpect "1234_|"
+        textField.addText("4", initialText: "123", initialCursorPosition: 3, selectionLength: 0)
+        expectedOutpt = "1234 "
+        expectedCursorPosition = 5
+        XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
+        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+
+        //"1|2", "34" added. Expect "134|2 "
+        textField.addText("34", initialText: "12", initialCursorPosition: 1, selectionLength: 0)
+        expectedOutpt = "1342 "
+        expectedCursorPosition = 3
+        XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
+        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+
+        //"|", "4444333322221111" added. Expect "4444 3333 2222 1111"
+        textField.addText("4444333322221111", initialText: "", initialCursorPosition: 0, selectionLength: 0)
+        expectedOutpt = "4444 3333 2222 1111"
+        expectedCursorPosition = 19
+        XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
+        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+
+        //"|", "1234567890987654321012" added. Expect "|"
+        textField.addText("1234567890987654321012", initialText: "", initialCursorPosition: 0, selectionLength: 0)
+        expectedOutpt = ""
+        expectedCursorPosition = 0
+        XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
+        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+
+        //"1234 56789 0|", "1234567890987654321012" added. Expect "1234 56789 0|"
+        textField.addText("1234567890987654321012", initialText: "1234 56789 0", initialCursorPosition: 9, selectionLength: 0)
+        expectedOutpt = "1234 56789 0"
+        expectedCursorPosition = 9
+        XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
+        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+
+        //"1234 5|6789 0", "1234567890987654321012" added. Expect "1234 56789 0|"
+        textField.addText("1234567890987654321012", initialText: "1234 56789 0", initialCursorPosition: 6, selectionLength: 0)
+        expectedOutpt = "1234 56789 0"
+        expectedCursorPosition = 6
+        XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
+        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+    }
+
+    func testInsertingTextWithOtherTextSelected() {
+        let textField = RZCardNumberTextField()
+        textField.addToViewHiearchyAndBecomeFirstResponder()
+
+        var expectedOutpt: String
+        var expectedCursorPosition: Int
+
+        //"12|34_|", "9999" added. excpect "1299 99|"
+        textField.addText("9999", initialText: "1234 ", initialCursorPosition: 2, selectionLength: 3)
+        expectedOutpt = "1299 99"
+        expectedCursorPosition = 7
         XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
         XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
     }
