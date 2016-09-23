@@ -34,41 +34,7 @@ final class RZCardNumberTextField: RZCardEntryTextField {
         return NSCharacterSet.whitespaceCharacterSet()
     }
 
-}
-
-private extension RZCardNumberTextField {
-
-    func reformatAsCardNumber() {
-        guard let text = text else { return }
-
-        var curserOffset: Int = {
-            guard let startPosition = selectedTextRange?.start else {
-                return 0
-            }
-            return offsetFromPosition(beginningOfDocument, toPosition: startPosition)
-        }()
-
-        let cardNumber = removeNonDigits(text, cursorPosition: &curserOffset)
-        let cardType = CardType.fromPrefix(cardNumber)
-
-        let cardLength = cardNumber.characters.count
-        guard cardLength <= cardType.maxLength else {
-            rejectInput()
-            return
-        }
-        if cardLength == cardType.maxLength {
-            if cardType.isValidCardNumber(cardNumber) {
-                notifiyOfInvalidInput()
-            }
-        }
-
-        self.text = insertSpacesIntoString(cardNumber, cursorPosition: &curserOffset, groupings: cardType.segmentGroupings)
-        if let targetPosition = positionFromPosition(beginningOfDocument, offset: curserOffset) {
-            selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
-        }
-    }
-
-    func insertSpacesIntoString(text: String, inout cursorPosition: Int, groupings: [Int]) -> String {
+    static func insertSpacesIntoString(text: String, inout cursorPosition: Int, groupings: [Int]) -> String {
         let cursorPositionInSpacelessString = cursorPosition
         var addedSpacesString = String()
 
@@ -97,6 +63,40 @@ private extension RZCardNumberTextField {
         }
 
         return addedSpacesString
+    }
+
+}
+
+private extension RZCardNumberTextField {
+
+    func reformatAsCardNumber() {
+        guard let text = text else { return }
+
+        var cursorOffset: Int = {
+            guard let startPosition = selectedTextRange?.start else {
+                return 0
+            }
+            return offsetFromPosition(beginningOfDocument, toPosition: startPosition)
+        }()
+
+        let cardNumber = RZCardEntryTextField.removeNonDigits(text, cursorPosition: &cursorOffset)
+        let cardType = CardType.fromPrefix(cardNumber)
+
+        let cardLength = cardNumber.characters.count
+        guard cardLength <= cardType.maxLength else {
+            rejectInput()
+            return
+        }
+        if cardLength == cardType.maxLength {
+            if cardType.isValidCardNumber(cardNumber) {
+                notifiyOfInvalidInput()
+            }
+        }
+
+        self.text = RZCardNumberTextField.insertSpacesIntoString(cardNumber, cursorPosition: &cursorOffset, groupings: cardType.segmentGroupings)
+        if let targetPosition = positionFromPosition(beginningOfDocument, offset: cursorOffset) {
+            selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
+        }
     }
 
 }

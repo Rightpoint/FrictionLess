@@ -42,8 +42,11 @@ private extension RZExpirationDateTextField {
             return offsetFromPosition(beginningOfDocument, toPosition: startPosition)
         }()
 
-        let formatlessText = self.removeNonDigits(text, cursorPosition: &cursorOffset)
-
+        let formatlessText = RZCardEntryTextField.removeNonDigits(text, cursorPosition: &cursorOffset)
+        guard formatlessText.characters.count <= 4 else {
+            rejectInput()
+            return
+        }
         self.text = formatString(formatlessText, cursorPosition: &cursorOffset)
         if let targetPosition = positionFromPosition(beginningOfDocument, offset: cursorOffset) {
             selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)

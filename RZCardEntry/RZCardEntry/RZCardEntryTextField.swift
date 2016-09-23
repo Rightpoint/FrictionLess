@@ -26,7 +26,7 @@ class RZCardEntryTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func removeNonDigits(text: String, inout cursorPosition: Int) -> String {
+    static func removeNonDigits(text: String, inout cursorPosition: Int) -> String {
 
         let originalCursorPosition = cursorPosition
         var digitsOnlyString = String()

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		002EECDE1D21A15C0005F19C /* RZCardNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */; };
 		002EECE01D22C2010005F19C /* RZCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDF1D22C2010005F19C /* RZCardType.swift */; };
+		00883B471D9412CE0042E889 /* RZCardNumberTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */; };
 		00DA5BE41D930DE600A91D37 /* RZExpirationDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA5BE31D930DE600A91D37 /* RZExpirationDateTextField.swift */; };
 		00DA5BE61D9317A700A91D37 /* RZCardEntryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA5BE51D9317A700A91D37 /* RZCardEntryTextField.swift */; };
 		00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A161D219EA100DB5839 /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardNumberTextField.swift; sourceTree = "<group>"; };
 		002EECDF1D22C2010005F19C /* RZCardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardType.swift; sourceTree = "<group>"; };
+		00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardNumberTextFieldTests.swift; sourceTree = "<group>"; };
 		00DA5BE31D930DE600A91D37 /* RZExpirationDateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZExpirationDateTextField.swift; sourceTree = "<group>"; };
 		00DA5BE51D9317A700A91D37 /* RZCardEntryTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardEntryTextField.swift; sourceTree = "<group>"; };
 		00F95A131D219EA100DB5839 /* RZCardEntry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZCardEntry.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			children = (
 				00F95A161D219EA100DB5839 /* AppDelegate.swift */,
 				002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */,
+				00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */,
 				00DA5BE51D9317A700A91D37 /* RZCardEntryTextField.swift */,
 				00DA5BE31D930DE600A91D37 /* RZExpirationDateTextField.swift */,
 				002EECDF1D22C2010005F19C /* RZCardType.swift */,
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00883B471D9412CE0042E889 /* RZCardNumberTextFieldTests.swift in Sources */,
 				00F95A2C1D219EA100DB5839 /* RZCardEntryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

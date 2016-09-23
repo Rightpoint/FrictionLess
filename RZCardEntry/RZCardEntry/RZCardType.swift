@@ -33,7 +33,7 @@ enum CardType {
         case MasterCard:    prefix = ["51"..."55", "2221"..."2720"]
                             length = [16]
 
-        case .Amex:         prefix = ["34", "37"]
+        case Amex:          prefix = ["34", "37"]
                             length = [15]
 
         case Discover:      prefix = ["6011", "65"]
@@ -106,7 +106,6 @@ extension CardType {
                 return cardType
             }
         }
-
         return .Invalid
     }
 
