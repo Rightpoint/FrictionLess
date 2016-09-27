@@ -215,6 +215,13 @@ class RZCardNumberTextFieldTests: XCTestCase {
         expectedCursorPosition = 7
         XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
         XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+
+        //"|4444 3333 2222 1111|", "378282246310005" added. excpect "3782 822463 10005|"
+        textField.addText("3782 822463 10005", initialText: "4444 3333 2222 1111", initialCursorPosition: 0, selectionLength: 19)
+        expectedOutpt = "3782 822463 10005"
+        expectedCursorPosition = 17
+        XCTAssert(textField.text == expectedOutpt, "expected \(expectedOutpt) got \(textField.text)")
+        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
     }
 
 }
