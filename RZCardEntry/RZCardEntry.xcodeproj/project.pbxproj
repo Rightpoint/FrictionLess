@@ -12,6 +12,8 @@
 		00883B471D9412CE0042E889 /* RZCardNumberTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */; };
 		00DA5BE41D930DE600A91D37 /* RZExpirationDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA5BE31D930DE600A91D37 /* RZExpirationDateTextField.swift */; };
 		00DA5BE61D9317A700A91D37 /* RZCardEntryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA5BE51D9317A700A91D37 /* RZCardEntryTextField.swift */; };
+		00F19A1D1D9AE279009418B1 /* RZCardEntryTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F19A1C1D9AE279009418B1 /* RZCardEntryTextFieldTests.swift */; };
+		00F19A211D9AE309009418B1 /* RZExpirationDateTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F19A201D9AE309009418B1 /* RZExpirationDateTextFieldTests.swift */; };
 		00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A161D219EA100DB5839 /* AppDelegate.swift */; };
 		00F95A191D219EA100DB5839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A181D219EA100DB5839 /* ViewController.swift */; };
 		00F95A1E1D219EA100DB5839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F95A1D1D219EA100DB5839 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardNumberTextFieldTests.swift; sourceTree = "<group>"; };
 		00DA5BE31D930DE600A91D37 /* RZExpirationDateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZExpirationDateTextField.swift; sourceTree = "<group>"; };
 		00DA5BE51D9317A700A91D37 /* RZCardEntryTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardEntryTextField.swift; sourceTree = "<group>"; };
+		00F19A1C1D9AE279009418B1 /* RZCardEntryTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardEntryTextFieldTests.swift; sourceTree = "<group>"; };
+		00F19A201D9AE309009418B1 /* RZExpirationDateTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZExpirationDateTextFieldTests.swift; sourceTree = "<group>"; };
 		00F95A131D219EA100DB5839 /* RZCardEntry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZCardEntry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F95A161D219EA100DB5839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F95A181D219EA100DB5839 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00F19A221D9AE336009418B1 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				00F19A1C1D9AE279009418B1 /* RZCardEntryTextFieldTests.swift */,
+				00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */,
+				00F19A201D9AE309009418B1 /* RZExpirationDateTextFieldTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		00F95A0A1D219EA100DB5839 = {
 			isa = PBXGroup;
 			children = (
@@ -104,12 +118,12 @@
 			isa = PBXGroup;
 			children = (
 				00F95A161D219EA100DB5839 /* AppDelegate.swift */,
-				002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */,
-				00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */,
 				00DA5BE51D9317A700A91D37 /* RZCardEntryTextField.swift */,
+				002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */,
 				00DA5BE31D930DE600A91D37 /* RZExpirationDateTextField.swift */,
 				002EECDF1D22C2010005F19C /* RZCardType.swift */,
 				00F95A181D219EA100DB5839 /* ViewController.swift */,
+				00F19A221D9AE336009418B1 /* Tests */,
 				00F95A1D1D219EA100DB5839 /* Assets.xcassets */,
 				00F95A221D219EA100DB5839 /* Info.plist */,
 			);
@@ -276,8 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F19A211D9AE309009418B1 /* RZExpirationDateTextFieldTests.swift in Sources */,
 				00883B471D9412CE0042E889 /* RZCardNumberTextFieldTests.swift in Sources */,
 				00F95A2C1D219EA100DB5839 /* RZCardEntryTests.swift in Sources */,
+				00F19A1D1D9AE279009418B1 /* RZCardEntryTextFieldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
