@@ -58,11 +58,21 @@ private extension RZExpirationDateTextField {
         var formattedString = String()
 
         for (index, character) in text.characters.enumerate() {
-            formattedString.append(character)
-            if index == 1 {
+            if index == 0 && text.characters.count == 1 && "2"..."9" ~= character {
+                formattedString.appendContentsOf("0")
+                formattedString.append(character)
                 formattedString.appendContentsOf("/")
                 if index < cursorPositionInFormattlessText {
-                    cursorPosition += 1
+                    cursorPosition += 2
+                }
+            }
+            else {
+                formattedString.append(character)
+                if index == 1 {
+                    formattedString.appendContentsOf("/")
+                    if index < cursorPositionInFormattlessText {
+                        cursorPosition += 1
+                    }
                 }
             }
         }
