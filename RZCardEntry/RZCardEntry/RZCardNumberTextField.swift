@@ -24,10 +24,8 @@ final class RZCardNumberTextField: RZCardEntryTextField {
         super.textFieldDidChange(textField)
     }
 
-    override func replacementStringIsValid(replacementString: String) -> Bool {
-        let validInputSet = NSCharacterSet(charactersInString: "1234567890 ")
-        let rangeOfInvalidChar = replacementString.rangeOfCharacterFromSet(validInputSet.invertedSet)
-        return rangeOfInvalidChar?.isEmpty ?? true
+    override var inputCharacterSet: NSCharacterSet {
+        return NSCharacterSet.decimalDigitCharacterSet()
     }
 
     override var formattingCharacterSet: NSCharacterSet {
@@ -79,7 +77,7 @@ private extension RZCardNumberTextField {
             return offsetFromPosition(beginningOfDocument, toPosition: startPosition)
         }()
 
-        let cardNumber = RZCardEntryTextField.removeNonDigits(text, cursorPosition: &cursorOffset)
+        let cardNumber = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text, cursorPosition: &cursorOffset)
         let cardType = CardType.fromPrefix(cardNumber)
 
         let cardLength = cardNumber.characters.count

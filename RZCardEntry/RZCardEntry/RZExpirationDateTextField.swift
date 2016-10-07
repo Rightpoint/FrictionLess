@@ -28,6 +28,10 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
         return NSCharacterSet(charactersInString: "/")
     }
 
+    override var inputCharacterSet: NSCharacterSet {
+        return NSCharacterSet.decimalDigitCharacterSet()
+    }
+
 }
 
 private extension RZExpirationDateTextField {
@@ -42,7 +46,7 @@ private extension RZExpirationDateTextField {
             return offsetFromPosition(beginningOfDocument, toPosition: startPosition)
         }()
 
-        let formatlessText = RZCardEntryTextField.removeNonDigits(text, cursorPosition: &cursorOffset)
+        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text, cursorPosition: &cursorOffset)
         guard formatlessText.characters.count <= 4 else {
             rejectInput()
             return

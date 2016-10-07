@@ -23,6 +23,10 @@ final class RZCVVTextField: RZCardEntryTextField {
         sanitizeInput()
         super.textFieldDidChange(textField)
     }
+
+    override var inputCharacterSet: NSCharacterSet {
+        return NSCharacterSet.decimalDigitCharacterSet()
+    }
     
 }
 
@@ -31,7 +35,7 @@ private extension RZCVVTextField {
     func sanitizeInput() {
         guard let text = text else { return }
 
-        let formatlessText = RZCardEntryTextField.removeNonDigits(text)
+        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
         guard formatlessText.characters.count <= 4 else {
             rejectInput()
             return

@@ -26,24 +26,24 @@ class RZCardEntryTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    static func removeNonDigits(text: String) -> String {
+    static func removeCharactersNotContainedInSet(characterSet: NSCharacterSet, text: String) -> String {
         var ignoredCursor = 0
-        return removeNonDigits(text, cursorPosition: &ignoredCursor)
+        return removeCharactersNotContainedInSet(characterSet, text: text, cursorPosition: &ignoredCursor)
     }
 
-    static func removeNonDigits(text: String, inout cursorPosition: Int) -> String {
+    static func removeCharactersNotContainedInSet(characterSet: NSCharacterSet, text: String, inout cursorPosition: Int) -> String {
         let originalCursorPosition = cursorPosition
-        var digitsOnlyString = String()
+        var validChars = String()
         for (index, character) in text.characters.enumerate() {
-            if "0"..."9" ~= character {
-                digitsOnlyString.append(character)
+            if String(character).rangeOfCharacterFromSet(characterSet) != nil {
+                validChars.append(character)
             }
             else if index < originalCursorPosition {
                 cursorPosition -= 1
             }
         }
 
-        return digitsOnlyString
+        return validChars
     }
 
     @objc func textFieldDidChange(textField: UITextField) {
@@ -51,11 +51,18 @@ class RZCardEntryTextField: UITextField {
     }
 
     func replacementStringIsValid(replacementString: String) -> Bool {
-        return true
+        let set = inputCharacterSet.mutableCopy()
+        set.formUnionWithCharacterSet(formattingCharacterSet)
+        let rangeOfInvalidChar = replacementString.rangeOfCharacterFromSet(set.invertedSet)
+        return rangeOfInvalidChar?.isEmpty ?? true
     }
 
     var formattingCharacterSet: NSCharacterSet {
         return NSCharacterSet()
+    }
+
+    var inputCharacterSet: NSCharacterSet {
+        return NSCharacterSet.alphanumericCharacterSet()
     }
 
     func handleDeletionOfSingleCharacterInSet(characterSet: NSCharacterSet, range: NSRange, replacementString: String) {

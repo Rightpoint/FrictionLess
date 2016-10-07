@@ -20,6 +20,7 @@ class RZExpirationDateTextFieldTests: XCTestCase {
     }
 
     func testRemoveNonDigits() {
+        let set = NSCharacterSet.decimalDigitCharacterSet()
         var input: String
         var output: String
         var expectedOutput: String
@@ -31,23 +32,23 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         cursorPosition = 0  // |03/20
         expectedCursorPosition = 0
 
-        output = RZCardEntryTextField.removeNonDigits(input, cursorPosition: &cursorPosition)
+        output = RZCardEntryTextField.removeCharactersNotContainedInSet(set, text: input, cursorPosition: &cursorPosition)
         XCTAssert(output == expectedOutput)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 1  // 0|3/20
         expectedCursorPosition = 1
-        RZCardEntryTextField.removeNonDigits(input, cursorPosition: &cursorPosition)
+        RZCardEntryTextField.removeCharactersNotContainedInSet(set, text: input, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 3  //03/|20
         expectedCursorPosition = 2
-        RZCardEntryTextField.removeNonDigits(input, cursorPosition: &cursorPosition)
+        RZCardEntryTextField.removeCharactersNotContainedInSet(set, text: input, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 5  //03/20|
         expectedCursorPosition = 4
-        RZCardEntryTextField.removeNonDigits(input, cursorPosition: &cursorPosition)
+        RZCardEntryTextField.removeCharactersNotContainedInSet(set, text: input, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
     }
 
