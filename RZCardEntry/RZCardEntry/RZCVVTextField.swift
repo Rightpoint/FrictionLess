@@ -31,8 +31,7 @@ private extension RZCVVTextField {
     func sanitizeInput() {
         guard let text = text else { return }
 
-        var cursorPosition = 0
-        let formatlessText = RZCardEntryTextField.removeNonDigits(text, cursorPosition: &cursorPosition)
+        let formatlessText = RZCardEntryTextField.removeNonDigits(text)
         guard formatlessText.characters.count <= 4 else {
             rejectInput()
             return
