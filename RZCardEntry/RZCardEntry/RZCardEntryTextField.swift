@@ -32,7 +32,6 @@ class RZCardEntryTextField: UITextField {
     }
 
     static func removeNonDigits(text: String, inout cursorPosition: Int) -> String {
-
         let originalCursorPosition = cursorPosition
         var digitsOnlyString = String()
         for (index, character) in text.characters.enumerate() {
@@ -81,7 +80,14 @@ class RZCardEntryTextField: UITextField {
     }
 
     func shake() {
-        print("shake")
+        let animationKey = "shake"
+        layer.removeAnimationForKey(animationKey)
+
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 0.3
+        animation.values = [-10.0, 10.0, -10.0, 10.0, -5.0, 5.0, -2.5, 2.5, 0.0 ]
+        layer.addAnimation(animation, forKey: animationKey)
     }
 
 }
