@@ -67,6 +67,13 @@ enum CardType {
         return validationRequirements.lengths.maxElement() ?? 16
     }
 
+    var cvvLength: Int {
+        switch self {
+        case Amex: return 4
+        default: return 3
+        }
+    }
+
     func isValidCardNumber(accountNumber: String) -> Bool {
         return validationRequirements.isValid(accountNumber)
     }

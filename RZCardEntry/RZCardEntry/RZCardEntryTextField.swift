@@ -13,6 +13,7 @@ class RZCardEntryTextField: UITextField {
     let internalDelegate = RZCardEntryTextFieldDelegate()
     var previousText: String?
     var previousSelection: UITextRange?
+    var cardType: CardType = .Indeterminate
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +48,7 @@ class RZCardEntryTextField: UITextField {
     }
 
     @objc func textFieldDidChange(textField: UITextField) {
-
+        
     }
 
     func replacementStringIsValid(replacementString: String) -> Bool {
@@ -63,6 +64,10 @@ class RZCardEntryTextField: UITextField {
 
     var inputCharacterSet: NSCharacterSet {
         return NSCharacterSet.alphanumericCharacterSet()
+    }
+
+    var isValid: Bool {
+        return false
     }
 
     func handleDeletionOfSingleCharacterInSet(characterSet: NSCharacterSet, range: NSRange, replacementString: String) {

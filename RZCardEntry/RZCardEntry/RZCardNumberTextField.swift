@@ -63,6 +63,14 @@ final class RZCardNumberTextField: RZCardEntryTextField {
         return addedSpacesString
     }
 
+    override var isValid: Bool {
+        if let text = text {
+            let cardNumber = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
+            return CardType.fromNumber(cardNumber) != .Invalid
+        }
+        return false
+    }
+
 }
 
 private extension RZCardNumberTextField {

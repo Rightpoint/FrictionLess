@@ -27,7 +27,20 @@ final class RZCVVTextField: RZCardEntryTextField {
     override var inputCharacterSet: NSCharacterSet {
         return NSCharacterSet.decimalDigitCharacterSet()
     }
-    
+
+    override var isValid: Bool {
+        guard let text = text else {
+            return false
+        }
+
+        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
+        return formatlessText.characters.count == maxLength
+    }
+
+    var maxLength: Int {
+        return cardType.cvvLength
+    }
+
 }
 
 private extension RZCVVTextField {
@@ -36,7 +49,7 @@ private extension RZCVVTextField {
         guard let text = text else { return }
 
         let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
-        guard formatlessText.characters.count <= 4 else {
+        guard formatlessText.characters.count <= maxLength else {
             rejectInput()
             return
         }

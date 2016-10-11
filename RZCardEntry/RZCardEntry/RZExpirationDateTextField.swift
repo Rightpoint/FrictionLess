@@ -32,6 +32,19 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
         return NSCharacterSet.decimalDigitCharacterSet()
     }
 
+    override var isValid: Bool {
+        guard let text = text else {
+            return false
+        }
+
+        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
+        return formatlessText.characters.count == maxLength
+    }
+
+    var maxLength: Int {
+        return 4
+    }
+
 }
 
 private extension RZExpirationDateTextField {
@@ -47,7 +60,7 @@ private extension RZExpirationDateTextField {
         }()
 
         let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text, cursorPosition: &cursorOffset)
-        guard formatlessText.characters.count <= 4 else {
+        guard formatlessText.characters.count <= maxLength else {
             rejectInput()
             return
         }
