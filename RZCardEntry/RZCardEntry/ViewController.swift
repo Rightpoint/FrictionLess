@@ -24,6 +24,11 @@ class ViewController: UIViewController {
         let expTextField = RZExpirationDateTextField()
         let cvvTextField = RZCVVTextField()
 
+        let coordinator = RZCardEntryCoordinator()
+        coordinator.creditCardTextField = ccTextField
+        coordinator.expirationDateTextField = expTextField
+        coordinator.cvvTextField = cvvTextField
+
         [ccTextField, expTextField, cvvTextField].forEach {
             $0.backgroundColor = .whiteColor()
             $0.translatesAutoresizingMaskIntoConstraints = false

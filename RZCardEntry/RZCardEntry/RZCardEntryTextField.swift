@@ -10,6 +10,7 @@ import UIKit
 
 class RZCardEntryTextField: UITextField {
 
+    var cardEntryDelegate: RZCardEntryDelegateProtocol?
     let internalDelegate = RZCardEntryTextFieldDelegate()
     var previousText: String?
     var previousSelection: UITextRange?
@@ -48,7 +49,7 @@ class RZCardEntryTextField: UITextField {
     }
 
     @objc func textFieldDidChange(textField: UITextField) {
-        
+        cardEntryDelegate?.cardEntryTextFieldDidChange(self)
     }
 
     func replacementStringIsValid(replacementString: String) -> Bool {
@@ -102,6 +103,13 @@ class RZCardEntryTextField: UITextField {
         layer.addAnimation(animation, forKey: animationKey)
     }
 
+    override func deleteBackward() {
+        if text?.characters.count == 0 {
+            cardEntryDelegate?.cardEntryTextFieldBackspacePressedWithoutContent(self)
+        }
+        super.deleteBackward()
+    }
+
 }
 
 final class RZCardEntryTextFieldDelegate: NSObject, UITextFieldDelegate {
@@ -109,7 +117,11 @@ final class RZCardEntryTextFieldDelegate: NSObject, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         guard let textField = textField as? RZCardEntryTextField else { return true }
 
-        // TODO: forward to next text field if necessary
+        //if user is inserting text at the end of a valid text field, alert delegate to potentially forward the input
+        if range.location == textField.text?.characters.count && string.characters.count > 0 && textField.isValid {
+            textField.cardEntryDelegate?.cardEntryTextField(textField, shouldForwardInput: string)
+            return false
+        }
 
         guard textField.replacementStringIsValid(string) else {
             textField.notifiyOfInvalidInput()
@@ -121,5 +133,4 @@ final class RZCardEntryTextFieldDelegate: NSObject, UITextFieldDelegate {
         textField.handleDeletionOfSingleCharacterInSet(textField.formattingCharacterSet, range: range, replacementString: string)
         return true
     }
-    
 }
