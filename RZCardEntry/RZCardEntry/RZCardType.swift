@@ -75,7 +75,7 @@ enum CardType {
     }
 
     func isValidCardNumber(accountNumber: String) -> Bool {
-        return validationRequirements.isValid(accountNumber)
+        return validationRequirements.isValid(accountNumber) && CardType.luhnCheck(accountNumber)
     }
 
     func isValidCardPrefix(accountNumber: String) -> Bool {
@@ -90,7 +90,7 @@ private struct ValidationRequirement {
     var lengths = [Int]()
 
     func isValid(accountNumber: String) -> Bool {
-        return isValidLength(accountNumber) && isValidPrefix(accountNumber) && isValidPrefix(accountNumber)
+        return isValidLength(accountNumber) && isValidPrefix(accountNumber)
     }
 
     func isValidPrefix(accountNumber: String) -> Bool {
