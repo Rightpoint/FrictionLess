@@ -34,7 +34,11 @@ final class RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
     }
 
     func cardEntryTextFieldDidChange(textField: RZCardEntryTextField) {
-
+        if textField.isValid {
+            if let nextField = fieldAfterField(textField) {
+                nextField.becomeFirstResponder()
+            }
+        }
     }
 
     func cardEntryTextFieldBackspacePressedWithoutContent(textField: RZCardEntryTextField) {
