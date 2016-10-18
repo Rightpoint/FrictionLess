@@ -155,7 +155,7 @@ private protocol PrefixContainable {
 }
 
 extension ClosedInterval: PrefixContainable {
-    private func prefixMatches(text: String) -> Bool {
+    func prefixMatches(text: String) -> Bool {
         //cannot include Where clause in protocol conformance, so have to ensure Bound == String :(
         guard !text.isEmpty, let start = start as? String, end = end as? String else { return false }
 
@@ -172,7 +172,7 @@ extension ClosedInterval: PrefixContainable {
 }
 
 extension String: PrefixContainable {
-    private func prefixMatches(text: String) -> Bool {
+    func prefixMatches(text: String) -> Bool {
         return hasPrefix(text) || text.hasPrefix(self)
     }
 }

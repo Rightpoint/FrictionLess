@@ -88,6 +88,11 @@ private extension RZCardNumberTextField {
         let cardNumber = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text, cursorPosition: &cursorOffset)
         let cardType = CardType.fromPrefix(cardNumber)
 
+        guard cardType != .Invalid else {
+            rejectInput()
+            return
+        }
+
         let cardLength = cardNumber.characters.count
         guard cardLength <= cardType.maxLength else {
             rejectInput()

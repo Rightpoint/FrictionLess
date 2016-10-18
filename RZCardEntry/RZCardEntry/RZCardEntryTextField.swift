@@ -105,6 +105,7 @@ class RZCardEntryTextField: UITextField {
 
     override func deleteBackward() {
         if text?.characters.count == 0 {
+            //if delete is pressed in an empty textfield, interpret this as a navigation to previous field
             cardEntryDelegate?.cardEntryTextFieldBackspacePressedWithoutContent(self)
         }
         super.deleteBackward()
