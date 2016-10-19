@@ -71,16 +71,27 @@ class RZCardEntryTextField: UITextField {
         return false
     }
 
-    func handleDeletionOfSingleCharacterInSet(characterSet: NSCharacterSet, range: NSRange, replacementString: String) {
+    var deletingShouldRemoveTrailingCharacters: Bool {
+        return false
+    }
+
+    func willChangeCharactersInRange(range: NSRange, replacementString string: String) {
+        guard let text = text else { return }
         let deletedSingleChar = range.length == 1
         let noTextSelected = selectedTextRange?.empty ?? true
-        guard let text = text where deletedSingleChar && noTextSelected else { return }
-
-        let range = text.startIndex.advancedBy(range.location)..<text.startIndex.advancedBy(range.location + range.length)
-        if text.rangeOfCharacterFromSet(characterSet, options: NSStringCompareOptions(), range: range) != nil {
-            self.text?.removeRange(range)
-            if let previousSelection = previousSelection, startPosition = positionFromPosition(previousSelection.start, offset: -1), endPosition = positionFromPosition(previousSelection.end, offset: -1) {
-                selectedTextRange = textRangeFromPosition(startPosition, toPosition: endPosition)
+        if (deletedSingleChar && noTextSelected){
+            let range = text.startIndex.advancedBy(range.location)..<text.startIndex.advancedBy(range.location + range.length)
+            if text.rangeOfCharacterFromSet(formattingCharacterSet, options: NSStringCompareOptions(), range: range) != nil {
+                self.text?.removeRange(range)
+                if let previousSelection = previousSelection, startPosition = positionFromPosition(previousSelection.start, offset: -1), endPosition = positionFromPosition(previousSelection.end, offset: -1) {
+                    selectedTextRange = textRangeFromPosition(startPosition, toPosition: endPosition)
+                }
+            }
+        }
+        if range.length > 0 && deletingShouldRemoveTrailingCharacters {
+            if let selectedTextRange = selectedTextRange {
+                let offset = offsetFromPosition(self.beginningOfDocument, toPosition: selectedTextRange.end)
+                self.text = self.text?.substringToIndex(text.startIndex.advancedBy(offset))
             }
         }
     }
@@ -134,7 +145,7 @@ final class RZCardEntryTextFieldDelegate: NSObject, UITextFieldDelegate {
 
         textField.previousText = textField.text
         textField.previousSelection = textField.selectedTextRange
-        textField.handleDeletionOfSingleCharacterInSet(textField.formattingCharacterSet, range: range, replacementString: string)
+        textField.willChangeCharactersInRange(range, replacementString: string)
         return true
     }
 }

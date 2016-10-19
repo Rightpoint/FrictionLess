@@ -41,6 +41,10 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
         return formatlessText.characters.count == maxLength
     }
 
+    override var deletingShouldRemoveTrailingCharacters: Bool {
+        return true
+    }
+
     var maxLength: Int {
         return 4
     }
