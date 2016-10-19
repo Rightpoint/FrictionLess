@@ -1,2 +1,2 @@
-# RZCreditEntry
-Credit card entry and scanning for swift
+# RZCardEntry
+Credit card entry for swift
