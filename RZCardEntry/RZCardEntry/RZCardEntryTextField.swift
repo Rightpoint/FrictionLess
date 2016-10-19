@@ -79,6 +79,9 @@ class RZCardEntryTextField: UITextField {
         let range = text.startIndex.advancedBy(range.location)..<text.startIndex.advancedBy(range.location + range.length)
         if text.rangeOfCharacterFromSet(characterSet, options: NSStringCompareOptions(), range: range) != nil {
             self.text?.removeRange(range)
+            if let previousSelection = previousSelection, startPosition = positionFromPosition(previousSelection.start, offset: -1), endPosition = positionFromPosition(previousSelection.end, offset: -1) {
+                selectedTextRange = textRangeFromPosition(startPosition, toPosition: endPosition)
+            }
         }
     }
 
