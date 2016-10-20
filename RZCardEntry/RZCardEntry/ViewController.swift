@@ -23,11 +23,13 @@ class ViewController: UIViewController {
         let ccTextField = RZCardNumberTextField()
         let expTextField = RZExpirationDateTextField()
         let cvvTextField = RZCVVTextField()
+        let imageView = RZCardImageView()
 
         let coordinator = RZCardEntryCoordinator()
         coordinator.creditCardTextField = ccTextField
         coordinator.expirationDateTextField = expTextField
         coordinator.cvvTextField = cvvTextField
+        coordinator.imageView = imageView
 
         [ccTextField, expTextField, cvvTextField].forEach {
             $0.backgroundColor = .whiteColor()
@@ -35,8 +37,15 @@ class ViewController: UIViewController {
             view.addSubview($0)
         }
 
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(imageView)
+
         [ccTextField.topAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.topAnchor, constant: 60.0),
-            ccTextField.leadingAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.leadingAnchor),
+            imageView.topAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.topAnchor, constant: 60.0),
+            imageView.widthAnchor.constraintEqualToConstant(40),
+            imageView.leadingAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.leadingAnchor),
+
+            ccTextField.leadingAnchor.constraintEqualToAnchor(imageView.trailingAnchor, constant: 20.0),
             ccTextField.trailingAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.trailingAnchor),
 
             expTextField.topAnchor.constraintEqualToAnchor(ccTextField.bottomAnchor, constant: 20.0),

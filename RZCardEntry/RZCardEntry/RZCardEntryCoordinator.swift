@@ -6,7 +6,7 @@
 //  Copyright © 2016 Raizlabs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
 
@@ -28,12 +28,19 @@ final class RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
         }
     }
 
+    var imageView: RZCardImageView?
+
     var fields: [RZCardEntryTextField] {
         let possibleFields: [RZCardEntryTextField?] = [creditCardTextField, expirationDateTextField, cvvTextField]
         return possibleFields.flatMap{ $0 }
     }
 
     func cardEntryTextFieldDidChange(textField: RZCardEntryTextField) {
+//        if let imageView = imageView {
+//            UIView.transitionWithView(imageView, duration: 0.3, options: .TransitionFlipFromRight, animations: {
+//                //card image
+//                }, completion: nil)
+//        }
         if textField.isValid {
             if let nextField = fieldAfterField(textField) {
                 nextField.becomeFirstResponder()

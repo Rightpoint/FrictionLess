@@ -10,6 +10,7 @@
 		001E011D1DB55A7000B2AB45 /* RZCardEntryDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E011C1DB55A7000B2AB45 /* RZCardEntryDelegateProtocol.swift */; };
 		001E011F1DB5651700B2AB45 /* RZCardEntryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E011E1DB5651700B2AB45 /* RZCardEntryCoordinator.swift */; };
 		001E01211DB573A800B2AB45 /* RZZipCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E01201DB573A800B2AB45 /* RZZipCodeTextField.swift */; };
+		001E01231DB7F50D00B2AB45 /* RZCardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E01221DB7F50D00B2AB45 /* RZCardImageView.swift */; };
 		002EECDE1D21A15C0005F19C /* RZCardNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */; };
 		002EECE01D22C2010005F19C /* RZCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDF1D22C2010005F19C /* RZCardType.swift */; };
 		00883B471D9412CE0042E889 /* RZCardNumberTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */; };
@@ -46,6 +47,7 @@
 		001E011C1DB55A7000B2AB45 /* RZCardEntryDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardEntryDelegateProtocol.swift; sourceTree = "<group>"; };
 		001E011E1DB5651700B2AB45 /* RZCardEntryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardEntryCoordinator.swift; sourceTree = "<group>"; };
 		001E01201DB573A800B2AB45 /* RZZipCodeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZZipCodeTextField.swift; sourceTree = "<group>"; };
+		001E01221DB7F50D00B2AB45 /* RZCardImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardImageView.swift; sourceTree = "<group>"; };
 		002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardNumberTextField.swift; sourceTree = "<group>"; };
 		002EECDF1D22C2010005F19C /* RZCardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardType.swift; sourceTree = "<group>"; };
 		00883B461D9412CE0042E889 /* RZCardNumberTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardNumberTextFieldTests.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				001E011C1DB55A7000B2AB45 /* RZCardEntryDelegateProtocol.swift */,
 				002EECDD1D21A15C0005F19C /* RZCardNumberTextField.swift */,
 				00DA5BE31D930DE600A91D37 /* RZExpirationDateTextField.swift */,
+				001E01221DB7F50D00B2AB45 /* RZCardImageView.swift */,
 				00F2BA911DA7CB4200997876 /* RZCVVTextField.swift */,
 				001E01201DB573A800B2AB45 /* RZZipCodeTextField.swift */,
 				002EECDF1D22C2010005F19C /* RZCardType.swift */,
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00F95A191D219EA100DB5839 /* ViewController.swift in Sources */,
+				001E01231DB7F50D00B2AB45 /* RZCardImageView.swift in Sources */,
 				002EECDE1D21A15C0005F19C /* RZCardNumberTextField.swift in Sources */,
 				00DA5BE41D930DE600A91D37 /* RZExpirationDateTextField.swift in Sources */,
 				001E011D1DB55A7000B2AB45 /* RZCardEntryDelegateProtocol.swift in Sources */,
