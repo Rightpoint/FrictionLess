@@ -22,7 +22,7 @@ class RZCardNumberTextFieldTests: XCTestCase {
     }
 
     func testRemoveNonDigitsAndPreseverCursorPosition() {
-        let set = NSCharacterSet.decimalDigitCharacterSet()
+        let set = CharacterSet.decimalDigits
         var input: String
         var output: String
         var expectedOutput: String
@@ -237,7 +237,7 @@ class RZCardNumberTextFieldTests: XCTestCase {
 //MARK: - Support Functions
 extension RZCardNumberTextFieldTests {
 
-    func testInsertSpaces(groupings: [Int], input: String, cursorPosition: Int, expectedOutput: String, expectedOutputCursorPosition: Int) {
+    func testInsertSpaces(_ groupings: [Int], input: String, cursorPosition: Int, expectedOutput: String, expectedOutputCursorPosition: Int) {
         var cursorPos = cursorPosition
         let output = RZCardNumberTextField.insertSpacesIntoString(input, cursorPosition: &cursorPos, groupings: groupings)
         XCTAssert(output == expectedOutput, "expected \(expectedOutput) got \(output)")

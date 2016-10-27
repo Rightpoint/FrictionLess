@@ -20,7 +20,7 @@ class RZExpirationDateTextFieldTests: XCTestCase {
     }
 
     func testRemoveNonDigits() {
-        let set = NSCharacterSet.decimalDigitCharacterSet()
+        let set = CharacterSet.decimalDigits
         var input: String
         var output: String
         var expectedOutput: String

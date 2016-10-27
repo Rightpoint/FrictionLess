@@ -19,20 +19,20 @@ final class RZCardNumberTextField: RZCardEntryTextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc override func textFieldDidChange(textField: UITextField) {
+    @objc override func textFieldDidChange(_ textField: UITextField) {
         reformatAsCardNumber()
         super.textFieldDidChange(textField)
     }
 
-    override var inputCharacterSet: NSCharacterSet {
-        return NSCharacterSet.decimalDigitCharacterSet()
+    override var inputCharacterSet: CharacterSet {
+        return CharacterSet.decimalDigits
     }
 
-    override var formattingCharacterSet: NSCharacterSet {
-        return NSCharacterSet.whitespaceCharacterSet()
+    override var formattingCharacterSet: CharacterSet {
+        return CharacterSet.whitespaces
     }
 
-    static func insertSpacesIntoString(text: String, inout cursorPosition: Int, groupings: [Int]) -> String {
+    static func insertSpacesIntoString(_ text: String, cursorPosition: inout Int, groupings: [Int]) -> String {
         let cursorPositionInSpacelessString = cursorPosition
         var addedSpacesString = String()
 
@@ -50,10 +50,10 @@ final class RZCardNumberTextField: RZCardEntryTextField {
             return false
         }
 
-        for (index, character) in text.characters.enumerate() {
+        for (index, character) in text.characters.enumerated() {
             addedSpacesString.append(character)
             if shouldAddSpace(index, groupings) {
-                addedSpacesString.appendContentsOf(" ") //Em-space
+                addedSpacesString.append(" ") //Em-space
                 if index < cursorPositionInSpacelessString {
                     cursorPosition += 1
                 }
@@ -66,7 +66,7 @@ final class RZCardNumberTextField: RZCardEntryTextField {
     override var isValid: Bool {
         if let text = text {
             let cardNumber = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
-            return CardType.fromNumber(cardNumber) != .Invalid
+            return CardType.fromNumber(cardNumber) != .invalid
         }
         return false
     }
@@ -82,13 +82,13 @@ private extension RZCardNumberTextField {
             guard let startPosition = selectedTextRange?.start else {
                 return 0
             }
-            return offsetFromPosition(beginningOfDocument, toPosition: startPosition)
+            return offset(from: beginningOfDocument, to: startPosition)
         }()
 
         let cardNumber = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text, cursorPosition: &cursorOffset)
         let cardType = CardType.fromPrefix(cardNumber)
 
-        guard cardType != .Invalid else {
+        guard cardType != .invalid else {
             rejectInput()
             return
         }
@@ -105,8 +105,8 @@ private extension RZCardNumberTextField {
         }
 
         self.text = RZCardNumberTextField.insertSpacesIntoString(cardNumber, cursorPosition: &cursorOffset, groupings: cardType.segmentGroupings)
-        if let targetPosition = positionFromPosition(beginningOfDocument, offset: cursorOffset) {
-            selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
+        if let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) {
+            selectedTextRange = textRange(from: targetPosition, to: targetPosition)
         }
     }
 

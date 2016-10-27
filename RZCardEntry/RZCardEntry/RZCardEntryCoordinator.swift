@@ -35,7 +35,7 @@ final class RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
         return possibleFields.flatMap{ $0 }
     }
 
-    func cardEntryTextFieldDidChange(textField: RZCardEntryTextField) {
+    func cardEntryTextFieldDidChange(_ textField: RZCardEntryTextField) {
 //        if let imageView = imageView {
 //            UIView.transitionWithView(imageView, duration: 0.3, options: .TransitionFlipFromRight, animations: {
 //                //card image
@@ -48,30 +48,30 @@ final class RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
         }
     }
 
-    func cardEntryTextFieldBackspacePressedWithoutContent(textField: RZCardEntryTextField) {
+    func cardEntryTextFieldBackspacePressedWithoutContent(_ textField: RZCardEntryTextField) {
         if let previousField = fieldBeforeField(textField) {
             previousField.becomeFirstResponder()
         }
     }
 
-    func cardEntryTextField(textField: RZCardEntryTextField, shouldForwardInput input: String) {
+    func cardEntryTextField(_ textField: RZCardEntryTextField, shouldForwardInput input: String) {
         if let nextField = fieldAfterField(textField) {
             nextField.becomeFirstResponder()
             nextField.text = input
-            nextField.internalDelegate.textField(nextField, shouldChangeCharactersInRange: NSMakeRange(0, 0), replacementString: input)
+            let _ = nextField.internalDelegate.textField(nextField, shouldChangeCharactersIn: NSMakeRange(0, 0), replacementString: input)
             nextField.textFieldDidChange(nextField)
         }
     }
 
-    func fieldBeforeField(textField: RZCardEntryTextField) -> RZCardEntryTextField? {
-        if let idx = fields.indexOf(textField) where idx > 0 {
+    func fieldBeforeField(_ textField: RZCardEntryTextField) -> RZCardEntryTextField? {
+        if let idx = fields.index(of: textField), idx > 0 {
             return fields[idx - 1]
         }
         return nil
     }
 
-    func fieldAfterField(textField: RZCardEntryTextField) -> RZCardEntryTextField? {
-        if let idx = fields.indexOf(textField) where idx < fields.count - 1{
+    func fieldAfterField(_ textField: RZCardEntryTextField) -> RZCardEntryTextField? {
+        if let idx = fields.index(of: textField), idx < fields.count - 1{
             return fields[idx + 1]
         }
         return nil

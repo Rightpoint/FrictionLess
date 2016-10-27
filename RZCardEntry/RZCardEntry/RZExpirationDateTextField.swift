@@ -19,17 +19,17 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc override func textFieldDidChange(textField: UITextField) {
+    @objc override func textFieldDidChange(_ textField: UITextField) {
         reformatExpirationDate()
         super.textFieldDidChange(textField)
     }
 
-    override var formattingCharacterSet: NSCharacterSet {
-        return NSCharacterSet(charactersInString: "/")
+    override var formattingCharacterSet: CharacterSet {
+        return CharacterSet(charactersIn: "/")
     }
 
-    override var inputCharacterSet: NSCharacterSet {
-        return NSCharacterSet.decimalDigitCharacterSet()
+    override var inputCharacterSet: CharacterSet {
+        return CharacterSet.decimalDigits
     }
 
     override var isValid: Bool {
@@ -49,7 +49,7 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
         return 4
     }
 
-    func expirationDateIsPossible(expDate: String) -> Bool {
+    func expirationDateIsPossible(_ expDate: String) -> Bool {
         guard expDate.characters.count > 0 else {
             return true
         }
@@ -61,23 +61,23 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
         guard expDate.characters.count > 2 else {
             return true
         }
-        let suffix = expDate.substringFromIndex(expDate.startIndex.advancedBy(2))
-        guard validYearRanges.contains({ $0.prefixMatches(suffix) }) else {
+        let suffixString = expDate.substring(from: expDate.characters.index(expDate.startIndex, offsetBy: 2))
+        guard validYearRanges.contains(where: { $0.prefixMatches(suffixString) }), let suffixInt = Int(suffixString) else {
             return false
         }
         //year valid, check month year combo
-        guard String(currentYearSuffix).prefixMatches(suffix) else {
+        guard String(currentYearSuffix).prefixMatches(suffixString) else {
             return true
         }
-        guard !(suffix.characters.count == 1 && String(currentYearSuffix + 1).prefixMatches(suffix)) else {
+        guard !(suffixString.characters.count == 1 && String(currentYearSuffix + 1).prefixMatches(suffixString)) else {
             //year is incomplete and can potentially be a future year
             return true
         }
-        return currentMonth >= Int(suffix)
+        return currentMonth >= suffixInt
     }
 
     static let validFutureExpYearRange = 30
-    var validYearRanges: [ClosedInterval<String>] {
+    var validYearRanges: [ClosedRange<String>] {
         let shortYear = currentYearSuffix
         var endYear = shortYear + RZExpirationDateTextField.validFutureExpYearRange
         if endYear < 100 {
@@ -91,12 +91,12 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
     }
 
     var currentYearSuffix: Int {
-        let fullYear = NSCalendar.currentCalendar().component(.Year, fromDate: NSDate())
+        let fullYear = (Calendar.current as NSCalendar).component(.year, from: Date())
         return fullYear % 100
     }
 
     var currentMonth: Int {
-        return NSCalendar.currentCalendar().component(.Month, fromDate: NSDate())
+        return (Calendar.current as NSCalendar).component(.month, from: Date())
     }
 
 }
@@ -110,7 +110,7 @@ private extension RZExpirationDateTextField {
             guard let startPosition = selectedTextRange?.start else {
                 return 0
             }
-            return offsetFromPosition(beginningOfDocument, toPosition: startPosition)
+            return offset(from: beginningOfDocument, to: startPosition)
         }()
 
         let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text, cursorPosition: &cursorOffset)
@@ -121,8 +121,8 @@ private extension RZExpirationDateTextField {
         }
         let formattedText = formatString(formatlessText, cursorPosition: &cursorOffset)
         self.text = formattedText
-        if let targetPosition = positionFromPosition(beginningOfDocument, offset: cursorOffset) {
-            selectedTextRange = textRangeFromPosition(targetPosition, toPosition: targetPosition)
+        if let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) {
+            selectedTextRange = textRange(from: targetPosition, to: targetPosition)
         }
 
         let postFormattedText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: formattedText)
@@ -132,24 +132,24 @@ private extension RZExpirationDateTextField {
         }
     }
 
-    func formatString(text: String, inout cursorPosition: Int) -> String {
+    func formatString(_ text: String, cursorPosition: inout Int) -> String {
         let cursorPositionInFormattlessText = cursorPosition
         var formattedString = String()
 
-        for (index, character) in text.characters.enumerate() {
+        for (index, character) in text.characters.enumerated() {
             if index == 0 && text.characters.count == 1 && "2"..."9" ~= character {
-                formattedString.appendContentsOf("0")
+                formattedString.append("0")
                 formattedString.append(character)
-                formattedString.appendContentsOf("/")
+                formattedString.append("/")
                 if index < cursorPositionInFormattlessText {
                     cursorPosition += 2
                 }
             }
             else if index == 1 && text.characters.count == 2 && text.characters.first == "1"
-                && !("1"..."2" ~= character) && validYearRanges.contains({ $0.prefixMatches(String(character)) }) {
+                && !("1"..."2" ~= character) && validYearRanges.contains(where: { $0.prefixMatches(String(character)) }) {
                 //digit after leading 1 is not a valid month but is the start of a valid year.
-                formattedString.insert("0", atIndex: formattedString.startIndex)
-                formattedString.appendContentsOf("/")
+                formattedString.insert("0", at: formattedString.startIndex)
+                formattedString.append("/")
                 formattedString.append(character)
                 if index < cursorPositionInFormattlessText {
                     cursorPosition += 2
@@ -158,7 +158,7 @@ private extension RZExpirationDateTextField {
             else {
                 formattedString.append(character)
                 if index == 1 {
-                    formattedString.appendContentsOf("/")
+                    formattedString.append("/")
                     if index < cursorPositionInFormattlessText {
                         cursorPosition += 1
                     }

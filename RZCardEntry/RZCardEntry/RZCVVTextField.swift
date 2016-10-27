@@ -19,13 +19,13 @@ final class RZCVVTextField: RZCardEntryTextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc override func textFieldDidChange(textField: UITextField) {
+    @objc override func textFieldDidChange(_ textField: UITextField) {
         sanitizeInput()
         super.textFieldDidChange(textField)
     }
 
-    override var inputCharacterSet: NSCharacterSet {
-        return NSCharacterSet.decimalDigitCharacterSet()
+    override var inputCharacterSet: CharacterSet {
+        return CharacterSet.decimalDigits
     }
 
     override var isValid: Bool {

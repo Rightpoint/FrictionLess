@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     override func loadView() {
         view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGrayColor()
+        view.backgroundColor = .lightGray
 
         let ccTextField = RZCardNumberTextField()
         let expTextField = RZExpirationDateTextField()
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         coordinator.imageView = imageView
 
         [ccTextField, expTextField, cvvTextField].forEach {
-            $0.backgroundColor = .whiteColor()
+            $0.backgroundColor = .white
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
@@ -40,22 +40,22 @@ class ViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
 
-        [ccTextField.topAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.topAnchor, constant: 60.0),
-            imageView.topAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.topAnchor, constant: 60.0),
-            imageView.widthAnchor.constraintEqualToConstant(40),
-            imageView.leadingAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.leadingAnchor),
+        [ccTextField.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60.0),
+            imageView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60.0),
+            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
 
-            ccTextField.leadingAnchor.constraintEqualToAnchor(imageView.trailingAnchor, constant: 20.0),
-            ccTextField.trailingAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.trailingAnchor),
+            ccTextField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20.0),
+            ccTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
 
-            expTextField.topAnchor.constraintEqualToAnchor(ccTextField.bottomAnchor, constant: 20.0),
-            expTextField.leadingAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.leadingAnchor),
+            expTextField.topAnchor.constraint(equalTo: ccTextField.bottomAnchor, constant: 20.0),
+            expTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
 
-            cvvTextField.leadingAnchor.constraintEqualToAnchor(expTextField.trailingAnchor, constant: 20.0),
-            cvvTextField.trailingAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.trailingAnchor),
-            cvvTextField.topAnchor.constraintEqualToAnchor(ccTextField.bottomAnchor, constant: 20.0),
-            cvvTextField.widthAnchor.constraintEqualToAnchor(expTextField.widthAnchor)
-            ].forEach { $0.active = true }
+            cvvTextField.leadingAnchor.constraint(equalTo: expTextField.trailingAnchor, constant: 20.0),
+            cvvTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            cvvTextField.topAnchor.constraint(equalTo: ccTextField.bottomAnchor, constant: 20.0),
+            cvvTextField.widthAnchor.constraint(equalTo: expTextField.widthAnchor)
+            ].forEach { $0.isActive = true }
     }
     
     
