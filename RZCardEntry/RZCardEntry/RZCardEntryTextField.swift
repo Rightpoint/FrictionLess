@@ -28,12 +28,12 @@ class RZCardEntryTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    static func removeCharactersNotContainedInSet(_ characterSet: CharacterSet, text: String) -> String {
+    static func removeCharactersNotContainedIn(characterSet: CharacterSet, text: String) -> String {
         var ignoredCursor = 0
-        return removeCharactersNotContainedInSet(characterSet, text: text, cursorPosition: &ignoredCursor)
+        return removeCharactersNotContainedIn(characterSet: characterSet, text: text, cursorPosition: &ignoredCursor)
     }
 
-    static func removeCharactersNotContainedInSet(_ characterSet: CharacterSet, text: String, cursorPosition: inout Int) -> String {
+    static func removeCharactersNotContainedIn(characterSet: CharacterSet, text: String, cursorPosition: inout Int) -> String {
         let originalCursorPosition = cursorPosition
         var validChars = String()
         for (index, character) in text.characters.enumerated() {
@@ -52,7 +52,7 @@ class RZCardEntryTextField: UITextField {
         cardEntryDelegate?.cardEntryTextFieldDidChange(self)
     }
 
-    func replacementStringIsValid(_ replacementString: String) -> Bool {
+    func isValid(replacementString: String) -> Bool {
         let set = (inputCharacterSet as NSCharacterSet).mutableCopy()
         (set as AnyObject).formUnion(with: formattingCharacterSet)
         let rangeOfInvalidChar = replacementString.rangeOfCharacter(from: (set as AnyObject).inverted)
@@ -75,7 +75,7 @@ class RZCardEntryTextField: UITextField {
         return false
     }
 
-    func willChangeCharactersInRange(_ range: NSRange, replacementString string: String) {
+    func willChangeCharactersIn(range: NSRange, replacementString string: String) {
         guard let text = text else { return }
         let deletedSingleChar = range.length == 1
         let noTextSelected = selectedTextRange?.isEmpty ?? true
@@ -138,14 +138,14 @@ final class RZCardEntryTextFieldDelegate: NSObject, UITextFieldDelegate {
             return false
         }
 
-        guard textField.replacementStringIsValid(string) else {
+        guard textField.isValid(replacementString: string) else {
             textField.notifiyOfInvalidInput()
             return false
         }
 
         textField.previousText = textField.text
         textField.previousSelection = textField.selectedTextRange
-        textField.willChangeCharactersInRange(range, replacementString: string)
+        textField.willChangeCharactersIn(range: range, replacementString: string)
         return true
     }
 }

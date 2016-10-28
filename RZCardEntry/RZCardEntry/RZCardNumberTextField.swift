@@ -65,7 +65,7 @@ final class RZCardNumberTextField: RZCardEntryTextField {
 
     override var isValid: Bool {
         if let text = text {
-            let cardNumber = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
+            let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
             return CardType.fromNumber(cardNumber) != .invalid
         }
         return false
@@ -85,7 +85,7 @@ private extension RZCardNumberTextField {
             return offset(from: beginningOfDocument, to: startPosition)
         }()
 
-        let cardNumber = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text, cursorPosition: &cursorOffset)
+        let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text, cursorPosition: &cursorOffset)
         let cardType = CardType.fromPrefix(cardNumber)
 
         guard cardType != .invalid else {
@@ -99,7 +99,7 @@ private extension RZCardNumberTextField {
             return
         }
         if cardLength == cardType.maxLength {
-            if cardType.isValidCardNumber(cardNumber) {
+            if cardType.isValid(accountNumber: cardNumber) {
                 notifiyOfInvalidInput()
             }
         }

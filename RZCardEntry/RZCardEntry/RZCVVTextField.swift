@@ -33,7 +33,7 @@ final class RZCVVTextField: RZCardEntryTextField {
             return false
         }
 
-        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
+        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
         return formatlessText.characters.count == maxLength
     }
 
@@ -48,7 +48,7 @@ private extension RZCVVTextField {
     func sanitizeInput() {
         guard let text = text else { return }
 
-        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
+        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
         guard formatlessText.characters.count <= maxLength else {
             rejectInput()
             return

@@ -37,7 +37,7 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
             return false
         }
 
-        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text)
+        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
         return formatlessText.characters.count == maxLength
     }
 
@@ -113,7 +113,7 @@ private extension RZExpirationDateTextField {
             return offset(from: beginningOfDocument, to: startPosition)
         }()
 
-        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: text, cursorPosition: &cursorOffset)
+        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text, cursorPosition: &cursorOffset)
 
         guard formatlessText.characters.count <= maxLength else {
             rejectInput()
@@ -125,7 +125,7 @@ private extension RZExpirationDateTextField {
             selectedTextRange = textRange(from: targetPosition, to: targetPosition)
         }
 
-        let postFormattedText = RZCardEntryTextField.removeCharactersNotContainedInSet(inputCharacterSet, text: formattedText)
+        let postFormattedText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: formattedText)
         guard expirationDateIsPossible(postFormattedText) else {
             rejectInput()
             return

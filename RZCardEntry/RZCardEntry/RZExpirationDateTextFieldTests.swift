@@ -32,23 +32,23 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         cursorPosition = 0  // |03/20
         expectedCursorPosition = 0
 
-        output = RZCardEntryTextField.removeCharactersNotContainedInSet(set, text: input, cursorPosition: &cursorPosition)
+        output = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
         XCTAssert(output == expectedOutput)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 1  // 0|3/20
         expectedCursorPosition = 1
-        RZCardEntryTextField.removeCharactersNotContainedInSet(set, text: input, cursorPosition: &cursorPosition)
+        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 3  //03/|20
         expectedCursorPosition = 2
-        RZCardEntryTextField.removeCharactersNotContainedInSet(set, text: input, cursorPosition: &cursorPosition)
+        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 5  //03/20|
         expectedCursorPosition = 4
-        RZCardEntryTextField.removeCharactersNotContainedInSet(set, text: input, cursorPosition: &cursorPosition)
+        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
     }
 

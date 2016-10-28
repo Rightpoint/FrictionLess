@@ -74,7 +74,7 @@ enum CardType {
         }
     }
 
-    func isValidCardNumber(_ accountNumber: String) -> Bool {
+    func isValid(accountNumber: String) -> Bool {
         return validationRequirements.isValid(accountNumber) && CardType.luhnCheck(accountNumber)
     }
 
@@ -109,7 +109,7 @@ extension CardType {
 
     static func fromNumber(_ cardNumber: String) -> CardType {
         for cardType in CardType.allValues {
-            if cardType.isValidCardNumber(cardNumber) {
+            if cardType.isValid(accountNumber: cardNumber) {
                 return cardType
             }
         }
