@@ -10,6 +10,7 @@ import Foundation
 
 protocol RZCardEntryDelegateProtocol {
 
+    func cardEntryTextFieldDidBecomeFirstResponder(_ textField: RZCardEntryTextField)
     func cardEntryTextFieldDidChange(_ textField: RZCardEntryTextField)
     func cardEntryTextField(_ textField: RZCardEntryTextField, shouldForwardInput input: String)
     func cardEntryTextFieldBackspacePressedWithoutContent(_ textField: RZCardEntryTextField)

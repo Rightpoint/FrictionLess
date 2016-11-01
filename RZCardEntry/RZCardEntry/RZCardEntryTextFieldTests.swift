@@ -31,7 +31,7 @@ extension RZCardEntryTextField {
         selectedTextRange = textRangeForCursorPosition(initialCursorPosition, length: selectionLength)
 
         //simulate adding text
-        delegate?.textField?(self, shouldChangeCharactersIn: NSMakeRange(initialCursorPosition, selectionLength), replacementString: textToAdd)
+        let _ = delegate?.textField?(self, shouldChangeCharactersIn: NSMakeRange(initialCursorPosition, selectionLength), replacementString: textToAdd)
         let range = initialText.characters.index(initialText.startIndex, offsetBy: initialCursorPosition)..<initialText.characters.index(initialText.startIndex, offsetBy: initialCursorPosition+selectionLength)
         text = initialText.replacingCharacters(in: range, with: textToAdd)
         selectedTextRange = textRangeForCursorPosition(initialCursorPosition + textToAdd.characters.count, length: 0)
@@ -44,7 +44,7 @@ extension RZCardEntryTextField {
         text = initialText
         selectedTextRange = textRangeForCursorPosition(initialCursorPosition - (numToDelete - 1), length: (numToDelete - 1))
         var deleteRange = NSMakeRange(initialCursorPosition-numToDelete, numToDelete)
-        delegate?.textField?(self, shouldChangeCharactersIn: deleteRange, replacementString: "")
+        let _ = delegate?.textField?(self, shouldChangeCharactersIn: deleteRange, replacementString: "")
 
         if text != initialText {
             //in the case of deleting a single formatting char, the delegate will delete that for us, so deleting 1 char turns to deleting 2

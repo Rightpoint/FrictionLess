@@ -27,6 +27,7 @@ class RZCardEntryTextField: UITextField {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 
     static func removeCharactersNotContainedIn(characterSet: CharacterSet, text: String) -> String {
         var ignoredCursor = 0
@@ -50,6 +51,14 @@ class RZCardEntryTextField: UITextField {
 
     @objc func textFieldDidChange(_ textField: UITextField) {
         cardEntryDelegate?.cardEntryTextFieldDidChange(self)
+    }
+
+    @discardableResult override func becomeFirstResponder() -> Bool {
+        let didBecomeFirstResponder = super.becomeFirstResponder()
+        if didBecomeFirstResponder {
+            cardEntryDelegate?.cardEntryTextFieldDidBecomeFirstResponder(self)
+        }
+        return didBecomeFirstResponder
     }
 
     func isValid(replacementString: String) -> Bool {

@@ -21,6 +21,10 @@ final class RZCardNumberTextField: RZCardEntryTextField {
 
     @objc override func textFieldDidChange(_ textField: UITextField) {
         reformatAsCardNumber()
+        if let text = text {
+            let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
+            cardType = CardType.fromPrefix(cardNumber)
+        }
         super.textFieldDidChange(textField)
     }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
+final class RZCardEntryCoordinator {
 
     var creditCardTextField: RZCardNumberTextField? {
         didSet {
@@ -28,19 +28,106 @@ final class RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
         }
     }
 
-    var imageView: RZCardImageView?
+    var zipTextField: RZZipCodeTextField? {
+        didSet {
+            zipTextField?.cardEntryDelegate = self
+        }
+    }
+
+    var imageView: UIImageView? {
+        didSet {
+            imageView?.image = cardImage(forType: creditCardTextField?.cardType ?? .indeterminate)
+        }
+    }
 
     var fields: [RZCardEntryTextField] {
-        let possibleFields: [RZCardEntryTextField?] = [creditCardTextField, expirationDateTextField, cvvTextField]
+        let possibleFields: [RZCardEntryTextField?] = [creditCardTextField, expirationDateTextField, cvvTextField, zipTextField]
         return possibleFields.flatMap{ $0 }
     }
 
+    func cardImage(forType cardType:CardType) -> UIImage? {
+        switch cardType {
+        case .visa:         return #imageLiteral(resourceName: "credit_cards_visa")
+        case .masterCard:   return #imageLiteral(resourceName: "credit_cards_mastercard")
+        case .amex:         return #imageLiteral(resourceName: "credit_cards_americanexpress")
+        case .diners:       return #imageLiteral(resourceName: "credit_cards_generic") //replace
+        case .discover:     return #imageLiteral(resourceName: "credit_cards_discover")
+        case .jcb:          return #imageLiteral(resourceName: "credit_cards_generic") //replace
+        case .invalid:      return #imageLiteral(resourceName: "credit_cards_generic") //replace
+        case .indeterminate: return #imageLiteral(resourceName: "credit_cards_generic") //replace
+        }
+    }
+
+    func cvvImage(forType cardType:CardType) -> UIImage? {
+        switch cardType {
+        default: return nil
+            /*
+        case .visa:         return #imageLiteral(resourceName: "credit_cards_visa")
+        case .masterCard:   return #imageLiteral(resourceName: "credit_cards_mastercard")
+        case .amex:         return #imageLiteral(resourceName: "credit_cards_americanexpress")
+        case .diners:       return #imageLiteral(resourceName: "credit_cards_generic") //replace
+        case .discover:     return #imageLiteral(resourceName: "credit_cards_discover")
+        case .jcb:          return #imageLiteral(resourceName: "credit_cards_generic") //replace
+        case .invalid:      return #imageLiteral(resourceName: "credit_cards_generic") //replace
+        case .indeterminate: return #imageLiteral(resourceName: "credit_cards_generic") //replace
+ */
+        }
+    }
+
+    func fieldBefore(field: RZCardEntryTextField) -> RZCardEntryTextField? {
+        if let idx = fields.index(of: field), idx > 0 {
+            return fields[idx - 1]
+        }
+        return nil
+    }
+
+    func fieldAfter(field: RZCardEntryTextField) -> RZCardEntryTextField? {
+        if let idx = fields.index(of: field), idx < fields.count - 1{
+            return fields[idx + 1]
+        }
+        return nil
+    }
+
+    func updateImage(card: CardType) {
+
+        if let imageView = imageView, let textField = fields.first(where: { $0.isFirstResponder }) {
+
+            let newImage: UIImage? = {
+                if textField is RZCVVTextField {
+                    return cvvImage(forType: card)
+                }
+                else {
+                    return cardImage(forType: card)
+                }
+            }()
+
+            if newImage != nil && imageView.image != newImage {
+                let animation: UIViewAnimationOptions = {
+                    switch textField.cardType {
+                    case .indeterminate, .invalid: return .transitionFlipFromLeft
+                    default: return .transitionFlipFromRight
+                    }
+                }()
+                UIView.transition(with: imageView, duration: 0.3, options: animation, animations: {
+                    imageView.image = newImage
+                })
+            }
+        }
+    }
+}
+
+extension RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
+
+    func cardEntryTextFieldDidBecomeFirstResponder(_ textField: RZCardEntryTextField) {
+        updateImage(card: textField.cardType)
+    }
+
     func cardEntryTextFieldDidChange(_ textField: RZCardEntryTextField) {
-//        if let imageView = imageView {
-//            UIView.transition(with: imageView, duration: 0.3, options: .transitionFlipFromRight, animations: {
-//                //card image
-//                }, completion: nil)
-//        }
+        if textField is RZCardNumberTextField {
+            fields.forEach{ $0.cardType = textField.cardType }
+            updateImage(card: textField.cardType)
+        }
+
         if textField.isValid {
             if let nextField = fieldAfter(field: textField) {
                 nextField.becomeFirstResponder()
@@ -61,20 +148,6 @@ final class RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
             let _ = nextField.internalDelegate.textField(nextField, shouldChangeCharactersIn: NSMakeRange(0, 0), replacementString: input)
             nextField.textFieldDidChange(nextField)
         }
-    }
-
-    func fieldBefore(field: RZCardEntryTextField) -> RZCardEntryTextField? {
-        if let idx = fields.index(of: field), idx > 0 {
-            return fields[idx - 1]
-        }
-        return nil
-    }
-
-    func fieldAfter(field: RZCardEntryTextField) -> RZCardEntryTextField? {
-        if let idx = fields.index(of: field), idx < fields.count - 1{
-            return fields[idx + 1]
-        }
-        return nil
     }
 
 }
