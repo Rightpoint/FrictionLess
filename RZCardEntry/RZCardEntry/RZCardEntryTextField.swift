@@ -76,7 +76,7 @@ class RZCardEntryTextField: UITextField {
         return CharacterSet.alphanumerics
     }
 
-    var isValid: Bool {
+    var valid: Bool {
         return false
     }
 
@@ -142,7 +142,7 @@ final class RZCardEntryTextFieldDelegate: NSObject, UITextFieldDelegate {
         guard let textField = textField as? RZCardEntryTextField else { return true }
 
         //if user is inserting text at the end of a valid text field, alert delegate to potentially forward the input
-        if range.location == textField.text?.characters.count && string.characters.count > 0 && textField.isValid {
+        if range.location == textField.text?.characters.count && string.characters.count > 0 && textField.valid {
             textField.cardEntryDelegate?.cardEntryTextField(textField, shouldForwardInput: string)
             return false
         }

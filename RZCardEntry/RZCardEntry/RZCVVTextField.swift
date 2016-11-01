@@ -28,7 +28,7 @@ final class RZCVVTextField: RZCardEntryTextField {
         return CharacterSet.decimalDigits
     }
 
-    override var isValid: Bool {
+    override var valid: Bool {
         guard let text = text else {
             return false
         }

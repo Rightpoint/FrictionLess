@@ -40,6 +40,26 @@ final class RZCardEntryCoordinator {
         }
     }
 
+    var valid: Bool {
+        return !fields.contains { !$0.valid }
+    }
+
+    var cardNumber: String? {
+        return creditCardTextField?.text
+    }
+
+    var expirationDate: String? {
+        return expirationDateTextField?.text
+    }
+
+    var cvv: String? {
+        return cvvTextField?.text
+    }
+
+    var zip: String? {
+        return zipTextField?.text
+    }
+
     var fields: [RZCardEntryTextField] {
         let possibleFields: [RZCardEntryTextField?] = [creditCardTextField, expirationDateTextField, cvvTextField, zipTextField]
         return possibleFields.flatMap{ $0 }
@@ -128,7 +148,7 @@ extension RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
             updateImage(card: textField.cardType)
         }
 
-        if textField.isValid {
+        if textField.valid {
             if let nextField = fieldAfter(field: textField) {
                 nextField.becomeFirstResponder()
             }
