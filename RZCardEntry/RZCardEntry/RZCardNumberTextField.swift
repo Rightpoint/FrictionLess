@@ -21,9 +21,8 @@ final class RZCardNumberTextField: RZCardEntryTextField {
 
     @objc override func textFieldDidChange(_ textField: UITextField) {
         reformatAsCardNumber()
-        if let text = text {
-            let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
-            cardState = CardState.fromPrefix(cardNumber)
+        if let textField = textField as? RZCardNumberTextField {
+            cardState = CardState.fromPrefix(textField.unformattedText)
         }
         super.textFieldDidChange(textField)
     }
@@ -68,11 +67,7 @@ final class RZCardNumberTextField: RZCardEntryTextField {
     }
 
     override var valid: Bool {
-        if let text = text {
-            let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
-            return CardState.fromNumber(cardNumber) != CardState.invalid
-        }
-        return false
+        return CardState.fromNumber(unformattedText) != CardState.invalid
     }
 
 }

@@ -29,12 +29,7 @@ final class RZZipCodeTextField: RZCardEntryTextField {
     }
 
     override var valid: Bool {
-        guard let text = text else {
-            return false
-        }
-
-        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
-        return formatlessText.characters.count == maxLength
+        return unformattedText.characters.count == maxLength
     }
 
     var maxLength: Int {
@@ -46,15 +41,9 @@ final class RZZipCodeTextField: RZCardEntryTextField {
 private extension RZZipCodeTextField {
 
     func sanitizeInput() {
-        guard let text = text else { return }
-
-        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
-        guard formatlessText.characters.count <= maxLength else {
+        if unformattedText.characters.count > maxLength {
             rejectInput()
-            return
         }
-        
-        self.text = formatlessText
     }
     
 }

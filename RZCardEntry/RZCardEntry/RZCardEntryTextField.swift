@@ -39,11 +39,16 @@ class RZCardEntryTextField: UITextField {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    var unformattedText: String {
+        guard let text = text else {
+            return ""
+        }
+        return RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
+    }
 
     static func removeCharactersNotContainedIn(characterSet: CharacterSet, text: String) -> String {
-        var ignoredCursor = 0
-        return removeCharactersNotContainedIn(characterSet: characterSet, text: text, cursorPosition: &ignoredCursor)
+        return text.components(separatedBy: characterSet.inverted).joined()
     }
 
     static func removeCharactersNotContainedIn(characterSet: CharacterSet, text: String, cursorPosition: inout Int) -> String {

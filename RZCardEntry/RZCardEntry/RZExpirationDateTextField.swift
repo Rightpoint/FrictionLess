@@ -33,12 +33,7 @@ final class RZExpirationDateTextField: RZCardEntryTextField {
     }
 
     override var valid: Bool {
-        guard let text = text else {
-            return false
-        }
-
-        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
-        return formatlessText.characters.count == maxLength
+        return unformattedText.characters.count == maxLength
     }
 
     override var deletingShouldRemoveTrailingCharacters: Bool {
@@ -125,8 +120,7 @@ private extension RZExpirationDateTextField {
             selectedTextRange = textRange(from: targetPosition, to: targetPosition)
         }
 
-        let postFormattedText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: formattedText)
-        guard expirationDateIsPossible(postFormattedText) else {
+        guard expirationDateIsPossible(unformattedText) else {
             rejectInput()
             return
         }
