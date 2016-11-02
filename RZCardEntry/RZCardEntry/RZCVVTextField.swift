@@ -38,7 +38,10 @@ final class RZCVVTextField: RZCardEntryTextField {
     }
 
     var maxLength: Int {
-        return cardType.cvvLength
+        switch cardState {
+        case .identified(let card): return card.cvvLength
+        default: return 3
+        }
     }
 
 }

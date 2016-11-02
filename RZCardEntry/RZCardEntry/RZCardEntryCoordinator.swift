@@ -10,6 +10,8 @@ import UIKit
 
 final class RZCardEntryCoordinator {
 
+    var acceptedCardTypes: [CardType] = [.masterCard, .visa, .discover, .amex]
+
     var creditCardTextField: RZCardNumberTextField? {
         didSet {
             creditCardTextField?.cardEntryDelegate = self
@@ -36,7 +38,7 @@ final class RZCardEntryCoordinator {
 
     var imageView: UIImageView? {
         didSet {
-            imageView?.image = cardImage(forType: creditCardTextField?.cardType ?? .indeterminate)
+            imageView?.image = cardImage(forState: creditCardTextField?.cardState ?? .indeterminate)
         }
     }
 
@@ -65,33 +67,39 @@ final class RZCardEntryCoordinator {
         return possibleFields.flatMap{ $0 }
     }
 
-    func cardImage(forType cardType:CardType) -> UIImage? {
-        switch cardType {
-        case .visa:         return #imageLiteral(resourceName: "credit_cards_visa")
-        case .masterCard:   return #imageLiteral(resourceName: "credit_cards_mastercard")
-        case .amex:         return #imageLiteral(resourceName: "credit_cards_americanexpress")
-        case .diners:       return #imageLiteral(resourceName: "credit_cards_generic") //replace
-        case .discover:     return #imageLiteral(resourceName: "credit_cards_discover")
-        case .jcb:          return #imageLiteral(resourceName: "credit_cards_generic") //replace
+    func cardImage(forState cardState:CardState) -> UIImage? {
+        switch cardState {
+        case .identified(let cardType):
+            switch cardType{
+            case .visa:         return #imageLiteral(resourceName: "credit_cards_visa")
+            case .masterCard:   return #imageLiteral(resourceName: "credit_cards_mastercard")
+            case .amex:         return #imageLiteral(resourceName: "credit_cards_americanexpress")
+            case .diners:       return #imageLiteral(resourceName: "credit_cards_generic") //replace
+            case .discover:     return #imageLiteral(resourceName: "credit_cards_discover")
+            case .jcb:          return #imageLiteral(resourceName: "credit_cards_generic") //replace
+            }
         case .invalid:      return #imageLiteral(resourceName: "credit_cards_generic") //replace
         case .indeterminate: return #imageLiteral(resourceName: "credit_cards_generic") //replace
         }
     }
 
-    func cvvImage(forType cardType:CardType) -> UIImage? {
-        switch cardType {
-        default: return nil
-            /*
-        case .visa:         return #imageLiteral(resourceName: "credit_cards_visa")
-        case .masterCard:   return #imageLiteral(resourceName: "credit_cards_mastercard")
-        case .amex:         return #imageLiteral(resourceName: "credit_cards_americanexpress")
-        case .diners:       return #imageLiteral(resourceName: "credit_cards_generic") //replace
-        case .discover:     return #imageLiteral(resourceName: "credit_cards_discover")
-        case .jcb:          return #imageLiteral(resourceName: "credit_cards_generic") //replace
+    func cvvImage(forState cardState:CardState) -> UIImage? {
+        return nil
+/*
+        switch cardState {
+        case .identified(let cardType):
+            switch cardType{
+            case .visa:         return #imageLiteral(resourceName: "credit_cards_visa")
+            case .masterCard:   return #imageLiteral(resourceName: "credit_cards_mastercard")
+            case .amex:         return #imageLiteral(resourceName: "credit_cards_americanexpress")
+            case .diners:       return #imageLiteral(resourceName: "credit_cards_generic") //replace
+            case .discover:     return #imageLiteral(resourceName: "credit_cards_discover")
+            case .jcb:          return #imageLiteral(resourceName: "credit_cards_generic") //replace
+            }
         case .invalid:      return #imageLiteral(resourceName: "credit_cards_generic") //replace
         case .indeterminate: return #imageLiteral(resourceName: "credit_cards_generic") //replace
- */
         }
+ */
     }
 
     func fieldBefore(field: RZCardEntryTextField) -> RZCardEntryTextField? {
@@ -108,24 +116,24 @@ final class RZCardEntryCoordinator {
         return nil
     }
 
-    func updateImage(card: CardType) {
+    func updateImage(state: CardState) {
 
         if let imageView = imageView, let textField = fields.first(where: { $0.isFirstResponder }) {
 
             let newImage: UIImage? = {
                 if textField is RZCVVTextField {
-                    return cvvImage(forType: card)
+                    return cvvImage(forState: state)
                 }
                 else {
-                    return cardImage(forType: card)
+                    return cardImage(forState: state)
                 }
             }()
 
             if newImage != nil && imageView.image != newImage {
                 let animation: UIViewAnimationOptions = {
-                    switch textField.cardType {
-                    case .indeterminate, .invalid: return .transitionFlipFromLeft
-                    default: return .transitionFlipFromRight
+                    switch textField.cardState {
+                    case .identified(_): return .transitionFlipFromRight
+                    default: return .transitionFlipFromLeft
                     }
                 }()
                 UIView.transition(with: imageView, duration: 0.3, options: animation, animations: {
@@ -139,13 +147,17 @@ final class RZCardEntryCoordinator {
 extension RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
 
     func cardEntryTextFieldDidBecomeFirstResponder(_ textField: RZCardEntryTextField) {
-        updateImage(card: textField.cardType)
+        updateImage(state: textField.cardState)
     }
 
     func cardEntryTextFieldDidChange(_ textField: RZCardEntryTextField) {
         if textField is RZCardNumberTextField {
-            fields.forEach{ $0.cardType = textField.cardType }
-            updateImage(card: textField.cardType)
+            if case .identified(let card) = textField.cardState, !acceptedCardTypes.contains(card) {
+                textField.notifiyOfInvalidInput()
+            }
+
+            fields.forEach{ $0.cardState = textField.cardState }
+            updateImage(state: textField.cardState)
         }
 
         if textField.valid {

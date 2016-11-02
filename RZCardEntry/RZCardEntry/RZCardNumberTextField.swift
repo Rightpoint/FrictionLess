@@ -23,7 +23,7 @@ final class RZCardNumberTextField: RZCardEntryTextField {
         reformatAsCardNumber()
         if let text = text {
             let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
-            cardType = CardType.fromPrefix(cardNumber)
+            cardState = CardState.fromPrefix(cardNumber)
         }
         super.textFieldDidChange(textField)
     }
@@ -70,7 +70,7 @@ final class RZCardNumberTextField: RZCardEntryTextField {
     override var valid: Bool {
         if let text = text {
             let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text)
-            return CardType.fromNumber(cardNumber) != .invalid
+            return CardState.fromNumber(cardNumber) != CardState.invalid
         }
         return false
     }
@@ -90,28 +90,29 @@ private extension RZCardNumberTextField {
         }()
 
         let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text, cursorPosition: &cursorOffset)
-        let cardType = CardType.fromPrefix(cardNumber)
+        let cardState = CardState.fromPrefix(cardNumber)
 
-        guard cardType != .invalid else {
+        guard cardState != .invalid else {
             rejectInput()
             return
         }
 
-        let cardLength = cardNumber.characters.count
-        guard cardLength <= cardType.maxLength else {
-            rejectInput()
-            return
-        }
-        if cardLength == cardType.maxLength {
-            if cardType.isValid(accountNumber: cardNumber) {
-                notifiyOfInvalidInput()
+        if case .identified(let cardType) = cardState {
+            let cardLength = cardNumber.characters.count
+            guard cardLength <= cardType.maxLength else {
+                rejectInput()
+                return
+            }
+            if cardLength == cardType.maxLength {
+                if cardType.isValid(accountNumber: cardNumber) {
+                    notifiyOfInvalidInput()
+                }
+            }
+
+            self.text = RZCardNumberTextField.insertSpacesIntoString(cardNumber, cursorPosition: &cursorOffset, groupings: cardType.segmentGroupings)
+            if let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) {
+                selectedTextRange = textRange(from: targetPosition, to: targetPosition)
             }
         }
-
-        self.text = RZCardNumberTextField.insertSpacesIntoString(cardNumber, cursorPosition: &cursorOffset, groupings: cardType.segmentGroupings)
-        if let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) {
-            selectedTextRange = textRange(from: targetPosition, to: targetPosition)
-        }
     }
-
 }

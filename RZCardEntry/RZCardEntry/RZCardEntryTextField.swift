@@ -17,7 +17,7 @@ class RZCardEntryTextField: UITextField {
 
     var previousText: String?
     var previousSelection: UITextRange?
-    var cardType: CardType = .indeterminate
+    var cardState: CardState = .indeterminate
 
     override init(frame: CGRect) {
         super.init(frame: frame)

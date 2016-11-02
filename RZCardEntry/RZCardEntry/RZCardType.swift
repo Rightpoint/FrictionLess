@@ -8,6 +8,21 @@
 
 import Foundation
 
+enum CardState: Equatable {
+    case identified(CardType)
+    case indeterminate
+    case invalid
+}
+
+func ==(lhs: CardState, rhs: CardState) -> Bool {
+    switch (lhs, rhs) {
+    case (.invalid, .invalid): return true
+    case (.indeterminate, .indeterminate): return true
+    case (let .identified(card1), let .identified(card2)): return card1 == card2
+    default: return false
+    }
+}
+
 enum CardType {
     case visa
     case masterCard
@@ -15,9 +30,6 @@ enum CardType {
     case diners
     case discover
     case jcb
-
-    case indeterminate
-    case invalid
 
     static let allValues: [CardType] = [.visa, .masterCard, .amex, .diners, .discover, .jcb]
 
@@ -43,9 +55,6 @@ enum CardType {
                             length = [14]
 
         case .jcb:          prefix = ["3528"..."3589"]
-                            length = [16]
-
-        default:
                             length = [16]
         }
 
@@ -105,18 +114,18 @@ private struct ValidationRequirement {
 
 }
 
-extension CardType {
+extension CardState {
 
-    static func fromNumber(_ cardNumber: String) -> CardType {
+    static func fromNumber(_ cardNumber: String) -> CardState {
         for cardType in CardType.allValues {
             if cardType.isValid(accountNumber: cardNumber) {
-                return cardType
+                return .identified(cardType)
             }
         }
         return .invalid
     }
 
-    static func fromPrefix(_ cardPrefix: String) -> CardType {
+    static func fromPrefix(_ cardPrefix: String) -> CardState {
         guard !cardPrefix.isEmpty else {
             return .indeterminate
         }
@@ -126,12 +135,15 @@ extension CardType {
             return .invalid
         }
         if possibleTypes.count == 1 {
-            return card
+            return .identified(card)
         }
         else {
             return .indeterminate
         }
     }
+}
+
+extension CardType {
 
     // from: https://gist.github.com/cwagdev/635ce973e8e86da0403a
     fileprivate static func luhnCheck(_ cardNumber: String) -> Bool {
