@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .lightGray
 
         let ccTextField = RZCardNumberTextField()
+        ccTextField.delegate = self;
         let expTextField = RZExpirationDateTextField()
         let cvvTextField = RZCVVTextField()
         let imageView = RZCardImageView()
@@ -57,7 +58,6 @@ class ViewController: UIViewController {
             cvvTextField.widthAnchor.constraint(equalTo: expTextField.widthAnchor)
             ].forEach { $0.isActive = true }
     }
-    
-    
+
 }
 

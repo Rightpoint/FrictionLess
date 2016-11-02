@@ -10,8 +10,11 @@ import UIKit
 
 class RZCardEntryTextField: UITextField {
 
-    var cardEntryDelegate: RZCardEntryDelegateProtocol?
     let internalDelegate = RZCardEntryTextFieldDelegate()
+    var externalDelegate: UITextFieldDelegate?
+
+    var cardEntryDelegate: RZCardEntryDelegateProtocol?
+
     var previousText: String?
     var previousSelection: UITextRange?
     var cardType: CardType = .indeterminate
@@ -19,9 +22,18 @@ class RZCardEntryTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        delegate = internalDelegate
+        super.delegate = internalDelegate
         addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         placeholder = "0000 0000 0000 0000"
+    }
+
+    override var delegate: UITextFieldDelegate? {
+        get {
+            return super.delegate
+        }
+        set {
+            externalDelegate = newValue
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -140,6 +152,9 @@ final class RZCardEntryTextFieldDelegate: NSObject, UITextFieldDelegate {
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let textField = textField as? RZCardEntryTextField else { return true }
+        guard textField.externalDelegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) != false else {
+            return false
+        }
 
         //if user is inserting text at the end of a valid text field, alert delegate to potentially forward the input
         if range.location == textField.text?.characters.count && string.characters.count > 0 && textField.valid {
@@ -156,5 +171,35 @@ final class RZCardEntryTextFieldDelegate: NSObject, UITextFieldDelegate {
         textField.previousSelection = textField.selectedTextRange
         textField.willChangeCharactersIn(range: range, replacementString: string)
         return true
+    }
+
+//MARK: Empty Forwarding implementations
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return (textField as? RZCardEntryTextField)?.externalDelegate?.textFieldShouldBeginEditing?(textField) ?? true
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        (textField as? RZCardEntryTextField)?.externalDelegate?.textFieldDidBeginEditing?(textField)
+    }
+
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return (textField as? RZCardEntryTextField)?.externalDelegate?.textFieldShouldEndEditing?(textField) ?? true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        (textField as? RZCardEntryTextField)?.externalDelegate?.textFieldDidEndEditing?(textField)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        (textField as? RZCardEntryTextField)?.externalDelegate?.textFieldDidEndEditing?(textField, reason: reason) ??
+        textFieldDidEndEditing(textField)
+    }
+
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return (textField as? RZCardEntryTextField)?.externalDelegate?.textFieldShouldClear?(textField) ?? true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return (textField as? RZCardEntryTextField)?.externalDelegate?.textFieldShouldReturn?(textField) ?? true
     }
 }
