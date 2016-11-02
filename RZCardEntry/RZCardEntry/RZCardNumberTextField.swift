@@ -8,11 +8,13 @@
 
 import UIKit
 
+fileprivate let emSpace = " "
+
 final class RZCardNumberTextField: RZCardEntryTextField {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        placeholder = "0000 0000 0000 0000"
+        placeholder = "0000\(emSpace)0000\(emSpace)0000\(emSpace)0000"
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -56,7 +58,7 @@ final class RZCardNumberTextField: RZCardEntryTextField {
         for (index, character) in text.characters.enumerated() {
             addedSpacesString.append(character)
             if shouldAddSpace(index, groupings) {
-                addedSpacesString.append(" ") //Em-space
+                addedSpacesString.append(emSpace)
                 if index < cursorPositionInSpacelessString {
                     cursorPosition += 1
                 }
