@@ -1,5 +1,5 @@
 //
-//  RZCardEntryTextFieldTests.swift
+//  RZFormattableTextFieldTestHelpers.swift
 //  RZCardEntry
 //
 //  Created by Jason Clark on 9/27/16.
@@ -9,21 +9,8 @@
 import XCTest
 @testable import RZCardEntry
 
-class RZCardEntryTextFieldTests: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
-}
-
 //MARK:- Helper Methods
-
-extension RZCardEntryTextField {
+extension RZFormattableTextField {
 
     func addText(_ textToAdd: String, initialText: String, initialCursorPosition: Int, selectionLength: Int) {
         //set original state

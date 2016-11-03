@@ -14,25 +14,25 @@ final class RZCardEntryCoordinator {
 
     var creditCardTextField: RZCardNumberTextField? {
         didSet {
-            creditCardTextField?.cardEntryDelegate = self
+            creditCardTextField?.navigationDelegate = self
         }
     }
 
     var expirationDateTextField: RZExpirationDateTextField? {
         didSet {
-            expirationDateTextField?.cardEntryDelegate = self
+            expirationDateTextField?.navigationDelegate = self
         }
     }
 
     var cvvTextField: RZCVVTextField? {
         didSet {
-            cvvTextField?.cardEntryDelegate = self
+            cvvTextField?.navigationDelegate = self
         }
     }
 
     var zipTextField: RZZipCodeTextField? {
         didSet {
-            zipTextField?.cardEntryDelegate = self
+            zipTextField?.navigationDelegate = self
         }
     }
 
@@ -62,8 +62,8 @@ final class RZCardEntryCoordinator {
         return zipTextField?.text
     }
 
-    var fields: [RZCardEntryTextField] {
-        let possibleFields: [RZCardEntryTextField?] = [creditCardTextField, expirationDateTextField, cvvTextField, zipTextField]
+    var fields: [RZFormattableTextField] {
+        let possibleFields: [RZFormattableTextField?] = [creditCardTextField, expirationDateTextField, cvvTextField, zipTextField]
         return possibleFields.flatMap{ $0 }
     }
 
@@ -102,33 +102,30 @@ final class RZCardEntryCoordinator {
  */
     }
 
-    func fieldBefore(field: RZCardEntryTextField) -> RZCardEntryTextField? {
+    func fieldBefore(field: RZFormattableTextField) -> RZFormattableTextField? {
         if let idx = fields.index(of: field), idx > 0 {
             return fields[idx - 1]
         }
         return nil
     }
 
-    func fieldAfter(field: RZCardEntryTextField) -> RZCardEntryTextField? {
+    func fieldAfter(field: RZFormattableTextField) -> RZFormattableTextField? {
         if let idx = fields.index(of: field), idx < fields.count - 1{
             return fields[idx + 1]
         }
         return nil
     }
 
-    func updateImage(state: CardState) {
-
-        if let imageView = imageView, let textField = fields.first(where: { $0.isFirstResponder }) {
-
+    func updateImage(textField: RZCardEntryTextField) {
+        if let imageView = imageView {
             let newImage: UIImage? = {
                 if textField is RZCVVTextField {
-                    return cvvImage(forState: state)
+                    return cvvImage(forState: textField.cardState)
                 }
                 else {
-                    return cardImage(forState: state)
+                    return cardImage(forState: textField.cardState)
                 }
             }()
-
             if newImage != nil && imageView.image != newImage {
                 let animation: UIViewAnimationOptions = {
                     switch textField.cardState {
@@ -144,22 +141,22 @@ final class RZCardEntryCoordinator {
     }
 }
 
-extension RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
+extension RZCardEntryCoordinator: RZTextFieldNavigationDelegate {
 
-    func cardEntryTextFieldDidBecomeFirstResponder(_ textField: RZCardEntryTextField) {
-        updateImage(state: textField.cardState)
+    func textFieldDidBecomeFirstResponder(_ textField: RZFormattableTextField) {
+        if let textField = textField as? RZCardEntryTextField {
+            updateImage(textField: textField)
+        }
     }
 
-    func cardEntryTextFieldDidChange(_ textField: RZCardEntryTextField) {
-        if textField is RZCardNumberTextField {
+    func textFieldDidChange(_ textField: RZFormattableTextField) {
+        if let textField = textField as? RZCardNumberTextField {
             if case .identified(let card) = textField.cardState, !acceptedCardTypes.contains(card) {
                 textField.notifiyOfInvalidInput()
             }
-
-            fields.forEach{ $0.cardState = textField.cardState }
-            updateImage(state: textField.cardState)
+            fields.flatMap({$0 as? RZCardEntryTextField}).forEach{ $0.cardState = textField.cardState }
+            updateImage(textField: textField)
         }
-
         if textField.valid {
             if let nextField = fieldAfter(field: textField) {
                 nextField.becomeFirstResponder()
@@ -167,13 +164,13 @@ extension RZCardEntryCoordinator: RZCardEntryDelegateProtocol {
         }
     }
 
-    func cardEntryTextFieldBackspacePressedWithoutContent(_ textField: RZCardEntryTextField) {
+    func textFieldBackspacePressedWithoutContent(_ textField: RZFormattableTextField) {
         if let previousField = fieldBefore(field: textField) {
             previousField.becomeFirstResponder()
         }
     }
 
-    func cardEntryTextField(_ textField: RZCardEntryTextField, shouldForwardInput input: String) {
+    func textField(_ textField: RZFormattableTextField, shouldForwardInput input: String) {
         if let nextField = fieldAfter(field: textField) {
             nextField.becomeFirstResponder()
             nextField.text = input

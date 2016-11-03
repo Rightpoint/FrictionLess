@@ -68,7 +68,7 @@ enum CardType {
         switch self {
         case .amex:      return [4, 6, 5]
         case .diners:    return [4, 6, 4]
-        default:        return [4, 4, 4, 4]
+        default:         return [4, 4, 4, 4]
         }
     }
 
@@ -94,7 +94,6 @@ enum CardType {
 }
 
 private struct ValidationRequirement {
-
     var prefixes = [PrefixContainable]()
     var lengths = [Int]()
 
@@ -111,7 +110,6 @@ private struct ValidationRequirement {
         guard lengths.count > 0 else { return true }
         return lengths.contains { accountNumber.characters.count == $0 }
     }
-
 }
 
 extension CardState {

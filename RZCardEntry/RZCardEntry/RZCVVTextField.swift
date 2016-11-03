@@ -38,7 +38,6 @@ final class RZCVVTextField: RZCardEntryTextField {
         default: return 3
         }
     }
-
 }
 
 private extension RZCVVTextField {

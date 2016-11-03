@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RZZipCodeTextField: RZCardEntryTextField {
+final class RZZipCodeTextField: RZFormattableTextField {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RZExpirationDateTextField: RZCardEntryTextField {
+final class RZExpirationDateTextField: RZFormattableTextField {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -108,7 +108,7 @@ private extension RZExpirationDateTextField {
             return offset(from: beginningOfDocument, to: startPosition)
         }()
 
-        let formatlessText = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text, cursorPosition: &cursorOffset)
+        let formatlessText = removeFormatting(text, cursorPosition: &cursorOffset)
 
         guard formatlessText.characters.count <= maxLength else {
             rejectInput()

@@ -86,7 +86,7 @@ private extension RZCardNumberTextField {
             return offset(from: beginningOfDocument, to: startPosition)
         }()
 
-        let cardNumber = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: inputCharacterSet, text: text, cursorPosition: &cursorOffset)
+        let cardNumber = removeFormatting(text, cursorPosition: &cursorOffset)
         let cardState = CardState.fromPrefix(cardNumber)
 
         guard cardState != .invalid else {
