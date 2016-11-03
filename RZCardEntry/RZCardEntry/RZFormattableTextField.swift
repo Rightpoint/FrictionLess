@@ -73,6 +73,13 @@ class RZFormattableTextField: UITextField {
         return false
     }
 
+    var cursorOffset: Int {
+        guard let startPosition = selectedTextRange?.start else {
+            return 0
+        }
+        return offset(from: beginningOfDocument, to: startPosition)
+    }
+
     func willChangeCharactersIn(range: NSRange, replacementString string: String) {
         guard let text = text else { return }
         let deletedSingleChar = range.length == 1

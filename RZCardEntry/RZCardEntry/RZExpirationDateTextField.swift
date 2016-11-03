@@ -114,22 +114,17 @@ private extension RZExpirationDateTextField {
     func reformatExpirationDate() {
         guard let text = text else { return }
 
-        var cursorOffset: Int = {
-            guard let startPosition = selectedTextRange?.start else {
-                return 0
-            }
-            return offset(from: beginningOfDocument, to: startPosition)
-        }()
+        var cursorPos = cursorOffset
 
-        let formatlessText = removeFormatting(text, cursorPosition: &cursorOffset)
+        let formatlessText = removeFormatting(text, cursorPosition: &cursorPos)
 
         guard formatlessText.characters.count <= maxLength else {
             rejectInput()
             return
         }
-        let formattedText = formatString(formatlessText, cursorPosition: &cursorOffset)
+        let formattedText = formatString(formatlessText, cursorPosition: &cursorPos)
         self.text = formattedText
-        if let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) {
+        if let targetPosition = position(from: beginningOfDocument, offset: cursorPos) {
             selectedTextRange = textRange(from: targetPosition, to: targetPosition)
         }
 

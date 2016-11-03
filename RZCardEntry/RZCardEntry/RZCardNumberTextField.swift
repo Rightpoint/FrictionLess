@@ -79,14 +79,8 @@ private extension RZCardNumberTextField {
     func reformatAsCardNumber() {
         guard let text = text else { return }
 
-        var cursorOffset: Int = {
-            guard let startPosition = selectedTextRange?.start else {
-                return 0
-            }
-            return offset(from: beginningOfDocument, to: startPosition)
-        }()
-
-        let cardNumber = removeFormatting(text, cursorPosition: &cursorOffset)
+        var cursorPos = cursorOffset
+        let cardNumber = removeFormatting(text, cursorPosition: &cursorPos)
         let cardState = CardState.fromPrefix(cardNumber)
 
         guard cardState != .invalid else {
@@ -100,13 +94,11 @@ private extension RZCardNumberTextField {
                 rejectInput()
                 return
             }
-            if cardLength == cardType.maxLength {
-                if cardType.isValid(accountNumber: cardNumber) {
-                    notifiyOfInvalidInput()
-                }
+            if cardLength == cardType.maxLength && !cardType.isValid(accountNumber: cardNumber) {
+                notifiyOfInvalidInput()
             }
 
-            self.text = RZCardNumberTextField.insertSpacesIntoString(cardNumber, cursorPosition: &cursorOffset, groupings: cardType.segmentGroupings)
+            self.text = RZCardNumberTextField.insertSpacesIntoString(cardNumber, cursorPosition: &cursorPos, groupings: cardType.segmentGroupings)
             if let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) {
                 selectedTextRange = textRange(from: targetPosition, to: targetPosition)
             }
