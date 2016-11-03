@@ -79,6 +79,14 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
         XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
 
+        //if someone inputs a slash after a 1, pad the 0
+        let initialText = "1"
+        let initialCursor = 1
+        input = "/"
+        expectedOutput = "01/"
+        textField.addText(input, initialText: initialText, initialCursorPosition: initialCursor, selectionLength: 0)
+        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
+
         //add a slash for valid 2 digit months
         input = "10"
         expectedOutput = "10/"

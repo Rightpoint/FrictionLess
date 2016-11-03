@@ -94,6 +94,19 @@ final class RZExpirationDateTextField: RZFormattableTextField {
         return (Calendar.current as NSCalendar).component(.month, from: Date())
     }
 
+    override func willChangeCharactersIn(range: NSRange, replacementString string: String) {
+        super.willChangeCharactersIn(range: range, replacementString: string)
+
+        //If user manually enters formatting character after a 1, pad with a leading 0
+        guard let text = text else { return }
+
+        if range.location == 1 && string == "/" {
+            self.text?.insert("0", at: text.startIndex)
+            if let previousSelection = previousSelection, let startPosition = position(from: previousSelection.start, offset: 1), let endPosition = position(from: previousSelection.end, offset: 1) {
+                selectedTextRange = textRange(from: startPosition, to: endPosition)
+            }
+        }
+    }
 }
 
 private extension RZExpirationDateTextField {

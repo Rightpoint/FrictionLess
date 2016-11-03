@@ -20,7 +20,7 @@ extension RZFormattableTextField {
         //simulate adding text
         let _ = delegate?.textField?(self, shouldChangeCharactersIn: NSMakeRange(initialCursorPosition, selectionLength), replacementString: textToAdd)
         let range = initialText.characters.index(initialText.startIndex, offsetBy: initialCursorPosition)..<initialText.characters.index(initialText.startIndex, offsetBy: initialCursorPosition+selectionLength)
-        text = initialText.replacingCharacters(in: range, with: textToAdd)
+        text = text?.replacingCharacters(in: range, with: textToAdd)
         selectedTextRange = textRangeForCursorPosition(initialCursorPosition + textToAdd.characters.count, length: 0)
 
         //simulate delegate callback
