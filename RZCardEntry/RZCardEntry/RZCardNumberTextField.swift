@@ -99,9 +99,8 @@ private extension RZCardNumberTextField {
             }
 
             self.text = RZCardNumberTextField.insertSpacesIntoString(cardNumber, cursorPosition: &cursorPos, groupings: cardType.segmentGroupings)
-            if let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) {
-                selectedTextRange = textRange(from: targetPosition, to: targetPosition)
-            }
+            selectedTextRange = textRange(cursorOffset: cursorPos)
         }
     }
+    
 }

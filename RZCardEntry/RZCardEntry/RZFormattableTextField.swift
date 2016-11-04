@@ -73,23 +73,16 @@ class RZFormattableTextField: UITextField {
         return false
     }
 
-    var cursorOffset: Int {
-        guard let startPosition = selectedTextRange?.start else {
-            return 0
-        }
-        return offset(from: beginningOfDocument, to: startPosition)
-    }
-
     func willChangeCharactersIn(range: NSRange, replacementString string: String) {
         guard let text = text else { return }
         let deletedSingleChar = range.length == 1
         let noTextSelected = selectedTextRange?.isEmpty ?? true
-        if (deletedSingleChar && noTextSelected){
-            let range = text.characters.index(text.startIndex, offsetBy: range.location)..<text.characters.index(text.startIndex, offsetBy: range.location + range.length)
+        if (deletedSingleChar && noTextSelected) {
+            let range = text.range(fromNSRange: range)
             if text.rangeOfCharacter(from: formattingCharacterSet, options: NSString.CompareOptions(), range: range) != nil {
                 self.text?.removeSubrange(range)
-                if let previousSelection = previousSelection, let startPosition = position(from: previousSelection.start, offset: -1), let endPosition = position(from: previousSelection.end, offset: -1) {
-                    selectedTextRange = textRange(from: startPosition, to: endPosition)
+                if let previousSelection = previousSelection, let selection = offsetTextRange(previousSelection, by: -1) {
+                    selectedTextRange = selection
                 }
             }
         }
@@ -165,6 +158,41 @@ extension RZFormattableTextField {
         }
 
         return validChars
+    }
+
+}
+
+////MARK: - NSRange, UITextRange, Range<> Helpers
+extension String {
+
+    func range(fromNSRange range: NSRange) -> Range<String.Index> {
+        return characters.index(startIndex, offsetBy: range.location)..<characters.index(startIndex, offsetBy: range.location + range.length)
+    }
+
+}
+
+extension RZFormattableTextField {
+
+    var cursorOffset: Int {
+        guard let startPosition = selectedTextRange?.start else {
+            return 0
+        }
+        return offset(from: beginningOfDocument, to: startPosition)
+    }
+
+    func offsetTextRange(_ selection: UITextRange?, by offset: Int) -> UITextRange? {
+        guard let selection = selection, let start = self.position(from: selection.start, offset: offset),
+            let end = self.position(from: selection.end, offset: offset) else {
+                return nil
+        }
+        return textRange(from: start, to: end)
+    }
+
+    func textRange(cursorOffset: Int) -> UITextRange? {
+        guard let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) else {
+            return nil
+        }
+        return textRange(from: targetPosition, to: targetPosition)
     }
 
 }

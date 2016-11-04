@@ -102,9 +102,7 @@ final class RZExpirationDateTextField: RZFormattableTextField {
 
         if range.location == 1 && string == "/" {
             self.text?.insert("0", at: text.startIndex)
-            if let previousSelection = previousSelection, let startPosition = position(from: previousSelection.start, offset: 1), let endPosition = position(from: previousSelection.end, offset: 1) {
-                selectedTextRange = textRange(from: startPosition, to: endPosition)
-            }
+            selectedTextRange = offsetTextRange(previousSelection, by: 1)
         }
     }
 }
@@ -124,16 +122,14 @@ private extension RZExpirationDateTextField {
         }
         let formattedText = formatString(formatlessText, cursorPosition: &cursorPos)
         self.text = formattedText
-        if let targetPosition = position(from: beginningOfDocument, offset: cursorPos) {
-            selectedTextRange = textRange(from: targetPosition, to: targetPosition)
-        }
+        selectedTextRange = textRange(cursorOffset: cursorPos)
 
         guard expirationDateIsPossible(unformattedText) else {
             rejectInput()
             return
         }
     }
-
+    
     func formatString(_ text: String, cursorPosition: inout Int) -> String {
         let cursorPositionInFormattlessText = cursorPosition
         var formattedString = String()

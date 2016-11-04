@@ -71,7 +71,7 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
         XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
         expectedCursorPosition = 3
-        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+        XCTAssert(textField.cursorOffset == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.cursorOffset)")
 
         //leading with 0 is someone following instructions, do not format
         input = "0"
@@ -93,7 +93,7 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
         XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
         expectedCursorPosition = 3
-        XCTAssert(textField.currentCursorPosition == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.currentCursorPosition)")
+        XCTAssert(textField.cursorOffset == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.cursorOffset)")
 
         //if input carries over max, reject
         input = "12/345"

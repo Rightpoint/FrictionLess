@@ -52,10 +52,6 @@ extension RZFormattableTextField {
         return textRange(from: startPosition, to: endPosition)
     }
 
-    var currentCursorPosition: Int {
-        return offset(from: beginningOfDocument, to: selectedTextRange!.start)
-    }
-
     func addToViewHiearchyAndBecomeFirstResponder() {
         let window = UIWindow()
         let view = UIView()
