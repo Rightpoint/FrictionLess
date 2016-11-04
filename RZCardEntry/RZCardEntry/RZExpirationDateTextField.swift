@@ -33,7 +33,8 @@ final class RZExpirationDateTextField: RZFormattableTextField {
     }
 
     override var valid: Bool {
-        return unformattedText.characters.count == maxLength
+        let unformatted = unformattedText
+        return unformatted.characters.count == maxLength && expirationDateIsPossible(unformatted)
     }
 
     override var deletingShouldRemoveTrailingCharacters: Bool {
@@ -44,54 +45,14 @@ final class RZExpirationDateTextField: RZFormattableTextField {
         return 4
     }
 
-    func expirationDateIsPossible(_ expDate: String) -> Bool {
-        guard expDate.characters.count > 0 else {
-            return true
-        }
-        let monthsRange = "01"..."12"
-        guard monthsRange.prefixMatches(expDate) else {
-            return false
-        }
-        //months valid, check year
-        guard expDate.characters.count > 2 else {
-            return true
-        }
-        let suffixString = expDate.substring(from: expDate.characters.index(expDate.startIndex, offsetBy: 2))
-        guard validYearRanges.contains(where: { $0.prefixMatches(suffixString) }), let suffixInt = Int(suffixString) else {
-            return false
-        }
-        //year valid, check month year combo
-        guard String(currentYearSuffix).prefixMatches(suffixString) else {
-            return true
-        }
-        guard !(suffixString.characters.count == 1 && String(currentYearSuffix + 1).prefixMatches(suffixString)) else {
-            //year is incomplete and can potentially be a future year
-            return true
-        }
-        return currentMonth >= suffixInt
+    var monthString: String? {
+        guard valid else { return nil }
+        return unformattedText.substring(fromNSRange: NSMakeRange(0, 2))
     }
 
-    static let validFutureExpYearRange = 30
-    var validYearRanges: [ClosedRange<String>] {
-        let shortYear = currentYearSuffix
-        var endYear = shortYear + RZExpirationDateTextField.validFutureExpYearRange
-        if endYear < 100 {
-            return [String(shortYear)...String(endYear)]
-        }
-        else {
-            endYear = endYear % 100
-            return [String(shortYear)..."99",
-                    "00"...String(endYear)]
-        }
-    }
-
-    var currentYearSuffix: Int {
-        let fullYear = (Calendar.current as NSCalendar).component(.year, from: Date())
-        return fullYear % 100
-    }
-
-    var currentMonth: Int {
-        return (Calendar.current as NSCalendar).component(.month, from: Date())
+    var yearString: String? {
+        guard valid else { return nil }
+        return unformattedText.substring(fromNSRange: NSMakeRange(2, 2))
     }
 
     override func willChangeCharactersIn(range: NSRange, replacementString string: String) {
@@ -129,7 +90,57 @@ private extension RZExpirationDateTextField {
             return
         }
     }
-    
+
+    static let validFutureExpYearRange = 30
+    var validYearRanges: [ClosedRange<String>] {
+        let shortYear = currentYearSuffix
+        var endYear = shortYear + RZExpirationDateTextField.validFutureExpYearRange
+        if endYear < 100 {
+            return [String(shortYear)...String(endYear)]
+        }
+        else {
+            endYear = endYear % 100
+            return [String(shortYear)..."99",
+                    "00"...String(endYear)]
+        }
+    }
+
+    func expirationDateIsPossible(_ expDate: String) -> Bool {
+        guard expDate.characters.count > 0 else {
+            return true
+        }
+        let monthsRange = "01"..."12"
+        guard monthsRange.prefixMatches(expDate) else {
+            return false
+        }
+        //months valid, check year
+        guard expDate.characters.count > 2 else {
+            return true
+        }
+        let suffixString = expDate.substring(from: expDate.characters.index(expDate.startIndex, offsetBy: 2))
+        guard validYearRanges.contains(where: { $0.prefixMatches(suffixString) }), let suffixInt = Int(suffixString) else {
+            return false
+        }
+        //year valid, check month year combo
+        guard String(currentYearSuffix).prefixMatches(suffixString) else {
+            return true
+        }
+        guard !(suffixString.characters.count == 1 && String(currentYearSuffix + 1).prefixMatches(suffixString)) else {
+            //year is incomplete and can potentially be a future year
+            return true
+        }
+        return currentMonth >= suffixInt
+    }
+
+    var currentYearSuffix: Int {
+        let fullYear = (Calendar.current as NSCalendar).component(.year, from: Date())
+        return fullYear % 100
+    }
+
+    var currentMonth: Int {
+        return (Calendar.current as NSCalendar).component(.month, from: Date())
+    }
+
     func formatString(_ text: String, cursorPosition: inout Int) -> String {
         let cursorPositionInFormattlessText = cursorPosition
         var formattedString = String()

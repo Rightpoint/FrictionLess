@@ -47,11 +47,15 @@ final class RZCardEntryCoordinator {
     }
 
     var cardNumber: String? {
-        return creditCardTextField?.text
+        return creditCardTextField?.unformattedText
     }
 
-    var expirationDate: String? {
-        return expirationDateTextField?.text
+    var expirationMonthString: String? {
+        return expirationDateTextField?.monthString
+    }
+
+    var expirationYearString: String? {
+        return expirationDateTextField?.yearString
     }
 
     var cvv: String? {
@@ -85,21 +89,6 @@ final class RZCardEntryCoordinator {
 
     func cvvImage(forState cardState:CardState) -> UIImage? {
         return nil
-/*
-        switch cardState {
-        case .identified(let cardType):
-            switch cardType{
-            case .visa:         return #imageLiteral(resourceName: "credit_cards_visa")
-            case .masterCard:   return #imageLiteral(resourceName: "credit_cards_mastercard")
-            case .amex:         return #imageLiteral(resourceName: "credit_cards_americanexpress")
-            case .diners:       return #imageLiteral(resourceName: "credit_cards_generic") //replace
-            case .discover:     return #imageLiteral(resourceName: "credit_cards_discover")
-            case .jcb:          return #imageLiteral(resourceName: "credit_cards_generic") //replace
-            }
-        case .invalid:      return #imageLiteral(resourceName: "credit_cards_generic") //replace
-        case .indeterminate: return #imageLiteral(resourceName: "credit_cards_generic") //replace
-        }
- */
     }
 
     func fieldBefore(field: RZFormattableTextField) -> RZFormattableTextField? {
@@ -139,6 +128,7 @@ final class RZCardEntryCoordinator {
             }
         }
     }
+
 }
 
 extension RZCardEntryCoordinator: RZTextFieldNavigationDelegate {

@@ -165,6 +165,10 @@ extension RZFormattableTextField {
 ////MARK: - NSRange, UITextRange, Range<> Helpers
 extension String {
 
+    func substring(fromNSRange range: NSRange) -> String {
+        return substring(with: self.range(fromNSRange: range))
+    }
+
     func range(fromNSRange range: NSRange) -> Range<String.Index> {
         return characters.index(startIndex, offsetBy: range.location)..<characters.index(startIndex, offsetBy: range.location + range.length)
     }
