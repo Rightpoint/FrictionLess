@@ -43,15 +43,6 @@ class RZFormattableTextField: UITextField {
     }
 
     @objc func textFieldDidChange(_ textField: UITextField) {
-        navigationDelegate?.textFieldDidChange(self)
-    }
-
-    @discardableResult override func becomeFirstResponder() -> Bool {
-        let didBecomeFirstResponder = super.becomeFirstResponder()
-        if didBecomeFirstResponder {
-            navigationDelegate?.textFieldDidBecomeFirstResponder(self)
-        }
-        return didBecomeFirstResponder
     }
 
     func isValid(replacementString: String) -> Bool {

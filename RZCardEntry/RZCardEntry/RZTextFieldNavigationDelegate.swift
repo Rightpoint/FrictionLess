@@ -6,12 +6,10 @@
 //  Copyright © 2016 Raizlabs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol RZTextFieldNavigationDelegate {
+protocol RZTextFieldNavigationDelegate: UITextFieldDelegate {
 
-    func textFieldDidBecomeFirstResponder(_ textField: RZFormattableTextField) //addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingBegan)
-    func textFieldDidChange(_ textField: RZFormattableTextField) //addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     func textField(_ textField: RZFormattableTextField, shouldForwardInput input: String)
     func textFieldBackspacePressedWithoutContent(_ textField: RZFormattableTextField)
 

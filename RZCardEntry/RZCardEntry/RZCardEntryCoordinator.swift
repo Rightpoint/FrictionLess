@@ -8,31 +8,31 @@
 
 import UIKit
 
-final class RZCardEntryCoordinator {
+final class RZCardEntryCoordinator: NSObject {
 
     var acceptedCardTypes: [CardType] = [.masterCard, .visa, .discover, .amex]
 
     var creditCardTextField: RZCardNumberTextField? {
         didSet {
-            creditCardTextField?.navigationDelegate = self
+            registerCallbacks(creditCardTextField)
         }
     }
 
     var expirationDateTextField: RZExpirationDateTextField? {
         didSet {
-            expirationDateTextField?.navigationDelegate = self
+            registerCallbacks(expirationDateTextField)
         }
     }
 
     var cvvTextField: RZCVVTextField? {
         didSet {
-            cvvTextField?.navigationDelegate = self
+            registerCallbacks(cvvTextField)
         }
     }
 
     var zipTextField: RZZipCodeTextField? {
         didSet {
-            zipTextField?.navigationDelegate = self
+            registerCallbacks(zipTextField)
         }
     }
 
@@ -132,6 +132,12 @@ final class RZCardEntryCoordinator {
 }
 
 extension RZCardEntryCoordinator: RZTextFieldNavigationDelegate {
+
+    func registerCallbacks(_ textField: RZFormattableTextField?) {
+        textField?.navigationDelegate = self
+        textField?.addTarget(self, action: #selector(textFieldDidBecomeFirstResponder), for: .editingDidBegin)
+        textField?.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
 
     func textFieldDidBecomeFirstResponder(_ textField: RZFormattableTextField) {
         if let textField = textField as? RZCardEntryTextField {
