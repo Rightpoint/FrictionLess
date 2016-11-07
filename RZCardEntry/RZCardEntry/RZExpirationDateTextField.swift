@@ -13,6 +13,9 @@ final class RZExpirationDateTextField: RZFormattableTextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         placeholder = "MM/YY"
+        inputCharacterSet = .decimalDigits
+        formattingCharacterSet = CharacterSet(charactersIn: "/")
+        deletingShouldRemoveTrailingCharacters = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -24,21 +27,9 @@ final class RZExpirationDateTextField: RZFormattableTextField {
         super.textFieldDidChange(textField)
     }
 
-    override var formattingCharacterSet: CharacterSet {
-        return CharacterSet(charactersIn: "/")
-    }
-
-    override var inputCharacterSet: CharacterSet {
-        return CharacterSet.decimalDigits
-    }
-
     override var valid: Bool {
         let unformatted = unformattedText
         return unformatted.characters.count == maxLength && expirationDateIsPossible(unformatted)
-    }
-
-    override var deletingShouldRemoveTrailingCharacters: Bool {
-        return true
     }
 
     var maxLength: Int {

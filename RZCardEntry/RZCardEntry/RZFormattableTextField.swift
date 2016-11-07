@@ -12,11 +12,15 @@ class RZFormattableTextField: UITextField {
 
     let internalDelegate = RZFormattableTextFieldDelegate()
     var externalDelegate: UITextFieldDelegate?
-
     var navigationDelegate: RZTextFieldNavigationDelegate?
+
+    var formattingCharacterSet = CharacterSet()
+    var inputCharacterSet = CharacterSet.alphanumerics
 
     var previousText: String?
     var previousSelection: UITextRange?
+
+    var deletingShouldRemoveTrailingCharacters = true
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,19 +61,7 @@ class RZFormattableTextField: UITextField {
         return rangeOfInvalidChar?.isEmpty ?? true
     }
 
-    var formattingCharacterSet: CharacterSet {
-        return CharacterSet()
-    }
-
-    var inputCharacterSet: CharacterSet {
-        return CharacterSet.alphanumerics
-    }
-
     var valid: Bool {
-        return false
-    }
-
-    var deletingShouldRemoveTrailingCharacters: Bool {
         return false
     }
 

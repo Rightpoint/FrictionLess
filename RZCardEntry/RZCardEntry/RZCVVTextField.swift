@@ -13,6 +13,7 @@ final class RZCVVTextField: RZCardEntryTextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         placeholder = "CVV"
+        inputCharacterSet = .decimalDigits
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -22,10 +23,6 @@ final class RZCVVTextField: RZCardEntryTextField {
     @objc override func textFieldDidChange(_ textField: UITextField) {
         sanitizeInput()
         super.textFieldDidChange(textField)
-    }
-
-    override var inputCharacterSet: CharacterSet {
-        return CharacterSet.decimalDigits
     }
 
     override var valid: Bool {

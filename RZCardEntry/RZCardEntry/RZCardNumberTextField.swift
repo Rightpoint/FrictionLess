@@ -15,6 +15,8 @@ final class RZCardNumberTextField: RZCardEntryTextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         placeholder = "0000\(emSpace)0000\(emSpace)0000\(emSpace)0000"
+        inputCharacterSet = .decimalDigits
+        formattingCharacterSet = .whitespaces
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -27,14 +29,6 @@ final class RZCardNumberTextField: RZCardEntryTextField {
             cardState = CardState.fromPrefix(textField.unformattedText)
         }
         super.textFieldDidChange(textField)
-    }
-
-    override var inputCharacterSet: CharacterSet {
-        return CharacterSet.decimalDigits
-    }
-
-    override var formattingCharacterSet: CharacterSet {
-        return CharacterSet.whitespaces
     }
 
     static func insertSpacesIntoString(_ text: String, cursorPosition: inout Int, groupings: [Int]) -> String {
