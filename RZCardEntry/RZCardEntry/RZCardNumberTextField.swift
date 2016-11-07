@@ -69,7 +69,10 @@ final class RZCardNumberTextField: RZCardEntryTextField {
     }
 
     override var valid: Bool {
-        return CardState.fromNumber(unformattedText) != CardState.invalid
+        if case CardState.identified(let card) = CardState.fromNumber(unformattedText) {
+            return card.isValid(accountNumber: unformattedText)
+        }
+        return false
     }
 
 }
