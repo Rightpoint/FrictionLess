@@ -116,6 +116,7 @@ private extension RZExpirationDateTextField {
         }
         //year valid, check month year combo
         guard String(currentYearSuffix).prefixMatches(yearSuffixString) else {
+            //If a future year, we don't have to check month
             return true
         }
         guard !(yearSuffixString.characters.count == 1 && String(currentYearSuffix + 1).prefixMatches(yearSuffixString)) else {
