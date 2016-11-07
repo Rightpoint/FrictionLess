@@ -21,7 +21,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .lightGray
 
         let ccTextField = RZCardNumberTextField()
-        ccTextField.delegate = self;
         let expTextField = RZExpirationDateTextField()
         let cvvTextField = RZCVVTextField()
         let imageView = RZCardImageView()

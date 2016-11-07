@@ -108,19 +108,22 @@ private extension RZExpirationDateTextField {
         guard expDate.characters.count > 2 else {
             return true
         }
-        let suffixString = expDate.substring(from: expDate.characters.index(expDate.startIndex, offsetBy: 2))
-        guard validYearRanges.contains(where: { $0.prefixMatches(suffixString) }), let suffixInt = Int(suffixString) else {
+        let separatorIndex = expDate.characters.index(expDate.startIndex, offsetBy: 2)
+        let monthString = expDate.substring(to: separatorIndex)
+        let yearSuffixString = expDate.substring(from: separatorIndex)
+        guard validYearRanges.contains(where: { $0.prefixMatches(yearSuffixString) }) else {
             return false
         }
         //year valid, check month year combo
-        guard String(currentYearSuffix).prefixMatches(suffixString) else {
+        guard String(currentYearSuffix).prefixMatches(yearSuffixString) else {
             return true
         }
-        guard !(suffixString.characters.count == 1 && String(currentYearSuffix + 1).prefixMatches(suffixString)) else {
+        guard !(yearSuffixString.characters.count == 1 && String(currentYearSuffix + 1).prefixMatches(yearSuffixString)) else {
             //year is incomplete and can potentially be a future year
             return true
         }
-        return currentMonth >= suffixInt
+
+        return String(currentMonth) >= monthString
     }
 
     var currentYearSuffix: Int {
@@ -138,9 +141,7 @@ private extension RZExpirationDateTextField {
 
         for (index, character) in text.characters.enumerated() {
             if index == 0 && text.characters.count == 1 && "2"..."9" ~= character {
-                formattedString.append("0")
-                formattedString.append(character)
-                formattedString.append("/")
+                formattedString.append("0\(character)/")
                 if index < cursorPositionInFormattlessText {
                     cursorPosition += 2
                 }
@@ -149,8 +150,7 @@ private extension RZExpirationDateTextField {
                 && !("1"..."2" ~= character) && validYearRanges.contains(where: { $0.prefixMatches(String(character)) }) {
                 //digit after leading 1 is not a valid month but is the start of a valid year.
                 formattedString.insert("0", at: formattedString.startIndex)
-                formattedString.append("/")
-                formattedString.append(character)
+                formattedString.append("/\(character)")
                 if index < cursorPositionInFormattlessText {
                     cursorPosition += 2
                 }

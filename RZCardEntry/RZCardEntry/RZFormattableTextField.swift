@@ -20,7 +20,7 @@ class RZFormattableTextField: UITextField {
     var previousText: String?
     var previousSelection: UITextRange?
 
-    var deletingShouldRemoveTrailingCharacters = true
+    var deletingShouldRemoveTrailingCharacters = false
 
     override init(frame: CGRect) {
         super.init(frame: frame)
