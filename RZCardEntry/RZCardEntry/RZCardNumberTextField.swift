@@ -32,33 +32,22 @@ final class RZCardNumberTextField: RZCardEntryTextField {
     }
 
     static func insertSpacesIntoString(_ text: String, cursorPosition: inout Int, groupings: [Int]) -> String {
-        let cursorPositionInSpacelessString = cursorPosition
+
         var addedSpacesString = String()
+        let cursorPositionInSpacelessString = cursorPosition
+        let spaceIndicies = groupings.dropLast().reduce([], { sums, element in
+            return sums + [element + (sums.last ?? -1)]
+        })
 
-        let shouldAddSpace: (Int, [Int]) -> Bool = { idx, groups in
-            var sum = 0
-            for grouping in groups.dropLast() { //don't add a space after the card number
-                sum += grouping
-                if idx > sum {
-                    continue
-                }
-                else {
-                    return idx == sum - 1
-                }
-            }
-            return false
-        }
-
-        for (index, character) in text.characters.enumerated() {
+        text.characters.enumerated().forEach { offset, character in
             addedSpacesString.append(character)
-            if shouldAddSpace(index, groupings) {
+            if spaceIndicies.contains(offset) {
                 addedSpacesString.append(emSpace)
-                if index < cursorPositionInSpacelessString {
+                if offset < cursorPositionInSpacelessString {
                     cursorPosition += 1
                 }
             }
         }
-
         return addedSpacesString
     }
 
