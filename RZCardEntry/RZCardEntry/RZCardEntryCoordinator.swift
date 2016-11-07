@@ -50,11 +50,11 @@ final class RZCardEntryCoordinator {
         return creditCardTextField?.unformattedText
     }
 
-    var expirationMonthString: String? {
+    var expirationMonth: String? {
         return expirationDateTextField?.monthString
     }
 
-    var expirationYearString: String? {
+    var expirationYear: String? {
         return expirationDateTextField?.yearString
     }
 
