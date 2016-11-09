@@ -87,17 +87,6 @@ class RZFormattableTextField: UITextField {
         shake()
     }
 
-    func shake() {
-        let animationKey = "shake"
-        layer.removeAnimation(forKey: animationKey)
-
-        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        animation.duration = 0.3
-        animation.values = [-10.0, 10.0, -10.0, 10.0, -5.0, 5.0, -2.5, 2.5, 0.0 ]
-        layer.add(animation, forKey: animationKey)
-    }
-
     override func deleteBackward() {
         if text?.characters.count == 0 {
             //if delete is pressed in an empty textfield, interpret this as a navigation to previous field
@@ -141,45 +130,6 @@ extension RZFormattableTextField {
         }
 
         return validChars
-    }
-
-}
-
-////MARK: - NSRange, UITextRange, Range<> Helpers
-extension String {
-
-    func substring(fromNSRange range: NSRange) -> String {
-        return substring(with: self.range(fromNSRange: range))
-    }
-
-    func range(fromNSRange range: NSRange) -> Range<String.Index> {
-        return characters.index(startIndex, offsetBy: range.location)..<characters.index(startIndex, offsetBy: range.location + range.length)
-    }
-
-}
-
-extension RZFormattableTextField {
-
-    var cursorOffset: Int {
-        guard let startPosition = selectedTextRange?.start else {
-            return 0
-        }
-        return offset(from: beginningOfDocument, to: startPosition)
-    }
-
-    func offsetTextRange(_ selection: UITextRange?, by offset: Int) -> UITextRange? {
-        guard let selection = selection, let start = self.position(from: selection.start, offset: offset),
-            let end = self.position(from: selection.end, offset: offset) else {
-                return nil
-        }
-        return textRange(from: start, to: end)
-    }
-
-    func textRange(cursorOffset: Int) -> UITextRange? {
-        guard let targetPosition = position(from: beginningOfDocument, offset: cursorOffset) else {
-            return nil
-        }
-        return textRange(from: targetPosition, to: targetPosition)
     }
 
 }
