@@ -41,8 +41,9 @@ class FieldProcessor: NSObject, FormValidation {
         if (deletedSingleChar && noTextSelected) {
             let range = text.range(fromNSRange: range)
             if text.rangeOfCharacter(from: formattingCharacterSet, options: NSString.CompareOptions(), range: range) != nil {
+                let selection = textField.selectedTextRange
                 textField.text?.removeSubrange(range)
-                if let selection = textField.selectedTextRange, let offset = textField.offsetTextRange(selection, by: -1) {
+                if let selection = selection, let offset = textField.offsetTextRange(selection, by: -1) {
                     textField.selectedTextRange = offset
                 }
             }
