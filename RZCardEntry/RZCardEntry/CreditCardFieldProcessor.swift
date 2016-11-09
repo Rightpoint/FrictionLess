@@ -33,11 +33,7 @@ class CreditCardFieldProcessor: FieldProcessor {
         return false
     }
 
-}
-
-private extension CreditCardFieldProcessor {
-
-    func reformat() {
+    override func reformat() {
         guard let textField = textField, let text = textField.text else { return }
 
         var cursorPos = textField.cursorOffset

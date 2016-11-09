@@ -14,7 +14,13 @@ protocol FormValidation {
 
 class FieldProcessor: NSObject, FormValidation {
 
-    weak var textField: UITextField?
+    weak var textField: UITextField? {
+        didSet {
+            textField?.delegate = self
+            textField?.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        }
+    }
+
     var inputCharacterSet = CharacterSet.alphanumerics
     var formattingCharacterSet = CharacterSet()
     var deletingShouldRemoveTrailingCharacters = false
@@ -54,6 +60,14 @@ class FieldProcessor: NSObject, FormValidation {
                 textField.text = textField.text?.substring(to: text.characters.index(text.startIndex, offsetBy: offset))
             }
         }
+    }
+
+    func editingChanged() {
+        reformat()
+    }
+
+    func reformat() {
+
     }
 
 }
@@ -98,7 +112,7 @@ extension String {
 }
 
 extension FieldProcessor: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     @objc func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //if user is inserting text at the end of a valid text field, alert delegate to potentially forward the input
         if range.location == textField.text?.characters.count && string.characters.count > 0 && valid {
             //textField.navigationDelegate?.textField(textField, shouldForwardInput: string)
