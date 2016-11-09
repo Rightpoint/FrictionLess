@@ -39,6 +39,12 @@ class CreditCardForm: FormValidation {
         }
     }
 
+    weak var imageView: UIImageView? {
+        didSet {
+            imageView?.image = cardImage(forState: creditCardValidation.cardState)
+        }
+    }
+
     var valid: Bool {
         return ![creditCardValidation, expirationDateValidation, cvvValidation, zipValidation].contains { !$0.valid }
     }
