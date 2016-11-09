@@ -24,8 +24,8 @@ class FieldProcessor: NSObject, FormValidation {
     }
 
     func isValid(replacementString: String) -> Bool {
-        let set = inputCharacterSet.union(formattingCharacterSet)
-        let rangeOfInvalidChar = replacementString.rangeOfCharacter(from: set)
+        let allowedSet = inputCharacterSet.union(formattingCharacterSet)
+        let rangeOfInvalidChar = replacementString.rangeOfCharacter(from: allowedSet.inverted)
         return rangeOfInvalidChar?.isEmpty ?? true
     }
 
