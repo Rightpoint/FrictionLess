@@ -6,7 +6,7 @@
 //  Copyright © 2016 Raizlabs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 fileprivate struct Constants {
      static let validFutureExpYearRange = 30
@@ -15,6 +15,12 @@ fileprivate struct Constants {
 class ExpirationDateFieldProcessor: FieldProcessor {
 
     let maxLength = 4
+
+    override var textField: UITextField? {
+        didSet {
+            textField?.placeholder = "MM/YY"
+        }
+    }
 
     override init() {
         super.init()
@@ -36,14 +42,10 @@ class ExpirationDateFieldProcessor: FieldProcessor {
 
     override var valid: Bool {
         let unformatted = unformattedText(textField)
-        return unformatted.characters.count == 0 && expirationDateIsPossible(unformatted)
+        return unformatted.characters.count == maxLength && expirationDateIsPossible(unformatted)
     }
 
-}
-
-private extension ExpirationDateFieldProcessor {
-
-    func reformat() {
+    override func reformat() {
         guard let textField = textField, let text = textField.text else { return }
 
         var cursorPos = textField.cursorOffset
@@ -62,6 +64,10 @@ private extension ExpirationDateFieldProcessor {
             return
         }
     }
+
+}
+
+private extension ExpirationDateFieldProcessor {
 
     func formatString(_ text: String, cursorPosition: inout Int) -> String {
         let cursorPositionInFormattlessText = cursorPosition

@@ -6,11 +6,17 @@
 //  Copyright © 2016 Raizlabs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class CVVFieldProcessor: FieldProcessor {
 
     var cardState: CardState = .indeterminate
+
+    override var textField: UITextField? {
+        didSet {
+            textField?.placeholder = "ZIP"
+        }
+    }
 
     override init() {
         super.init()
