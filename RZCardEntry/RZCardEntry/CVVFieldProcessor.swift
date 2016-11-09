@@ -14,7 +14,7 @@ class CVVFieldProcessor: FieldProcessor {
 
     override var textField: UITextField? {
         didSet {
-            textField?.placeholder = "ZIP"
+            textField?.placeholder = "CVV"
         }
     }
 
@@ -35,14 +35,8 @@ class CVVFieldProcessor: FieldProcessor {
         return unformattedText(textField).characters.count == maxLength
     }
 
-}
-
-private extension CVVFieldProcessor {
-
-    func format() {
-        if unformattedText(textField).characters.count > maxLength {
-            //rejectInput()
-        }
+    override func newTextIsValid(text: String?) -> Bool {
+        return unformattedText(textField).characters.count <= maxLength
     }
 
 }

@@ -27,14 +27,7 @@ class ZipCodeFieldProcessor: FieldProcessor {
         return unformattedText(textField).characters.count == maxLength
     }
 
-}
-
-private extension ZipCodeFieldProcessor {
-
-    func format() {
-        if unformattedText(textField).characters.count == maxLength {
-            //rejectInput()
-        }
+    override func newTextIsValid(text: String?) -> Bool {
+        return unformattedText(textField).characters.count <= maxLength
     }
-
 }

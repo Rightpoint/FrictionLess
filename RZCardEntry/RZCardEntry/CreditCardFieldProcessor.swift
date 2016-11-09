@@ -38,28 +38,35 @@ class CreditCardFieldProcessor: FieldProcessor {
 
         var cursorPos = textField.cursorOffset
         let cardNumber = removeFormatting(text, cursorPosition: &cursorPos)
+
         let cardState = CardState.fromPrefix(cardNumber)
-
-        guard cardState != .invalid else {
-            //rejectInput()
-            return
-        }
-
         if case .identified(let cardType) = cardState {
-            let cardLength = cardNumber.characters.count
-            guard cardLength <= cardType.maxLength else {
-                //rejectInput()
-                return
-            }
-            if cardLength == cardType.maxLength && !cardType.isValid(accountNumber: cardNumber) {
-                //notifyOfInvalidInput()
-            }
-
             textField.text = cardNumber.inserting(" ", formingGroupings: cardType.segmentGroupings, maintainingCursorPosition: &cursorPos)
             textField.selectedTextRange = textField.textRange(cursorOffset: cursorPos)
         }
 
         self.cardState = cardState
+    }
+
+    override func newTextIsValid(text: String?) -> Bool {
+        guard let text = text else { return true }
+        let cardNumber = removeFormatting(text)
+        let cardState = CardState.fromPrefix(cardNumber)
+
+        guard cardState != .invalid else {
+            return false
+        }
+        if case .identified(let cardType) = cardState {
+            let cardLength = cardNumber.characters.count
+            guard cardLength <= cardType.maxLength else {
+                return false
+            }
+            if cardLength == cardType.maxLength && !cardType.isValid(accountNumber: cardNumber) {
+                return false
+            }
+        }
+
+        return true
     }
 
 }

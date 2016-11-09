@@ -47,22 +47,29 @@ class ExpirationDateFieldProcessor: FieldProcessor {
 
     override func reformat() {
         guard let textField = textField, let text = textField.text else { return }
-
         var cursorPos = textField.cursorOffset
         let formatlessText = removeFormatting(text, cursorPosition: &cursorPos)
-
-        guard formatlessText.characters.count <= maxLength else {
-            //rejectInput()
-            return
-        }
         let formattedText = formatString(formatlessText, cursorPosition: &cursorPos)
         textField.text = formattedText
         textField.selectedTextRange = textField.textRange(cursorOffset: cursorPos)
+    }
 
-        guard expirationDateIsPossible(unformattedText(textField)) else {
-            //rejectInput()
-            return
+    override func newTextIsValid(text: String?) -> Bool {
+        guard let text = text else { return true }
+        let formatlessText = removeFormatting(text)
+
+        guard formatlessText.characters.count <= maxLength else {
+            return false
         }
+
+        var ignored = 0
+        let postFormatting = removeFormatting(formatString(formatlessText, cursorPosition: &ignored))
+
+        guard expirationDateIsPossible(postFormatting) else {
+            return false
+        }
+
+        return true
     }
 
 }

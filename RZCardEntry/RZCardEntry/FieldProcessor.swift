@@ -40,16 +40,19 @@ class FieldProcessor: NSObject, FormValidation {
         textField.shake()
     }
 
-    func handleDeletionOfFormatting(textField: UITextField, range: NSRange, replacementString string: String) {
-        guard let text = textField.text else { return }
+    func handleDeletionOfFormatting(textField: UITextField, range: NSRange, replacementString string: String) -> NSRange {
+        var adjustedRange = range
+        guard let text = textField.text else { return adjustedRange }
         let deletedSingleChar = range.length == 1
         let noTextSelected = textField.selectedTextRange?.isEmpty ?? true
         if (deletedSingleChar && noTextSelected) {
             let range = text.range(fromNSRange: range)
-            if text.rangeOfCharacter(from: formattingCharacterSet, options: NSString.CompareOptions(), range: range) != nil {
+            let deletedSingleFormattingChar = text.rangeOfCharacter(from: formattingCharacterSet, options: NSString.CompareOptions(), range: range) != nil
+            if deletedSingleFormattingChar {
                 let selection = textField.selectedTextRange
                 textField.text?.removeSubrange(range)
                 if let selection = selection, let offset = textField.offsetTextRange(selection, by: -1) {
+                    adjustedRange.location = adjustedRange.location - 1
                     textField.selectedTextRange = offset
                 }
             }
@@ -60,6 +63,7 @@ class FieldProcessor: NSObject, FormValidation {
                 textField.text = textField.text?.substring(to: text.characters.index(text.startIndex, offsetBy: offset))
             }
         }
+        return adjustedRange
     }
 
     func editingChanged(textField: UITextField) {
@@ -68,6 +72,14 @@ class FieldProcessor: NSObject, FormValidation {
 
     func reformat() {
 
+    }
+
+    func newTextIsValid(text: String?)->Bool {
+        let allowedSet = inputCharacterSet.union(formattingCharacterSet)
+        let rangeOfInvalidChar = text?.rangeOfCharacter(from: allowedSet.inverted)
+        guard rangeOfInvalidChar?.isEmpty ?? true else { return false }
+
+        return true
     }
 
 }
@@ -120,13 +132,21 @@ extension FieldProcessor: UITextFieldDelegate {
             return false
         }
 
-        guard isValid(replacementString: string) else {
-            inputInvalid(textField: textField)
-            return false
-        }
+        let adjustedRange = handleDeletionOfFormatting(textField: textField, range: range, replacementString: string)
 
-        handleDeletionOfFormatting(textField: textField, range: range, replacementString: string)
-        return true
+        if let range = textField.text?.range(fromNSRange: adjustedRange) {
+            let newText = textField.text?.replacingCharacters(in: range, with: string)
+            if newTextIsValid(text: newText) {
+//                textField.text = newText
+//                reformat()
+                return true
+            }
+            else {
+                inputInvalid(textField: textField)
+                return false
+            }
+        }
+        return false
     }
 
 }

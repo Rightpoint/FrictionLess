@@ -37,18 +37,21 @@ class CreditCardForm: FormValidation {
     weak var expirationTextField: UITextField? {
         didSet {
             expirationDateValidation.textField = expirationTextField
+            expirationTextField?.addTarget(self, action: #selector(editingChanged(textField:)), for: .editingChanged)
         }
     }
 
     weak var cvvTextField: UITextField? {
         didSet {
             cvvValidation.textField = cvvTextField
+            cvvTextField?.addTarget(self, action: #selector(editingChanged(textField:)), for: .editingChanged)
         }
     }
 
     weak var zipTextField: UITextField? {
         didSet {
             zipValidation.textField = zipTextField
+            zipTextField?.addTarget(self, action: #selector(editingChanged(textField:)), for: .editingChanged)
         }
     }
 
