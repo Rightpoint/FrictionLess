@@ -17,7 +17,7 @@ class FieldProcessor: NSObject, FormValidation {
     weak var textField: UITextField? {
         didSet {
             textField?.delegate = self
-            textField?.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+            textField?.addTarget(self, action: #selector(editingChanged(textField:)), for: .editingChanged)
         }
     }
 
@@ -62,7 +62,7 @@ class FieldProcessor: NSObject, FormValidation {
         }
     }
 
-    func editingChanged() {
+    func editingChanged(textField: UITextField) {
         reformat()
     }
 
@@ -112,7 +112,8 @@ extension String {
 }
 
 extension FieldProcessor: UITextFieldDelegate {
-     @objc func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //if user is inserting text at the end of a valid text field, alert delegate to potentially forward the input
         if range.location == textField.text?.characters.count && string.characters.count > 0 && valid {
             //textField.navigationDelegate?.textField(textField, shouldForwardInput: string)
@@ -127,4 +128,5 @@ extension FieldProcessor: UITextFieldDelegate {
         handleDeletionOfFormatting(textField: textField, range: range, replacementString: string)
         return true
     }
+
 }

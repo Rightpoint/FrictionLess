@@ -58,6 +58,8 @@ class CreditCardFieldProcessor: FieldProcessor {
             textField.text = cardNumber.inserting(" ", formingGroupings: cardType.segmentGroupings, maintainingCursorPosition: &cursorPos)
             textField.selectedTextRange = textField.textRange(cursorOffset: cursorPos)
         }
+
+        self.cardState = cardState
     }
 
 }

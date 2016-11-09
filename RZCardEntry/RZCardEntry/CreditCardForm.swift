@@ -14,10 +14,23 @@ class CreditCardForm: FormValidation {
     let expirationDateValidation = ExpirationDateFieldProcessor()
     let cvvValidation = CVVFieldProcessor()
     let zipValidation = ZipCodeFieldProcessor()
+    let validators: [FieldProcessor]
+
+    init() {
+        validators = [creditCardValidation,
+                      expirationDateValidation,
+                      cvvValidation,
+                      zipValidation]
+
+        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidDeleteBackwardNotification(note:)), name: Notification.Name(rawValue: UITextField.deleteBackwardNotificationName), object:nil)
+    }
+
+    var acceptedCardTypes: [CardType] = [.masterCard, .visa, .discover, .amex]
 
     weak var creditCardTextField: UITextField? {
         didSet {
             creditCardValidation.textField = creditCardTextField
+            creditCardTextField?.addTarget(self, action: #selector(editingChanged(textField:)), for: .editingChanged)
         }
     }
 
@@ -46,7 +59,7 @@ class CreditCardForm: FormValidation {
     }
 
     var valid: Bool {
-        return ![creditCardValidation, expirationDateValidation, cvvValidation, zipValidation].contains { !$0.valid }
+        return !validators.contains { !$0.valid }
     }
 
 }
@@ -73,4 +86,32 @@ extension CreditCardForm {
         return nil
     }
 
+    @objc func editingChanged(textField: UITextField) {
+        if textField == creditCardValidation.textField {
+            if case .identified(let card) = creditCardValidation.cardState, !acceptedCardTypes.contains(card) {
+                //TODO: card type not accepted error
+            }
+
+            cvvValidation.cardState = creditCardValidation.cardState
+            imageView?.image = cardImage(forState: creditCardValidation.cardState)
+        }
+        if let processor = validation(textField), processor.valid {
+            //move to next text field
+            print("valid")
+        }
+    }
+
+    @objc func textFieldDidDeleteBackwardNotification(note: NSNotification) {
+        if let textField = note.object as? UITextField, textField.text?.characters.count == 0 {
+            //move to previous text field.
+            print("delete pressed without content")
+        }
+    }
+
+    func validation(_ textField: UITextField) -> FieldProcessor? {
+        return validators.filter({ $0.textField == textField }).first
+    }
+
 }
+
+
