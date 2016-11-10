@@ -41,12 +41,6 @@ class FieldProcessor: NSObject, FormValidation {
         return true
     }
 
-    func isValid(replacementString: String) -> Bool {
-        let allowedSet = inputCharacterSet.union(formattingCharacterSet)
-        let rangeOfInvalidChar = replacementString.rangeOfCharacter(from: allowedSet.inverted)
-        return rangeOfInvalidChar?.isEmpty ?? true
-    }
-
     func inputInvalid(textField: UITextField) {
         //TODO: hook for override
         textField.shake()
