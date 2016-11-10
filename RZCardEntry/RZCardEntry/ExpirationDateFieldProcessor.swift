@@ -54,7 +54,7 @@ class ExpirationDateFieldProcessor: FieldProcessor {
         textField.selectedTextRange = textField.textRange(cursorOffset: cursorPos)
     }
 
-    override func newTextIsValid(text: String?) -> Bool {
+    override func replacementStringValid(text: String?) -> Bool {
         guard let text = text else { return true }
         let formatlessText = removeFormatting(text)
 

@@ -48,7 +48,7 @@ class CreditCardFieldProcessor: FieldProcessor {
         self.cardState = cardState
     }
 
-    override func newTextIsValid(text: String?) -> Bool {
+    override func replacementStringValid(text: String?) -> Bool {
         guard let text = text else { return true }
         let cardNumber = removeFormatting(text)
         let cardState = CardState.fromPrefix(cardNumber)

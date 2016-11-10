@@ -35,7 +35,7 @@ class CVVFieldProcessor: FieldProcessor {
         return unformattedText(textField).characters.count == maxLength
     }
 
-    override func newTextIsValid(text: String?) -> Bool {
+    override func replacementStringValid(text: String?) -> Bool {
         return unformattedText(textField).characters.count <= maxLength
     }
 

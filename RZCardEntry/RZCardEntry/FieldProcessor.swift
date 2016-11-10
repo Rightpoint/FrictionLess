@@ -80,7 +80,7 @@ class FieldProcessor: NSObject, FormValidation {
 
     }
 
-    func newTextIsValid(text: String?)->Bool {
+    func replacementStringValid(text: String?)->Bool {
         let allowedSet = inputCharacterSet.union(formattingCharacterSet)
         let rangeOfInvalidChar = text?.rangeOfCharacter(from: allowedSet.inverted)
         guard rangeOfInvalidChar?.isEmpty ?? true else { return false }
@@ -143,7 +143,7 @@ extension FieldProcessor: UITextFieldDelegate {
 
         if let range = textField.text?.range(fromNSRange: adjustedRange) {
             let newText = textField.text?.replacingCharacters(in: range, with: string)
-            if newTextIsValid(text: newText) {
+            if replacementStringValid(text: newText) {
 //              Should we do the edit ourselves? That would silences the edit notificaiton
 //                textField.text = newText
 //                reformat()
