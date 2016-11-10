@@ -21,8 +21,9 @@ class CreditCardForm: FormValidation {
                       expirationDateValidation,
                       cvvValidation,
                       zipValidation]
-
-        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidDeleteBackwardNotification(note:)), name: Notification.Name(rawValue: UITextField.deleteBackwardNotificationName), object:nil)
+        validators.forEach {
+            $0.navigationDelegate = self
+        }
     }
 
     var acceptedCardTypes: [CardType] = [.masterCard, .visa, .discover, .amex]
@@ -104,17 +105,37 @@ extension CreditCardForm {
         }
     }
 
-    @objc func textFieldDidDeleteBackwardNotification(note: NSNotification) {
-        if let textField = note.object as? UITextField, textField.text?.characters.count == 0 {
-            //move to previous text field.
-            print("delete pressed without content")
-        }
-    }
-
     func validation(_ textField: UITextField) -> FieldProcessor? {
         return validators.filter({ $0.textField == textField }).first
     }
 
+}
+
+extension CreditCardForm: FormNavigation {
+
+    func fieldProcessor(_ fieldProcessor: FieldProcessor, navigation: CharacterNavigation) {
+        switch navigation {
+        case .backspace:
+            previousProcessor(fieldProcessor)?.textField?.becomeFirstResponder()
+        case .overflow(let string):
+            nextProcessor(fieldProcessor)?.textField?.becomeFirstResponder()
+            nextProcessor(fieldProcessor)?.textField?.text = string
+        }
+    }
+
+}
+
+extension CreditCardForm {
+
+    func previousProcessor(_ processor: FieldProcessor) -> FieldProcessor? {
+        guard let idx = validators.index(of: processor), idx > validators.startIndex else { return nil }
+        return validators.suffix(from: idx - 1).first(where: { $0.textField != nil })
+    }
+
+    func nextProcessor(_ processor: FieldProcessor) -> FieldProcessor? {
+        guard let idx = validators.index(of: processor), idx < validators.endIndex else { return nil }
+        return validators.suffix(from: idx + 1).first(where: { $0.textField != nil })
+    }
 }
 
 

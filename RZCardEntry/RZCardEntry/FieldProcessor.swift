@@ -12,18 +12,30 @@ protocol FormValidation {
     var valid: Bool { get }
 }
 
+protocol FormNavigation {
+    func fieldProcessor(_ fieldProcessor: FieldProcessor, navigation: CharacterNavigation)
+}
+
+enum CharacterNavigation {
+    case backspace
+    case overflow(String)
+}
+
 class FieldProcessor: NSObject, FormValidation {
 
     weak var textField: UITextField? {
         didSet {
             textField?.delegate = self
             textField?.addTarget(self, action: #selector(editingChanged(textField:)), for: .editingChanged)
+            NotificationCenter.default.removeObserver(self)
+            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidDeleteBackwardNotification(note:)), name: Notification.Name(rawValue: UITextField.deleteBackwardNotificationName), object:textField)
         }
     }
 
     var inputCharacterSet = CharacterSet.alphanumerics
     var formattingCharacterSet = CharacterSet()
     var deletingShouldRemoveTrailingCharacters = false
+    var navigationDelegate: FormNavigation?
 
     var valid: Bool {
         return true
@@ -128,7 +140,7 @@ extension FieldProcessor: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //if user is inserting text at the end of a valid text field, alert delegate to potentially forward the input
         if range.location == textField.text?.characters.count && string.characters.count > 0 && valid {
-            //textField.navigationDelegate?.textField(textField, shouldForwardInput: string)
+            navigationDelegate?.fieldProcessor(self, navigation: .overflow(string))
             return false
         }
 
@@ -137,6 +149,7 @@ extension FieldProcessor: UITextFieldDelegate {
         if let range = textField.text?.range(fromNSRange: adjustedRange) {
             let newText = textField.text?.replacingCharacters(in: range, with: string)
             if newTextIsValid(text: newText) {
+//              Should we do the edit ourselves? That would silences the edit notificaiton
 //                textField.text = newText
 //                reformat()
                 return true
@@ -147,6 +160,16 @@ extension FieldProcessor: UITextFieldDelegate {
             }
         }
         return false
+    }
+
+}
+
+extension FieldProcessor {
+
+    @objc func textFieldDidDeleteBackwardNotification(note: NSNotification) {
+        if let textField = note.object as? UITextField, textField.text?.characters.count == 0 {
+            navigationDelegate?.fieldProcessor(self, navigation: .backspace)
+        }
     }
 
 }
