@@ -13,7 +13,7 @@ protocol FormValidation {
 }
 
 protocol FormNavigation {
-    func fieldProcessor(_ fieldProcessor: FieldProcessor, navigation: CharacterNavigation)
+    @discardableResult func fieldProcessor(_ fieldProcessor: FieldProcessor, navigation: CharacterNavigation) -> Bool
 }
 
 enum CharacterNavigation {
@@ -140,7 +140,8 @@ extension FieldProcessor: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //if user is inserting text at the end of a valid text field, alert delegate to potentially forward the input
         if range.location == textField.text?.characters.count && string.characters.count > 0 && valid {
-            navigationDelegate?.fieldProcessor(self, navigation: .overflow(string))
+            let _ = navigationDelegate?.fieldProcessor(self, navigation: .overflow(string))
+            //maybe do something here if we didn't overflow
             return false
         }
 

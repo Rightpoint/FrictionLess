@@ -100,8 +100,9 @@ extension CreditCardForm {
             imageView?.image = cardImage(forState: creditCardValidation.cardState)
         }
         if let processor = validation(textField), processor.valid {
-            //move to next text field
-            print("valid")
+            if nextProcessor(processor)?.textField?.text?.isEmpty ?? true {
+                nextProcessor(processor)?.textField?.becomeFirstResponder()
+            }
         }
     }
 
@@ -113,16 +114,26 @@ extension CreditCardForm {
 
 extension CreditCardForm: FormNavigation {
 
-    func fieldProcessor(_ fieldProcessor: FieldProcessor, navigation: CharacterNavigation) {
+    func fieldProcessor(_ fieldProcessor: FieldProcessor, navigation: CharacterNavigation) -> Bool {
         switch navigation {
         case .backspace:
             previousProcessor(fieldProcessor)?.textField?.becomeFirstResponder()
+            return true
         case .overflow(let string):
-            nextProcessor(fieldProcessor)?.textField?.becomeFirstResponder()
-            nextProcessor(fieldProcessor)?.textField?.text = string
+            guard let processor = nextProcessor(fieldProcessor), let textField = processor.textField, (textField.text?.isEmpty ?? true) else { return false }
+            textField.becomeFirstResponder()
+            let shouldChange = processor.textField(textField, shouldChangeCharactersIn: NSMakeRange(0, 0), replacementString: string)
+            if shouldChange {
+                textField.text = string
+                processor.reformat()
+                return true
+            }
+            else {
+                //shake?
+                return false
+            }
         }
     }
-
 }
 
 extension CreditCardForm {
