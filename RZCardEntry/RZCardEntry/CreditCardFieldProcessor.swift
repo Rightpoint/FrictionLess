@@ -10,7 +10,7 @@ import UIKit
 
 class CreditCardFieldProcessor: FieldProcessor {
 
-    var cardState: CardState = .indeterminate
+    var cardState: CardState = .indeterminate(CardType.allValues)
 
     override init() {
         super.init()

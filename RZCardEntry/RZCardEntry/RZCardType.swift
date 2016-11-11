@@ -8,21 +8,6 @@
 
 import Foundation
 
-enum CardState: Equatable {
-    case identified(CardType)
-    case indeterminate
-    case invalid
-}
-
-func ==(lhs: CardState, rhs: CardState) -> Bool {
-    switch (lhs, rhs) {
-    case (.invalid, .invalid): return true
-    case (.indeterminate, .indeterminate): return true
-    case (let .identified(card1), let .identified(card2)): return card1 == card2
-    default: return false
-    }
-}
-
 enum CardType {
     case visa
     case masterCard
@@ -112,6 +97,21 @@ private struct ValidationRequirement {
     }
 }
 
+enum CardState: Equatable {
+    case identified(CardType)
+    case indeterminate([CardType])
+    case invalid
+}
+
+func ==(lhs: CardState, rhs: CardState) -> Bool {
+    switch (lhs, rhs) {
+    case (.invalid, .invalid): return true
+    case (.indeterminate, .indeterminate): return true
+    case (let .identified(card1), let .identified(card2)): return card1 == card2
+    default: return false
+    }
+}
+
 extension CardState {
 
     static func fromNumber(_ cardNumber: String) -> CardState {
@@ -125,7 +125,7 @@ extension CardState {
 
     static func fromPrefix(_ cardPrefix: String) -> CardState {
         guard !cardPrefix.isEmpty else {
-            return .indeterminate
+            return .indeterminate(CardType.allValues)
         }
         
         let possibleTypes = CardType.allValues.filter { $0.isValidCardPrefix(cardPrefix) }
@@ -136,7 +136,7 @@ extension CardState {
             return .identified(card)
         }
         else {
-            return .indeterminate
+            return .indeterminate(possibleTypes)
         }
     }
 }

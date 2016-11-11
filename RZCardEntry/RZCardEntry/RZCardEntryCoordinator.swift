@@ -38,7 +38,7 @@ final class RZCardEntryCoordinator: NSObject {
 
     var imageView: UIImageView? {
         didSet {
-            imageView?.image = cardImage(forState: creditCardTextField?.cardState ?? .indeterminate)
+            imageView?.image = cardImage(forState: creditCardTextField?.cardState ?? .indeterminate([]))
         }
     }
 

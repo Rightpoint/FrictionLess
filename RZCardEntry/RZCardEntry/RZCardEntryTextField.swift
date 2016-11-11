@@ -10,6 +10,6 @@ import Foundation
 
 class RZCardEntryTextField: RZFormattableTextField {
 
-    var cardState: CardState = .indeterminate
+    var cardState: CardState = .indeterminate([])
     
 }

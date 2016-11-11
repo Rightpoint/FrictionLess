@@ -10,7 +10,7 @@ import UIKit
 
 class CVVFieldProcessor: FieldProcessor {
 
-    var cardState: CardState = .indeterminate
+    var cardState: CardState = .indeterminate(CardType.allValues)
 
     override var textField: UITextField? {
         didSet {
