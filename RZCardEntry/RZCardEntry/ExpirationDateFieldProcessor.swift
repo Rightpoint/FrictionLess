@@ -45,31 +45,25 @@ class ExpirationDateFieldProcessor: FieldProcessor {
         return unformatted.characters.count == maxLength && expirationDateIsPossible(unformatted)
     }
 
-    override func reformat() {
-        guard let textField = textField, let text = textField.text else { return }
-        var cursorPos = textField.cursorOffset
-        let formatlessText = removeFormatting(text, cursorPosition: &cursorPos)
-        let formattedText = formatString(formatlessText, cursorPosition: &cursorPos)
-        textField.text = formattedText
-        textField.selectedTextRange = textField.textRange(cursorOffset: cursorPos)
-    }
-
-    override func replacementStringValid(text: String?) -> Bool {
-        guard let text = text else { return true }
-        let formatlessText = removeFormatting(text)
-
-        guard formatlessText.characters.count <= maxLength else {
-            return false
+    override func validateAndFormat(edit: EditingEvent) -> ValidationResult {
+        var cursorPos = edit.newCursorPosition
+        var newExpirationDate = removeFormatting(edit.newValue, cursorPosition: &cursorPos)
+        guard newExpirationDate.characters.count <= maxLength else {
+            return .invalid
         }
 
-        var ignored = 0
-        let postFormatting = removeFormatting(formatString(formatlessText, cursorPosition: &ignored))
-
-        guard expirationDateIsPossible(postFormatting) else {
-            return false
+        //If user manually enters formatting character after a 1, pad with a leading 0
+        if edit.editRange.location == 1 && edit.editString == "/" {
+            newExpirationDate.insert("0", at: newExpirationDate.startIndex)
+            cursorPos += 1
         }
 
-        return true
+        let formatted = formatString(newExpirationDate, cursorPosition: &cursorPos)
+        guard expirationDateIsPossible(removeFormatting(formatted)) else {
+            return .invalid
+        }
+
+        return .valid(formatted, cursorPos)
     }
 
 }

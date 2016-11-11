@@ -33,42 +33,36 @@ class CreditCardFieldProcessor: FieldProcessor {
         return false
     }
 
-    override func reformat() {
-        guard let textField = textField, let text = textField.text else { return }
+    override func validateAndFormat(edit: EditingEvent) -> ValidationResult {
+        var cursorPos = edit.newCursorPosition
+        let newCardNumber = removeFormatting(edit.newValue, cursorPosition: &cursorPos)
+        let newCardState = CardState.fromPrefix(newCardNumber)
 
-        var cursorPos = textField.cursorOffset
-        let cardNumber = removeFormatting(text, cursorPosition: &cursorPos)
-
-        let cardState = CardState.fromPrefix(cardNumber)
-        if case .identified(let cardType) = cardState {
-            textField.text = cardNumber.inserting(" ", formingGroupings: cardType.segmentGroupings, maintainingCursorPosition: &cursorPos)
-            textField.selectedTextRange = textField.textRange(cursorOffset: cursorPos)
-        }
-
-        self.cardState = cardState
-    }
-
-    override func replacementStringValid(text: String?) -> Bool {
-        guard let text = text else { return true }
-        let cardNumber = removeFormatting(text)
-        let cardState = CardState.fromPrefix(cardNumber)
-
-        guard cardState != .invalid else {
-            return false
-        }
-        if case .identified(let cardType) = cardState {
-            let cardLength = cardNumber.characters.count
-            guard cardLength <= cardType.maxLength else {
-                return false
+        let result: ValidationResult = {
+            switch cardState {
+            case .invalid:
+                return .invalid
+            case .indeterminate:
+                return .valid(edit.newValue, edit.newCursorPosition)
+            case .identified(let card):
+                let cardLength = newCardNumber.characters.count
+                guard cardLength <= card.maxLength else {
+                    return .invalid
+                }
+                if cardLength == card.maxLength && !card.isValid(accountNumber: newCardNumber) {
+                    return .invalid
+                }
+                let formatted = newCardNumber.inserting(" ", formingGroupings: card.segmentGroupings, maintainingCursorPosition: &cursorPos)
+                return .valid(formatted, cursorPos)
             }
-            if cardLength == cardType.maxLength && !cardType.isValid(accountNumber: cardNumber) {
-                return false
-            }
+        }()
+
+        if case .valid(_) = result {
+            cardState = newCardState
         }
 
-        return true
+        return result
     }
-
 }
 
 extension String {

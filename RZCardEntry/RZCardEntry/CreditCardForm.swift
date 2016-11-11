@@ -122,10 +122,8 @@ extension CreditCardForm: FormNavigation {
         case .overflow(let string):
             guard let processor = nextProcessor(fieldProcessor), let textField = processor.textField, (textField.text?.isEmpty ?? true) else { return false }
             textField.becomeFirstResponder()
-            let shouldChange = processor.textField(textField, shouldChangeCharactersIn: NSMakeRange(0, 0), replacementString: string)
-            if shouldChange {
-                textField.text = string
-                processor.reformat()
+            let didChange = processor.textField(textField, shouldChangeCharactersIn: NSMakeRange(0, 0), replacementString: string)
+            if didChange {
                 return true
             }
             else {
@@ -134,6 +132,7 @@ extension CreditCardForm: FormNavigation {
             }
         }
     }
+    
 }
 
 extension CreditCardForm {
