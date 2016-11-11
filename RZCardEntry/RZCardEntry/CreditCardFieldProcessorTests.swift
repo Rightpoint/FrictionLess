@@ -1,16 +1,16 @@
 //
-//  RZCardNumberTextFieldTests.swift
+//  CreditCardFieldProcessorTests.swift
 //  RZCardEntry
 //
-//  Created by Jason Clark on 9/22/16.
+//  Created by Jason Clark on 11/11/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.
 //
 
 import XCTest
 @testable import RZCardEntry
 
-class RZCardNumberTextFieldTests: XCTestCase {
-
+class CreditCardFieldProcessorTests: XCTestCase {
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,7 +21,7 @@ class RZCardNumberTextFieldTests: XCTestCase {
         super.tearDown()
     }
 
-    func testRemoveNonDigitsAndPreseverCursorPosition() {
+    func testRemoveFormatting() {
         let set = CharacterSet.decimalDigits
         var input: String
         var output: String
@@ -34,42 +34,42 @@ class RZCardNumberTextFieldTests: XCTestCase {
         cursorPosition = 1  // 1|2
         expectedCursorPosition = 1
 
-        output = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        output = input.filteringWith(characterSet: set, cursorPosition: &cursorPosition)
         XCTAssert(output == expectedOutput)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 4  // 4| 5
         expectedCursorPosition = 4
-        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet: set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 5  // 4 |5
         expectedCursorPosition = 4
-        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet: set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 9  // 8| 9
         expectedCursorPosition = 8
-        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet: set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 10  // 8 |9
         expectedCursorPosition = 8
-        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet: set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 14  // 8| 7
         expectedCursorPosition = 12
-        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet: set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 15  // 8 |7
         expectedCursorPosition = 12
-        let _ = RZCardEntryTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet: set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
     }
 
-    func testInsertSpaces() {
+    func testFormatting() {
         //test visa spaces
         var groupings = [4,4,4,4] //visa/mastercard/discover: 4444 3333 2222 1111
         testInsertSpaces(groupings, input: "123", cursorPosition: 3, expectedOutput: "123", expectedOutputCursorPosition: 3)
@@ -103,7 +103,9 @@ class RZCardNumberTextFieldTests: XCTestCase {
         let diners = ("38520000023237", "3852 000002 3237")
 
         [visa, amex, discover, masterCard, diners].forEach { input, expectedOutput in
-            let textField = RZCardNumberTextField()
+            let textField = UITextField()
+            let delegate = CreditCardFieldProcessor()
+            textField.delegate = delegate
             textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
             XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
         }
@@ -111,7 +113,9 @@ class RZCardNumberTextFieldTests: XCTestCase {
 
     func testDeletingContent() {
         //text field needs to be in a view in a window for responder chain to work.
-        let textField = RZCardNumberTextField()
+        let textField = UITextField()
+        let delegate = CreditCardFieldProcessor()
+        textField.delegate = delegate
         textField.addToViewHiearchyAndBecomeFirstResponder()
 
         var expectedOutpt: String
@@ -154,7 +158,9 @@ class RZCardNumberTextFieldTests: XCTestCase {
     }
 
     func testAddingContent() {
-        let textField = RZCardNumberTextField()
+        let textField = UITextField()
+        let delegate = CreditCardFieldProcessor()
+        textField.delegate = delegate
         textField.addToViewHiearchyAndBecomeFirstResponder()
 
         var expectedOutpt: String
@@ -211,7 +217,9 @@ class RZCardNumberTextFieldTests: XCTestCase {
     }
 
     func testInsertingTextWithOtherTextSelected() {
-        let textField = RZCardNumberTextField()
+        let textField = UITextField()
+        let delegate = CreditCardFieldProcessor()
+        textField.delegate = delegate
         textField.addToViewHiearchyAndBecomeFirstResponder()
 
         var expectedOutpt: String
@@ -235,13 +243,13 @@ class RZCardNumberTextFieldTests: XCTestCase {
 }
 
 //MARK: - Support Functions
-extension RZCardNumberTextFieldTests {
+extension CreditCardFieldProcessorTests {
 
     func testInsertSpaces(_ groupings: [Int], input: String, cursorPosition: Int, expectedOutput: String, expectedOutputCursorPosition: Int) {
         var cursorPos = cursorPosition
-        let output = RZCardNumberTextField.insertSpacesIntoString(input, cursorPosition: &cursorPos, groupings: groupings)
+        let output = input.inserting(" ", formingGroupings: groupings, maintainingCursorPosition: &cursorPos)
         XCTAssert(output == expectedOutput, "expected \(expectedOutput) got \(output)")
         XCTAssert(cursorPos == expectedOutputCursorPosition, "expected cursor position \(expectedOutputCursorPosition) got \(cursorPos)")
     }
-
+    
 }

@@ -1,16 +1,16 @@
 //
-//  RZExpirationDateTextFieldTests.swift
+//  ExpirationDateFieldProcessorTests.swift
 //  RZCardEntry
 //
-//  Created by Jason Clark on 9/27/16.
+//  Created by Jason Clark on 11/11/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.
 //
 
 import XCTest
 @testable import RZCardEntry
 
-class RZExpirationDateTextFieldTests: XCTestCase {
-
+class ExpirationDateFieldProcessorTests: XCTestCase {
+    
     override func setUp() {
         super.setUp()
     }
@@ -19,7 +19,7 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         super.tearDown()
     }
 
-    func testRemoveNonDigits() {
+    func testRemoveFormatting() {
         let set = CharacterSet.decimalDigits
         var input: String
         var output: String
@@ -32,23 +32,23 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         cursorPosition = 0  // |03/20
         expectedCursorPosition = 0
 
-        output = RZFormattableTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        output = input.filteringWith(characterSet:set, cursorPosition: &cursorPosition)
         XCTAssert(output == expectedOutput)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 1  // 0|3/20
         expectedCursorPosition = 1
-        let _ = RZFormattableTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet:set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 3  //03/|20
         expectedCursorPosition = 2
-        let _ = RZFormattableTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet:set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 5  //03/20|
         expectedCursorPosition = 4
-        let _ = RZFormattableTextField.removeCharactersNotContainedIn(characterSet: set, text: input, cursorPosition: &cursorPosition)
+        let _ = input.filteringWith(characterSet:set, cursorPosition: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
     }
 
@@ -56,7 +56,9 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         var input: String
         var expectedOutput: String
         var expectedCursorPosition: Int
-        let textField = RZExpirationDateTextField()
+        let textField = UITextField()
+        let delegate = ExpirationDateFieldProcessor()
+        textField.delegate = delegate
         textField.addToViewHiearchyAndBecomeFirstResponder()
 
         //leading with 1 could be Jan, Oct, Nov, Dec. Do not format
@@ -100,7 +102,6 @@ class RZExpirationDateTextFieldTests: XCTestCase {
         expectedOutput = ""
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
         XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
-
     }
 
 }

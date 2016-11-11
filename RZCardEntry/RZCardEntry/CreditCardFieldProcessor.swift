@@ -39,7 +39,7 @@ class CreditCardFieldProcessor: FieldProcessor {
         let newCardState = CardState.fromPrefix(newCardNumber)
 
         let result: ValidationResult = {
-            switch cardState {
+            switch newCardState {
             case .invalid:
                 return .invalid
             case .indeterminate:

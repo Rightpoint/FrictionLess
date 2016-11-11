@@ -132,7 +132,7 @@ extension CreditCardForm: FormNavigation {
             }
         }
     }
-    
+
 }
 
 extension CreditCardForm {
