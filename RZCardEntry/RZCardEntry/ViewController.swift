@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    let form = CreditCardForm()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,16 +22,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .lightGray
 
-        let ccTextField = RZCardNumberTextField()
-        let expTextField = RZExpirationDateTextField()
-        let cvvTextField = RZCVVTextField()
-        let imageView = RZCardImageView()
+        let ccTextField = UITextField()
+        let expTextField = UITextField()
+        let cvvTextField = UITextField()
+        let imageView = UIImageView()
 
-        let coordinator = RZCardEntryCoordinator()
-        coordinator.creditCardTextField = ccTextField
-        coordinator.expirationDateTextField = expTextField
-        coordinator.cvvTextField = cvvTextField
-        coordinator.imageView = imageView
+        form.creditCardTextField = ccTextField
+        form.expirationTextField = expTextField
+        form.cvvTextField = cvvTextField
+        form.imageView = imageView
 
         [ccTextField, expTextField, cvvTextField].forEach {
             $0.backgroundColor = .white
