@@ -161,10 +161,13 @@ extension CardType {
 }
 
 private protocol PrefixContainable {
+
     func prefixMatches(_ text: String) -> Bool
+    
 }
 
 extension ClosedRange: PrefixContainable {
+
     func prefixMatches(_ text: String) -> Bool {
 
         //cannot include Where clause in protocol conformance, so have to ensure Bound == String :(
@@ -180,11 +183,14 @@ extension ClosedRange: PrefixContainable {
         let trimmedText = String(text.characters.prefix(trimmedRange.lowerBound.characters.count))
         return trimmedRange ~= trimmedText
     }
+
 }
 
 extension String: PrefixContainable {
+
     func prefixMatches(_ text: String) -> Bool {
         return hasPrefix(text) || text.hasPrefix(self)
     }
+
 }
 
