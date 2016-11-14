@@ -28,7 +28,7 @@ class CreditCardFieldProcessor: FieldProcessor {
     override var valid: Bool {
         let accountNumber = unformattedText(textField)
         if case CardState.identified(let card) = CardState.fromNumber(accountNumber) {
-            return card.isValid(accountNumber: accountNumber)
+            return card.valid(accountNumber)
         }
         return false
     }
@@ -49,7 +49,7 @@ class CreditCardFieldProcessor: FieldProcessor {
                 guard cardLength <= card.maxLength else {
                     return .invalid
                 }
-                if cardLength == card.maxLength && !card.isValid(accountNumber: newCardNumber) {
+                if cardLength == card.maxLength && !card.valid(newCardNumber) {
                     return .invalid
                 }
                 let formatted = newCardNumber.inserting(" ", formingGroupings: card.segmentGroupings, maintainingCursorPosition: &cursorPos)

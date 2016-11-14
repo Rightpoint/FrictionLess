@@ -70,11 +70,11 @@ enum CardType {
         }
     }
 
-    func isValid(accountNumber: String) -> Bool {
+    func valid(_ accountNumber: String) -> Bool {
         return validationRequirements.valid(accountNumber) && CardType.luhnCheck(accountNumber)
     }
 
-    func isValidCardPrefix(_ accountNumber: String) -> Bool {
+    func prefixValid(_ accountNumber: String) -> Bool {
         return validationRequirements.prefixValid(accountNumber)
     }
 
@@ -140,7 +140,7 @@ extension CardState {
 
     static func fromNumber(_ cardNumber: String) -> CardState {
         for cardType in CardType.allValues {
-            if cardType.isValid(accountNumber: cardNumber) {
+            if cardType.valid(cardNumber) {
                 return .identified(cardType)
             }
         }
@@ -152,7 +152,7 @@ extension CardState {
             return .indeterminate(CardType.allValues)
         }
         
-        let possibleTypes = CardType.allValues.filter { $0.isValidCardPrefix(cardPrefix) }
+        let possibleTypes = CardType.allValues.filter { $0.prefixValid(cardPrefix) }
         guard let card = possibleTypes.first else {
             return .invalid
         }
