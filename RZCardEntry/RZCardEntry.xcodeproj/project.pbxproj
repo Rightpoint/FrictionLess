@@ -16,7 +16,7 @@
 		002DC7D71DD28AA000899FC1 /* CVVFieldProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DC7D61DD28AA000899FC1 /* CVVFieldProcessor.swift */; };
 		002DC7D91DD28B6D00899FC1 /* ZipCodeFieldProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DC7D81DD28B6D00899FC1 /* ZipCodeFieldProcessor.swift */; };
 		002DC7DB1DD368EB00899FC1 /* CreditCardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */; };
-		002EECE01D22C2010005F19C /* RZCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDF1D22C2010005F19C /* RZCardType.swift */; };
+		002EECE01D22C2010005F19C /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDF1D22C2010005F19C /* CardType.swift */; };
 		002F76E11DD669B500B93CAB /* CreditCardFieldProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F76E01DD669B500B93CAB /* CreditCardFieldProcessorTests.swift */; };
 		002F76E51DD6754700B93CAB /* ExpirationDateFieldProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002F76E41DD6754700B93CAB /* ExpirationDateFieldProcessorTests.swift */; };
 		00F19A1D1D9AE279009418B1 /* FieldProcessorTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F19A1C1D9AE279009418B1 /* FieldProcessorTestHelpers.swift */; };
@@ -54,7 +54,7 @@
 		002DC7D61DD28AA000899FC1 /* CVVFieldProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVVFieldProcessor.swift; sourceTree = "<group>"; };
 		002DC7D81DD28B6D00899FC1 /* ZipCodeFieldProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipCodeFieldProcessor.swift; sourceTree = "<group>"; };
 		002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardForm.swift; sourceTree = "<group>"; };
-		002EECDF1D22C2010005F19C /* RZCardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RZCardType.swift; sourceTree = "<group>"; };
+		002EECDF1D22C2010005F19C /* CardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		002F76E01DD669B500B93CAB /* CreditCardFieldProcessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardFieldProcessorTests.swift; sourceTree = "<group>"; };
 		002F76E41DD6754700B93CAB /* ExpirationDateFieldProcessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationDateFieldProcessorTests.swift; sourceTree = "<group>"; };
 		00F19A1C1D9AE279009418B1 /* FieldProcessorTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldProcessorTestHelpers.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			children = (
 				00F95A161D219EA100DB5839 /* AppDelegate.swift */,
 				00F95A181D219EA100DB5839 /* ViewController.swift */,
-				002EECDF1D22C2010005F19C /* RZCardType.swift */,
+				002EECDF1D22C2010005F19C /* CardType.swift */,
 				002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */,
 				002DC7C91DD22A3600899FC1 /* Field Processors */,
 				002F76E61DD6777800B93CAB /* Helpers */,
@@ -320,7 +320,7 @@
 				002DC7D91DD28B6D00899FC1 /* ZipCodeFieldProcessor.swift in Sources */,
 				002DC7D71DD28AA000899FC1 /* CVVFieldProcessor.swift in Sources */,
 				00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */,
-				002EECE01D22C2010005F19C /* RZCardType.swift in Sources */,
+				002EECE01D22C2010005F19C /* CardType.swift in Sources */,
 				002DC7D51DD26D5900899FC1 /* ExpirationDateFieldProcessor.swift in Sources */,
 				002DC7CB1DD22B8F00899FC1 /* FieldProcessor.swift in Sources */,
 				002DC7CF1DD2483900899FC1 /* RangeHelpers.swift in Sources */,

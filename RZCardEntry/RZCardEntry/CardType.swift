@@ -1,6 +1,6 @@
 //
-//  RZCardType.swift
-//  RZCardEntry
+//  CardType.swift
+//  CardEntry
 //
 //  Created by Jason Clark on 6/28/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.
