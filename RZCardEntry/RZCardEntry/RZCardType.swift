@@ -8,6 +8,8 @@
 
 import Foundation
 
+//MARK: - CardType
+
 enum CardType {
     case visa
     case masterCard
@@ -69,40 +71,62 @@ enum CardType {
     }
 
     func isValid(accountNumber: String) -> Bool {
-        return validationRequirements.isValid(accountNumber) && CardType.luhnCheck(accountNumber)
+        return validationRequirements.valid(accountNumber) && CardType.luhnCheck(accountNumber)
     }
 
     func isValidCardPrefix(_ accountNumber: String) -> Bool {
-        return validationRequirements.isValidPrefix(accountNumber)
+        return validationRequirements.prefixValid(accountNumber)
     }
 
 }
 
-private struct ValidationRequirement {
-    var prefixes = [PrefixContainable]()
-    var lengths = [Int]()
+fileprivate extension CardType {
 
-    func isValid(_ accountNumber: String) -> Bool {
-        return isValidLength(accountNumber) && isValidPrefix(accountNumber)
+    struct ValidationRequirement {
+        var prefixes = [PrefixContainable]()
+        var lengths = [Int]()
+
+        func valid(_ accountNumber: String) -> Bool {
+            return lengthValid(accountNumber) && prefixValid(accountNumber)
+        }
+
+        func prefixValid(_ accountNumber: String) -> Bool {
+            guard prefixes.count > 0 else { return true }
+            return prefixes.contains { $0.prefixMatches(accountNumber) }
+        }
+
+        func lengthValid(_ accountNumber: String) -> Bool {
+            guard lengths.count > 0 else { return true }
+            return lengths.contains { accountNumber.characters.count == $0 }
+        }
     }
 
-    func isValidPrefix(_ accountNumber: String) -> Bool {
-        guard prefixes.count > 0 else { return true }
-        return prefixes.contains { $0.prefixMatches(accountNumber) }
+    // from: https://gist.github.com/cwagdev/635ce973e8e86da0403a
+    static func luhnCheck(_ cardNumber: String) -> Bool {
+        var sum = 0
+        let reversedCharacters = cardNumber.characters.reversed().map { String($0) }
+        for (idx, element) in reversedCharacters.enumerated() {
+            guard let digit = Int(element) else { return false }
+            switch ((idx % 2 == 1), digit) {
+            case (true, 9): sum += 9
+            case (true, 0...8): sum += (digit * 2) % 9
+            default: sum += digit
+            }
+        }
+        return sum % 10 == 0
     }
 
-    func isValidLength(_ accountNumber: String) -> Bool {
-        guard lengths.count > 0 else { return true }
-        return lengths.contains { accountNumber.characters.count == $0 }
-    }
 }
 
-enum CardState: Equatable {
+//MARK: - CardState
+
+enum CardState {
     case identified(CardType)
     case indeterminate([CardType])
     case invalid
 }
 
+extension CardState: Equatable {}
 func ==(lhs: CardState, rhs: CardState) -> Bool {
     switch (lhs, rhs) {
     case (.invalid, .invalid): return true
@@ -141,26 +165,9 @@ extension CardState {
     }
 }
 
-extension CardType {
+//MARK: - PrefixContainable
 
-    // from: https://gist.github.com/cwagdev/635ce973e8e86da0403a
-    fileprivate static func luhnCheck(_ cardNumber: String) -> Bool {
-        var sum = 0
-        let reversedCharacters = cardNumber.characters.reversed().map { String($0) }
-        for (idx, element) in reversedCharacters.enumerated() {
-            guard let digit = Int(element) else { return false }
-            switch ((idx % 2 == 1), digit) {
-            case (true, 9): sum += 9
-            case (true, 0...8): sum += (digit * 2) % 9
-            default: sum += digit
-            }
-        }
-        return sum % 10 == 0
-    }
-
-}
-
-private protocol PrefixContainable {
+fileprivate protocol PrefixContainable {
 
     func prefixMatches(_ text: String) -> Bool
     
