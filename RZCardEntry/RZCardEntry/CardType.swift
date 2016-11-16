@@ -138,112 +138,66 @@ func ==(lhs: CardState, rhs: CardState) -> Bool {
 
 extension CardState {
 
-    init(fromNumber number: String) {
+    static func fromNumber(_ cardNumber: String) -> CardState {
         for cardType in CardType.allValues {
-            if cardType.valid(number) {
-                self = .identified(cardType)
+            if cardType.valid(cardNumber) {
+                return .identified(cardType)
             }
         }
-        self = .invalid
+        return .invalid
     }
 
-    init(fromPrefix prefix: String) {
-        guard !prefix.isEmpty else {
-            self = .indeterminate(CardType.allValues)
-            return
+    static func fromPrefix(_ cardPrefix: String) -> CardState {
+        guard !cardPrefix.isEmpty else {
+            return .indeterminate(CardType.allValues)
         }
-
-        let possibleTypes = CardType.allValues.filter { $0.prefixValid(prefix) }
+        
+        let possibleTypes = CardType.allValues.filter { $0.prefixValid(cardPrefix) }
         guard let card = possibleTypes.first else {
-            self = .invalid
-            return
+            return .invalid
         }
         if possibleTypes.count == 1 {
-            self = .identified(card)
+            return .identified(card)
         }
         else {
-            self = .indeterminate(possibleTypes)
+            return .indeterminate(possibleTypes)
         }
     }
-
 }
 
 //MARK: - PrefixContainable
 
-extension Range where Bound: Comparable {
-
-}
-
 fileprivate protocol PrefixContainable {
 
-    func hasCommonPrefix(_ element: String) -> Bool
-    func prefix(_ maxLength: Int) -> Self?
-
+    func prefixMatches(_ text: String) -> Bool
+    
 }
 
-extension ClosedRange where Bound: PrefixContainable {
+extension ClosedRange: PrefixContainable {
 
-//    func hasCommonPrefix(_ text: String) -> Bool {
-//
-//        //cannot include Where clause in protocol conformance, so have to ensure Bound == String :(
-//        guard !text.isEmpty, let lower = lowerBound as? String, let upper = upperBound as? String else { return false }
-//
-//        let trimmedRange: ClosedRange<String> = {
-//            let length = text.characters.count
-//            let trimmedStart = String(lower.characters.prefix(length))
-//            let trimmedEnd = String(upper.characters.prefix(length))
-//            return trimmedStart...trimmedEnd
-//        }()
-//
-//        let trimmedText = String(text.characters.prefix(trimmedRange.lowerBound.characters.count))
-//        return trimmedRange ~= trimmedText
-//    }
+    func prefixMatches(_ text: String) -> Bool {
 
+        //cannot include Where clause in protocol conformance, so have to ensure Bound == String :(
+        guard !text.isEmpty, let lower = lowerBound as? String, let upper = upperBound as? String else { return false }
 
-    func hasCommonPrefix(_ text: String) -> Bool {
-        //cannot include Where clause in protocol conformance, so have to ensure Bound: PrefixContainable :(
+        let trimmedRange: ClosedRange<String> = {
+            let length = text.characters.count
+            let trimmedStart = String(lower.characters.prefix(length))
+            let trimmedEnd = String(upper.characters.prefix(length))
+            return trimmedStart...trimmedEnd
+        }()
 
-        let length = text.characters.count
-        if let trimmedRange = prefix(length) {
-            return trimmedRange ~= text as! Bound
-        }
-
-        return false
-    }
-
-    func prefix(_ maxLength: Int) -> ClosedRange<Bound>? {
-        guard let lowerPrefix = lowerBound.prefix(maxLength),
-              let upperPrefix = upperBound.prefix(maxLength) else {
-                 return nil
-        }
-
-        return ClosedRange(uncheckedBounds: (lowerPrefix, upperPrefix))
-    }
-}
-
-extension Int: PrefixContainable {
-
-    func hasCommonPrefix(_ text: String) -> Bool {
-        return true
-    }
-    func prefix(_ maxLength: Int) -> Int? {
-        if let prefixed = String(self).prefix(maxLength) {
-            return Int(prefixed)
-        }
-        else {
-            return nil
-        }
+        let trimmedText = String(text.characters.prefix(trimmedRange.lowerBound.characters.count))
+        return trimmedRange ~= trimmedText
     }
 
 }
 
 extension String: PrefixContainable {
 
-    func hasCommonPrefix(_ text: String) -> Bool {
+    func prefixMatches(_ text: String) -> Bool {
         return hasPrefix(text) || text.hasPrefix(self)
-    }
-    func prefix(_ maxLength: Int) -> String? {
-        return String(characters.prefix(maxLength))
     }
 
 }
+
