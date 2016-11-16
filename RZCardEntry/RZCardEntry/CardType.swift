@@ -92,7 +92,7 @@ fileprivate extension CardType {
 
         func prefixValid(_ accountNumber: String) -> Bool {
             guard prefixes.count > 0 else { return true }
-            return prefixes.contains { $0.prefixMatches(accountNumber) }
+            return prefixes.contains { $0.hasCommonPrefix(accountNumber) }
         }
 
         func lengthValid(_ accountNumber: String) -> Bool {
@@ -169,14 +169,13 @@ extension CardState {
 
 fileprivate protocol PrefixContainable {
 
-    func prefixMatches(_ text: String) -> Bool
-    
+    func hasCommonPrefix(_ text: String) -> Bool
+
 }
 
 extension ClosedRange: PrefixContainable {
 
-    func prefixMatches(_ text: String) -> Bool {
-
+    func hasCommonPrefix(_ text: String) -> Bool {
         //cannot include Where clause in protocol conformance, so have to ensure Bound == String :(
         guard !text.isEmpty, let lower = lowerBound as? String, let upper = upperBound as? String else { return false }
 
@@ -195,7 +194,7 @@ extension ClosedRange: PrefixContainable {
 
 extension String: PrefixContainable {
 
-    func prefixMatches(_ text: String) -> Bool {
+    func hasCommonPrefix(_ text: String) -> Bool {
         return hasPrefix(text) || text.hasPrefix(self)
     }
 
