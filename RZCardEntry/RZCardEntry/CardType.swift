@@ -138,31 +138,28 @@ func ==(lhs: CardState, rhs: CardState) -> Bool {
 
 extension CardState {
 
-    static func fromNumber(_ cardNumber: String) -> CardState {
-        for cardType in CardType.allValues {
-            if cardType.valid(cardNumber) {
-                return .identified(cardType)
-            }
-        }
-        return .invalid
-    }
-
-    static func fromPrefix(_ cardPrefix: String) -> CardState {
-        guard !cardPrefix.isEmpty else {
-            return .indeterminate(CardType.allValues)
-        }
-        
-        let possibleTypes = CardType.allValues.filter { $0.prefixValid(cardPrefix) }
-        guard let card = possibleTypes.first else {
-            return .invalid
-        }
-        if possibleTypes.count == 1 {
-            return .identified(card)
+    init(fromNumber number: String) {
+        if let card = CardType.allValues.first(where: { $0.valid(number) }) {
+            self = .identified(card)
         }
         else {
-            return .indeterminate(possibleTypes)
+            self = .invalid
         }
     }
+
+    init(fromPrefix prefix: String) {
+        let possibleTypes = CardType.allValues.filter { $0.prefixValid(prefix) }
+        if possibleTypes.count >= 2 {
+            self = .indeterminate(possibleTypes)
+        }
+        else if possibleTypes.count == 1, let card = possibleTypes.first {
+            self = .identified(card)
+        }
+        else {
+            self = .invalid
+        }
+    }
+
 }
 
 //MARK: - PrefixContainable
