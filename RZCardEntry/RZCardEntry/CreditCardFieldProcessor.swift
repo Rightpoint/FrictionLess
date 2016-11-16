@@ -27,7 +27,7 @@ class CreditCardFieldProcessor: FieldProcessor {
 
     override var valid: Bool {
         let accountNumber = unformattedText(textField)
-        if case CardState.identified(let card) = CardState.fromNumber(accountNumber) {
+        if case CardState.identified(let card) = CardState(fromNumber: accountNumber) {
             return card.valid(accountNumber)
         }
         return false
@@ -36,13 +36,13 @@ class CreditCardFieldProcessor: FieldProcessor {
     override func validateAndFormat(edit: EditingEvent) -> ValidationResult {
         var cursorPos = edit.newCursorPosition
         let newCardNumber = removeFormatting(edit.newValue, cursorPosition: &cursorPos)
-        let newCardState = CardState.fromPrefix(newCardNumber)
+        let newCardState = CardState(fromPrefix: newCardNumber)
 
         let result: ValidationResult = {
             switch newCardState {
             case .invalid:
                 return .invalid
-            case .indeterminate:
+            case .indeterminate(_):
                 return .valid(edit.newValue, edit.newCursorPosition)
             case .identified(let card):
                 let cardLength = newCardNumber.characters.count
