@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:RZCardEntry/RZCardEntry.xcodeproj">
+      location = "group:RZCardEntry.xcodeproj">
    </FileRef>
 </Workspace>
