@@ -45,10 +45,7 @@ enum CardType {
                             length = [16]
         }
 
-        var card = ValidationRequirement()
-        card.prefixes = prefix
-        card.lengths = length
-        return card
+        return ValidationRequirement(prefixes: prefix, lengths: length)
     }
 
     var segmentGroupings: [Int] {
@@ -97,7 +94,7 @@ fileprivate extension CardType {
 
         func lengthValid(_ accountNumber: String) -> Bool {
             guard lengths.count > 0 else { return true }
-            return lengths.contains { accountNumber.characters.count == $0 }
+            return lengths.contains { accountNumber.length == $0 }
         }
     }
 
@@ -177,13 +174,13 @@ extension ClosedRange: PrefixContainable {
         guard !text.isEmpty, let lower = lowerBound as? String, let upper = upperBound as? String else { return false }
 
         let trimmedRange: ClosedRange<String> = {
-            let length = text.characters.count
-            let trimmedStart = String(lower.characters.prefix(length))
-            let trimmedEnd = String(upper.characters.prefix(length))
+            let length = text.length
+            let trimmedStart = lower.prefix(length)
+            let trimmedEnd = upper.prefix(length)
             return trimmedStart...trimmedEnd
         }()
 
-        let trimmedText = String(text.characters.prefix(trimmedRange.lowerBound.characters.count))
+        let trimmedText = text.prefix(trimmedRange.lowerBound.characters.count)
         return trimmedRange ~= trimmedText
     }
 
@@ -193,6 +190,18 @@ extension String: PrefixContainable {
 
     func hasCommonPrefix(_ text: String) -> Bool {
         return hasPrefix(text) || text.hasPrefix(self)
+    }
+
+}
+
+fileprivate extension String {
+
+    func prefix(_ maxLength: Int) -> String {
+        return String(characters.prefix(maxLength))
+    }
+
+    var length: Int {
+        return characters.count
     }
 
 }
