@@ -26,23 +26,24 @@ enum CardType {
         switch self {
         /* // IIN prefixes and length requriements retreived from https://en.wikipedia.org/wiki/Bank_card_number on June 28, 2016 */
 
-        case .visa:         prefix = ["4"]
-                            length = [13, 16, 19]
-
-        case .masterCard:   prefix = ["51"..."55", "2221"..."2720"]
-                            length = [16]
-
         case .amex:         prefix = ["34", "37"]
                             length = [15]
-
-        case .discover:     prefix = ["6011", "65"]
-                            length = [16]
 
         case .diners:       prefix = ["300"..."305", "309", "38"..."39"]
                             length = [14]
 
+        case .discover:     prefix = ["6011", "65"]
+                            length = [16]
+
         case .jcb:          prefix = ["3528"..."3589"]
                             length = [16]
+
+        case .masterCard:   prefix = ["51"..."55", "2221"..."2720"]
+                            length = [16]
+
+        case .visa:         prefix = ["4"]
+                            length = [13, 16, 19]
+
         }
 
         return ValidationRequirement(prefixes: prefix, lengths: length)
