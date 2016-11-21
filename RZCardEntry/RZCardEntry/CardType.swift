@@ -11,12 +11,12 @@ import Foundation
 //MARK: - CardType
 
 enum CardType {
-    case visa
-    case masterCard
     case amex
     case diners
     case discover
     case jcb
+    case masterCard
+    case visa
 
     static let allValues: [CardType] = [.visa, .masterCard, .amex, .diners, .discover, .jcb]
 
