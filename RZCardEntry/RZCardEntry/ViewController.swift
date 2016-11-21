@@ -23,8 +23,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .lightGray
 
         let ccTextField = UITextField()
+        ccTextField.placeholder = "0000 0000 0000 0000"
+
         let expTextField = UITextField()
+        expTextField.placeholder = "MM/YY"
+
         let cvvTextField = UITextField()
+        cvvTextField.placeholder = "CVV"
+
         let imageView = UIImageView()
 
         form.creditCardTextField = ccTextField

@@ -1,41 +1,26 @@
 //
-//  CreditCardFieldProcessor.swift
+//  CreditCardFormatter.swift
 //  RZCardEntry
 //
-//  Created by Jason Clark on 11/8/16.
+//  Created by Jason Clark on 11/21/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class CreditCardFieldProcessor: FieldProcessor {
+struct CreditCardFormatter: Formatter {
 
-    var cardState: CardState = .indeterminate(CardType.allValues)
-
-    override init() {
-        super.init()
-
-        inputCharacterSet = .decimalDigits
-        formattingCharacterSet = .whitespaces
+    var inputCharacterSet: CharacterSet {
+        return .decimalDigits
     }
 
-    override var textField: UITextField? {
-        didSet {
-            textField?.placeholder = "0000 0000 0000 0000"
-        }
+    var formattingCharacterSet: CharacterSet {
+        return .whitespaces
     }
 
-    override var valid: Bool {
-        let accountNumber = unformattedText(textField)
-        if case CardState.identified(let card) = CardState(fromNumber: accountNumber) {
-            return card.valid(accountNumber)
-        }
-        return false
-    }
-
-    override func validateAndFormat(edit: EditingEvent) -> ValidationResult {
-        var cursorPos = edit.newCursorPosition
-        let newCardNumber = removeFormatting(edit.newValue, cursorPosition: &cursorPos)
+    func validateAndFormat(editingEvent: EditingEvent) -> ValidationResult {
+        var cursorPos = editingEvent.newCursorPosition
+        let newCardNumber = removeFormatting(editingEvent.newValue, cursorPosition: &cursorPos)
         let newCardState = CardState(fromPrefix: newCardNumber)
 
         let result: ValidationResult = {
@@ -43,7 +28,7 @@ class CreditCardFieldProcessor: FieldProcessor {
             case .invalid:
                 return .invalid
             case .indeterminate(_):
-                return .valid(edit.newValue, edit.newCursorPosition)
+                return .valid(editingEvent.newValue, editingEvent.newCursorPosition)
             case .identified(let card):
                 let cardLength = newCardNumber.characters.count
                 guard cardLength <= card.maxLength else {
@@ -57,12 +42,16 @@ class CreditCardFieldProcessor: FieldProcessor {
             }
         }()
 
-        if case .valid(_) = result {
-            cardState = newCardState
-        }
-
         return result
     }
+
+    func valid(_ string: String) -> Bool {
+        if case CardState.identified(let card) = CardState(fromNumber: string) {
+            return card.valid(string)
+        }
+        return false
+    }
+
 }
 
 extension String {
@@ -85,5 +74,5 @@ extension String {
         }
         return formattedString
     }
-
+    
 }

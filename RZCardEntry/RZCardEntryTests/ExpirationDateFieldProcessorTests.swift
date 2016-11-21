@@ -57,7 +57,7 @@ class ExpirationDateFieldProcessorTests: XCTestCase {
         var expectedOutput: String
         var expectedCursorPosition: Int
         let textField = UITextField()
-        let delegate = ExpirationDateFieldProcessor()
+        let delegate = FieldProcessor(formatter: ExpirationDateFormatter())
         textField.delegate = delegate
         textField.addToViewHiearchyAndBecomeFirstResponder()
 

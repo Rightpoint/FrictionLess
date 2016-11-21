@@ -1,59 +1,44 @@
 //
-//  ExpirationDateFieldProcessor.swift
+//  ExpirationDateFormatter.swift
 //  RZCardEntry
 //
-//  Created by Jason Clark on 11/8/16.
+//  Created by Jason Clark on 11/21/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-fileprivate struct Constants {
-     static let validFutureExpYearRange = 30
-}
+struct ExpirationDateFormatter: Formatter {
 
-class ExpirationDateFieldProcessor: FieldProcessor {
+    var maxLength = 4
+    let validFutureExpYearRange = 30
 
-    let maxLength = 4
-
-    override var textField: UITextField? {
-        didSet {
-            textField?.placeholder = "MM/YY"
-        }
+    var inputCharacterSet: CharacterSet {
+        return .decimalDigits
     }
 
-    override init() {
-        super.init()
-
-        inputCharacterSet = .decimalDigits
-        formattingCharacterSet = CharacterSet(charactersIn: "/")
-        deletingShouldRemoveTrailingCharacters = true
+    var formattingCharacterSet: CharacterSet {
+        return CharacterSet(charactersIn: "/")
     }
 
-    var monthsString: String? {
-        guard valid else { return nil }
-        return unformattedText(textField).substring(fromNSRange: NSMakeRange(0, 2))
+    var deletingShouldRemoveTrailingCharacters: Bool {
+        return true
     }
 
-    var yearString: String? {
-        guard valid else { return nil }
-        return unformattedText(textField).substring(fromNSRange: NSMakeRange(2, 4))
-    }
-
-    override var valid: Bool {
-        let unformatted = unformattedText(textField)
+    func valid(_ string: String) -> Bool {
+        let unformatted = removeFormatting(string)
         return unformatted.characters.count == maxLength && expirationDateIsPossible(unformatted)
     }
 
-    override func validateAndFormat(edit: EditingEvent) -> ValidationResult {
-        var cursorPos = edit.newCursorPosition
-        var newExpirationDate = removeFormatting(edit.newValue, cursorPosition: &cursorPos)
+    func validateAndFormat(editingEvent: EditingEvent) -> ValidationResult {
+        var cursorPos = editingEvent.newCursorPosition
+        var newExpirationDate = removeFormatting(editingEvent.newValue, cursorPosition: &cursorPos)
         guard newExpirationDate.characters.count <= maxLength else {
             return .invalid
         }
 
         //If user manually enters formatting character after a 1, pad with a leading 0
-        if edit.editRange.location == 1 && edit.editString == "/" {
+        if editingEvent.editRange.location == 1 && editingEvent.editString == "/" {
             newExpirationDate.insert("0", at: newExpirationDate.startIndex)
             cursorPos += 1
         }
@@ -68,7 +53,7 @@ class ExpirationDateFieldProcessor: FieldProcessor {
 
 }
 
-private extension ExpirationDateFieldProcessor {
+private extension ExpirationDateFormatter {
 
     func formatString(_ text: String, cursorPosition: inout Int) -> String {
         let cursorPositionInFormattlessText = cursorPosition
@@ -104,6 +89,10 @@ private extension ExpirationDateFieldProcessor {
         return formattedString
     }
 
+}
+
+private extension ExpirationDateFormatter {
+
     var currentYearSuffix: Int {
         let fullYear = (Calendar.current as NSCalendar).component(.year, from: Date())
         return fullYear % 100
@@ -115,7 +104,7 @@ private extension ExpirationDateFieldProcessor {
 
     var validYearRanges: [ClosedRange<String>] {
         let shortYear = currentYearSuffix
-        var endYear = shortYear + Constants.validFutureExpYearRange
+        var endYear = shortYear + validFutureExpYearRange
         if endYear < 100 {
             return [String(shortYear)...String(endYear)]
         }
@@ -156,5 +145,5 @@ private extension ExpirationDateFieldProcessor {
 
         return String(currentMonth) >= monthString
     }
-
+    
 }

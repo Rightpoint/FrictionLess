@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		002DC7DB1DD368EB00899FC1 /* CreditCardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */; };
 		002EECE01D22C2010005F19C /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDF1D22C2010005F19C /* CardType.swift */; };
-		00CB81571DDE4480007D13D2 /* CreditCardFieldProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81521DDE4480007D13D2 /* CreditCardFieldProcessor.swift */; };
-		00CB81581DDE4480007D13D2 /* CVVFieldProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81531DDE4480007D13D2 /* CVVFieldProcessor.swift */; };
-		00CB81591DDE4480007D13D2 /* ExpirationDateFieldProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81541DDE4480007D13D2 /* ExpirationDateFieldProcessor.swift */; };
+		0091BDD81DE3890E00264A49 /* CreditCardFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091BDD71DE3890E00264A49 /* CreditCardFormatter.swift */; };
+		0091BDDA1DE38AE400264A49 /* ExpirationDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091BDD91DE38AE400264A49 /* ExpirationDateFormatter.swift */; };
+		0091BDDC1DE38E9000264A49 /* CVVFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091BDDB1DE38E9000264A49 /* CVVFormatter.swift */; };
+		0091BDDE1DE38F3400264A49 /* ZipFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091BDDD1DE38F3400264A49 /* ZipFormatter.swift */; };
 		00CB815A1DDE4480007D13D2 /* FieldProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81551DDE4480007D13D2 /* FieldProcessor.swift */; };
-		00CB815B1DDE4480007D13D2 /* ZipCodeFieldProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81561DDE4480007D13D2 /* ZipCodeFieldProcessor.swift */; };
 		00CB815F1DDE448E007D13D2 /* RangeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB815C1DDE448E007D13D2 /* RangeHelpers.swift */; };
 		00CB81601DDE448E007D13D2 /* UITextField+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB815D1DDE448E007D13D2 /* UITextField+Animations.swift */; };
 		00CB81611DDE448E007D13D2 /* UITextfield+BackspaceNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB815E1DDE448E007D13D2 /* UITextfield+BackspaceNotification.swift */; };
@@ -22,6 +22,7 @@
 		00CB81671DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81641DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift */; };
 		00CB81691DE34204007D13D2 /* CardTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81681DE34204007D13D2 /* CardTypeTests.swift */; };
 		00CB816B1DE36564007D13D2 /* CardStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB816A1DE36564007D13D2 /* CardStateTests.swift */; };
+		00CB816D1DE37A7F007D13D2 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB816C1DE37A7F007D13D2 /* Formatter.swift */; };
 		00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A161D219EA100DB5839 /* AppDelegate.swift */; };
 		00F95A191D219EA100DB5839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A181D219EA100DB5839 /* ViewController.swift */; };
 		00F95A1E1D219EA100DB5839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F95A1D1D219EA100DB5839 /* Assets.xcassets */; };
@@ -48,11 +49,11 @@
 /* Begin PBXFileReference section */
 		002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardForm.swift; sourceTree = "<group>"; };
 		002EECDF1D22C2010005F19C /* CardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
-		00CB81521DDE4480007D13D2 /* CreditCardFieldProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditCardFieldProcessor.swift; path = "Field Processors/CreditCardFieldProcessor.swift"; sourceTree = "<group>"; };
-		00CB81531DDE4480007D13D2 /* CVVFieldProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CVVFieldProcessor.swift; path = "Field Processors/CVVFieldProcessor.swift"; sourceTree = "<group>"; };
-		00CB81541DDE4480007D13D2 /* ExpirationDateFieldProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpirationDateFieldProcessor.swift; path = "Field Processors/ExpirationDateFieldProcessor.swift"; sourceTree = "<group>"; };
+		0091BDD71DE3890E00264A49 /* CreditCardFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardFormatter.swift; sourceTree = "<group>"; };
+		0091BDD91DE38AE400264A49 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
+		0091BDDB1DE38E9000264A49 /* CVVFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVVFormatter.swift; sourceTree = "<group>"; };
+		0091BDDD1DE38F3400264A49 /* ZipFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipFormatter.swift; sourceTree = "<group>"; };
 		00CB81551DDE4480007D13D2 /* FieldProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FieldProcessor.swift; path = "Field Processors/FieldProcessor.swift"; sourceTree = "<group>"; };
-		00CB81561DDE4480007D13D2 /* ZipCodeFieldProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipCodeFieldProcessor.swift; path = "Field Processors/ZipCodeFieldProcessor.swift"; sourceTree = "<group>"; };
 		00CB815C1DDE448E007D13D2 /* RangeHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RangeHelpers.swift; path = Helpers/RangeHelpers.swift; sourceTree = "<group>"; };
 		00CB815D1DDE448E007D13D2 /* UITextField+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+Animations.swift"; path = "Helpers/UITextField+Animations.swift"; sourceTree = "<group>"; };
 		00CB815E1DDE448E007D13D2 /* UITextfield+BackspaceNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextfield+BackspaceNotification.swift"; path = "Helpers/UITextfield+BackspaceNotification.swift"; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		00CB81641DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldProcessorTestHelpers.swift; sourceTree = "<group>"; };
 		00CB81681DE34204007D13D2 /* CardTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTypeTests.swift; sourceTree = "<group>"; };
 		00CB816A1DE36564007D13D2 /* CardStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStateTests.swift; sourceTree = "<group>"; };
+		00CB816C1DE37A7F007D13D2 /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		00F95A131D219EA100DB5839 /* RZCardEntry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZCardEntry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F95A161D219EA100DB5839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F95A181D219EA100DB5839 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,16 +100,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		002DC7C91DD22A3600899FC1 /* Field Processors */ = {
+		002DC7C91DD22A3600899FC1 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				00CB81521DDE4480007D13D2 /* CreditCardFieldProcessor.swift */,
-				00CB81531DDE4480007D13D2 /* CVVFieldProcessor.swift */,
-				00CB81541DDE4480007D13D2 /* ExpirationDateFieldProcessor.swift */,
-				00CB81551DDE4480007D13D2 /* FieldProcessor.swift */,
-				00CB81561DDE4480007D13D2 /* ZipCodeFieldProcessor.swift */,
+				00CB816C1DE37A7F007D13D2 /* Formatter.swift */,
+				0091BDD71DE3890E00264A49 /* CreditCardFormatter.swift */,
+				0091BDD91DE38AE400264A49 /* ExpirationDateFormatter.swift */,
+				0091BDDB1DE38E9000264A49 /* CVVFormatter.swift */,
+				0091BDDD1DE38F3400264A49 /* ZipFormatter.swift */,
 			);
-			name = "Field Processors";
+			name = Formatters;
 			sourceTree = "<group>";
 		};
 		002F76E61DD6777800B93CAB /* Helpers */ = {
@@ -147,7 +149,8 @@
 				00F95A181D219EA100DB5839 /* ViewController.swift */,
 				002EECDF1D22C2010005F19C /* CardType.swift */,
 				002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */,
-				002DC7C91DD22A3600899FC1 /* Field Processors */,
+				00CB81551DDE4480007D13D2 /* FieldProcessor.swift */,
+				002DC7C91DD22A3600899FC1 /* Formatters */,
 				002F76E61DD6777800B93CAB /* Helpers */,
 				00F95A1D1D219EA100DB5839 /* Assets.xcassets */,
 				00F95A221D219EA100DB5839 /* Info.plist */,
@@ -309,17 +312,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0091BDDC1DE38E9000264A49 /* CVVFormatter.swift in Sources */,
+				0091BDDA1DE38AE400264A49 /* ExpirationDateFormatter.swift in Sources */,
 				002DC7DB1DD368EB00899FC1 /* CreditCardForm.swift in Sources */,
+				0091BDD81DE3890E00264A49 /* CreditCardFormatter.swift in Sources */,
+				00CB816D1DE37A7F007D13D2 /* Formatter.swift in Sources */,
 				00F95A191D219EA100DB5839 /* ViewController.swift in Sources */,
-				00CB81571DDE4480007D13D2 /* CreditCardFieldProcessor.swift in Sources */,
 				00CB815A1DDE4480007D13D2 /* FieldProcessor.swift in Sources */,
 				00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */,
-				00CB815B1DDE4480007D13D2 /* ZipCodeFieldProcessor.swift in Sources */,
 				002EECE01D22C2010005F19C /* CardType.swift in Sources */,
 				00CB81601DDE448E007D13D2 /* UITextField+Animations.swift in Sources */,
-				00CB81581DDE4480007D13D2 /* CVVFieldProcessor.swift in Sources */,
 				00CB815F1DDE448E007D13D2 /* RangeHelpers.swift in Sources */,
-				00CB81591DDE4480007D13D2 /* ExpirationDateFieldProcessor.swift in Sources */,
+				0091BDDE1DE38F3400264A49 /* ZipFormatter.swift in Sources */,
 				00CB81611DDE448E007D13D2 /* UITextfield+BackspaceNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

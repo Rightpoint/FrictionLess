@@ -9,31 +9,16 @@
 import UIKit
 
 //MARK: - protocols, structs, enums
-//TODO: move these
 protocol FormValidation {
     var valid: Bool { get }
-}
-
-protocol FormNavigation {
-    @discardableResult func fieldProcessor(_ fieldProcessor: FieldProcessor, navigation: CharacterNavigation) -> Bool
 }
 
 enum CharacterNavigation {
     case backspace
     case overflow(String)
 }
-
-struct EditingEvent {
-    var oldValue: String
-    var editRange: NSRange
-    var editString: String
-    var newValue: String
-    var newCursorPosition: Int
-}
-
-enum ValidationResult {
-    case valid(String, Int)
-    case invalid
+protocol FormNavigation {
+    @discardableResult func fieldProcessor(_ fieldProcessor: FieldProcessor, navigation: CharacterNavigation) -> Bool
 }
 
 //MARK: - FieldProcessor
@@ -47,13 +32,17 @@ class FieldProcessor: NSObject, FormValidation {
         }
     }
 
-    var inputCharacterSet = CharacterSet.alphanumerics
-    var formattingCharacterSet = CharacterSet()
-    var deletingShouldRemoveTrailingCharacters = false
+    var formatter: Formatter
+
     var navigationDelegate: FormNavigation?
 
     var valid: Bool {
-        return true
+        return formatter.valid(unformattedText)
+    }
+
+    init(formatter: Formatter) {
+        self.formatter = formatter
+        super.init()
     }
 
     func inputInvalid(textField: UITextField) {
@@ -61,58 +50,52 @@ class FieldProcessor: NSObject, FormValidation {
         textField.shake()
     }
 
-    func validateAndFormat(edit: EditingEvent) -> ValidationResult {
-        return .valid(edit.newValue, edit.newCursorPosition)
+}
+
+extension FieldProcessor {
+
+    var unformattedText: String {
+        guard let text = textField?.text else { return "" }
+        return formatter.removeFormatting(text)
     }
 
     func containsValidChars(text: String?)->Bool {
-        let allowedSet = inputCharacterSet.union(formattingCharacterSet)
+        let allowedSet = formatter.inputCharacterSet.union(formatter.formattingCharacterSet)
         let rangeOfInvalidChar = text?.rangeOfCharacter(from: allowedSet.inverted)
         guard rangeOfInvalidChar?.isEmpty ?? true else { return false }
 
         return true
     }
 
-}
-
-extension FieldProcessor {
-
-    func unformattedText(_ textField: UITextField?) -> String {
-        guard let text = textField?.text else { return "" }
-        return removeFormatting(text)
-    }
-
-    func removeFormatting(_ text: String) -> String {
-        return text.filteringWith(characterSet: inputCharacterSet)
-    }
-
-    func removeFormatting(_ text: String, cursorPosition: inout Int) -> String {
-        return text.filteringWith(characterSet: inputCharacterSet, cursorPosition: &cursorPosition)
-    }
-
-}
-
-extension String {
-
-    func filteringWith(characterSet: CharacterSet) -> String {
-        return components(separatedBy: characterSet.inverted).joined()
-    }
-
-    func filteringWith(characterSet: CharacterSet, cursorPosition: inout Int) -> String {
-        let originalCursorPosition = cursorPosition
-        var validChars = String()
-        for (index, character) in characters.enumerated() {
-            if String(character).rangeOfCharacter(from: characterSet) != nil {
-                validChars.append(character)
-            }
-            else if index < originalCursorPosition {
-                cursorPosition -= 1
+    func handleDeletionOfFormatting(textField: UITextField, range: NSRange, replacementString string: String) -> NSRange {
+        var adjustedRange = range
+        guard let text = textField.text else { return adjustedRange }
+        let deletedSingleChar = range.length == 1
+        let noTextSelected = textField.selectedTextRange?.isEmpty ?? true
+        if (deletedSingleChar && noTextSelected) {
+            let range = text.range(fromNSRange: range)
+            let deletedSingleFormattingChar = text.rangeOfCharacter(from: formatter.formattingCharacterSet, options: NSString.CompareOptions(), range: range) != nil
+            if deletedSingleFormattingChar {
+                let selection = textField.selectedTextRange
+                textField.text?.removeSubrange(range)
+                if let selection = selection, let offset = textField.offsetTextRange(selection, by: -1) {
+                    adjustedRange.location = adjustedRange.location - 1
+                    textField.selectedTextRange = offset
+                }
             }
         }
-        return validChars
+        if range.length > 0 && formatter.deletingShouldRemoveTrailingCharacters {
+            if let selectedTextRange = textField.selectedTextRange {
+                let offset = textField.offset(from: textField.beginningOfDocument, to: selectedTextRange.end)
+                textField.text = textField.text?.substring(to: text.characters.index(text.startIndex, offsetBy: offset))
+            }
+        }
+        return adjustedRange
     }
 
+
 }
+
 
 extension FieldProcessor: UITextFieldDelegate {
 
@@ -140,7 +123,7 @@ extension FieldProcessor: UITextFieldDelegate {
                                      newValue: newText ?? "",
                                      newCursorPosition: newRange)
 
-            let result =  validateAndFormat(edit: event)
+            let result =  formatter.validateAndFormat(editingEvent: event)
             if case .valid(let string, let cursorPosition) = result {
                 textField.text = string
                 textField.selectedTextRange = textField.textRange(cursorOffset: cursorPosition)
@@ -162,36 +145,6 @@ extension FieldProcessor {
         if let textField = note.object as? UITextField, textField.text?.characters.count == 0 {
             navigationDelegate?.fieldProcessor(self, navigation: .backspace)
         }
-    }
-
-}
-
-private extension FieldProcessor {
-
-    func handleDeletionOfFormatting(textField: UITextField, range: NSRange, replacementString string: String) -> NSRange {
-        var adjustedRange = range
-        guard let text = textField.text else { return adjustedRange }
-        let deletedSingleChar = range.length == 1
-        let noTextSelected = textField.selectedTextRange?.isEmpty ?? true
-        if (deletedSingleChar && noTextSelected) {
-            let range = text.range(fromNSRange: range)
-            let deletedSingleFormattingChar = text.rangeOfCharacter(from: formattingCharacterSet, options: NSString.CompareOptions(), range: range) != nil
-            if deletedSingleFormattingChar {
-                let selection = textField.selectedTextRange
-                textField.text?.removeSubrange(range)
-                if let selection = selection, let offset = textField.offsetTextRange(selection, by: -1) {
-                    adjustedRange.location = adjustedRange.location - 1
-                    textField.selectedTextRange = offset
-                }
-            }
-        }
-        if range.length > 0 && deletingShouldRemoveTrailingCharacters {
-            if let selectedTextRange = textField.selectedTextRange {
-                let offset = textField.offset(from: textField.beginningOfDocument, to: selectedTextRange.end)
-                textField.text = textField.text?.substring(to: text.characters.index(text.startIndex, offsetBy: offset))
-            }
-        }
-        return adjustedRange
     }
 
 }

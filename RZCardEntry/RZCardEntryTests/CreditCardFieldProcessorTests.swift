@@ -104,7 +104,7 @@ class CreditCardFieldProcessorTests: XCTestCase {
 
         [visa, amex, discover, masterCard, diners].forEach { input, expectedOutput in
             let textField = UITextField()
-            let delegate = CreditCardFieldProcessor()
+            let delegate = FieldProcessor(formatter: CreditCardFormatter())
             textField.delegate = delegate
             textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
             XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
@@ -114,7 +114,7 @@ class CreditCardFieldProcessorTests: XCTestCase {
     func testDeletingContent() {
         //text field needs to be in a view in a window for responder chain to work.
         let textField = UITextField()
-        let delegate = CreditCardFieldProcessor()
+        let delegate = FieldProcessor(formatter: CreditCardFormatter())
         textField.delegate = delegate
         textField.addToViewHiearchyAndBecomeFirstResponder()
 
@@ -159,7 +159,7 @@ class CreditCardFieldProcessorTests: XCTestCase {
 
     func testAddingContent() {
         let textField = UITextField()
-        let delegate = CreditCardFieldProcessor()
+        let delegate = FieldProcessor(formatter: CreditCardFormatter())
         textField.delegate = delegate
         textField.addToViewHiearchyAndBecomeFirstResponder()
 
@@ -218,7 +218,7 @@ class CreditCardFieldProcessorTests: XCTestCase {
 
     func testInsertingTextWithOtherTextSelected() {
         let textField = UITextField()
-        let delegate = CreditCardFieldProcessor()
+        let delegate = FieldProcessor(formatter: CreditCardFormatter())
         textField.delegate = delegate
         textField.addToViewHiearchyAndBecomeFirstResponder()
 
