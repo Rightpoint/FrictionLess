@@ -106,9 +106,13 @@ extension CreditCardForm {
                 //TODO: card type not accepted error
             }
 
+            //TODO: animate
             imageView?.image = cardImage(forState: state)
 
-            //cvvProcessor.maxLength = cvvLength(forState: state)
+            if var cvvFormatter = cvvProcessor.formatter as? CVVFormatter {
+                cvvFormatter.maxLength = cvvLength(forState: state)
+                cvvProcessor.formatter = cvvFormatter
+            }
 
         }
         if let processor = processor(textField), processor.valid {
