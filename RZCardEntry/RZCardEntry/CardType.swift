@@ -20,7 +20,7 @@ enum CardType {
 
     static let allValues: [CardType] = [.visa, .masterCard, .amex, .diners, .discover, .jcb]
 
-    fileprivate var validationRequirements: ValidationRequirement {
+    private var validationRequirements: ValidationRequirement {
         var prefix = [PrefixContainable](), length = [Int]()
 
         switch self {
@@ -128,7 +128,7 @@ extension CardState: Equatable {}
 func ==(lhs: CardState, rhs: CardState) -> Bool {
     switch (lhs, rhs) {
     case (.invalid, .invalid): return true
-    case (.indeterminate, .indeterminate): return true
+    case (let .indeterminate(cards1), let .indeterminate(cards2)): return cards1 == cards2
     case (let .identified(card1), let .identified(card2)): return card1 == card2
     default: return false
     }
