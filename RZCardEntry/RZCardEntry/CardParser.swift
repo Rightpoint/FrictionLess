@@ -1,6 +1,5 @@
 //
-//  CardType.swift
-//  CardEntry
+//  CardParser.swift
 //
 //  Created by Jason Clark on 6/28/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.

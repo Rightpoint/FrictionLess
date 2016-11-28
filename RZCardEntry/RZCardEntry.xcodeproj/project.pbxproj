@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002DC7DB1DD368EB00899FC1 /* CreditCardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */; };
-		002EECE01D22C2010005F19C /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDF1D22C2010005F19C /* CardType.swift */; };
+		002EECE01D22C2010005F19C /* CardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002EECDF1D22C2010005F19C /* CardParser.swift */; };
 		0091BDD81DE3890E00264A49 /* CreditCardFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091BDD71DE3890E00264A49 /* CreditCardFormatter.swift */; };
 		0091BDDA1DE38AE400264A49 /* ExpirationDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091BDD91DE38AE400264A49 /* ExpirationDateFormatter.swift */; };
 		0091BDDC1DE38E9000264A49 /* CVVFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091BDDB1DE38E9000264A49 /* CVVFormatter.swift */; };
@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardForm.swift; sourceTree = "<group>"; };
-		002EECDF1D22C2010005F19C /* CardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		002EECDF1D22C2010005F19C /* CardParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
 		0091BDD71DE3890E00264A49 /* CreditCardFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardFormatter.swift; sourceTree = "<group>"; };
 		0091BDD91DE38AE400264A49 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
 		0091BDDB1DE38E9000264A49 /* CVVFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVVFormatter.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			children = (
 				00F95A161D219EA100DB5839 /* AppDelegate.swift */,
 				00F95A181D219EA100DB5839 /* ViewController.swift */,
-				002EECDF1D22C2010005F19C /* CardType.swift */,
+				002EECDF1D22C2010005F19C /* CardParser.swift */,
 				002DC7DA1DD368EB00899FC1 /* CreditCardForm.swift */,
 				00CB81551DDE4480007D13D2 /* FieldProcessor.swift */,
 				002DC7C91DD22A3600899FC1 /* Formatters */,
@@ -320,7 +320,7 @@
 				00F95A191D219EA100DB5839 /* ViewController.swift in Sources */,
 				00CB815A1DDE4480007D13D2 /* FieldProcessor.swift in Sources */,
 				00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */,
-				002EECE01D22C2010005F19C /* CardType.swift in Sources */,
+				002EECE01D22C2010005F19C /* CardParser.swift in Sources */,
 				00CB81601DDE448E007D13D2 /* UITextField+Animations.swift in Sources */,
 				00CB815F1DDE448E007D13D2 /* RangeHelpers.swift in Sources */,
 				0091BDDE1DE38F3400264A49 /* ZipFormatter.swift in Sources */,
