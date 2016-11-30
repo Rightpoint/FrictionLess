@@ -20,7 +20,7 @@ struct CreditCardFormatter: Formatter {
 
     func validateAndFormat(editingEvent: EditingEvent) -> ValidationResult {
         var cursorPos = editingEvent.newCursorPosition
-        let newCardNumber = removeFormatting(editingEvent.newValue, cursorPosition: &cursorPos)
+        let newCardNumber = editingEvent.newValue
         let newCardState = CardState(fromPrefix: newCardNumber)
 
         let result: ValidationResult = {

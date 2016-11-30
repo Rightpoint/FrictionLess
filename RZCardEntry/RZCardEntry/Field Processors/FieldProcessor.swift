@@ -135,6 +135,7 @@ extension FieldProcessor: UITextFieldDelegate {
 
             var adjustedEdit = handleDeletionOfFormatting(textField: textField, editingEvent: event)
             adjustedEdit = removeCharactersTrailingDelete(textField: textField, editingEvent: adjustedEdit)
+            adjustedEdit.newValue = formatter.removeFormatting(adjustedEdit.newValue, cursorPosition: &adjustedEdit.newCursorPosition)
 
             let result =  formatter.validateAndFormat(editingEvent: adjustedEdit)
             if case .valid(let string, let cursorPosition) = result {

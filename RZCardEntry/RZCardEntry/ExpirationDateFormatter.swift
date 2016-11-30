@@ -32,7 +32,7 @@ struct ExpirationDateFormatter: Formatter {
 
     func validateAndFormat(editingEvent: EditingEvent) -> ValidationResult {
         var cursorPos = editingEvent.newCursorPosition
-        var newExpirationDate = removeFormatting(editingEvent.newValue, cursorPosition: &cursorPos)
+        var newExpirationDate = editingEvent.newValue
         guard newExpirationDate.characters.count <= maxLength else {
             return .invalid
         }

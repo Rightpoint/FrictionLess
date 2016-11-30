@@ -21,7 +21,7 @@ struct ZipFormatter: Formatter {
     }
 
     func validateAndFormat(editingEvent: EditingEvent) -> ValidationResult {
-        if removeFormatting(editingEvent.newValue).characters.count <= maxLength {
+        if editingEvent.newValue.characters.count <= maxLength {
             return .valid(editingEvent.newValue, editingEvent.newCursorPosition)
         }
         else {
