@@ -68,7 +68,7 @@ extension String {
             if formattingIndicies.contains(offset) {
                 formattedString.append(formattingString)
                 if offset < startingCursorPosition {
-                    cursorPosition += 1
+                    cursorPosition += formattingString.characters.count
                 }
             }
         }

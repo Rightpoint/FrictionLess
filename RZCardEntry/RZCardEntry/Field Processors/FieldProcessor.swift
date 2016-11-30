@@ -67,6 +67,10 @@ extension FieldProcessor {
         return true
     }
 
+
+    /*
+     This method interprets the deletion of a single formatting character as an attempt by the user to delete the content on the other side of the formatting.
+     */
     func handleDeletionOfFormatting(textField: UITextField, editingEvent: EditingEvent) -> EditingEvent {
         var edit = editingEvent
         let deletedSingleChar = editingEvent.editRange.length == 1
@@ -74,17 +78,31 @@ extension FieldProcessor {
         if (deletedSingleChar && noTextSelected) {
             let range = editingEvent.oldValue.range(fromNSRange: editingEvent.editRange)
             let deletedSingleFormattingChar = editingEvent.oldValue.rangeOfCharacter(from: formatter.formattingCharacterSet, options: NSString.CompareOptions(), range: range) != nil
-            if deletedSingleFormattingChar {
-                let newRange = editingEvent.newValue.index(editingEvent.newValue.startIndex, offsetBy: edit.editRange.location - 1)..<editingEvent.newValue.index(editingEvent.newValue.startIndex, offsetBy: edit.editRange.location)
-                edit.newValue.removeSubrange(newRange)
-                edit.newCursorPosition = edit.newCursorPosition - 1
+            if deletedSingleFormattingChar,
+                let deleteRange: Range<String.Index> = {
+                    //return a range consisting of the first non-formatting character and all trailing formatting characters up to the cursor.
+                    for location in stride(from: edit.editRange.location-1, to: 0, by: -1) {
+                        let index = editingEvent.newValue.index(editingEvent.newValue.startIndex, offsetBy: location)
+                        let oneChar = editingEvent.newValue.index(after: index)
+                        if editingEvent.oldValue.rangeOfCharacter(from: formatter.formattingCharacterSet, options: NSString.CompareOptions(), range: index..<oneChar) == nil {
+                            return index..<editingEvent.newValue.index(editingEvent.newValue.startIndex, offsetBy: edit.editRange.location)
+                        }
+                    }
+                    return nil
+                }() {
+
+                edit.newCursorPosition = edit.newCursorPosition - edit.newValue.distance(from: deleteRange.lowerBound, to: deleteRange.upperBound)
+                edit.newValue.removeSubrange(deleteRange)
             }
         }
+        return edit
+    }
 
-        if edit.editRange.length > 0 && formatter.deletingShouldRemoveTrailingCharacters {
-            edit.newValue = String(edit.newValue.characters.prefix(edit.newCursorPosition))
+    func removeCharactersTrailingDelete(textField: UITextField, editingEvent: EditingEvent) -> EditingEvent {
+        var edit = editingEvent
+        if editingEvent.editRange.length > 0 && formatter.deletingShouldRemoveTrailingCharacters {
+            edit.newValue = String(edit.newValue.characters.prefix(editingEvent.newCursorPosition))
         }
-
         return edit
     }
 
@@ -106,16 +124,18 @@ extension FieldProcessor: UITextFieldDelegate {
         }
 
         if let indexRange = textField.text?.range(fromNSRange: range) {
-        let newText = textField.text?.replacingCharacters(in: indexRange, with: string)
-        let newRange = range.location + string.characters.count
+            let newText = textField.text?.replacingCharacters(in: indexRange, with: string)
+            let newRange = range.location + string.characters.count
 
-        let event = EditingEvent(oldValue: textField.text ?? "",
-                                 editRange: range,
-                                 editString: string,
-                                 newValue: newText ?? "",
-                                 newCursorPosition: newRange)
+            let event = EditingEvent(oldValue: textField.text ?? "",
+                                     editRange: range,
+                                     editString: string,
+                                     newValue: newText ?? "",
+                                     newCursorPosition: newRange)
 
-       let adjustedEdit = handleDeletionOfFormatting(textField: textField, editingEvent: event)
+            var adjustedEdit = handleDeletionOfFormatting(textField: textField, editingEvent: event)
+            adjustedEdit = removeCharactersTrailingDelete(textField: textField, editingEvent: adjustedEdit)
+
             let result =  formatter.validateAndFormat(editingEvent: adjustedEdit)
             if case .valid(let string, let cursorPosition) = result {
                 textField.text = string
