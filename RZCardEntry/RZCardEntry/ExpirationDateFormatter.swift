@@ -67,7 +67,7 @@ private extension ExpirationDateFormatter {
                 }
             }
             else if index == 1 && text.characters.count == 2 && text.characters.first == "1"
-                && !("1"..."2" ~= character) && validYearRanges.contains(where: { $0.hasCommonPrefix(String(character)) }) {
+                && !("1"..."2" ~= character) && validYearRanges.contains(where: { $0.hasCommonPrefix(with: String(character)) }) {
                 //digit after leading 1 is not a valid month but is the start of a valid year.
                 formattedString.insert("0", at: formattedString.startIndex)
                 formattedString.append("/\(character)")
@@ -120,7 +120,7 @@ private extension ExpirationDateFormatter {
             return true
         }
         let monthsRange = "01"..."12"
-        guard monthsRange.hasCommonPrefix(expDate) else {
+        guard monthsRange.hasCommonPrefix(with: expDate) else {
             return false
         }
         //months valid, check year
@@ -130,15 +130,15 @@ private extension ExpirationDateFormatter {
         let separatorIndex = expDate.characters.index(expDate.startIndex, offsetBy: 2)
         let monthString = expDate.substring(to: separatorIndex)
         let yearSuffixString = expDate.substring(from: separatorIndex)
-        guard validYearRanges.contains(where: { $0.hasCommonPrefix(yearSuffixString) }) else {
+        guard validYearRanges.contains(where: { $0.hasCommonPrefix(with: yearSuffixString) }) else {
             return false
         }
         //year valid, check month year combo
-        guard String(currentYearSuffix).hasCommonPrefix(yearSuffixString) else {
+        guard String(currentYearSuffix).hasCommonPrefix(with: yearSuffixString) else {
             //If a future year, we don't have to check month
             return true
         }
-        guard !(yearSuffixString.characters.count == 1 && String(currentYearSuffix + 1).hasCommonPrefix(yearSuffixString)) else {
+        guard !(yearSuffixString.characters.count == 1 && String(currentYearSuffix + 1).hasCommonPrefix(with: yearSuffixString)) else {
             //year is incomplete and can potentially be a future year
             return true
         }

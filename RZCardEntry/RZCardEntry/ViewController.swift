@@ -24,12 +24,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         let ccTextField = UITextField()
         ccTextField.placeholder = "0000 0000 0000 0000"
+        ccTextField.keyboardType = .numberPad
 
         let expTextField = UITextField()
         expTextField.placeholder = "MM/YY"
+        expTextField.keyboardType = .numberPad
 
         let cvvTextField = UITextField()
         cvvTextField.placeholder = "CVV"
+        cvvTextField.keyboardType = .numberPad
 
         let imageView = UIImageView()
 

@@ -34,7 +34,7 @@ struct CreditCardFormatter: Formatter {
                 guard cardLength <= card.maxLength else {
                     return .invalid
                 }
-                if cardLength == card.maxLength && !card.valid(newCardNumber) {
+                if cardLength == card.maxLength && !card.isValid(newCardNumber) {
                     return .invalid
                 }
                 let formatted = newCardNumber.inserting(" ", formingGroupings: card.segmentGroupings, maintainingCursorPosition: &cursorPos)
@@ -47,7 +47,7 @@ struct CreditCardFormatter: Formatter {
 
     func valid(_ string: String) -> Bool {
         if case CardState.identified(let card) = CardState(fromNumber: string) {
-            return card.valid(string)
+            return card.isValid(string)
         }
         return false
     }
