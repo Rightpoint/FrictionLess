@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct CreditCardFormatter: Formatter {
+enum CreditCardFormatterError: Error {
+    case maxLengthExceeded
+    case invalidCardNumber
+}
+
+struct CreditCardFormatter: TextFieldFormatter {
 
     var inputCharacterSet: CharacterSet {
         return .decimalDigits
@@ -18,38 +23,44 @@ struct CreditCardFormatter: Formatter {
         return .whitespaces
     }
 
-    func validateAndFormat(editingEvent: EditingEvent) -> ValidationResult {
+    func format(editingEvent: EditingEvent) -> FormattingResult {
         var cursorPos = editingEvent.newCursorPosition
         let newCardNumber = editingEvent.newValue
         let newCardState = CardState(fromPrefix: newCardNumber)
 
-        let result: ValidationResult = {
+        let result: FormattingResult = {
             switch newCardState {
             case .invalid:
-                return .invalid
+                return .invalid(formattingError: CreditCardFormatterError.invalidCardNumber)
             case .indeterminate(_):
-                return .valid(editingEvent.newValue, editingEvent.newCursorPosition)
+                return .valid(formattedString: editingEvent.newValue, cursorPosition: editingEvent.newCursorPosition)
             case .identified(let card):
                 let cardLength = newCardNumber.characters.count
                 guard cardLength <= card.maxLength else {
-                    return .invalid
+                    return .invalid(formattingError: CreditCardFormatterError.maxLengthExceeded)
                 }
                 if cardLength == card.maxLength && !card.isValid(newCardNumber) {
-                    return .invalid
+                    return .invalid(formattingError: CreditCardFormatterError.invalidCardNumber)
                 }
                 let formatted = newCardNumber.inserting(" ", formingGroupings: card.segmentGroupings, maintainingCursorPosition: &cursorPos)
-                return .valid(formatted, cursorPos)
+                return .valid(formattedString: formatted, cursorPosition: cursorPos)
             }
         }()
 
         return result
     }
 
-    func valid(_ string: String) -> Bool {
+    func validate(_ string: String) -> ValidationResult {
         if case CardState.identified(let card) = CardState(fromNumber: string) {
-            return card.isValid(string)
+            if card.isValid(string) {
+                return .valid
+            }
         }
-        return false
+        return .invalid(validationError: CreditCardFormatterError.invalidCardNumber)
+    }
+
+    func isComplete(_ text: String) -> Bool {
+        return validate(text) == .valid
     }
 
 }
@@ -74,5 +85,5 @@ extension String {
         }
         return formattedString
     }
-    
+
 }

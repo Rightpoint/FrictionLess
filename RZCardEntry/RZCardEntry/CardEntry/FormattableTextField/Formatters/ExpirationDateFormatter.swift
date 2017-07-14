@@ -8,9 +8,17 @@
 
 import Foundation
 
-struct ExpirationDateFormatter: Formatter {
+enum ExpirationDateFormatterError: Error {
+    case maxLength
+    case minLength
+    case invalidMonth
+    case invalidYear
+    case expired
+}
 
-    var maxLength = 4
+struct ExpirationDateFormatter: TextFieldFormatter {
+
+    let requiredLength = 4
     let validFutureExpYearRange = 30
 
     var inputCharacterSet: CharacterSet {
@@ -25,16 +33,24 @@ struct ExpirationDateFormatter: Formatter {
         return true
     }
 
-    func valid(_ string: String) -> Bool {
+    func validate(_ string: String) -> ValidationResult {
         let unformatted = removeFormatting(string)
-        return unformatted.characters.count == maxLength && expirationDateIsPossible(unformatted)
+        let length = unformatted.characters.count
+        if length < requiredLength {
+            return .invalid(validationError: ExpirationDateFormatterError.minLength)
+        }
+        else if length > requiredLength {
+            return .invalid(validationError: ExpirationDateFormatterError.maxLength)
+        }
+
+        return validate(expDate: unformatted)
     }
 
-    func validateAndFormat(editingEvent: EditingEvent) -> ValidationResult {
+    func format(editingEvent: EditingEvent) -> FormattingResult {
         var cursorPos = editingEvent.newCursorPosition
         var newExpirationDate = editingEvent.newValue
-        guard newExpirationDate.characters.count <= maxLength else {
-            return .invalid
+        guard newExpirationDate.characters.count <= requiredLength else {
+            return .invalid(formattingError: ExpirationDateFormatterError.maxLength)
         }
 
         //If user manually enters formatting character after a 1, pad with a leading 0
@@ -44,11 +60,17 @@ struct ExpirationDateFormatter: Formatter {
         }
 
         let formatted = formatString(newExpirationDate, cursorPosition: &cursorPos)
-        guard expirationDateIsPossible(removeFormatting(formatted)) else {
-            return .invalid
-        }
 
-        return .valid(formatted, cursorPos)
+        switch validate(expDate: removeFormatting(formatted)) {
+        case .valid:
+            return .valid(formattedString: formatted, cursorPosition: cursorPos)
+        case .invalid(let error):
+            return .invalid(formattingError: error)
+        }
+    }
+
+    func isComplete(_ text: String) -> Bool {
+        return validate(text) == .valid
     }
 
 }
@@ -115,35 +137,44 @@ private extension ExpirationDateFormatter {
         }
     }
 
-    func expirationDateIsPossible(_ expDate: String) -> Bool {
+    func validate(expDate: String) -> ValidationResult {
         guard expDate.characters.count > 0 else {
-            return true
+            return .valid
         }
         let monthsRange = "01"..."12"
         guard monthsRange.hasCommonPrefix(with: expDate) else {
-            return false
+            return .invalid(validationError: ExpirationDateFormatterError.invalidMonth)
         }
         //months valid, check year
         guard expDate.characters.count > 2 else {
-            return true
+            return .valid
         }
         let separatorIndex = expDate.characters.index(expDate.startIndex, offsetBy: 2)
         let monthString = expDate.substring(to: separatorIndex)
         let yearSuffixString = expDate.substring(from: separatorIndex)
         guard validYearRanges.contains(where: { $0.hasCommonPrefix(with: yearSuffixString) }) else {
-            return false
+            if yearSuffixString < String(currentYearSuffix) {
+                return .invalid(validationError: ExpirationDateFormatterError.expired)
+            }
+            else {
+                return .invalid(validationError: ExpirationDateFormatterError.invalidYear)
+            }
         }
         //year valid, check month year combo
         guard String(currentYearSuffix).hasCommonPrefix(with: yearSuffixString) else {
             //If a future year, we don't have to check month
-            return true
+            return .valid
         }
         guard !(yearSuffixString.characters.count == 1 && String(currentYearSuffix + 1).hasCommonPrefix(with: yearSuffixString)) else {
             //year is incomplete and can potentially be a future year
-            return true
+            return .valid
         }
 
-        return String(currentMonth) >= monthString
+        if String(currentMonth) < monthString {
+            return .invalid(validationError: ExpirationDateFormatterError.expired)
+        }
+
+        return .valid
     }
-    
+
 }

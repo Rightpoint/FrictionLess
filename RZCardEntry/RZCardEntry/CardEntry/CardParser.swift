@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: - CardType
+// MARK: - CardType
 
 enum CardType {
     case amex
@@ -41,7 +41,7 @@ enum CardType {
                             length = [16]
 
         case .visa:         prefix = ["4"]
-                            length = [13, 16, 19]
+                            length = [16] //TODO: Consider UX for [13, 16, 19]
 
         }
 
@@ -115,7 +115,7 @@ fileprivate extension CardType {
 
 }
 
-//MARK: - CardState
+// MARK: - CardState
 
 enum CardState {
     case identified(CardType)
@@ -124,7 +124,7 @@ enum CardState {
 }
 
 extension CardState: Equatable {}
-func ==(lhs: CardState, rhs: CardState) -> Bool {
+func == (lhs: CardState, rhs: CardState) -> Bool {
     switch (lhs, rhs) {
     case (.invalid, .invalid): return true
     case (let .indeterminate(cards1), let .indeterminate(cards2)): return cards1 == cards2
@@ -157,9 +157,16 @@ extension CardState {
         }
     }
 
+    var cvvLength: Int {
+        switch self {
+        case .identified(let card): return card.cvvLength
+        default: return 3
+        }
+    }
+
 }
 
-//MARK: - PrefixContainable
+// MARK: - PrefixContainable
 
 fileprivate protocol PrefixContainable {
 
@@ -205,4 +212,3 @@ fileprivate extension String {
     }
 
 }
-
