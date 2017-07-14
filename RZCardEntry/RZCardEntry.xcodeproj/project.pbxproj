@@ -21,6 +21,7 @@
 		001829961F19197600782485 /* String+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018298A1F19197600782485 /* String+Filtering.swift */; };
 		001829A01F1919FB00782485 /* EmailFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018299B1F1919FB00782485 /* EmailFormatter.swift */; };
 		001829A11F1919FB00782485 /* NameFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018299C1F1919FB00782485 /* NameFormatter.swift */; };
+		001829A41F19484300782485 /* FormattableTextField+LayoutMargins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001829A31F19484300782485 /* FormattableTextField+LayoutMargins.swift */; };
 		00CB81651DDE44A0007D13D2 /* CreditCardFieldProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81621DDE44A0007D13D2 /* CreditCardFieldProcessorTests.swift */; };
 		00CB81661DDE44A0007D13D2 /* ExpirationDateFieldProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81631DDE44A0007D13D2 /* ExpirationDateFieldProcessorTests.swift */; };
 		00CB81671DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81641DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift */; };
@@ -64,6 +65,7 @@
 		0018298A1F19197600782485 /* String+Filtering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Filtering.swift"; sourceTree = "<group>"; };
 		0018299B1F1919FB00782485 /* EmailFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailFormatter.swift; sourceTree = "<group>"; };
 		0018299C1F1919FB00782485 /* NameFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameFormatter.swift; sourceTree = "<group>"; };
+		001829A31F19484300782485 /* FormattableTextField+LayoutMargins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FormattableTextField+LayoutMargins.swift"; path = "../../../FormattableTextField+LayoutMargins.swift"; sourceTree = "<group>"; };
 		00CB81621DDE44A0007D13D2 /* CreditCardFieldProcessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardFieldProcessorTests.swift; sourceTree = "<group>"; };
 		00CB81631DDE44A0007D13D2 /* ExpirationDateFieldProcessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationDateFieldProcessorTests.swift; sourceTree = "<group>"; };
 		00CB81641DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldProcessorTestHelpers.swift; sourceTree = "<group>"; };
@@ -128,14 +130,15 @@
 			path = CardEntry/FormattableTextField/Formatters;
 			sourceTree = "<group>";
 		};
-		001829871F19197600782485 /* Utilities */ = {
+		001829871F19197600782485 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				001829881F19197600782485 /* RangeHelpers.swift */,
 				001829891F19197600782485 /* String+CursorFingerprint.swift */,
 				0018298A1F19197600782485 /* String+Filtering.swift */,
+				001829A31F19484300782485 /* FormattableTextField+LayoutMargins.swift */,
 			);
-			name = Utilities;
+			name = Extensions;
 			path = CardEntry/FormattableTextField/Utilities;
 			sourceTree = "<group>";
 		};
@@ -155,7 +158,7 @@
 				0018297F1F19197600782485 /* FormattableTextFieldDelegate.swift */,
 				001829851F19197600782485 /* TextFieldFormatter.swift */,
 				001829861F19197600782485 /* TextFieldFormatterDataTypes.swift */,
-				001829871F19197600782485 /* Utilities */,
+				001829871F19197600782485 /* Extensions */,
 			);
 			name = FormattableTextField;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				0018298C1F19197600782485 /* FormattableTextField.swift in Sources */,
 				0018298E1F19197600782485 /* CreditCardFormatter.swift in Sources */,
 				001829921F19197600782485 /* TextFieldFormatter.swift in Sources */,
+				001829A41F19484300782485 /* FormattableTextField+LayoutMargins.swift in Sources */,
 				001829A01F1919FB00782485 /* EmailFormatter.swift in Sources */,
 				001829911F19197600782485 /* ZipFormatter.swift in Sources */,
 				001829A11F1919FB00782485 /* NameFormatter.swift in Sources */,

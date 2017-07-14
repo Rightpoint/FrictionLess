@@ -15,15 +15,14 @@ enum FormattableTextFieldError: Error {
 
 // MARK: - FormattableTextField
 open class FormattableTextField: UITextField {
-    fileprivate let delegateProxy: FormattableTextFieldDelegateProxy
-    var edgeInset = UIEdgeInsets.zero
+    fileprivate let delegateProxy: DelegateProxy
 
     init(formatter: TextFieldFormatter) {
-        self.delegateProxy = FormattableTextFieldDelegateProxy(formatter: formatter)
+        self.delegateProxy = DelegateProxy(formatter: formatter)
         super.init(frame: .zero)
 
         self.delegate = self.delegateProxy
-        addTarget(delegateProxy, action: #selector(FormattableTextFieldDelegateProxy.editingChanged(textField:)), for: .editingChanged)
+        addTarget(delegateProxy, action: #selector(DelegateProxy.editingChanged(textField:)), for: .editingChanged)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -71,7 +70,7 @@ extension FormattableTextField {
         }
         set {
             super.delegate = delegateProxy
-            if !(newValue is FormattableTextFieldDelegateProxy) {
+            if !(newValue is DelegateProxy) {
                 delegateProxy.delegate = newValue
             }
         }
@@ -118,15 +117,22 @@ extension FormattableTextField {
 }
 
 // MARK: Delegate Proxy Private Implementation
-private class FormattableTextFieldDelegateProxy: NSObject, UITextFieldDelegate {
+fileprivate extension FormattableTextField {
 
-    weak var delegate: UITextFieldDelegate?
-    var formatter: TextFieldFormatter
+    class DelegateProxy: NSObject, UITextFieldDelegate {
 
-    init(formatter: TextFieldFormatter) {
-        self.formatter = formatter
-        super.init()
+        weak var delegate: UITextFieldDelegate?
+        var formatter: TextFieldFormatter
+
+        init(formatter: TextFieldFormatter) {
+            self.formatter = formatter
+            super.init()
+        }
+
     }
+}
+
+extension FormattableTextField.DelegateProxy {
 
     @objc func editingChanged(textField: UITextField) {
         guard let textField = textField as? FormattableTextField else {
@@ -193,7 +199,7 @@ private class FormattableTextFieldDelegateProxy: NSObject, UITextFieldDelegate {
 }
 
 // MARK: Delegate Proxy Forwarding
-extension FormattableTextFieldDelegateProxy {
+extension FormattableTextField.DelegateProxy {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return delegate?.textFieldShouldBeginEditing?(textField) ?? true
@@ -217,29 +223,13 @@ extension FormattableTextFieldDelegateProxy {
             delegate.textFieldDidEndEditing?(textField)
         }
     }
-
+    
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return delegate?.textFieldShouldClear?(textField) ?? true
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return delegate?.textFieldShouldReturn?(textField) ?? true
     }
-
-}
-
-// MARK: Inset Overrides
-extension FormattableTextField {
-
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, edgeInset)
-    }
-
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, edgeInset)
-    }
-
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, edgeInset)
-    }
+    
 }
