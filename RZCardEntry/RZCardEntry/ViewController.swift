@@ -28,9 +28,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         [ccTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
          ccTextField.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60),
          ccTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
-            ].forEach {
+        ].forEach {
                 $0.isActive = true
         }
+
+        ccTextField.delegate = self
     }
 
 }

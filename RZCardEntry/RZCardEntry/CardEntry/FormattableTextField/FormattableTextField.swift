@@ -70,22 +70,10 @@ extension FormattableTextField {
             return delegateProxy.delegate
         }
         set {
-            if let formattableTextFieldDelegate = newValue as? FormattableTextFieldDelegate {
-                self.formattableTextFieldDelegate = formattableTextFieldDelegate
-            }
-            else {
-                super.delegate = newValue
-            }
-        }
-    }
-
-    var formattableTextFieldDelegate: FormattableTextFieldDelegate? {
-        get {
-            return delegateProxy.delegate
-        }
-        set {
             super.delegate = delegateProxy
-            delegateProxy.delegate = newValue
+            if !(newValue is FormattableTextFieldDelegateProxy) {
+                delegateProxy.delegate = newValue
+            }
         }
     }
 
@@ -123,7 +111,7 @@ extension FormattableTextField {
         super.deleteBackward()
 
         if text?.characters.count == 0 {
-            formattableTextFieldDelegate?.textFieldShouldNavigateBackwards(self)
+            (delegate as? FormattableTextFieldDelegate)?.textFieldShouldNavigateBackwards(self)
         }
     }
 
@@ -132,7 +120,7 @@ extension FormattableTextField {
 // MARK: Delegate Proxy Private Implementation
 private class FormattableTextFieldDelegateProxy: NSObject, UITextFieldDelegate {
 
-    weak var delegate: FormattableTextFieldDelegate?
+    weak var delegate: UITextFieldDelegate?
     var formatter: TextFieldFormatter
 
     init(formatter: TextFieldFormatter) {
@@ -144,7 +132,7 @@ private class FormattableTextFieldDelegateProxy: NSObject, UITextFieldDelegate {
         guard let textField = textField as? FormattableTextField else {
             fatalError("")
         }
-        delegate?.editingChanged(textField: textField)
+        (delegate as? FormattableTextFieldDelegate)?.editingChanged(textField: textField)
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -157,14 +145,14 @@ private class FormattableTextFieldDelegateProxy: NSObject, UITextFieldDelegate {
         }
 
         guard formatter.containsValidChars(text: string) else {
-            delegate?.textField(textField, invalidInput: FormattableTextFieldError.invalidInput)
+            (delegate as? FormattableTextFieldDelegate)?.textField(textField, invalidInput: FormattableTextFieldError.invalidInput)
             return false
         }
 
         //if user is inserting text at the end of a complete text field, alert delegate to potentially forward the input
         if range.location == textField.text?.characters.count && string.characters.count > 0 {
             if formatter.isComplete(textField.unformattedText) {
-                delegate?.textField(textField, didOverflowInput: string)
+                (delegate as? FormattableTextFieldDelegate)?.textField(textField, didOverflowInput: string)
                 return false
             }
         }
@@ -195,7 +183,7 @@ private class FormattableTextFieldDelegateProxy: NSObject, UITextFieldDelegate {
                 textField.selectedTextRange = textField.textRange(cursorOffset: cursorPosition)
                 textField.sendActions(for: .editingChanged)
             case .invalid(let error):
-                delegate?.textField(textField, invalidInput: error)
+                (delegate as? FormattableTextFieldDelegate)?.textField(textField, invalidInput: error)
                 return false
             }
         }
