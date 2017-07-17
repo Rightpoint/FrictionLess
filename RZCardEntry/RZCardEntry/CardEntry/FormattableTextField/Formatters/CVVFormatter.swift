@@ -9,7 +9,8 @@
 import Foundation
 
 enum CVVFormatterError: Error {
-    case maxLengthExceeded
+    case minLength
+    case maxLength
 }
 
 struct CVVFormatter: TextFieldFormatter {
@@ -23,10 +24,10 @@ struct CVVFormatter: TextFieldFormatter {
     func validate(_ string: String) -> ValidationResult {
         let length = string.characters.count
         if length < requiredLength {
-            return .invalid(validationError: ZipFormatterError.minLength)
+            return .invalid(validationError: CVVFormatterError.minLength)
         }
         else if length > requiredLength {
-            return .invalid(validationError: ZipFormatterError.maxLength)
+            return .invalid(validationError: CVVFormatterError.maxLength)
         }
         else {
             return .valid
@@ -35,10 +36,10 @@ struct CVVFormatter: TextFieldFormatter {
 
     func format(editingEvent: EditingEvent) -> FormattingResult {
         if editingEvent.newValue.characters.count <= requiredLength {
-            return .valid(formattedString: editingEvent.newValue, cursorPosition: editingEvent.newCursorPosition)
+            return .valid(nil)
         }
         else {
-            return .invalid(formattingError: CVVFormatterError.maxLengthExceeded)
+            return .invalid(formattingError: CVVFormatterError.maxLength)
         }
     }
 

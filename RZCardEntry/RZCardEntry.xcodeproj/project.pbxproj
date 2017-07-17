@@ -22,11 +22,11 @@
 		001829A01F1919FB00782485 /* EmailFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018299B1F1919FB00782485 /* EmailFormatter.swift */; };
 		001829A11F1919FB00782485 /* NameFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0018299C1F1919FB00782485 /* NameFormatter.swift */; };
 		001829A41F19484300782485 /* FormattableTextField+LayoutMargins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001829A31F19484300782485 /* FormattableTextField+LayoutMargins.swift */; };
-		00CB81651DDE44A0007D13D2 /* CreditCardFieldProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81621DDE44A0007D13D2 /* CreditCardFieldProcessorTests.swift */; };
-		00CB81661DDE44A0007D13D2 /* ExpirationDateFieldProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81631DDE44A0007D13D2 /* ExpirationDateFieldProcessorTests.swift */; };
-		00CB81671DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81641DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift */; };
-		00CB81691DE34204007D13D2 /* CardTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB81681DE34204007D13D2 /* CardTypeTests.swift */; };
-		00CB816B1DE36564007D13D2 /* CardStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CB816A1DE36564007D13D2 /* CardStateTests.swift */; };
+		001829AA1F1CF95800782485 /* CardStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001829A51F1CF95800782485 /* CardStateTests.swift */; };
+		001829AB1F1CF95800782485 /* CardTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001829A61F1CF95800782485 /* CardTypeTests.swift */; };
+		001829AC1F1CF95800782485 /* CreditCardFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001829A71F1CF95800782485 /* CreditCardFormatterTests.swift */; };
+		001829AD1F1CF95800782485 /* ExpirationDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001829A81F1CF95800782485 /* ExpirationDateFormatterTests.swift */; };
+		001829AE1F1CF95800782485 /* FormattableTextFieldTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001829A91F1CF95800782485 /* FormattableTextFieldTestHelpers.swift */; };
 		00F95A171D219EA100DB5839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A161D219EA100DB5839 /* AppDelegate.swift */; };
 		00F95A191D219EA100DB5839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F95A181D219EA100DB5839 /* ViewController.swift */; };
 		00F95A1E1D219EA100DB5839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F95A1D1D219EA100DB5839 /* Assets.xcassets */; };
@@ -66,11 +66,11 @@
 		0018299B1F1919FB00782485 /* EmailFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailFormatter.swift; sourceTree = "<group>"; };
 		0018299C1F1919FB00782485 /* NameFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameFormatter.swift; sourceTree = "<group>"; };
 		001829A31F19484300782485 /* FormattableTextField+LayoutMargins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FormattableTextField+LayoutMargins.swift"; path = "../../../FormattableTextField+LayoutMargins.swift"; sourceTree = "<group>"; };
-		00CB81621DDE44A0007D13D2 /* CreditCardFieldProcessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardFieldProcessorTests.swift; sourceTree = "<group>"; };
-		00CB81631DDE44A0007D13D2 /* ExpirationDateFieldProcessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationDateFieldProcessorTests.swift; sourceTree = "<group>"; };
-		00CB81641DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldProcessorTestHelpers.swift; sourceTree = "<group>"; };
-		00CB81681DE34204007D13D2 /* CardTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTypeTests.swift; sourceTree = "<group>"; };
-		00CB816A1DE36564007D13D2 /* CardStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStateTests.swift; sourceTree = "<group>"; };
+		001829A51F1CF95800782485 /* CardStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStateTests.swift; sourceTree = "<group>"; };
+		001829A61F1CF95800782485 /* CardTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTypeTests.swift; sourceTree = "<group>"; };
+		001829A71F1CF95800782485 /* CreditCardFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardFormatterTests.swift; sourceTree = "<group>"; };
+		001829A81F1CF95800782485 /* ExpirationDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatterTests.swift; sourceTree = "<group>"; };
+		001829A91F1CF95800782485 /* FormattableTextFieldTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormattableTextFieldTestHelpers.swift; sourceTree = "<group>"; };
 		00F95A131D219EA100DB5839 /* RZCardEntry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZCardEntry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F95A161D219EA100DB5839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F95A181D219EA100DB5839 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -199,11 +199,11 @@
 		00F95A2A1D219EA100DB5839 /* RZCardEntryTests */ = {
 			isa = PBXGroup;
 			children = (
-				00CB81681DE34204007D13D2 /* CardTypeTests.swift */,
-				00CB816A1DE36564007D13D2 /* CardStateTests.swift */,
-				00CB81621DDE44A0007D13D2 /* CreditCardFieldProcessorTests.swift */,
-				00CB81631DDE44A0007D13D2 /* ExpirationDateFieldProcessorTests.swift */,
-				00CB81641DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift */,
+				001829A51F1CF95800782485 /* CardStateTests.swift */,
+				001829A61F1CF95800782485 /* CardTypeTests.swift */,
+				001829A71F1CF95800782485 /* CreditCardFormatterTests.swift */,
+				001829A81F1CF95800782485 /* ExpirationDateFormatterTests.swift */,
+				001829A91F1CF95800782485 /* FormattableTextFieldTestHelpers.swift */,
 				00F95A2D1D219EA100DB5839 /* Info.plist */,
 			);
 			path = RZCardEntryTests;
@@ -290,7 +290,7 @@
 					};
 					00F95A261D219EA100DB5839 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0830;
 						TestTargetID = 00F95A121D219EA100DB5839;
 					};
 					00F95A311D219EA100DB5839 = {
@@ -374,11 +374,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00CB81661DDE44A0007D13D2 /* ExpirationDateFieldProcessorTests.swift in Sources */,
-				00CB816B1DE36564007D13D2 /* CardStateTests.swift in Sources */,
-				00CB81691DE34204007D13D2 /* CardTypeTests.swift in Sources */,
-				00CB81671DDE44A0007D13D2 /* FieldProcessorTestHelpers.swift in Sources */,
-				00CB81651DDE44A0007D13D2 /* CreditCardFieldProcessorTests.swift in Sources */,
+				001829AA1F1CF95800782485 /* CardStateTests.swift in Sources */,
+				001829AD1F1CF95800782485 /* ExpirationDateFormatterTests.swift in Sources */,
+				001829AB1F1CF95800782485 /* CardTypeTests.swift in Sources */,
+				001829AE1F1CF95800782485 /* FormattableTextFieldTestHelpers.swift in Sources */,
+				001829AC1F1CF95800782485 /* CreditCardFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,11 +526,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RZCardEntryTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.raizlabs.RZCardEntryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RZCardEntry.app/RZCardEntry";
 			};
@@ -540,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RZCardEntryTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

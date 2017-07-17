@@ -1,5 +1,5 @@
 //
-//  ExpirationDateFieldProcessorTests.swift
+//  ExpirationDateFormatterTests.swift
 //  RZCardEntry
 //
 //  Created by Jason Clark on 11/11/16.
@@ -9,12 +9,12 @@
 import XCTest
 @testable import RZCardEntry
 
-class ExpirationDateFieldProcessorTests: XCTestCase {
-    
+class ExpirationDateFormatterTests: XCTestCase {
+
     override func setUp() {
         super.setUp()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
@@ -32,23 +32,23 @@ class ExpirationDateFieldProcessorTests: XCTestCase {
         cursorPosition = 0  // |03/20
         expectedCursorPosition = 0
 
-        output = input.filteringWith(characterSet:set, cursorPosition: &cursorPosition)
+        output = input.filteringWith(characterSet:set, index: &cursorPosition)
         XCTAssert(output == expectedOutput)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 1  // 0|3/20
         expectedCursorPosition = 1
-        let _ = input.filteringWith(characterSet:set, cursorPosition: &cursorPosition)
+        _ = input.filteringWith(characterSet:set, index: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 3  //03/|20
         expectedCursorPosition = 2
-        let _ = input.filteringWith(characterSet:set, cursorPosition: &cursorPosition)
+        _ = input.filteringWith(characterSet:set, index: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 5  //03/20|
         expectedCursorPosition = 4
-        let _ = input.filteringWith(characterSet:set, cursorPosition: &cursorPosition)
+        _ = input.filteringWith(characterSet:set, index: &cursorPosition)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
     }
 
@@ -56,22 +56,20 @@ class ExpirationDateFieldProcessorTests: XCTestCase {
         var input: String
         var expectedOutput: String
         var expectedCursorPosition: Int
-        let textField = UITextField()
-        let delegate = FieldProcessor(formatter: ExpirationDateFormatter())
-        textField.delegate = delegate
+        let textField = FormattableTextField(formatter: ExpirationDateFormatter())
         textField.addToViewHiearchyAndBecomeFirstResponder()
 
         //leading with 1 could be Jan, Oct, Nov, Dec. Do not format
         input = "1"
         expectedOutput = "1"
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
-        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
+        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text ?? "")")
 
         //leading with 2 must be Feb, change to 02 and add slash
         input = "2"
         expectedOutput = "02/"
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
-        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
+        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text ?? "")")
         expectedCursorPosition = 3
         XCTAssert(textField.cursorOffset == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.cursorOffset)")
 
@@ -79,7 +77,7 @@ class ExpirationDateFieldProcessorTests: XCTestCase {
         input = "0"
         expectedOutput = "0"
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
-        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
+        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text ?? "")")
 
         //if someone inputs a slash after a 1, pad the 0
         let initialText = "1"
@@ -87,13 +85,13 @@ class ExpirationDateFieldProcessorTests: XCTestCase {
         input = "/"
         expectedOutput = "01/"
         textField.addText(input, initialText: initialText, initialCursorPosition: initialCursor, selectionLength: 0)
-        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
+        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text ?? "")")
 
         //add a slash for valid 2 digit months
         input = "10"
         expectedOutput = "10/"
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
-        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
+        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text ?? "")")
         expectedCursorPosition = 3
         XCTAssert(textField.cursorOffset == expectedCursorPosition, "expected \(expectedCursorPosition) got \(textField.cursorOffset)")
 
@@ -101,7 +99,7 @@ class ExpirationDateFieldProcessorTests: XCTestCase {
         input = "12/345"
         expectedOutput = ""
         textField.addText(input, initialText: "", initialCursorPosition: 0, selectionLength: 0)
-        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text)")
+        XCTAssert(textField.text == expectedOutput, "expected \(expectedOutput) got \(textField.text ?? "")")
     }
 
 }

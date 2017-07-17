@@ -9,8 +9,8 @@
 import XCTest
 @testable import RZCardEntry
 
-//MARK:- Helper Methods
-extension UITextField {
+// MARK: - Helper Methods
+extension FormattableTextField {
 
     func addText(_ textToAdd: String, initialText: String, initialCursorPosition: Int, selectionLength: Int) {
         //set original state
@@ -18,17 +18,18 @@ extension UITextField {
         selectedTextRange = textRangeForCursorPosition(initialCursorPosition, length: selectionLength)
 
         //simulate adding text
-        let _ = delegate?.textField?(self, shouldChangeCharactersIn: NSMakeRange(initialCursorPosition, selectionLength), replacementString: textToAdd)
+        self.simulateInput(text: textToAdd, range: NSRange(location: initialCursorPosition, length: selectionLength))
     }
 
     func deleteFromInitialText(_ initialText: String, initialCursorPosition: Int, numToDelete: Int) {
         text = initialText
         selectedTextRange = textRangeForCursorPosition(initialCursorPosition - (numToDelete - 1), length: (numToDelete - 1))
-        let deleteRange = NSMakeRange(initialCursorPosition-numToDelete, numToDelete)
-        let _ = delegate?.textField?(self, shouldChangeCharactersIn: deleteRange, replacementString: "")
+        let deleteRange = NSRange(location: initialCursorPosition-numToDelete, length: numToDelete)
+        //simulate adding text
+        self.simulateInput(text: "", range: deleteRange)
     }
 
-    func textRangeForCursorPosition(_ cursorPosition:Int, length: Int) -> UITextRange? {
+    func textRangeForCursorPosition(_ cursorPosition: Int, length: Int) -> UITextRange? {
         guard let startPosition = position(from: beginningOfDocument, offset: cursorPosition),
             let endPosition = position(from: beginningOfDocument, offset: cursorPosition + length) else {
                 return nil
@@ -43,5 +44,5 @@ extension UITextField {
         view.addSubview(self)
         becomeFirstResponder()
     }
-    
+
 }

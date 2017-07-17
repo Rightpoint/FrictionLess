@@ -71,8 +71,7 @@ extension TextFieldFormatter {
     }
 
     func format(editingEvent: EditingEvent) -> FormattingResult {
-        return .valid(formattedString: editingEvent.newValue,
-                      cursorPosition: editingEvent.newCursorPosition)
+        return .valid(nil)
     }
 
     func isComplete(_ text: String) -> Bool {
@@ -91,19 +90,6 @@ extension TextFieldFormatter {
     */
     func removeFormatting(_ text: String) -> String {
         return text.filteringWith(characterSet: inputCharacterSet)
-    }
-
-    /**
-        Trim out formatting characters and maintain the cursor's position.
-
-        - Parameter text: the text to be trimmed
-        - Parameter cursorPosition: the index of the cursor relative to the input text.
-            This will be updated to reflect the edits to the input text.
-
-        - Returns: A string with all characters removed that aren't included in the formatter's `inputCharacterSet`
-     */
-    func removeFormatting(_ text: String, cursorPosition: inout Int) -> String {
-        return text.filteringWith(characterSet: inputCharacterSet, index: &cursorPosition)
     }
 
     /**

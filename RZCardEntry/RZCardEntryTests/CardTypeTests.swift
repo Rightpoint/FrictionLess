@@ -10,18 +10,18 @@ import XCTest
 @testable import RZCardEntry
 
 class CardTypeTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
 
-//MARK: - Amex
+// MARK: - Amex
     func testAmex() {
         let amex: CardType = .amex
 
@@ -53,7 +53,7 @@ class CardTypeTests: XCTestCase {
 
     }
 
-//MARK: - Diners
+// MARK: - Diners
     func testDiners() {
         let diners: CardType = .diners
 
@@ -82,10 +82,10 @@ class CardTypeTests: XCTestCase {
         let failsLuhn = "30569309025905"
         XCTAssert(diners.isPrefixValid(failsLuhn) == true, "invalid diners should still match diners prefix")
         XCTAssert(diners.isValid(failsLuhn) == false, "invalid diners should fail luhn check")
-        
+
     }
 
-//MARK: - Discover
+// MARK: - Discover
     func testDiscover() {
         let discover: CardType = .discover
 
@@ -117,7 +117,7 @@ class CardTypeTests: XCTestCase {
         XCTAssert(discover.isValid(failsLuhn) == false, "invalid discover should fail luhn check")
     }
 
-//MARK: - JCB
+// MARK: - JCB
     func testJCB() {
         let jcb: CardType = .jcb
 
@@ -146,7 +146,7 @@ class CardTypeTests: XCTestCase {
         XCTAssert(jcb.isValid(failsLuhn) == false, "invalid jcb should fail luhn check")
     }
 
-//MARK: - MasterCard
+// MARK: - MasterCard
     func testMastercard() {
         let mastercard: CardType = .masterCard
 
@@ -177,7 +177,7 @@ class CardTypeTests: XCTestCase {
         XCTAssert(mastercard.isValid(failsLuhn) == false, "invalid mastercard should fail luhn check")
     }
 
-//MARK: - Visa
+// MARK: - Visa
     func testVisa() {
         let visa: CardType = .visa
 
@@ -187,14 +187,12 @@ class CardTypeTests: XCTestCase {
 
         let testNumbers = ["4444333322221111",
                            "4111111111111111",
-                           "4012888888881881",
-                           "4222222222222"]
+                           "4012888888881881"]
 
         testNumbers.forEach {
             XCTAssert(visa.isPrefixValid($0) == true, "\($0) should be a valid prefix")
             XCTAssert(visa.isValid($0) == true, "\($0) should be valid")
         }
-
 
         let failsLuhn = "4444333322221112"
         XCTAssert(visa.isPrefixValid(failsLuhn) == true, "invalid Visa still matches Visa prefix")

@@ -91,7 +91,18 @@ extension FormattableTextField {
                                  newCursorPosition: text.characters.count)
         let formatted = formatter.format(editingEvent: event)
         if case .valid(let formattingResult) = formatted {
-            self.text = formattingResult.formattedString
+            let formattedText: String
+            if let result = formattingResult {
+                switch result {
+                case .text(let string): formattedText = string
+                case .textAndCursor(let string, _): formattedText = string
+                }
+            }
+            else {
+                formattedText = text
+            }
+
+            self.text = formattedText
         }
     }
 
@@ -179,13 +190,29 @@ extension FormattableTextField.DelegateProxy {
             var adjustedEdit = formatter.handleDeletionOfFormatting(editingEvent: event)
             //  2. optionally removing all characters trailing a delte
             adjustedEdit = formatter.removeCharactersTrailingDelete(textField: textField, editingEvent: adjustedEdit)
-            adjustedEdit.newValue = formatter.removeFormatting(adjustedEdit.newValue, cursorPosition: &adjustedEdit.newCursorPosition)
+            let value = formatter.removeFormatting(adjustedEdit.newValue)
+            adjustedEdit.newCursorPosition = adjustedEdit.cursorPosition(inFormattedText: value, withinSet: formatter.inputCharacterSet)
+            adjustedEdit.newValue = value
 
             //then hand the edit to the formatter
             let result =  formatter.format(editingEvent: adjustedEdit)
+            let formattedText: String
+            let cursorPosition: Int
+
             switch result {
-            case .valid(let string, let cursorPosition):
-                textField.text = string
+            case .valid(let formattingResult):
+                switch formattingResult {
+                case .none:
+                    formattedText = adjustedEdit.newValue
+                    cursorPosition = adjustedEdit.newCursorPosition
+                case .some(.text(let string)):
+                    formattedText = string
+                    cursorPosition = adjustedEdit.cursorPosition(inFormattedText: string, withinSet: textField.formatter.inputCharacterSet)
+                case .some(.textAndCursor(let string, let cursor)):
+                    formattedText = string
+                    cursorPosition = cursor
+                }
+                textField.text = formattedText
                 textField.selectedTextRange = textField.textRange(cursorOffset: cursorPosition)
                 textField.sendActions(for: .editingChanged)
             case .invalid(let error):

@@ -19,7 +19,7 @@ struct CursorPositionFingerprint {
 
 extension String {
 
-    func fingerprint(ofCursorPosition cursorPosition: Int, characterSet: CharacterSet = CharacterSet()) -> CursorPositionFingerprint? {
+    func fingerprint(ofCursorPosition cursorPosition: Int, characterSet: CharacterSet = CharacterSet().inverted) -> CursorPositionFingerprint? {
         var characterRepetitionsFromEnd = 0
         for i in cursorPosition ..< characters.count {
             let range = NSRange(location: i, length: 1)
@@ -51,6 +51,16 @@ extension String {
             }
         }
         return nil
+    }
+
+    func position(ofCursorLocation oldLocation: Int, inOtherString string: String) -> Int {
+        if let fingerprint = fingerprint(ofCursorPosition: oldLocation),
+            let position = string.position(ofCursorFingerprint: fingerprint) {
+            return position
+        }
+        else {
+            return string.characters.count
+        }
     }
 
 }

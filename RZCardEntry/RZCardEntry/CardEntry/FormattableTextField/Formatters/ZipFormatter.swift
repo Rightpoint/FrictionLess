@@ -36,7 +36,7 @@ struct ZipFormatter: TextFieldFormatter {
 
     func format(editingEvent: EditingEvent) -> FormattingResult {
         if editingEvent.newValue.characters.count <= requiredLength {
-            return .valid(formattedString: editingEvent.newValue, cursorPosition: editingEvent.newCursorPosition)
+            return .valid(nil)
         }
         else {
             return .invalid(formattingError: ZipFormatterError.maxLength)

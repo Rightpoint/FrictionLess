@@ -47,7 +47,6 @@ struct ExpirationDateFormatter: TextFieldFormatter {
     }
 
     func format(editingEvent: EditingEvent) -> FormattingResult {
-        var cursorPos = editingEvent.newCursorPosition
         var newExpirationDate = editingEvent.newValue
         guard newExpirationDate.characters.count <= requiredLength else {
             return .invalid(formattingError: ExpirationDateFormatterError.maxLength)
@@ -56,14 +55,13 @@ struct ExpirationDateFormatter: TextFieldFormatter {
         //If user manually enters formatting character after a 1, pad with a leading 0
         if editingEvent.editRange.location == 1 && editingEvent.editString == "/" {
             newExpirationDate.insert("0", at: newExpirationDate.startIndex)
-            cursorPos += 1
         }
 
-        let formatted = formatString(newExpirationDate, cursorPosition: &cursorPos)
+        let formatted = formatString(newExpirationDate)
 
         switch validate(expDate: removeFormatting(formatted)) {
         case .valid:
-            return .valid(formattedString: formatted, cursorPosition: cursorPos)
+            return .valid(.text(formatted))
         case .invalid(let error):
             return .invalid(formattingError: error)
         }
@@ -77,33 +75,23 @@ struct ExpirationDateFormatter: TextFieldFormatter {
 
 private extension ExpirationDateFormatter {
 
-    func formatString(_ text: String, cursorPosition: inout Int) -> String {
-        let cursorPositionInFormattlessText = cursorPosition
+    func formatString(_ text: String) -> String {
         var formattedString = String()
 
         for (index, character) in text.characters.enumerated() {
             if index == 0 && text.characters.count == 1 && "2"..."9" ~= character {
                 formattedString.append("0\(character)/")
-                if index < cursorPositionInFormattlessText {
-                    cursorPosition += 2
-                }
             }
             else if index == 1 && text.characters.count == 2 && text.characters.first == "1"
                 && !("1"..."2" ~= character) && validYearRanges.contains(where: { $0.hasCommonPrefix(with: String(character)) }) {
                 //digit after leading 1 is not a valid month but is the start of a valid year.
                 formattedString.insert("0", at: formattedString.startIndex)
                 formattedString.append("/\(character)")
-                if index < cursorPositionInFormattlessText {
-                    cursorPosition += 2
-                }
             }
             else {
                 formattedString.append(character)
                 if index == 1 {
                     formattedString.append("/")
-                    if index < cursorPositionInFormattlessText {
-                        cursorPosition += 1
-                    }
                 }
             }
         }

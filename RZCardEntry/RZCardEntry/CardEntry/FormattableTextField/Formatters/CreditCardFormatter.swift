@@ -24,7 +24,6 @@ struct CreditCardFormatter: TextFieldFormatter {
     }
 
     func format(editingEvent: EditingEvent) -> FormattingResult {
-        var cursorPos = editingEvent.newCursorPosition
         let newCardNumber = editingEvent.newValue
         let newCardState = CardState(fromPrefix: newCardNumber)
 
@@ -33,7 +32,7 @@ struct CreditCardFormatter: TextFieldFormatter {
             case .invalid:
                 return .invalid(formattingError: CreditCardFormatterError.invalidCardNumber)
             case .indeterminate(_):
-                return .valid(formattedString: editingEvent.newValue, cursorPosition: editingEvent.newCursorPosition)
+                return .valid(nil)
             case .identified(let card):
                 let cardLength = newCardNumber.characters.count
                 guard cardLength <= card.maxLength else {
@@ -42,8 +41,8 @@ struct CreditCardFormatter: TextFieldFormatter {
                 if cardLength == card.maxLength && !card.isValid(newCardNumber) {
                     return .invalid(formattingError: CreditCardFormatterError.invalidCardNumber)
                 }
-                let formatted = newCardNumber.inserting(" ", formingGroupings: card.segmentGroupings, maintainingCursorPosition: &cursorPos)
-                return .valid(formattedString: formatted, cursorPosition: cursorPos)
+                let formatted = newCardNumber.inserting(" ", formingGroupings: card.segmentGroupings)
+                return .valid(.text(formatted))
             }
         }()
 
@@ -67,9 +66,9 @@ struct CreditCardFormatter: TextFieldFormatter {
 
 extension String {
 
-    func inserting(_ formattingString: String, formingGroupings groupings: [Int], maintainingCursorPosition cursorPosition: inout Int) -> String {
+    //TODO: Can replace this with something simpler
+    func inserting(_ formattingString: String, formingGroupings groupings: [Int]) -> String {
         var formattedString = String()
-        let startingCursorPosition = cursorPosition
         let formattingIndicies = groupings.dropLast().reduce([], { sums, element in
             return sums + [element + (sums.last ?? -1)]
         })
@@ -78,9 +77,6 @@ extension String {
             formattedString.append(character)
             if formattingIndicies.contains(offset) {
                 formattedString.append(formattingString)
-                if offset < startingCursorPosition {
-                    cursorPosition += formattingString.characters.count
-                }
             }
         }
         return formattedString

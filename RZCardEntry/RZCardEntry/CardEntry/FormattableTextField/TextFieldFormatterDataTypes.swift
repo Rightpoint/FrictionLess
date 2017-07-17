@@ -74,11 +74,13 @@ extension EditingEvent {
         }
     }
 
-    func cursorPosition(inFormattedText text: String, withinSet characterSet: CharacterSet) -> Int? {
-        if let fingerpint = newValue.fingerprint(ofCursorPosition: newCursorPosition, characterSet: characterSet) {
-            return text.position(ofCursorFingerprint: fingerpint)
+    func cursorPosition(inFormattedText text: String, withinSet characterSet: CharacterSet) -> Int {
+        if let fingerpint = newValue.fingerprint(ofCursorPosition: newCursorPosition, characterSet: characterSet), let position = text.position(ofCursorFingerprint: fingerpint) {
+            return position
         }
-        return nil
+        else {
+            return text.characters.count
+        }
     }
 
 }
@@ -87,8 +89,13 @@ extension EditingEvent {
  The result of formatting in response to an `EditingEvent`.
  */
 enum FormattingResult {
-    case valid(formattedString: String, cursorPosition: Int)
+    case valid(Reformatting?)
     case invalid(formattingError: Error)
+}
+
+enum Reformatting {
+    case text(String)
+    case textAndCursor(String, Int)
 }
 
 /**

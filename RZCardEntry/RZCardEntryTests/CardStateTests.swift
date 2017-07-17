@@ -10,20 +10,20 @@ import XCTest
 @testable import RZCardEntry
 
 class CardStateTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     func testEmptyStringIndeterminateState() {
         if case .indeterminate(let cards) = CardState(fromPrefix: ""),
-            cards == CardType.allValues{
+            cards == CardType.allValues {
             XCTAssert(true)
         }
         else {
@@ -35,11 +35,10 @@ class CardStateTests: XCTestCase {
         if case .indeterminate(let cards) = CardState(fromPrefix: "3"),
             cards.contains(.amex),
             cards.contains(.diners),
-            cards.contains(.jcb)
-        {
+            cards.contains(.jcb) {
             XCTAssert(true)
         }
-        else{
+        else {
             XCTFail()
         }
     }
@@ -92,8 +91,7 @@ class CardStateTests: XCTestCase {
         //visa
         let visa =  ["4444333322221111",
                      "4111111111111111",
-                     "4012888888881881",
-                     "4222222222222"]
+                     "4012888888881881"]
         visa.forEach {
             XCTAssert(CardState(fromPrefix: $0) == .identified(.visa))
             XCTAssert(CardState(fromNumber: $0) == .identified(.visa))
