@@ -32,11 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00182A0F1F1D489E00782485 /* CardStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStateTests.swift; sourceTree = "<group>"; };
-		00182A101F1D489E00782485 /* CardTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTypeTests.swift; sourceTree = "<group>"; };
-		00182A111F1D489E00782485 /* CreditCardFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardFormatterTests.swift; sourceTree = "<group>"; };
-		00182A121F1D489E00782485 /* ExpirationDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatterTests.swift; sourceTree = "<group>"; };
-		00182A131F1D489E00782485 /* FormattableTextFieldTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormattableTextFieldTestHelpers.swift; sourceTree = "<group>"; };
+		00182A0F1F1D489E00782485 /* CardStateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CardStateTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		00182A101F1D489E00782485 /* CardTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CardTypeTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		00182A111F1D489E00782485 /* CreditCardFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreditCardFormatterTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		00182A121F1D489E00782485 /* ExpirationDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ExpirationDateFormatterTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		00182A131F1D489E00782485 /* FormattableTextFieldTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FormattableTextFieldTestHelpers.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		14FA7442BC66736E6B23D7DD /* FrictionLess.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FrictionLess.podspec; path = ../FrictionLess.podspec; sourceTree = "<group>"; };
 		45A0666FB629DB974BFF4D36 /* Pods-FrictionLess_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrictionLess_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrictionLess_Example/Pods-FrictionLess_Example.release.xcconfig"; sourceTree = "<group>"; };
 		47C624E1FBEED9733B7A3545 /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -541,10 +541,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D61724B008F35248747CD6EF /* Pods-FrictionLess_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -562,10 +559,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F3DBE4E2D044679D6AE2911 /* Pods-FrictionLess_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

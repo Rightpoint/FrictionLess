@@ -57,50 +57,50 @@
 		1A952574FDADB2933C58C1F8B2A73313 /* Pods-FrictionLess_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.release.xcconfig"; sourceTree = "<group>"; };
 		212338D7FFBE72D9FF5CBC73A3D602A8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E5FE231D2067757E940EF4774FE78E0 /* CardParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
-		398FCA4F4E06BB0A7293F07EAFE51FA3 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
+		398FCA4F4E06BB0A7293F07EAFE51FA3 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		43C065769006F841D1997DFCD1BB2248 /* Pods-FrictionLess_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FrictionLess_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		497D933F21C4629388E73370F54E940A /* CardImageViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardImageViewModel.swift; sourceTree = "<group>"; };
+		497D933F21C4629388E73370F54E940A /* CardImageViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CardImageViewModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4EC3974BA32CDD1F9889D92358346CFA /* FormattableTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextField.swift; sourceTree = "<group>"; };
-		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
+		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
 		5A13E27C2AF58401619632283462141C /* String+CursorFingerprint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+CursorFingerprint.swift"; sourceTree = "<group>"; };
 		5AD68594933C905D19A9B5FCEF8B91FE /* FrictionLess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FrictionLess.xcconfig; sourceTree = "<group>"; };
 		716FC44ACC457FC6EE5704A33F2349F1 /* String+Filtering.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Filtering.swift"; sourceTree = "<group>"; };
 		7ACEAB809A84806F1CC57ACAC4AFF5BC /* Pods-FrictionLess_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EDF2B30BE70BF7ABB0DBC4AC315943A /* Pods-FrictionLess_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Tests-resources.sh"; sourceTree = "<group>"; };
 		80E6D49EC900DFDCE2595803E5F9B82A /* Pods-FrictionLess_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		84B77F0E2D19985934839225761C273D /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrictionLess_Example.framework; path = "Pods-FrictionLess_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8932C4B8C8DA04A0D574BCEF023A17A7 /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrictionLess_Tests.framework; path = "Pods-FrictionLess_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B77F0E2D19985934839225761C273D /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8932C4B8C8DA04A0D574BCEF023A17A7 /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89880DCA35CC3FF0E453367A430EDEB5 /* EmailFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EmailFormatter.swift; sourceTree = "<group>"; };
 		89EB5EF12902F092417B17D4DE9D0D32 /* FormattableTextFieldDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextFieldDelegate.swift; sourceTree = "<group>"; };
 		8D234E9C2608EB74DB3316CEF3B431A7 /* RangeHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RangeHelpers.swift; sourceTree = "<group>"; };
-		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
+		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
 		8FE73EF63239FF1A170498EF839C285D /* NameFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NameFormatter.swift; sourceTree = "<group>"; };
 		9379A88D4483BD5C19A2CE4A84435BD2 /* Pods-FrictionLess_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		982ED662C8B157BB7FC4F1CC8C8FB0D3 /* FrictionLess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-prefix.pch"; sourceTree = "<group>"; };
 		9C71D56062604DFFE019340FBC8483AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3E9A0B5FE9FB38061E34661BCE439F9 /* Pods-FrictionLess_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FrictionLess_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A9CB401E1FCFC3B43CEBA26097C8B9CC /* Pods-FrictionLess_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Example-resources.sh"; sourceTree = "<group>"; };
 		A9DF94E991ABFA52DAC1720F5AD904E3 /* FrictionLess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-umbrella.h"; sourceTree = "<group>"; };
 		AC94E887A643438FE98C961DFF3C669D /* Pods-FrictionLess_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FrictionLess_Example-umbrella.h"; sourceTree = "<group>"; };
-		B1D7BA145DA08A8B0EE02BC88BB3F1B3 /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FrictionLess.framework; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D7BA145DA08A8B0EE02BC88BB3F1B3 /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B480F0992122A83E0BF6A34127BBB8C8 /* Pods-FrictionLess_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FrictionLess_Tests-dummy.m"; sourceTree = "<group>"; };
 		B5FD61AB6EAC03A093B2CD68C3340B90 /* FrictionLess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FrictionLess-dummy.m"; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		BC7F974DF707086201FCC10E8A31CDA1 /* CreditEntryViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditEntryViewModel.swift; sourceTree = "<group>"; };
 		BD96581F6B160D0B4FBF64D404516FAC /* Pods-FrictionLess_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrictionLess_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D51F416C6EBCAD7BE297F879D7A368C6 /* CreditCardFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditCardFormatter.swift; sourceTree = "<group>"; };
+		D51F416C6EBCAD7BE297F879D7A368C6 /* CreditCardFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreditCardFormatter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DB41F52021AD728AFC291A9A9555BC55 /* Pods-FrictionLess_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Example-frameworks.sh"; sourceTree = "<group>"; };
-		DBF844C0A72219E40760A89EE9DB426B /* TextFieldFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatter.swift; sourceTree = "<group>"; };
+		DBF844C0A72219E40760A89EE9DB426B /* TextFieldFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TextFieldFormatter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E12B011DD6786BA7AEC8E2F1164A88AD /* Pods-FrictionLess_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FrictionLess_Example-dummy.m"; sourceTree = "<group>"; };
 		E4351B824F2D38BD4DD642B71837A030 /* Pods-FrictionLess_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		EB17227D298368989334AA2B909AA4FB /* ZipFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ZipFormatter.swift; sourceTree = "<group>"; };
+		EB17227D298368989334AA2B909AA4FB /* ZipFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ZipFormatter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EC34398D91980F7320A5623242602C5B /* TextFieldFormatterDataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatterDataTypes.swift; sourceTree = "<group>"; };
 		EC753BA98C8EB251BF99E38EB9A36D43 /* Pods-FrictionLess_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrictionLess_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		F36AEB7714B9DF525D274BC3AB7AFC5D /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FrictionLess.modulemap; sourceTree = "<group>"; };
+		F36AEB7714B9DF525D274BC3AB7AFC5D /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FrictionLess.modulemap; sourceTree = "<group>"; };
 		F586524428C80F4750102554471D04B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBAF973F8289E3A2D22495424886FE7E /* CVVFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CVVFormatter.swift; sourceTree = "<group>"; };
+		FBAF973F8289E3A2D22495424886FE7E /* CVVFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CVVFormatter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,6 @@
 			children = (
 				49048757B2ACAC1DA2F1AAA75FA1DC05 /* Classes */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -155,7 +154,6 @@
 				89880DCA35CC3FF0E453367A430EDEB5 /* EmailFormatter.swift */,
 				8FE73EF63239FF1A170498EF839C285D /* NameFormatter.swift */,
 			);
-			name = Formatters;
 			path = Formatters;
 			sourceTree = "<group>";
 		};
@@ -185,7 +183,6 @@
 				398FCA4F4E06BB0A7293F07EAFE51FA3 /* ExpirationDateFormatter.swift */,
 				EB17227D298368989334AA2B909AA4FB /* ZipFormatter.swift */,
 			);
-			name = Formatters;
 			path = Formatters;
 			sourceTree = "<group>";
 		};
@@ -237,7 +234,6 @@
 				5A13E27C2AF58401619632283462141C /* String+CursorFingerprint.swift */,
 				716FC44ACC457FC6EE5704A33F2349F1 /* String+Filtering.swift */,
 			);
-			name = Utilities;
 			path = Utilities;
 			sourceTree = "<group>";
 		};
@@ -257,7 +253,6 @@
 			children = (
 				D558C04853CF242DE24BAEAD208973F5 /* CardEntry */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -271,7 +266,6 @@
 				347EA4CF24B73580E0FDA59FBA5B8BEC /* Formatters */,
 				474C36C6090610F75B25B256A2E3F001 /* Utilities */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -317,7 +311,6 @@
 			children = (
 				F44E658BE82A875541D846707341CBCD /* Classes */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -329,7 +322,6 @@
 				BC7F974DF707086201FCC10E8A31CDA1 /* CreditEntryViewModel.swift */,
 				35DC2353E0A6201F02E00C0508872D9B /* Formatters */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -347,7 +339,6 @@
 			children = (
 				54EF30032EA7AB08B758761F925A7C92 /* Classes */,
 			);
-			name = FormattableTextField;
 			path = FormattableTextField;
 			sourceTree = "<group>";
 		};
@@ -364,7 +355,6 @@
 			children = (
 				B2B3E668567B501388E887DEC6C72610 /* Classes */,
 			);
-			name = CardEntry;
 			path = CardEntry;
 			sourceTree = "<group>";
 		};
@@ -373,7 +363,6 @@
 			children = (
 				D00C7317815FBC8C0B0C84404BD5F1B2 /* FormattableTextField */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
