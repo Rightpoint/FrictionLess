@@ -1,0 +1,23 @@
+PODS:
+  - FrictionLess (0.1.0):
+    - FrictionLess/All (= 0.1.0)
+  - FrictionLess/All (0.1.0):
+    - FrictionLess/CardEntry
+    - FrictionLess/FormattableTextField
+  - FrictionLess/CardEntry (0.1.0):
+    - FrictionLess/FormattableTextField
+  - FrictionLess/FormattableTextField (0.1.0)
+
+DEPENDENCIES:
+  - FrictionLess (from `../`)
+
+EXTERNAL SOURCES:
+  FrictionLess:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FrictionLess: 79f9bb328208b3ceab160e1a97a71cbb50951360
+
+PODFILE CHECKSUM: aa71678ef69099b9c44d5b11d8291f24235171e8
+
+COCOAPODS: 1.2.1

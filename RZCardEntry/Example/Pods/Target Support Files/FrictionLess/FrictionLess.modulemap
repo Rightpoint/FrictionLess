@@ -1,0 +1,6 @@
+framework module FrictionLess {
+  umbrella header "FrictionLess-umbrella.h"
+
+  export *
+  module * { export * }
+}

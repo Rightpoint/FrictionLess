@@ -1,0 +1,54 @@
+{
+  "name": "FrictionLess",
+  "version": "0.1.0",
+  "summary": "A short description of FrictionLess.",
+  "description": "A collection of swift UI/UX components for reducing friction in \"user work\": forms, payment, checkout.",
+  "homepage": "https://github.com/Raizlabs/FrictionLess",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jay Clark": "jason.clark@raizlabs.com"
+  },
+  "source": {
+    "git": "https://github.com/raizlabs/FrictionLess.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "default_subspecs": "All",
+  "subspecs": [
+    {
+      "name": "FormattableTextField",
+      "source_files": "FrictionLess/Classes/FormattableTextField/**/*",
+      "frameworks": [
+        "UIKit"
+      ]
+    },
+    {
+      "name": "CardEntry",
+      "source_files": "FrictionLess/Classes/CardEntry/**/*",
+      "frameworks": [
+        "UIKit"
+      ],
+      "dependencies": {
+        "FrictionLess/FormattableTextField": [
+
+        ]
+      }
+    },
+    {
+      "name": "All",
+      "dependencies": {
+        "FrictionLess/FormattableTextField": [
+
+        ],
+        "FrictionLess/CardEntry": [
+
+        ]
+      }
+    }
+  ]
+}
