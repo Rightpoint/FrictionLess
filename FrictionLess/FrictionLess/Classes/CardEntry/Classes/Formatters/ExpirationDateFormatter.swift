@@ -1,6 +1,6 @@
 //
 //  ExpirationDateFormatter.swift
-//  RZCardEntry
+//  FrictionLess
 //
 //  Created by Jason Clark on 11/21/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.

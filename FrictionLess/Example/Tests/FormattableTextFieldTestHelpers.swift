@@ -1,6 +1,6 @@
 //
 //  RZFormattableTextFieldTestHelpers.swift
-//  RZCardEntry
+//  FrictionLess
 //
 //  Created by Jason Clark on 9/27/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.

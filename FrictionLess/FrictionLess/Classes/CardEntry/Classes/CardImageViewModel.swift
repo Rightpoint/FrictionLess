@@ -1,6 +1,6 @@
 //
 //  CardImageViewModel.swift
-//  RZCardEntry
+//  FrictionLess
 //
 //  Created by Jason Clark on 4/5/17.
 //

@@ -1,6 +1,6 @@
 //
 //  CreditCardFormatterTests.swift
-//  RZCardEntry
+//  FrictionLess
 //
 //  Created by Jason Clark on 11/11/16.
 //  Copyright © 2016 Raizlabs. All rights reserved.
