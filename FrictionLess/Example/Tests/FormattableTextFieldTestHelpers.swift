@@ -1,5 +1,5 @@
 //
-//  RZFormattableTextFieldTestHelpers.swift
+//  FormattableTextFieldTestHelpers.swift
 //  FrictionLess
 //
 //  Created by Jason Clark on 9/27/16.
