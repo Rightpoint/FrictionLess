@@ -24,7 +24,7 @@ extension String {
         for i in cursorPosition ..< characters.count {
             let range = NSRange(location: i, length: 1)
             let firstCharacterAfterCursorInSet = substring(fromNSRange: range)
-            if !(rangeOfCharacter(from: characterSet)?.isEmpty ?? true) {
+            if characterSet.contains(firstCharacterAfterCursorInSet) {
                 for j in range.location ..< characters.count {
                     let candidateRepeat = substring(fromNSRange: NSRange(location:j, length:1))
                     if candidateRepeat == firstCharacterAfterCursorInSet {
@@ -53,14 +53,23 @@ extension String {
         return nil
     }
 
-    func position(ofCursorLocation oldLocation: Int, inOtherString string: String) -> Int {
-        if let fingerprint = fingerprint(ofCursorPosition: oldLocation),
+    func position(ofCursorLocation oldLocation: Int, in string: String, within set: CharacterSet? = nil) -> Int {
+        let characterSet: CharacterSet = set ?? CharacterSet().inverted
+        if let fingerprint = fingerprint(ofCursorPosition: oldLocation, characterSet: characterSet),
             let position = string.position(ofCursorFingerprint: fingerprint) {
             return position
         }
         else {
             return string.characters.count
         }
+    }
+
+}
+
+extension CharacterSet {
+
+    func contains(_ string: String) -> Bool {
+        return !(string.rangeOfCharacter(from: self)?.isEmpty ?? true)
     }
 
 }

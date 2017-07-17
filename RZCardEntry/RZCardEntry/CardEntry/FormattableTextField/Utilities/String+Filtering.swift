@@ -20,25 +20,4 @@ extension String {
         return components(separatedBy: characterSet.inverted).joined()
     }
 
-    /**
-     Trim out characters not contained in `characterSet`, adjusting an index appropriately.
-
-     - Parameter characterSet: The whitelist `CharacterSet` to filter the string to.
-     - Parameter index: an index to be updated to reflect the edits to the input text.
-     */
-
-    func filteringWith(characterSet: CharacterSet, index: inout Int) -> String {
-        let originalIndex = index
-        var validChars = String()
-        for (idx, character) in characters.enumerated() {
-            if String(character).rangeOfCharacter(from: characterSet) != nil {
-                validChars.append(character)
-            }
-            else if idx < originalIndex {
-                index -= 1
-            }
-        }
-        return validChars
-    }
-
 }

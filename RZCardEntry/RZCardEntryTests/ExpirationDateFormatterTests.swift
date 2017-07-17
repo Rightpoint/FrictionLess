@@ -32,23 +32,27 @@ class ExpirationDateFormatterTests: XCTestCase {
         cursorPosition = 0  // |03/20
         expectedCursorPosition = 0
 
-        output = input.filteringWith(characterSet:set, index: &cursorPosition)
+        output = input.filteringWith(characterSet:set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
         XCTAssert(output == expectedOutput)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 1  // 0|3/20
         expectedCursorPosition = 1
-        _ = input.filteringWith(characterSet:set, index: &cursorPosition)
+        _ = input.filteringWith(characterSet:set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 3  //03/|20
         expectedCursorPosition = 2
-        _ = input.filteringWith(characterSet:set, index: &cursorPosition)
+        _ = input.filteringWith(characterSet:set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
 
         cursorPosition = 5  //03/20|
         expectedCursorPosition = 4
-        _ = input.filteringWith(characterSet:set, index: &cursorPosition)
+        _ = input.filteringWith(characterSet:set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
         XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
     }
 

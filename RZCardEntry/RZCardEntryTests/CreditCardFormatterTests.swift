@@ -34,39 +34,46 @@ class CreditCardFormatterTests: XCTestCase {
         cursorPosition = 1  // 1|2
         expectedCursorPosition = 1
 
-        output = input.filteringWith(characterSet: set, index: &cursorPosition)
+        output = input.filteringWith(characterSet: set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
         XCTAssert(output == expectedOutput)
-        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
+        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got: \(cursorPosition)")
 
         cursorPosition = 4  // 4| 5
         expectedCursorPosition = 4
-        _ = input.filteringWith(characterSet: set, index: &cursorPosition)
-        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
+        output = input.filteringWith(characterSet: set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
+        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got: \(cursorPosition)")
 
         cursorPosition = 5  // 4 |5
         expectedCursorPosition = 4
-        _ = input.filteringWith(characterSet: set, index: &cursorPosition)
-        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
+        output = input.filteringWith(characterSet: set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
+        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got: \(cursorPosition)")
 
         cursorPosition = 9  // 8| 9
         expectedCursorPosition = 8
-        _ = input.filteringWith(characterSet: set, index: &cursorPosition)
-        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
+        output = input.filteringWith(characterSet: set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
+        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got: \(cursorPosition)")
 
         cursorPosition = 10  // 8 |9
         expectedCursorPosition = 8
-        _ = input.filteringWith(characterSet: set, index: &cursorPosition)
-        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
+        output = input.filteringWith(characterSet: set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
+        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got: \(cursorPosition)")
 
         cursorPosition = 14  // 8| 7
         expectedCursorPosition = 12
-        _ = input.filteringWith(characterSet: set, index: &cursorPosition)
-        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
+        output = input.filteringWith(characterSet: set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
+        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got: \(cursorPosition)")
 
         cursorPosition = 15  // 8 |7
         expectedCursorPosition = 12
-        _ = input.filteringWith(characterSet: set, index: &cursorPosition)
-        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got \(cursorPosition)")
+        output = input.filteringWith(characterSet: set)
+        cursorPosition = input.position(ofCursorLocation: cursorPosition, in: output, within: set)
+        XCTAssert(cursorPosition == expectedCursorPosition, "expected cursor position: \(expectedCursorPosition) got: \(cursorPosition)")
     }
 
     func testFormatting() {
@@ -240,7 +247,7 @@ extension CreditCardFormatterTests {
 
     func testInsertSpaces(_ groupings: [Int], input: String, cursorPosition: Int, expectedOutput: String, expectedOutputCursorPosition: Int, file: StaticString = #file, line: UInt = #line) {
         let output = input.inserting(" ", formingGroupings: groupings)
-        let outputCursor = input.position(ofCursorLocation: cursorPosition, inOtherString: output)
+        let outputCursor = input.position(ofCursorLocation: cursorPosition, in: output)
 
         guard output == expectedOutput else {
             XCTFail("expected \(expectedOutput) got \(output)", file: file, line: line)
