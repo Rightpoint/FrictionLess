@@ -72,7 +72,7 @@ enum CardImageState: Equatable {
     var image: UIImage {
         switch self {
         case .card(let card):
-            return card.isAccepted ? card.state.image : UIImage()//Asset.Payment.CreditCard.notAccepted.image
+            return card.isAccepted ? card.state.image : Images.CreditCard.notAccepted.image
         case .cvv(let card): return card.state.cvvImage
         }
     }
@@ -93,15 +93,15 @@ private extension CardState {
     var image: UIImage {
         switch self {
         case .identified(let cardType): return cardType.image
-        case .invalid:                  return UIImage()//Asset.Payment.CreditCard.notAccepted.image
-        case .indeterminate:            return UIImage()//Asset.Payment.CreditCard.placeholder.image
+        case .invalid:                  return Images.CreditCard.notAccepted.image
+        case .indeterminate:            return Images.CreditCard.placeholder.image
         }
     }
 
     var cvvImage: UIImage {
         switch self {
         case .identified(let cardType): return cardType.cvvImage
-        default: return UIImage()//Asset.Payment.CreditCard.Cvv.back.image
+        default: return Images.CreditCard.Cvv.back.image
         }
     }
 
@@ -123,19 +123,19 @@ private extension CardType {
 
     var image: UIImage {
         switch self {
-        case .visa:         return UIImage()//Asset.Payment.CreditCard.visa.image
-        case .masterCard:   return UIImage()//Asset.Payment.CreditCard.mastercard.image
-        case .amex:         return UIImage()//Asset.Payment.CreditCard.americanexpress.image
-        case .discover:     return UIImage()//Asset.Payment.CreditCard.discover.image
-        case .diners:       return UIImage()//Asset.Payment.CreditCard.diners.image
-        case .jcb:          return UIImage()//Asset.Payment.CreditCard.jcb.image
+        case .visa:         return Images.CreditCard.visa.image
+        case .masterCard:   return Images.CreditCard.mastercard.image
+        case .amex:         return Images.CreditCard.americanexpress.image
+        case .discover:     return Images.CreditCard.discover.image
+        case .diners:       return Images.CreditCard.diners.image
+        case .jcb:          return Images.CreditCard.jcb.image
         }
     }
 
     var cvvImage: UIImage {
         switch self {
-        case .amex:     return UIImage()//Asset.Payment.CreditCard.Cvv.front.image
-        default:        return UIImage()//Asset.Payment.CreditCard.Cvv.back.image
+        case .amex:     return Images.CreditCard.Cvv.front.image
+        default:        return Images.CreditCard.Cvv.back.image
         }
     }
 
