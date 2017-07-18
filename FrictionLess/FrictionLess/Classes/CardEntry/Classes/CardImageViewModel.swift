@@ -8,11 +8,11 @@
 
 import UIKit
 
-struct CardImageViewModel {
+public struct CardImageViewModel {
 
     var imageState: CardImageState
 
-    init(imageState: CardImageState) {
+    public init(imageState: CardImageState) {
         self.imageState = imageState
     }
 
@@ -65,7 +65,7 @@ struct CardImageViewModel {
 
 }
 
-enum CardImageState: Equatable {
+public enum CardImageState {
     case card(creditCard: CreditEntryViewModel)
     case cvv(creditCard: CreditEntryViewModel)
 
@@ -78,13 +78,15 @@ enum CardImageState: Equatable {
     }
 }
 
-func == (lhs: CardImageState, rhs: CardImageState) -> Bool {
-    switch (lhs, rhs) {
-    case (.card(let card1), .card(let card2)):
-        return (card1.state == card2.state) && (card1.isAccepted == card2.isAccepted)
-    case (.cvv(let card1), .cvv(let card2)):
-        return (card1.state == card2.state) && (card1.isAccepted == card2.isAccepted)
-    default: return false
+extension CardImageState: Equatable {
+    public static func == (lhs: CardImageState, rhs: CardImageState) -> Bool {
+        switch (lhs, rhs) {
+        case (.card(let card1), .card(let card2)):
+            return (card1.state == card2.state) && (card1.isAccepted == card2.isAccepted)
+        case (.cvv(let card1), .cvv(let card2)):
+            return (card1.state == card2.state) && (card1.isAccepted == card2.isAccepted)
+        default: return false
+        }
     }
 }
 

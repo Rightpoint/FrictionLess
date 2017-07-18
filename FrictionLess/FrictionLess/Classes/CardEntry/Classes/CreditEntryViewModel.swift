@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CreditEntryViewModel {
+public struct CreditEntryViewModel {
 
     let acceptedCardTypes: [CardType] = [.masterCard, .visa, .discover, .amex]
     var number: String = ""
@@ -27,9 +27,11 @@ struct CreditEntryViewModel {
         }
     }
 
+    public init() {}
+
 }
 
-extension CreditEntryViewModel {
+public extension CreditEntryViewModel {
 
     var state: CardState {
         return CardState(fromPrefix: number)
@@ -47,7 +49,7 @@ extension CreditEntryViewModel {
 
 }
 
-extension CardType {
+public extension CardType {
 
     var name: String {
         switch self {
@@ -62,7 +64,7 @@ extension CardType {
 
 }
 
-extension CreditEntryViewModel {
+public extension CreditEntryViewModel {
 
     var notAcceptedErrorMessage: String {
         if case .identified(let card) = state {
