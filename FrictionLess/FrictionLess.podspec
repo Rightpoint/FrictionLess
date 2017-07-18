@@ -43,6 +43,7 @@ A collection of swift UI/UX components for reducing friction in "user work": for
     ss.source_files = 'FrictionLess/Classes/CardEntry/**/*'
     ss.frameworks = ["UIKit"]
     ss.dependency 'FrictionLess/FormattableTextField'
+    ss.resources = "FrictionLess/Assets/CardEntry.xcassets"
   end
 
   # Phone Number Formatter

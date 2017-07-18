@@ -37,7 +37,8 @@
         "FrictionLess/FormattableTextField": [
 
         ]
-      }
+      },
+      "resources": "FrictionLess/Assets/CardEntry.xcassets"
     },
     {
       "name": "PhoneFormatter",
