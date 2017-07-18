@@ -740,7 +740,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Card Entry\nswiftgen images --template dot-syntax-swift3 --enumName Images --output ../../FrictionLess/Classes/CardEntry/UIImage+CardEntry.swift ../../FrictionLess/Assets/CardEntry.xcassets";
+			shellScript = "# Card Entry\nswiftgen images --template dot-syntax-swift3 --enumName Images --output ../../FrictionLess/Assets/UIImage+CardEntry.swift ../../FrictionLess/Assets/CardEntry.xcassets";
 		};
 /* End PBXShellScriptBuildPhase section */
 
