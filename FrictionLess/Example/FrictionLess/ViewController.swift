@@ -6,8 +6,7 @@
 //  Copyright (c) 2017 jason.clark@raizlabs.com. All rights reserved.
 //
 
-import UIKit
-@testable import FrictionLess
+import FrictionLess
 
 class ViewController: UIViewController, UITextFieldDelegate {
 

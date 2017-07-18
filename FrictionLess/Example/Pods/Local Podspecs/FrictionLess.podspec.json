@@ -40,12 +40,30 @@
       }
     },
     {
+      "name": "PhoneFormatter",
+      "source_files": "FrictionLess/Classes/PhoneFormatter/**/*",
+      "frameworks": [
+        "UIKit"
+      ],
+      "dependencies": {
+        "FrictionLess/FormattableTextField": [
+
+        ],
+        "PhoneNumberKit": [
+
+        ]
+      }
+    },
+    {
       "name": "All",
       "dependencies": {
         "FrictionLess/FormattableTextField": [
 
         ],
         "FrictionLess/CardEntry": [
+
+        ],
+        "FrictionLess/PhoneFormatter": [
 
         ]
       }

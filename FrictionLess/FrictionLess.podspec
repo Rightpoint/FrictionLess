@@ -45,11 +45,21 @@ A collection of swift UI/UX components for reducing friction in "user work": for
     ss.dependency 'FrictionLess/FormattableTextField'
   end
 
+  # Phone Number Formatter
+
+  s.subspec "PhoneFormatter" do |ss|
+    ss.source_files = 'FrictionLess/Classes/PhoneFormatter/**/*'
+    ss.frameworks = ["UIKit"]
+    ss.dependency 'FrictionLess/FormattableTextField'
+    ss.dependency 'PhoneNumberKit'
+  end
+
   # Catch All
 
   s.subspec "All" do |ss|
     ss.dependency 'FrictionLess/FormattableTextField'
     ss.dependency 'FrictionLess/CardEntry'
+    ss.dependency 'FrictionLess/PhoneFormatter'
   end
 
 end
