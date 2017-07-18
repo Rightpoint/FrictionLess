@@ -53,12 +53,12 @@ public extension CardType {
 
     var name: String {
         switch self {
-        case .amex:         return "" //Localized.Payment.Cardtype.amex
-        case .diners:       return "" //Localized.Payment.Cardtype.diners
-        case .discover:     return "" //Localized.Payment.Cardtype.discover
-        case .jcb:          return "" //Localized.Payment.Cardtype.jcb
-        case .masterCard:   return "" //Localized.Payment.Cardtype.masterCard
-        case .visa:         return "" //Localized.Payment.Cardtype.visa
+        case .amex:         return Strings.Frictionless.Cardentry.Cardtype.amex
+        case .diners:       return Strings.Frictionless.Cardentry.Cardtype.diners
+        case .discover:     return Strings.Frictionless.Cardentry.Cardtype.discover
+        case .jcb:          return Strings.Frictionless.Cardentry.Cardtype.jcb
+        case .masterCard:   return Strings.Frictionless.Cardentry.Cardtype.masterCard
+        case .visa:         return Strings.Frictionless.Cardentry.Cardtype.visa
         }
     }
 
@@ -68,10 +68,10 @@ public extension CreditEntryViewModel {
 
     var notAcceptedErrorMessage: String {
         if case .identified(let card) = state {
-            return "" //Localized.Payment.Validation.notAccepted(card.name)
+            return Strings.Frictionless.Cardentry.Validation.notAccepted(card.name)
         }
         else {
-            return "" //Localized.Payment.Validation.Notaccepted.generic
+            return Strings.Frictionless.Cardentry.Validation.Notaccepted.generic
         }
     }
 
@@ -84,7 +84,7 @@ public extension CreditEntryViewModel {
             else {
                 switch error {
                 case FormattableTextFieldError.invalidInput: break
-                case CreditCardFormatterError.invalidCardNumber: return "" //Localized.Payment.Validation.cardNumberInvalid
+                case CreditCardFormatterError.invalidCardNumber: return Strings.Frictionless.Cardentry.Validation.cardNumberInvalid
                 case CreditCardFormatterError.maxLengthExceeded: break
                 default: break
                 }
@@ -93,9 +93,9 @@ public extension CreditEntryViewModel {
         case is ExpirationDateFormatter:
             switch error {
             case FormattableTextFieldError.invalidInput: break
-            case ExpirationDateFormatterError.expired: return "" //Localized.Payment.Validation.expired
+            case ExpirationDateFormatterError.expired: return Strings.Frictionless.Cardentry.Validation.expired
             case ExpirationDateFormatterError.invalidMonth: break
-            case ExpirationDateFormatterError.invalidYear: return "" //Localized.Payment.Validation.expirationInvalid
+            case ExpirationDateFormatterError.invalidYear: return Strings.Frictionless.Cardentry.Validation.expirationInvalid
             case ExpirationDateFormatterError.maxLength: break
             default: break
             }

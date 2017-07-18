@@ -1,0 +1,29 @@
+/* 
+  CardEntry.strings
+  Pods
+
+  Created by Jason Clark on 7/18/17.
+
+*/
+
+"FrictionLess.CardEntry.CardType.Amex" = "American Express";
+"FrictionLess.CardEntry.CardType.Visa" = "Visa";
+"FrictionLess.CardEntry.CardType.MasterCard" = "MasterCard";
+"FrictionLess.CardEntry.CardType.Discover" = "Discover";
+"FrictionLess.CardEntry.CardType.Diners" = "Diners Club";
+"FrictionLess.CardEntry.CardType.JCB" = "JCB";
+
+"FrictionLess.CardEntry.CardNumber.Title" = "Credit Card Number";
+"FrictionLess.CardEntry.CardNumber.Placeholder" = "0000 0000 0000 0000";
+"FrictionLess.CardEntry.Expiration.Title" = "Expiration";
+"FrictionLess.CardEntry.Expiration.Placeholder" = "MM/YY";
+"FrictionLess.CardEntry.CVV.Title" = "CVV";
+"FrictionLess.CardEntry.CVV.Placeholder" = "123";
+"FrictionLess.CardEntry.CVV.AmexPlaceholder" = "1234";
+
+"FrictionLess.CardEntry.Validation.NotAccepted" = "%@ Not Accepted";
+"FrictionLess.CardEntry.Validation.NotAccepted.Generic" = "Not Accepted";
+"FrictionLess.CardEntry.Validation.Expired" = "Date Expired";
+"FrictionLess.CardEntry.Validation.CardNumberInvalid" = "Card Number Invalid";
+"FrictionLess.CardEntry.Validation.ExpirationInvalid" = "Date Invalid or Expired";
+"FrictionLess.CardEntry.Validation.CVVInvalid" = "Invalid";

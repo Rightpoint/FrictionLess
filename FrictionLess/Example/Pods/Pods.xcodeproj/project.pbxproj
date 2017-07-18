@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0025E3051F1E7C4F007AFB95 /* CardEntry.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0025E3041F1E7C4F007AFB95 /* CardEntry.strings */; };
+		0025E3081F1E7F2C007AFB95 /* Strings+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025E3071F1E7F2C007AFB95 /* Strings+CardEntry.swift */; };
 		008546571F1E6EB900BFA33C /* UIImage+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008546561F1E6EB900BFA33C /* UIImage+CardEntry.swift */; };
 		0BA904A142E01DD9FC83049BA6BB62F6 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE678C8F08A96CB071E1F6D174181 /* RegexManager.swift */; };
 		0D1D769B59DC29D12218E4A10A84B0B6 /* CardEntry.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB63FCD1F5FF98D686421A1F5433747 /* CardEntry.xcassets */; };
@@ -81,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0025E3041F1E7C4F007AFB95 /* CardEntry.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = CardEntry.strings; sourceTree = "<group>"; };
+		0025E3071F1E7F2C007AFB95 /* Strings+CardEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+CardEntry.swift"; sourceTree = "<group>"; };
 		008546561F1E6EB900BFA33C /* UIImage+CardEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CardEntry.swift"; sourceTree = "<group>"; };
 		0316E4E6A166ED99D771227A1122E045 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
 		047DA0A948F2B63A2C3F33778215865C /* TextFieldFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatter.swift; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 			children = (
 				7BB63FCD1F5FF98D686421A1F5433747 /* CardEntry.xcassets */,
 				008546561F1E6EB900BFA33C /* UIImage+CardEntry.swift */,
+				0025E3041F1E7C4F007AFB95 /* CardEntry.strings */,
+				0025E3071F1E7F2C007AFB95 /* Strings+CardEntry.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -667,7 +673,8 @@
 				924E689C0F057A4680929797AE781E1E /* Frameworks */,
 				DFD1C59E06E0BF34C09F45EA3EB5480E /* Resources */,
 				9C9EE4F8894DB2FFB7AE9AA434DB280F /* Headers */,
-				008546511F1E428900BFA33C /* SwiftGen Images */,
+				008546511F1E428900BFA33C /* SwiftGen - Images */,
+				0025E3061F1E7DD8007AFB95 /* SwiftGen - Strings */,
 			);
 			buildRules = (
 			);
@@ -714,6 +721,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D1D769B59DC29D12218E4A10A84B0B6 /* CardEntry.xcassets in Resources */,
+				0025E3051F1E7C4F007AFB95 /* CardEntry.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,14 +736,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		008546511F1E428900BFA33C /* SwiftGen Images */ = {
+		0025E3061F1E7DD8007AFB95 /* SwiftGen - Strings */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "SwiftGen Images";
+			name = "SwiftGen - Strings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Card Entry\nswiftgen strings --template dot-syntax-swift3 --enumName Strings --output ../../FrictionLess/Assets/Strings+CardEntry.swift ../../FrictionLess/Assets/CardEntry.strings";
+		};
+		008546511F1E428900BFA33C /* SwiftGen - Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftGen - Images";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -760,6 +782,7 @@
 				42A9F2B14D137DABF405442F20CE2090 /* FormattableTextField.swift in Sources */,
 				1A8AE99203967FD825855ECC28C24D9A /* FormattableTextFieldDelegate.swift in Sources */,
 				EBC7D2442D8C5859779089D655F1EB16 /* FrictionLess-dummy.m in Sources */,
+				0025E3081F1E7F2C007AFB95 /* Strings+CardEntry.swift in Sources */,
 				76B660BA337CD52DAEE53C772101F1F8 /* NameFormatter.swift in Sources */,
 				80CC7A35A375A98A996FFF96B5CAA60B /* PhoneFormatter.swift in Sources */,
 				9CE2167B24CE6FB40D3BAE0F3AF69AD7 /* RangeHelpers.swift in Sources */,
