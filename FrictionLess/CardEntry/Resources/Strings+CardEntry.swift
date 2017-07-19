@@ -80,7 +80,7 @@ enum Strings {
 
 extension Strings {
   fileprivate static func tr(_ key: String, _ args: CVarArg...) -> String {
-    let format = NSLocalizedString(key, bundle: Bundle(for: BundleToken.self), comment: "")
+    let format = NSLocalizedString(key, tableName: "CardEntry", bundle: Bundle(for: BundleToken.self), comment: "")
     return String(format: format, locale: Locale.current, arguments: args)
   }
 }

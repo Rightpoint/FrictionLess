@@ -22,14 +22,14 @@
   "subspecs": [
     {
       "name": "FormattableTextField",
-      "source_files": "FrictionLess/Classes/FormattableTextField/**/*",
+      "source_files": "FrictionLess/FormattableTextField/Classes/**/*",
       "frameworks": [
         "UIKit"
       ]
     },
     {
       "name": "CardEntry",
-      "source_files": "FrictionLess/Classes/CardEntry/**/*",
+      "source_files": "FrictionLess/CardEntry/**/*.{swift,strings}",
       "frameworks": [
         "UIKit"
       ],
@@ -38,11 +38,11 @@
 
         ]
       },
-      "resources": "FrictionLess/Assets/CardEntry.xcassets"
+      "resources": "FrictionLess/CardEntry/Assets/CardEntry.xcassets"
     },
     {
       "name": "PhoneFormatter",
-      "source_files": "FrictionLess/Classes/PhoneFormatter/**/*",
+      "source_files": "FrictionLess/PhoneFormatter/Classes/**/*",
       "frameworks": [
         "UIKit"
       ],
