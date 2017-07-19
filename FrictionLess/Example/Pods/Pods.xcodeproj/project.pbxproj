@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0025E3051F1E7C4F007AFB95 /* CardEntry.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0025E3041F1E7C4F007AFB95 /* CardEntry.strings */; };
 		0025E3081F1E7F2C007AFB95 /* Strings+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025E3071F1E7F2C007AFB95 /* Strings+CardEntry.swift */; };
-		008546571F1E6EB900BFA33C /* UIImage+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008546561F1E6EB900BFA33C /* UIImage+CardEntry.swift */; };
+		0025E3131F1ED973007AFB95 /* UIImage+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025E3121F1ED973007AFB95 /* UIImage+CardEntry.swift */; };
 		0BA904A142E01DD9FC83049BA6BB62F6 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE678C8F08A96CB071E1F6D174181 /* RegexManager.swift */; };
 		0D1D769B59DC29D12218E4A10A84B0B6 /* CardEntry.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB63FCD1F5FF98D686421A1F5433747 /* CardEntry.xcassets */; };
 		15721AE1A544D2FBA7E4B2749FF85FD2 /* CVVFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB294CD5E77FB139BD138447D6D1259 /* CVVFormatter.swift */; };
@@ -85,7 +85,7 @@
 /* Begin PBXFileReference section */
 		0025E3041F1E7C4F007AFB95 /* CardEntry.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = CardEntry.strings; sourceTree = "<group>"; };
 		0025E3071F1E7F2C007AFB95 /* Strings+CardEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+CardEntry.swift"; sourceTree = "<group>"; };
-		008546561F1E6EB900BFA33C /* UIImage+CardEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CardEntry.swift"; sourceTree = "<group>"; };
+		0025E3121F1ED973007AFB95 /* UIImage+CardEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CardEntry.swift"; sourceTree = "<group>"; };
 		0316E4E6A166ED99D771227A1122E045 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
 		047DA0A948F2B63A2C3F33778215865C /* TextFieldFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatter.swift; sourceTree = "<group>"; };
 		05D58B7B286914EBA395E69C4E37A43A /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -347,6 +347,7 @@
 		72BF4CDE82C4B1525CA3B3F8B1E6CBE5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0025E3121F1ED973007AFB95 /* UIImage+CardEntry.swift */,
 				47048A6115C9541B8343FC1F0A2B13DC /* CardImageViewModel.swift */,
 				3AE59E3A63DB9DCF6A66C0A10ACEBB1B /* CardParser.swift */,
 				CF8513F0327D59C6CD1D704352F4EE1C /* CreditEntryViewModel.swift */,
@@ -371,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				7BB63FCD1F5FF98D686421A1F5433747 /* CardEntry.xcassets */,
-				008546561F1E6EB900BFA33C /* UIImage+CardEntry.swift */,
 				0025E3041F1E7C4F007AFB95 /* CardEntry.strings */,
 				0025E3071F1E7F2C007AFB95 /* Strings+CardEntry.swift */,
 			);
@@ -762,7 +762,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Card Entry\nswiftgen images --template dot-syntax-swift3 --enumName Images --output ../../FrictionLess/Assets/UIImage+CardEntry.swift ../../FrictionLess/Assets/CardEntry.xcassets";
+			shellScript = "# Card Entry\nswiftgen images --template dot-syntax-swift3 --enumName Images --output ../../FrictionLess/Classes/CardEntry/Classes/UIImage+CardEntry.swift ../../FrictionLess/Assets/CardEntry.xcassets";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -773,7 +773,6 @@
 			files = (
 				F2FCDCD7AD2C8CE00DB7AA6FC56A99B5 /* CardImageViewModel.swift in Sources */,
 				39A6D224618151B2D6000380345F4784 /* CardParser.swift in Sources */,
-				008546571F1E6EB900BFA33C /* UIImage+CardEntry.swift in Sources */,
 				1FA41C909ED4693887D366838ACAB71D /* CreditCardFormatter.swift in Sources */,
 				2660C3D28F69947B02E8EB362882C9AB /* CreditEntryViewModel.swift in Sources */,
 				15721AE1A544D2FBA7E4B2749FF85FD2 /* CVVFormatter.swift in Sources */,
@@ -790,6 +789,7 @@
 				BE6D1DF87D1D2B4FDB2EB6D867E2BAFD /* String+Filtering.swift in Sources */,
 				C743CC4656507A0B058472122DC45A72 /* TextFieldFormatter.swift in Sources */,
 				7A6C911DFDDA446859D2E3C50622F955 /* TextFieldFormatterDataTypes.swift in Sources */,
+				0025E3131F1ED973007AFB95 /* UIImage+CardEntry.swift in Sources */,
 				ED3A773A04BDE3DF09FC90BC7BB4FB99 /* ZipFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

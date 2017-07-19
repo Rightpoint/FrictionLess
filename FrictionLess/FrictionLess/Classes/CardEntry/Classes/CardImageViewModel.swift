@@ -69,7 +69,7 @@ public enum CardImageState {
     case card(creditCard: CreditEntryViewModel)
     case cvv(creditCard: CreditEntryViewModel)
 
-    var image: UIImage {
+    public var image: UIImage {
         switch self {
         case .card(let card):
             return card.isAccepted ? card.state.image : Images.CreditCard.notAccepted.image
