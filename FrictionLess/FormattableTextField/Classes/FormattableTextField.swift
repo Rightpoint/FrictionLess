@@ -17,10 +17,10 @@ enum FormattableTextFieldError: Error {
 open class FormattableTextField: UITextField {
     fileprivate let delegateProxy: DelegateProxy
 
-    public init(formatter: TextFieldFormatter) {
-        self.delegateProxy = DelegateProxy(formatter: formatter)
+    public init(formatter: TextFieldFormatter? = nil) {
+        self.delegateProxy = DelegateProxy()
         super.init(frame: .zero)
-
+        self.formatter = formatter
         self.delegate = self.delegateProxy
         addTarget(delegateProxy, action: #selector(DelegateProxy.editingChanged(textField:)), for: .editingChanged)
     }
@@ -33,7 +33,7 @@ open class FormattableTextField: UITextField {
 // MARK: Accessors
 extension FormattableTextField {
 
-    var isValid: Bool {
+    public var isValid: Bool {
         if case ValidationResult.valid = validation {
             return true
         }
@@ -42,20 +42,20 @@ extension FormattableTextField {
         }
     }
 
-    var isComplete: Bool {
-        return formatter.isComplete(unformattedText)
+    public var isComplete: Bool {
+        return formatter?.isComplete(unformattedText) ?? true
     }
 
-    var validation: ValidationResult {
-        return formatter.validate(unformattedText)
+    public var validation: ValidationResult {
+        return formatter?.validate(unformattedText) ?? .valid
     }
 
-    var unformattedText: String {
+    public var unformattedText: String {
         guard let text = text else { return "" }
-        return formatter.removeFormatting(text)
+        return formatter?.removeFormatting(text) ?? text
     }
 
-    var formatter: TextFieldFormatter {
+    public var formatter: TextFieldFormatter? {
         get {
             return delegateProxy.formatter
         }
@@ -82,7 +82,12 @@ extension FormattableTextField {
 public extension FormattableTextField {
 
     /// Programmatically set text and format. Forgo the delegate and validation responder train.
-    func setTextAndFormat(text: String) {
+    public func setTextAndFormat(text: String) {
+        guard let formatter = formatter else {
+            self.text = text
+            return
+        }
+
         let event = EditingEvent(oldValue: self.text ?? "",
                                  editRange: self.textRange,
                                  selectedTextRange: self.selectedRange,
@@ -107,7 +112,7 @@ public extension FormattableTextField {
     }
 
     /// Simulate the manual entry of text in an optional subrange. Format, validate, and report up the responder chain.
-    func simulateInput(text: String, range: NSRange? = nil) {
+    public func simulateInput(text: String, range: NSRange? = nil) {
         let editRange = range ?? self.textRange
         _ = delegateProxy.textField(self, shouldChangeCharactersIn: editRange, replacementString: text)
     }
@@ -133,14 +138,10 @@ fileprivate extension FormattableTextField {
     class DelegateProxy: NSObject, UITextFieldDelegate {
 
         weak var delegate: UITextFieldDelegate?
-        var formatter: TextFieldFormatter
-
-        init(formatter: TextFieldFormatter) {
-            self.formatter = formatter
-            super.init()
-        }
+        var formatter: TextFieldFormatter?
 
     }
+
 }
 
 extension FormattableTextField.DelegateProxy {
@@ -153,8 +154,11 @@ extension FormattableTextField.DelegateProxy {
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true else {
-            return false
+
+        let delegateResponse = delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true
+
+        guard let formatter = formatter, delegateResponse == true else {
+            return delegateResponse
         }
 
         guard let textField = textField as? FormattableTextField else {
@@ -207,7 +211,7 @@ extension FormattableTextField.DelegateProxy {
                     cursorPosition = adjustedEdit.newCursorPosition
                 case .some(.text(let string)):
                     formattedText = string
-                    cursorPosition = adjustedEdit.cursorPosition(inFormattedText: string, withinSet: textField.formatter.inputCharacterSet)
+                    cursorPosition = adjustedEdit.cursorPosition(inFormattedText: string, withinSet: formatter.inputCharacterSet)
                 case .some(.textAndCursor(let string, let cursor)):
                     formattedText = string
                     cursorPosition = cursor
