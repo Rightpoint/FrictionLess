@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .lightGray
 
+        print(CardType.amex.name)
+
         let ccTextField = FormattableTextField(formatter: CreditCardFormatter())
         ccTextField.translatesAutoresizingMaskIntoConstraints = false
         ccTextField.backgroundColor = .white

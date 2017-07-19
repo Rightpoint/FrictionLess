@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0025E3131F1ED973007AFB95 /* UIImage+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025E3121F1ED973007AFB95 /* UIImage+CardEntry.swift */; };
 		0025E31A1F1EE40D007AFB95 /* Strings+FrictionLess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025E3191F1EE40D007AFB95 /* Strings+FrictionLess.swift */; };
-		0025E31C1F1EE420007AFB95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0025E31B1F1EE420007AFB95 /* Localizable.strings */; };
+		0025E31C1F1EE420007AFB95 /* CardEntry.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0025E31B1F1EE420007AFB95 /* CardEntry.strings */; };
 		0BA904A142E01DD9FC83049BA6BB62F6 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE678C8F08A96CB071E1F6D174181 /* RegexManager.swift */; };
 		0D1D769B59DC29D12218E4A10A84B0B6 /* CardEntry.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB63FCD1F5FF98D686421A1F5433747 /* CardEntry.xcassets */; };
 		15721AE1A544D2FBA7E4B2749FF85FD2 /* CVVFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB294CD5E77FB139BD138447D6D1259 /* CVVFormatter.swift */; };
@@ -85,7 +85,7 @@
 /* Begin PBXFileReference section */
 		0025E3121F1ED973007AFB95 /* UIImage+CardEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CardEntry.swift"; sourceTree = "<group>"; };
 		0025E3191F1EE40D007AFB95 /* Strings+FrictionLess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Strings+FrictionLess.swift"; path = "FrictionLess/Assets/Strings+FrictionLess.swift"; sourceTree = "<group>"; };
-		0025E31B1F1EE420007AFB95 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = FrictionLess/Assets/Localizable.strings; sourceTree = "<group>"; };
+		0025E31B1F1EE420007AFB95 /* CardEntry.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = CardEntry.strings; path = FrictionLess/Assets/CardEntry.strings; sourceTree = "<group>"; };
 		0316E4E6A166ED99D771227A1122E045 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
 		047DA0A948F2B63A2C3F33778215865C /* TextFieldFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatter.swift; sourceTree = "<group>"; };
 		05D58B7B286914EBA395E69C4E37A43A /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				0025E3191F1EE40D007AFB95 /* Strings+FrictionLess.swift */,
-				0025E31B1F1EE420007AFB95 /* Localizable.strings */,
+				0025E31B1F1EE420007AFB95 /* CardEntry.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -729,7 +729,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D1D769B59DC29D12218E4A10A84B0B6 /* CardEntry.xcassets in Resources */,
-				0025E31C1F1EE420007AFB95 /* Localizable.strings in Resources */,
+				0025E31C1F1EE420007AFB95 /* CardEntry.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +756,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Card Entry\nswiftgen strings --template dot-syntax-swift3 --enumName Strings --output ../../FrictionLess/Assets/Strings+FrictionLess.swift ../../FrictionLess/Assets/Localizable.strings";
+			shellScript = "# Card Entry\nswiftgen strings ../../FrictionLess/Assets/CardEntry.strings --template dot-syntax-swift3 --enumName Strings --output ../../FrictionLess/Assets/Strings+FrictionLess.swift";
 		};
 		008546511F1E428900BFA33C /* SwiftGen - Images */ = {
 			isa = PBXShellScriptBuildPhase;
