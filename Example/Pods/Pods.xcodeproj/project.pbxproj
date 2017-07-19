@@ -82,15 +82,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0025E32D1F1EFD0A007AFB95 /* CardEntry.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CardEntry.xcassets; sourceTree = "<group>"; };
 		0316E4E6A166ED99D771227A1122E045 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
 		05D58B7B286914EBA395E69C4E37A43A /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06BD43FD5308A03815C850CEF37986E2 /* PhoneNumberParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberParser.swift; path = PhoneNumberKit/PhoneNumberParser.swift; sourceTree = "<group>"; };
 		06C5E9B4A2F190077120A002B18BED7C /* CardImageViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardImageViewModel.swift; sourceTree = "<group>"; };
 		079C47ECAAF7386AD4F194962C4134CE /* FormattableTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextField.swift; sourceTree = "<group>"; };
-		0F955BA352EADF58B391061A066FCF78 /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrictionLess_Example.framework; path = "Pods-FrictionLess_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F955BA352EADF58B391061A066FCF78 /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9E5CA6A5D1231CBC3C5A448A73A84C /* FrictionLess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FrictionLess.xcconfig; sourceTree = "<group>"; };
-		15D350A931085CD3443D54310BBE1F3F /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FrictionLess.framework; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1956058D6E8C9E7A1D25A193D6BA0ACA /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PhoneNumberKit.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D350A931085CD3443D54310BBE1F3F /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1956058D6E8C9E7A1D25A193D6BA0ACA /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19577EC160A3390F1DCF333AD8875E22 /* Pods-FrictionLess_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FrictionLess_Tests-umbrella.h"; sourceTree = "<group>"; };
 		1A952574FDADB2933C58C1F8B2A73313 /* Pods-FrictionLess_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.release.xcconfig"; sourceTree = "<group>"; };
 		204888C01F6CFC6F4077B2F7F85024B2 /* FormattableTextFieldDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextFieldDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +99,7 @@
 		35A5D36FAAD9F90FA71264AD9C26DFC1 /* String+CursorFingerprint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+CursorFingerprint.swift"; sourceTree = "<group>"; };
 		36D92BD9E8D294BBA9090C044AB8646E /* ParseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseManager.swift; path = PhoneNumberKit/ParseManager.swift; sourceTree = "<group>"; };
 		388C782FFA79D727AA25F000AD2E41A1 /* PhoneNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumber.swift; path = PhoneNumberKit/PhoneNumber.swift; sourceTree = "<group>"; };
-		3F249EB4BBDCC73770D79D0A65A5F823 /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FrictionLess.modulemap; sourceTree = "<group>"; };
+		3F249EB4BBDCC73770D79D0A65A5F823 /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FrictionLess.modulemap; sourceTree = "<group>"; };
 		3F6772C687AC2073631EBB81BB33CE2F /* Formatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Formatter.swift; path = PhoneNumberKit/Formatter.swift; sourceTree = "<group>"; };
 		42A8536CD9569C531F9DC229CA1F3CAA /* RangeHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RangeHelpers.swift; sourceTree = "<group>"; };
 		43C065769006F841D1997DFCD1BB2248 /* Pods-FrictionLess_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FrictionLess_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -107,24 +108,24 @@
 		4C3A9CF70F16F76E6F30FA96BEB5AC3E /* Strings+CardEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Strings+CardEntry.swift"; sourceTree = "<group>"; };
 		51A29AC39E11468245F8FE2DC7E4B133 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51DE95FD3647803DA8B888724C301256 /* PhoneNumberKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PhoneNumberKit-dummy.m"; sourceTree = "<group>"; };
-		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
+		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
 		61552E67AE321061EA8D2771C22CEF20 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CA536481FF3A802B5146B96CC263B4 /* CardEntry.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; path = CardEntry.strings; sourceTree = "<group>"; };
 		74DDA234CE4D078ABAB63F5C52643859 /* PhoneFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		75BA42828FEFF15A5A45C49A7AAA9CA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7A332B7F1852DABAA5B3EE495FCF61EB /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrictionLess_Tests.framework; path = "Pods-FrictionLess_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A332B7F1852DABAA5B3EE495FCF61EB /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ACEAB809A84806F1CC57ACAC4AFF5BC /* Pods-FrictionLess_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EDF2B30BE70BF7ABB0DBC4AC315943A /* Pods-FrictionLess_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Tests-resources.sh"; sourceTree = "<group>"; };
 		80E6D49EC900DFDCE2595803E5F9B82A /* Pods-FrictionLess_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8837FCD862F46EE2F9E2586D608C3DAA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		89D01033F989024BC893F8A76E1E880B /* CreditEntryViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditEntryViewModel.swift; sourceTree = "<group>"; };
-		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
+		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
 		934B968AA2DA6B7936BEB86551CA2E38 /* FrictionLess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-umbrella.h"; sourceTree = "<group>"; };
 		9379A88D4483BD5C19A2CE4A84435BD2 /* Pods-FrictionLess_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97A83824798AC6A74FA5235279068643 /* MetadataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataTypes.swift; path = PhoneNumberKit/MetadataTypes.swift; sourceTree = "<group>"; };
 		9C71D56062604DFFE019340FBC8483AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D5B3762F2879BAF0C070AF1869223CF /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
+		9D5B3762F2879BAF0C070AF1869223CF /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
 		9D82CFB81506E585E4B56093FEF6A472 /* NameFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NameFormatter.swift; sourceTree = "<group>"; };
 		9EAC7AC4291985780F96CF59A8CB3C7D /* PhoneNumberKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PhoneNumberKit.xcconfig; sourceTree = "<group>"; };
 		A13E4D2E72B5CFD2D872BC4B7981F0DE /* ZipFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ZipFormatter.swift; sourceTree = "<group>"; };
@@ -155,7 +156,7 @@
 		F1D58E392E3EA034359BFCB85AEE7BA8 /* PhoneNumberKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-umbrella.h"; sourceTree = "<group>"; };
 		F586524428C80F4750102554471D04B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8A548B2FC88ABE1198ACAFD157E1883 /* FrictionLess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FrictionLess-dummy.m"; sourceTree = "<group>"; };
-		FB66E6B42D4CFB025E0815123D987E60 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
+		FB66E6B42D4CFB025E0815123D987E60 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,14 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07D8B462DC9123A92A9C8A45A2947D64 /* CardEntry */ = {
+		0025E32C1F1EFCE7007AFB95 /* CardEntry */ = {
 			isa = PBXGroup;
 			children = (
 				B460624EC638760A32D4D48FEAAD9302 /* Classes */,
 				FE8671DAE33F08E15F59E19CEFBC05A2 /* Resources */,
 			);
 			name = CardEntry;
-			path = CardEntry;
+			path = FrictionLess/CardEntry/Resources;
 			sourceTree = "<group>";
 		};
 		0AF76E6B05146DB2A60796B4CB8430B0 /* Classes */ = {
@@ -218,13 +219,13 @@
 				81D36E43E2D97D4F82E9B567A22F2326 /* Utilities */,
 			);
 			name = Classes;
-			path = Classes;
+			path = FrictionLess/FormattableTextField/Classes;
 			sourceTree = "<group>";
 		};
 		1631B133CAC409DE553007EB609C20E1 /* FrictionLess */ = {
 			isa = PBXGroup;
 			children = (
-				5AB37F556A37E4F785482B2DB36CE96E /* CardEntry */,
+				0025E32C1F1EFCE7007AFB95 /* CardEntry */,
 				CBA5308036459BA496D9969A0151C177 /* FormattableTextField */,
 				3823AD12DD9E5D7DBF17CFD04DE0E71F /* PhoneFormatter */,
 				F989C847EE8E5E520CFB6D43D7904F4E /* Support Files */,
@@ -242,15 +243,6 @@
 				7A332B7F1852DABAA5B3EE495FCF61EB /* Pods_FrictionLess_Tests.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		319089EF4036F060D4B481D40A8CC453 /* FrictionLess */ = {
-			isa = PBXGroup;
-			children = (
-				07D8B462DC9123A92A9C8A45A2947D64 /* CardEntry */,
-			);
-			name = FrictionLess;
-			path = FrictionLess;
 			sourceTree = "<group>";
 		};
 		35C255195117A003805CA742A0250739 /* Pods-FrictionLess_Tests */ = {
@@ -274,7 +266,7 @@
 		3823AD12DD9E5D7DBF17CFD04DE0E71F /* PhoneFormatter */ = {
 			isa = PBXGroup;
 			children = (
-				D50673B6192ECE32200E196CAD64B129 /* FrictionLess */,
+				CAD2E9AA5AF5A1C33D9BFCABB1F2BBB6 /* Classes */,
 			);
 			name = PhoneFormatter;
 			sourceTree = "<group>";
@@ -304,14 +296,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		5AB37F556A37E4F785482B2DB36CE96E /* CardEntry */ = {
-			isa = PBXGroup;
-			children = (
-				319089EF4036F060D4B481D40A8CC453 /* FrictionLess */,
-			);
-			name = CardEntry;
-			sourceTree = "<group>";
-		};
 		648E231B94DD27C712ED1604EC68185C /* Pods-FrictionLess_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,15 +312,6 @@
 			);
 			name = "Pods-FrictionLess_Example";
 			path = "Target Support Files/Pods-FrictionLess_Example";
-			sourceTree = "<group>";
-		};
-		6D3FC308D30986BD68A59977CE05D4BB /* PhoneFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				CAD2E9AA5AF5A1C33D9BFCABB1F2BBB6 /* Classes */,
-			);
-			name = PhoneFormatter;
-			path = PhoneFormatter;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -358,7 +333,6 @@
 				35A5D36FAAD9F90FA71264AD9C26DFC1 /* String+CursorFingerprint.swift */,
 				EFBC0DAE588782F9CE924F212184B324 /* String+Filtering.swift */,
 			);
-			name = Utilities;
 			path = Utilities;
 			sourceTree = "<group>";
 		};
@@ -419,7 +393,6 @@
 				B6782C7F793C38E7968150B060FCBE85 /* ExpirationDateFormatter.swift */,
 				A13E4D2E72B5CFD2D872BC4B7981F0DE /* ZipFormatter.swift */,
 			);
-			name = Formatters;
 			path = Formatters;
 			sourceTree = "<group>";
 		};
@@ -430,7 +403,6 @@
 				9D73A46D64A596FE93E9E5FA219576C1 /* Support Files */,
 				A6AE5D6F5035B195A5AE6CEB8918D04F /* UIKit */,
 			);
-			name = PhoneNumberKit;
 			path = PhoneNumberKit;
 			sourceTree = "<group>";
 		};
@@ -443,7 +415,7 @@
 				A84EF5600F8CE62EF7084D588C368C45 /* Formatters */,
 			);
 			name = Classes;
-			path = Classes;
+			path = ../Classes;
 			sourceTree = "<group>";
 		};
 		B64AEC4A1C2EE890D343A8E8F57EA17F /* Targets Support Files */ = {
@@ -455,48 +427,21 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		BFE8B58A307A7CFFBE235A370AB51951 /* FrictionLess */ = {
-			isa = PBXGroup;
-			children = (
-				DFB1B261699506201FF8E8373FD3BCD6 /* FormattableTextField */,
-			);
-			name = FrictionLess;
-			path = FrictionLess;
-			sourceTree = "<group>";
-		};
 		CAD2E9AA5AF5A1C33D9BFCABB1F2BBB6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				74DDA234CE4D078ABAB63F5C52643859 /* PhoneFormatter.swift */,
 			);
 			name = Classes;
-			path = Classes;
+			path = FrictionLess/PhoneFormatter/Classes;
 			sourceTree = "<group>";
 		};
 		CBA5308036459BA496D9969A0151C177 /* FormattableTextField */ = {
 			isa = PBXGroup;
 			children = (
-				BFE8B58A307A7CFFBE235A370AB51951 /* FrictionLess */,
-			);
-			name = FormattableTextField;
-			sourceTree = "<group>";
-		};
-		D50673B6192ECE32200E196CAD64B129 /* FrictionLess */ = {
-			isa = PBXGroup;
-			children = (
-				6D3FC308D30986BD68A59977CE05D4BB /* PhoneFormatter */,
-			);
-			name = FrictionLess;
-			path = FrictionLess;
-			sourceTree = "<group>";
-		};
-		DFB1B261699506201FF8E8373FD3BCD6 /* FormattableTextField */ = {
-			isa = PBXGroup;
-			children = (
 				0AF76E6B05146DB2A60796B4CB8430B0 /* Classes */,
 			);
 			name = FormattableTextField;
-			path = FormattableTextField;
 			sourceTree = "<group>";
 		};
 		E3CFF00642CAD3289B1F94767D133B76 /* Formatters */ = {
@@ -505,7 +450,6 @@
 				48F70F0F067F636C4FD97B007630B8ED /* EmailFormatter.swift */,
 				9D82CFB81506E585E4B56093FEF6A472 /* NameFormatter.swift */,
 			);
-			name = Formatters;
 			path = Formatters;
 			sourceTree = "<group>";
 		};
@@ -536,12 +480,12 @@
 		FE8671DAE33F08E15F59E19CEFBC05A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0025E32D1F1EFD0A007AFB95 /* CardEntry.xcassets */,
 				63CA536481FF3A802B5146B96CC263B4 /* CardEntry.strings */,
 				4C3A9CF70F16F76E6F30FA96BEB5AC3E /* Strings+CardEntry.swift */,
 				EAC27022B57FD490927D54F8EC54E628 /* UIImage+CardEntry.swift */,
 			);
 			name = Resources;
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
