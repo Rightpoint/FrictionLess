@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0025E3131F1ED973007AFB95 /* UIImage+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025E3121F1ED973007AFB95 /* UIImage+CardEntry.swift */; };
-		0025E31A1F1EE40D007AFB95 /* Strings+FrictionLess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025E3191F1EE40D007AFB95 /* Strings+FrictionLess.swift */; };
-		0025E31C1F1EE420007AFB95 /* CardEntry.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0025E31B1F1EE420007AFB95 /* CardEntry.strings */; };
+		0025E31F1F1EECB1007AFB95 /* CardEntry.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0025E31D1F1EECB1007AFB95 /* CardEntry.strings */; };
+		0025E3221F1EEDDC007AFB95 /* Strings+FrictionLess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025E3211F1EEDDC007AFB95 /* Strings+FrictionLess.swift */; };
 		0BA904A142E01DD9FC83049BA6BB62F6 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE678C8F08A96CB071E1F6D174181 /* RegexManager.swift */; };
 		0D1D769B59DC29D12218E4A10A84B0B6 /* CardEntry.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB63FCD1F5FF98D686421A1F5433747 /* CardEntry.xcassets */; };
 		15721AE1A544D2FBA7E4B2749FF85FD2 /* CVVFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB294CD5E77FB139BD138447D6D1259 /* CVVFormatter.swift */; };
@@ -84,8 +84,8 @@
 
 /* Begin PBXFileReference section */
 		0025E3121F1ED973007AFB95 /* UIImage+CardEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CardEntry.swift"; sourceTree = "<group>"; };
-		0025E3191F1EE40D007AFB95 /* Strings+FrictionLess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Strings+FrictionLess.swift"; path = "FrictionLess/Assets/Strings+FrictionLess.swift"; sourceTree = "<group>"; };
-		0025E31B1F1EE420007AFB95 /* CardEntry.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = CardEntry.strings; path = FrictionLess/Assets/CardEntry.strings; sourceTree = "<group>"; };
+		0025E31D1F1EECB1007AFB95 /* CardEntry.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = CardEntry.strings; sourceTree = "<group>"; };
+		0025E3211F1EEDDC007AFB95 /* Strings+FrictionLess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+FrictionLess.swift"; sourceTree = "<group>"; };
 		0316E4E6A166ED99D771227A1122E045 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
 		047DA0A948F2B63A2C3F33778215865C /* TextFieldFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatter.swift; sourceTree = "<group>"; };
 		05D58B7B286914EBA395E69C4E37A43A /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,8 +202,6 @@
 		0025E3181F1EE3E4007AFB95 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0025E3191F1EE40D007AFB95 /* Strings+FrictionLess.swift */,
-				0025E31B1F1EE420007AFB95 /* CardEntry.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -382,6 +380,8 @@
 			isa = PBXGroup;
 			children = (
 				7BB63FCD1F5FF98D686421A1F5433747 /* CardEntry.xcassets */,
+				0025E31D1F1EECB1007AFB95 /* CardEntry.strings */,
+				0025E3211F1EEDDC007AFB95 /* Strings+FrictionLess.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -729,7 +729,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D1D769B59DC29D12218E4A10A84B0B6 /* CardEntry.xcassets in Resources */,
-				0025E31C1F1EE420007AFB95 /* CardEntry.strings in Resources */,
+				0025E31F1F1EECB1007AFB95 /* CardEntry.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +756,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Card Entry\nswiftgen strings ../../FrictionLess/Assets/CardEntry.strings --template dot-syntax-swift3 --enumName Strings --output ../../FrictionLess/Assets/Strings+FrictionLess.swift";
+			shellScript = "# Card Entry\nswiftgen strings ../../FrictionLess/Classes/CardEntry/Resources/CardEntry.strings --template dot-syntax-swift3 --enumName Strings --output ../../FrictionLess/Classes/CardEntry/Resources/Strings+FrictionLess.swift";
 		};
 		008546511F1E428900BFA33C /* SwiftGen - Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -786,10 +786,10 @@
 				15721AE1A544D2FBA7E4B2749FF85FD2 /* CVVFormatter.swift in Sources */,
 				27C25BEA922F310105ADAA9EFB3C334A /* EmailFormatter.swift in Sources */,
 				4FDFF6585004AFB1C2BE0041A28E98B9 /* ExpirationDateFormatter.swift in Sources */,
+				0025E3221F1EEDDC007AFB95 /* Strings+FrictionLess.swift in Sources */,
 				42A9F2B14D137DABF405442F20CE2090 /* FormattableTextField.swift in Sources */,
 				1A8AE99203967FD825855ECC28C24D9A /* FormattableTextFieldDelegate.swift in Sources */,
 				EBC7D2442D8C5859779089D655F1EB16 /* FrictionLess-dummy.m in Sources */,
-				0025E31A1F1EE40D007AFB95 /* Strings+FrictionLess.swift in Sources */,
 				76B660BA337CD52DAEE53C772101F1F8 /* NameFormatter.swift in Sources */,
 				80CC7A35A375A98A996FFF96B5CAA60B /* PhoneFormatter.swift in Sources */,
 				9CE2167B24CE6FB40D3BAE0F3AF69AD7 /* RangeHelpers.swift in Sources */,
