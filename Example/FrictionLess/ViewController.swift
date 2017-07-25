@@ -7,6 +7,7 @@
 //
 
 import FrictionLess
+import Anchorage
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -22,16 +23,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         let form = CardEntryViewController()
         view.addSubview(form.view)
+        addChildViewController(form)
         form.didMove(toParentViewController: self)
-        form.view.translatesAutoresizingMaskIntoConstraints = false
-        view.translatesAutoresizingMaskIntoConstraints = false
 
-        [form.view.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-         form.view.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60),
-         form.view.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            ].forEach {
-                $0.isActive = true
-        }
+        form.view.topAnchor == view.layoutMarginsGuide.topAnchor + 60
+        form.horizontalAnchors == view.layoutMarginsGuide.horizontalAnchors
     }
 
 }
