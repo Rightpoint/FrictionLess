@@ -21,6 +21,7 @@ PODS:
     - PhoneNumberKit/PhoneNumberKitCore
 
 DEPENDENCIES:
+  - Anchorage
   - FrictionLess (from `../`)
 
 EXTERNAL SOURCES:
@@ -32,6 +33,6 @@ SPEC CHECKSUMS:
   FrictionLess: e0e45bcf12b754dbe1ac33c918849da352f9994c
   PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
 
-PODFILE CHECKSUM: a8c5b70f6076e8d0d9f783b878b8d670955b94cb
+PODFILE CHECKSUM: f208593ae0b01d05e3b9f88ac99038748963b697
 
 COCOAPODS: 1.2.1

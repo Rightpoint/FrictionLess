@@ -3,6 +3,7 @@ use_frameworks!
 
 target 'FrictionLess_Example' do
   pod 'FrictionLess', :path => '../'
+  pod 'Anchorage'
 
   target 'FrictionLess_Tests' do
     inherit! :search_paths
