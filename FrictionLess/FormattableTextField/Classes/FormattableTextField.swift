@@ -64,12 +64,11 @@ extension FormattableTextField {
         }
     }
 
-    override open var delegate: UITextFieldDelegate? {
+    override weak open var delegate: UITextFieldDelegate? {
         get {
             return delegateProxy.delegate
         }
         set {
-            //TODO: Race condition?
             super.delegate = delegateProxy
             if !(newValue is DelegateProxy) {
                 delegateProxy.delegate = newValue
