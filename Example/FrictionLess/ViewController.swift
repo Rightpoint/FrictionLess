@@ -20,20 +20,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .lightGray
 
-        let ccTextField = FormattableTextField(formatter: CreditCardFormatter())
-        ccTextField.translatesAutoresizingMaskIntoConstraints = false
-        ccTextField.backgroundColor = .white
-        view.addSubview(ccTextField)
+        let form = CardEntryViewController()
+        view.addSubview(form.view)
+        form.didMove(toParentViewController: self)
+        form.view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
 
-        [ccTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-         ccTextField.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60),
-         ccTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+        [form.view.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+         form.view.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 60),
+         form.view.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             ].forEach {
                 $0.isActive = true
         }
-
-        ccTextField.delegate = self
     }
 
 }
-

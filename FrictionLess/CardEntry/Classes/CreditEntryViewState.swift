@@ -1,5 +1,5 @@
 //
-//  CreditEntryViewModel.swift
+//  CardEntryViewState.swift
 //  SimpliSafe
 //
 //  Created by Jason Clark on 3/29/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct CreditEntryViewModel {
+public struct CardEntryViewState {
 
     let acceptedCardTypes: [CardType] = [.masterCard, .visa, .discover, .amex]
     var number: String = ""
@@ -31,14 +31,14 @@ public struct CreditEntryViewModel {
 
 }
 
-public extension CreditEntryViewModel {
+public extension CardEntryViewState {
 
-    var state: CardState {
+    var cardState: CardState {
         return CardState(fromPrefix: number)
     }
 
     var isAccepted: Bool {
-        if case .identified(let card) = state,
+        if case .identified(let card) = cardState,
             !acceptedCardTypes.contains(card) {
             return false
         }
@@ -64,10 +64,10 @@ public extension CardType {
 
 }
 
-public extension CreditEntryViewModel {
+public extension CardEntryViewState {
 
     var notAcceptedErrorMessage: String {
-        if case .identified(let card) = state {
+        if case .identified(let card) = cardState {
             return Strings.Frictionless.Cardentry.Validation.notAccepted(card.name)
         }
         else {
@@ -75,7 +75,7 @@ public extension CreditEntryViewModel {
         }
     }
 
-    func errorString(forFormatter formatter: TextFieldFormatter, error: Error) -> String? {
+    func errorString(forFormatter formatter: TextFieldFormatter?, error: Error) -> String? {
         switch formatter {
         case is CreditCardFormatter:
             if !isAccepted {

@@ -69,6 +69,7 @@ extension FormattableTextField {
             return delegateProxy.delegate
         }
         set {
+            //TODO: Race condition?
             super.delegate = delegateProxy
             if !(newValue is DelegateProxy) {
                 delegateProxy.delegate = newValue

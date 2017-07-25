@@ -1,5 +1,5 @@
 //
-//  CardImageViewModel.swift
+//  CardImageViewState.swift
 //  FrictionLess
 //
 //  Created by Jason Clark on 4/5/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct CardImageViewModel {
+public struct CardImageViewState {
 
     var imageState: CardImageState
 
@@ -22,7 +22,7 @@ public struct CardImageViewModel {
 
         //transition between two accepted or ambiguous card states
         case (.card(let old), .card(let new)) where old.isAccepted && new.isAccepted:
-            switch (old.state, new.state) {
+            switch (old.cardState, new.cardState) {
 
             //from unidentified to identfied
             case (.indeterminate, .identified): transition = .transitionFlipFromRight
@@ -38,7 +38,7 @@ public struct CardImageViewModel {
 
         //transition between card and cvv
         case (.card, .cvv(let newCard)):
-            switch newCard.state.cvvLocation {
+            switch newCard.cardState.cvvLocation {
 
             //card to front cvv, no flip
             case .front: transition = .transitionCrossDissolve
@@ -49,7 +49,7 @@ public struct CardImageViewModel {
 
         //transition between cvv and card
         case (.cvv(let oldCard), .card):
-            switch oldCard.state.cvvLocation {
+            switch oldCard.cardState.cvvLocation {
 
             //front cvv to card, no flip
             case .front: transition = .transitionCrossDissolve
@@ -66,14 +66,14 @@ public struct CardImageViewModel {
 }
 
 public enum CardImageState {
-    case card(creditCard: CreditEntryViewModel)
-    case cvv(creditCard: CreditEntryViewModel)
+    case card(creditCard: CardEntryViewState)
+    case cvv(creditCard: CardEntryViewState)
 
     public var image: UIImage {
         switch self {
         case .card(let card):
-            return card.isAccepted ? card.state.image : Images.CreditCard.notAccepted.image
-        case .cvv(let card): return card.state.cvvImage
+            return card.isAccepted ? card.cardState.image : Images.CreditCard.notAccepted.image
+        case .cvv(let card): return card.cardState.cvvImage
         }
     }
 }
@@ -82,9 +82,9 @@ extension CardImageState: Equatable {
     public static func == (lhs: CardImageState, rhs: CardImageState) -> Bool {
         switch (lhs, rhs) {
         case (.card(let card1), .card(let card2)):
-            return (card1.state == card2.state) && (card1.isAccepted == card2.isAccepted)
+            return (card1.cardState == card2.cardState) && (card1.isAccepted == card2.isAccepted)
         case (.cvv(let card1), .cvv(let card2)):
-            return (card1.state == card2.state) && (card1.isAccepted == card2.isAccepted)
+            return (card1.cardState == card2.cardState) && (card1.isAccepted == card2.isAccepted)
         default: return false
         }
     }
