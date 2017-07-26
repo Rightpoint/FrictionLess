@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func loadView() {
         view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.9)
 
         let form = CardEntryViewController()
         view.addSubview(form.view)
@@ -32,7 +32,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     func style(cardEntryView view: CardEntryView) {
-        view.backgroundColor = .white
+        let textFields = FormattableTextField.appearance()
+        textFields.backgroundColor = .white
+        textFields.cornerRadius = 5
+
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         view.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         view.layer.cornerRadius = 10
     }

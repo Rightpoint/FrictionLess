@@ -37,15 +37,16 @@ open class FrictionLessFormComponent: UIView, FormComponent {
 
     public var textField = FormattableTextField()
 
-    fileprivate let titleLabel: UILabel = {
+    public let titleLabel: UILabel = {
         let label = UILabel()
-        //TODO: Style
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
 
-    fileprivate let validationLabel: UILabel = {
+    public let validationLabel: UILabel = {
         let label = UILabel()
-        //TODO: Style
+        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.textColor = .red
         return label
     }()
 
