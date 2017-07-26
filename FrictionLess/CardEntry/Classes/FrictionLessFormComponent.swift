@@ -16,6 +16,15 @@ open class FrictionLessFormComponent: UIView, FormComponent {
 
     public var state: FormComponentState = .inactive {
         didSet {
+            textField.borderWidth = borderWidth
+            textField.borderColor = {
+                switch state {
+                case .inactive: return outlineInactive
+                case .active:   return outlineActive
+                case .valid:    return outlineValid
+                case .invalid:  return outlineInvalid
+                }
+            }()
             validationLabel.text = state.errorMessage
         }
     }
@@ -32,11 +41,18 @@ open class FrictionLessFormComponent: UIView, FormComponent {
 
     public var isEnabled: Bool = true {
         didSet {
-            alpha = isEnabled ? 1.0 : 0.3 //TODO param
+            alpha = isEnabled ? 1.0 : disabledAlpha
             textField.isEnabled = isEnabled
             isUserInteractionEnabled = isEnabled
         }
     }
+
+    public dynamic var disabledAlpha: CGFloat = 0.3
+    public dynamic var outlineInactive = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+    public dynamic var outlineActive = #colorLiteral(red: 0.2976710107, green: 0.679473315, blue: 0.9589569291, alpha: 1)
+    public dynamic var outlineInvalid  = #colorLiteral(red: 1, green: 0.4039215686, blue: 0.3647058824, alpha: 1)
+    public dynamic var outlineValid = #colorLiteral(red: 0, green: 0.7568627451, blue: 0.368627451, alpha: 1)
+    public dynamic var borderWidth: CGFloat = 2
 
     public var textField = FormattableTextField()
 
