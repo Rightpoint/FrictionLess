@@ -32,13 +32,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     func style(cardEntryView view: CardEntryView) {
-        let textFields = FormattableTextField.appearance()
-        textFields.backgroundColor = .white
-        textFields.cornerRadius = 5
+        let fieldAppearance = FormattableTextField.appearance()
+        fieldAppearance.backgroundColor = .white
+        fieldAppearance.cornerRadius = 5
 
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         view.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         view.layer.cornerRadius = 10
+
+        view.creditCard.titleLabel.layoutMargins.bottom = 30
     }
 
 }

@@ -79,17 +79,24 @@ extension CardEntryView {
         static let verticalSpacing = CGFloat(15)
         static let horizontalSpacing = CGFloat(30)
         static let cardImageWidth = CGFloat(40)
-        static let cardImagePadding = CGFloat(10)
+        static let cardImagePadding: (left: CGFloat, right: CGFloat) = (10, 10)
     }
 
     func configureView() {
-        creditCard.textField.leftView = cardImageView
-        creditCard.textField.leftViewMode = .always
         cardImageView.widthAnchor == Constant.cardImageWidth
+        creditCard.textField.leftView = {
+            let view = UIView()
+            view.addSubview(cardImageView)
+            cardImageView.verticalAnchors >= view.verticalAnchors
+            view.leadingAnchor == cardImageView.leadingAnchor - Constant.cardImagePadding.left
+            view.trailingAnchor == cardImageView.trailingAnchor - Constant.cardImagePadding.right
+            return view
+        }()
+        creditCard.textField.leftViewMode = .always
 
         //The inset of the credit card text field accounts for the card image.
         var layoutMargins = creditCard.textField.layoutMargins
-        let leadingCardNumberInset = Constant.cardImageWidth + Constant.cardImagePadding
+        let leadingCardNumberInset = Constant.cardImageWidth + Constant.cardImagePadding.left + Constant.cardImagePadding.right
         layoutMargins.left = leadingCardNumberInset
         creditCard.textField.layoutMargins = layoutMargins
 
