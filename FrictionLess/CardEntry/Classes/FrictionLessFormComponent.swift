@@ -14,8 +14,12 @@ public class FrictionLessFormValidationLabel: UILabel {}
 
 open class FrictionLessFormComponent: UIView, FormComponent {
 
+    public var onStateChange: ((FormComponentState) -> Void)?
+    public var onEditing: ((_ active: Bool) -> Void)?
+
     public var state: FormComponentState = .inactive {
         didSet {
+            onStateChange?(state)
             textField.borderWidth = borderWidth
             textField.borderColor = {
                 switch state {
@@ -150,11 +154,11 @@ extension FrictionLessFormComponent {
 extension FrictionLessFormComponent {
 
     @objc func editingDidBegin() {
-        //TODO
+        onEditing?(true)
     }
 
     @objc func editingDidEnd() {
-        //TODO
+        onEditing?(false)
     }
 
 }
