@@ -121,7 +121,19 @@ fileprivate extension CardEntryViewController {
         cardEntryView.expiration.value = cardEntryState.expiration
         cardEntryView.cvv.value = cardEntryState.cvv
 
-        // TODO cardEntryView.cvvLength = cardEntryState.state.cvvLength
+        let cvvField = cardEntryView.cvv.textField
+        let cvvLength = cardEntryState.cardState.cvvLength
+        if var cvvFormatter = cvvField.formatter as? CVVFormatter {
+            cvvFormatter.requiredLength = cvvLength
+            cvvField.formatter = cvvFormatter
+            switch cvvLength {
+            case 3:
+                cardEntryView.cvv.placeholder = Strings.Frictionless.Cardentry.Cvv.placeholder
+            case 4:
+                cardEntryView.cvv.placeholder = Strings.Frictionless.Cardentry.Cvv.amexPlaceholder
+            default: break
+            }
+        }
 
         cardEntryView.components.forEach { component in
             switch component.textField.validation {
@@ -166,6 +178,7 @@ extension CardEntryViewController: FormattableTextFieldDelegate {
 
         if creditCardValid {
             _ = cardEntryView.resignFirstResponder()
+            updateCardImageState()
         }
     }
 
