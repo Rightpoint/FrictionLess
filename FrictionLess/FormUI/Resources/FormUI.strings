@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  FrictionLess
+
+  Created by Jason Clark on 7/18/17.
+
+*/
+
+"FrictionLess.FormUI.Validation.Required" = "%@ Required";
+"FrictionLess.FormUI.Validation.Invalid" = "%@ Invalid";

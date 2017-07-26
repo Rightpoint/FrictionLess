@@ -30,14 +30,8 @@
     {
       "name": "CardEntry",
       "source_files": "FrictionLess/CardEntry/**/*.{swift,strings}",
-      "frameworks": [
-        "UIKit"
-      ],
       "dependencies": {
-        "Anchorage": [
-
-        ],
-        "FrictionLess/FormattableTextField": [
+        "FrictionLess/FormUI": [
 
         ]
       },
@@ -54,6 +48,18 @@
 
         ],
         "PhoneNumberKit": [
+
+        ]
+      }
+    },
+    {
+      "name": "FormUI",
+      "source_files": "FrictionLess/FormUI/Classes/**/*.{swift,strings}",
+      "dependencies": {
+        "Anchorage": [
+
+        ],
+        "FrictionLess/FormattableTextField": [
 
         ]
       }

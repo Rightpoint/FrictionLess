@@ -7,9 +7,11 @@ PODS:
     - FrictionLess/FormattableTextField
     - FrictionLess/PhoneFormatter
   - FrictionLess/CardEntry (0.1.0):
+    - FrictionLess/FormUI
+  - FrictionLess/FormattableTextField (0.1.0)
+  - FrictionLess/FormUI (0.1.0):
     - Anchorage
     - FrictionLess/FormattableTextField
-  - FrictionLess/FormattableTextField (0.1.0)
   - FrictionLess/PhoneFormatter (0.1.0):
     - FrictionLess/FormattableTextField
     - PhoneNumberKit
@@ -30,7 +32,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Anchorage: fe50dca4e20846b8cb15c859d26fec5132b41577
-  FrictionLess: e0e45bcf12b754dbe1ac33c918849da352f9994c
+  FrictionLess: 1a97457ca2a789e4b4c218cb08fb6d2bce53b862
   PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
 
 PODFILE CHECKSUM: f208593ae0b01d05e3b9f88ac99038748963b697

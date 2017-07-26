@@ -7,76 +7,86 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		006EFF011F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EFF001F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift */; };
-		0258FF9DB50A6729A7605E5A14968E90 /* NameFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D82CFB81506E585E4B56093FEF6A472 /* NameFormatter.swift */; };
-		08534D0ACA860F30655B3DC10EBE12F7 /* RangeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8536CD9569C531F9DC229CA1F3CAA /* RangeHelpers.swift */; };
-		1D71569CBD5AA395E5B3353C865791AC /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD75F37A5A434078F251A891EB25DA8 /* Formatter.swift */; };
-		2122C61530D5309625DB365D9C86905A /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DDA234CE4D078ABAB63F5C52643859 /* PhoneFormatter.swift */; };
+		006EFF121F29303B004A95DE /* FrictionLessFormUIStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EFF111F29303B004A95DE /* FrictionLessFormUIStrings.swift */; };
+		006EFF161F293250004A95DE /* CardEntry.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006EFF131F2930D3004A95DE /* CardEntry.xcassets */; };
+		006EFF171F293389004A95DE /* FormUI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 006EFF101F29303B004A95DE /* FormUI.strings */; };
+		0568DE4001FB04A06E7644865A2AEE31 /* String+CursorFingerprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB6826DFD03130FC39132C2BAB31E5 /* String+CursorFingerprint.swift */; };
+		0603C642A7E53B7E935B5EDA6F457BF2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C0A15B309FFA25A89E7797D90CE878 /* Constants.swift */; };
+		0C6E7FDD87DF27DCF4B5A0874891CF2C /* PhoneNumberKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4751E8E909C84B40512160008DC81EEA /* PhoneNumberKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E3036487BFA540F04F702DB68BCBBF4 /* UIImage+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AC8EB184D884E344BF50CF2FFF8C6A /* UIImage+CardEntry.swift */; };
+		13359FC7DD57131B28BA12976270CC5F /* TextFieldFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9468D1C340D729C5B224A7344C2AC9D7 /* TextFieldFormatter.swift */; };
+		175ECFE4FEA3E7938071FEFF398B464B /* FrictionLess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CCFFE13F6FF731EC96B5EC94E8E5D4DF /* FrictionLess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		178EB64884BDD16BAA876873E0915988 /* PartialFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6A1B50349DB0C700A91145BCC23766 /* PartialFormatter.swift */; };
+		1E6EA4E4815E6011D2A9DC11844AAF7E /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51225107A925B685F6166876583E53F1 /* PhoneFormatter.swift */; };
+		1F0AA2205E41230EF7E59EBA8A42B56E /* Strings+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43647F14507FC9264BA2D8E90F421CAB /* Strings+CardEntry.swift */; };
 		21B1CF71DBEED947ED108EE6EE7CCA9A /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B08CA6580615694ECC0DA4752FB6A4 /* Internal.swift */; };
-		21EA9FB7A1C26ADD90DFAAA8A2ED55FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A986AAF9B0E82338CECC2D2106A71 /* Foundation.framework */; };
-		28F0EF32994A88823CA902870A12FE7B /* CardEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB374137AEF1FFE2F22D91D34FFBBBA /* CardEntryView.swift */; };
-		29BB1E574E4D554A6618DE38F12F8CA3 /* FrictionLess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A548B2FC88ABE1198ACAFD157E1883 /* FrictionLess-dummy.m */; };
-		2A8AF97283F13153D8D7BDBE07CB7DC8 /* TextFieldFormatterDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE14A6082B8D21BDE0490948ED101D /* TextFieldFormatterDataTypes.swift */; };
 		2C804A3FAF578DD74388CB843B6C7210 /* Pods-FrictionLess_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B480F0992122A83E0BF6A34127BBB8C8 /* Pods-FrictionLess_Tests-dummy.m */; };
-		2EE674C6A5BD94C7D1FDFA0D016D9ADA /* PartialFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6A1B50349DB0C700A91145BCC23766 /* PartialFormatter.swift */; };
-		30E9BCE377CCE813A1CBFAF681CE02D9 /* String+CursorFingerprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A5D36FAAD9F90FA71264AD9C26DFC1 /* String+CursorFingerprint.swift */; };
-		42308B435D371ED7A5DEC716CE4DEB1C /* CardEntry.strings in Sources */ = {isa = PBXBuildFile; fileRef = 6F5723DAAE143CA446F71571B715D703 /* CardEntry.strings */; };
+		33E45F98818EEE8C73768813E3330BFF /* FrictionLessFormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA78E6DF2FD225343371DCC9BD03C5 /* FrictionLessFormComponent.swift */; };
+		3AEDF6FFFD8887EAFB144436F370E61C /* FrictionLess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B57273D5DA562E40A572E13A1655755F /* FrictionLess-dummy.m */; };
+		3B8FD1AF00936CAF6CE35F45805DF4F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583A9EE91D98931461FFCD5857C015FB /* UIKit.framework */; };
+		3D5FF162127AF3166D31565DD8A56F55 /* CreditEntryViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE246935F815940B4098277F50CD7E71 /* CreditEntryViewState.swift */; };
+		3D6094F4E620F9803F18EE3491707C71 /* FormattableTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B5F7C73E0566129AA2312108ED021F /* FormattableTextFieldDelegate.swift */; };
+		3EC9AFE9114EDF2CF2164803CF2D306F /* TextFieldFormatterDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E51F7ABD8FADC170217716A0B422D /* TextFieldFormatterDataTypes.swift */; };
+		3F897DBF4E8D42530F1CC2EDD080AEFE /* FormattableTextField+LayoutMargins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B4EBB4B84B46ECB924B1E577D8ED4 /* FormattableTextField+LayoutMargins.swift */; };
+		4074B10DCBA2D453012787050806A600 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9F0CF170AA5124F4852C206CD6915B /* PhoneNumber.swift */; };
+		40DB18128C7045F973604BF69D4E35BE /* RangeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F09453B0E4F9F0D2DF312642CE47FA /* RangeHelpers.swift */; };
 		4323589F883877F2B60E27F76DEC3CE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A986AAF9B0E82338CECC2D2106A71 /* Foundation.framework */; };
-		473893437F0F45236954F85552D205A7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC3885367F633124FF245D90BE866C7 /* CoreTelephony.framework */; };
-		4781446CD3B7665A5A25FDC9AD966B97 /* CardImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B647F85A263C43228775C4BE312B28 /* CardImageViewModel.swift */; };
-		4A931AD737C6BA70E5653994FE36A600 /* MetadataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D60F9A8872E6A093ECC22C6EFEFB5D /* MetadataManager.swift */; };
-		4F08F80BD20E8BC9A10AEF6335C1E73F /* CardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D19E733F43E8A1D6655208A8FE2773 /* CardParser.swift */; };
+		48090870ABCD1FE9259946BE15DD431A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A986AAF9B0E82338CECC2D2106A71 /* Foundation.framework */; };
+		4864B61EA6F890D4DCFA027EB05B4B3F /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32DE834CDF7982C8143CCFCCDA92AF5 /* PhoneNumberKit.framework */; };
+		4A2BEDF34E59C1521078102F8612CCA0 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD75F37A5A434078F251A891EB25DA8 /* Formatter.swift */; };
+		50A03B75AC242F84E61839FBCCDE2943 /* CardImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7129A9E67EB6DD1738687ED45ECC8F56 /* CardImageViewModel.swift */; };
 		53CE1581CF88235963CABA52F64828CE /* Anchorage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5874093B436CCFF810F4F11A88B3E472 /* Anchorage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56A6EFBEBD7942E4734AC1E9F9AEF7D3 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BF614FC9148A2F033D598523D8126B /* RegexManager.swift */; };
-		59087C853FAF16294F53AE9E0F53A70C /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE228FA12179F98249CE5449D2E5D4D0 /* FormComponent.swift */; };
-		5DA40F39019723CC560EBA79EF0B59C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A986AAF9B0E82338CECC2D2106A71 /* Foundation.framework */; };
-		5DE708E822BDE03B44F0EB612E7A2A62 /* PhoneNumberKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCEFD66E1F1B41B399B0F3101CFBFB4 /* PhoneNumberKit-dummy.m */; };
+		5516EADFCF89DEFDBD776E04A92DD54E /* PhoneNumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828E21578A4EEDBA9555840EE007CE3 /* PhoneNumberParser.swift */; };
 		61C7776B24C52FFA06C27E21FE77D7F0 /* Compatability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DEAA91F9F7A269C18BC0286DB5D019 /* Compatability.swift */; };
-		63AB7DF169958AC3EACBB3614E02573B /* CreditCardFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A9D1276EAC34B902CE68ABC69EE9E5 /* CreditCardFormatter.swift */; };
-		63B39408AC212B7161F24B09C690E3BC /* TextFieldFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4EF153E4942489B6FD8FA708EFC0C /* TextFieldFormatter.swift */; };
-		65334BD89B16E99998EAAA0753C393F3 /* FrictionLessFormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C72311D0D094C00493867E9574ABEFF /* FrictionLessFormComponent.swift */; };
-		68695906123C6573E89347D2B12AA280 /* PhoneNumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828E21578A4EEDBA9555840EE007CE3 /* PhoneNumberParser.swift */; };
-		69B01A16F6C181EF48B4EE0F6F46C83F /* Anchorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D4B6BA0A27606BA2D46B0ADC46E75 /* Anchorage.framework */; };
+		61E314AFE23BA402925BBEE37220E42A /* NSRegularExpression+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB854EEAF10E3AAE80DBFCA2252B0876 /* NSRegularExpression+Swift.swift */; };
+		63ED7FEF9CEC7DBEB1E9A3451AC486CE /* ExpirationDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A90C238C65A2E71397824139FB507 /* ExpirationDateFormatter.swift */; };
+		6837D90ECE7E948FA2B6B738CB2CE1B7 /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62041A332A6849077B425B498547955C /* FormComponent.swift */; };
+		713033058285814A8E8850CAB2DADC01 /* Anchorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D4B6BA0A27606BA2D46B0ADC46E75 /* Anchorage.framework */; };
 		7472AD7655CFAB7AD644EB72BB645879 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A986AAF9B0E82338CECC2D2106A71 /* Foundation.framework */; };
-		79186C57698CDA15B015705B10D8840A /* FormattableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079C47ECAAF7386AD4F194962C4134CE /* FormattableTextField.swift */; };
 		7B1777106DF84909C10E32B90706B1CC /* Pods-FrictionLess_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 19577EC160A3390F1DCF333AD8875E22 /* Pods-FrictionLess_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7BA8C3A74BB6CCA5BA2A7AD88BD1AB69 /* EmailFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F70F0F067F636C4FD97B007630B8ED /* EmailFormatter.swift */; };
-		7D3B65680229A74B5AAC5CC5118F87E1 /* CreditEntryViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D5AF77FB5A1BBCA1181D5ACF7B5142 /* CreditEntryViewState.swift */; };
-		7F4B759BCAC33F37F8BBE9F8821B0BB1 /* ZipFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E752C7B9034AFFDF9B877FAF18DAFB6D /* ZipFormatter.swift */; };
-		81DC24AE42402C6F07C9AD15FA803BB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C0A15B309FFA25A89E7797D90CE878 /* Constants.swift */; };
+		822E6A9ABCA8D0E9520CE50277F17ACC /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A137818D9BC7BC842973C36C45ECA1E /* ParseManager.swift */; };
+		858154ED54A802C7939523912AA1EC35 /* PhoneNumberKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F517227306395C9650398379A55C319 /* PhoneNumberKit.swift */; };
 		87D1EF27F5D1AA40BBCF28AD1E1CFD12 /* Anchorage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45597DBC15B320F5D2E57A00DB688453 /* Anchorage-dummy.m */; };
-		8E70998F85EC75C5C81A3F5C16E4F4F6 /* Strings+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17049FF810C3C291B9F03F4F51E2DED /* Strings+CardEntry.swift */; };
-		96BF1AF4EB3C090652BDFF4E4857D2AD /* String+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC0DAE588782F9CE924F212184B324 /* String+Filtering.swift */; };
-		98F60E2798C1A540D53B6E0EF0AA103F /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A137818D9BC7BC842973C36C45ECA1E /* ParseManager.swift */; };
-		9D43DC04DFD822265E4FE12A76F30E5C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BE3465BB35BEB07949788E86024F28 /* TextField.swift */; };
-		A05F08587A4A22446D324C950BD24A9C /* FrictionLess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 934B968AA2DA6B7936BEB86551CA2E38 /* FrictionLess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A6957920372B4D55E5DAACB1B64ECAFE /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9F0CF170AA5124F4852C206CD6915B /* PhoneNumber.swift */; };
-		A8AAD9A281283F1B03C45E6D2974DD78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583A9EE91D98931461FFCD5857C015FB /* UIKit.framework */; };
+		8804D2DAC7E3F62C69D58D1893E54DE9 /* CreditCardFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8041DAA78FBF72C1BC8F4D5CE386E /* CreditCardFormatter.swift */; };
+		904C4068F3BDDCC62F120B7EF1460699 /* RegexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BF614FC9148A2F033D598523D8126B /* RegexManager.swift */; };
+		90DA2A9B4F1E6838273566294462983E /* ZipFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5B42429F6B260C635FB142DFE655C /* ZipFormatter.swift */; };
+		9921317FD7462AB84474F26968B7FBBB /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BE3465BB35BEB07949788E86024F28 /* TextField.swift */; };
+		9DAA2816FC9BEF658D033020DB31EF9A /* CardEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6C4B5E13A3625395019FD7733CAF9A /* CardEntryViewController.swift */; };
+		9EC0B3A7BA4D210F14CAF2FDE7600C6D /* PhoneNumberKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCEFD66E1F1B41B399B0F3101CFBFB4 /* PhoneNumberKit-dummy.m */; };
+		A83F256800F53CEEA9CA2781208104C4 /* String+Filtering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674BA585E7721200C8CBA50661BE1BC /* String+Filtering.swift */; };
 		AA658F8789F0F444ED355C0E09F51021 /* Pods-FrictionLess_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AC94E887A643438FE98C961DFF3C669D /* Pods-FrictionLess_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF0648FC13FE571E26ED9D69365BFC2E /* NSRegularExpression+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB854EEAF10E3AAE80DBFCA2252B0876 /* NSRegularExpression+Swift.swift */; };
-		C4F5A5C89C472560371043443E07C8CC /* PhoneNumberMetadata.json in Resources */ = {isa = PBXBuildFile; fileRef = 841F6743297AB39A3CA710671823A474 /* PhoneNumberMetadata.json */; };
+		AD30AC02FA3ADD50C1571BDDC7A03427 /* MetadataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D795774FD44FAF5CD4FBA6C188DDA /* MetadataTypes.swift */; };
+		B66B70DDD6E14AAA75BC8ED230ED0105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A986AAF9B0E82338CECC2D2106A71 /* Foundation.framework */; };
+		B6FE44269085A8A501BA6921EADB4B4F /* PhoneNumberMetadata.json in Resources */ = {isa = PBXBuildFile; fileRef = 841F6743297AB39A3CA710671823A474 /* PhoneNumberMetadata.json */; };
+		B9AC46C961E17BBF2B50F98C3057A5F8 /* CVVFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1467772448E96658F015FDF6B508D777 /* CVVFormatter.swift */; };
+		C07A399F6F6FFC110BD0C7D918B32110 /* NameFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD9DD6B7A2FA7B0297C1D258D0A293D /* NameFormatter.swift */; };
+		C63680B17BD7BCF2514F41124CEB82A8 /* FormattableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48DE195241EEC721F584EEDE6120CEC /* FormattableTextField.swift */; };
 		C6A8C7B7B1C1AF4829030CDC3D2E03E0 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264CB46A3E8ED0CEBE0280566012B9E9 /* Priority.swift */; };
-		C9898F5D57A7C563579AFC70C8057181 /* ExpirationDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8349E15EC2AF7BA058D33D901CFA394 /* ExpirationDateFormatter.swift */; };
-		CA3EAE30AEB3028C961CDECB9B5E3E7F /* PhoneNumberKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4751E8E909C84B40512160008DC81EEA /* PhoneNumberKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CBE46F910C5372E9DA821AC68BFEAC85 /* PhoneNumberKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F517227306395C9650398379A55C319 /* PhoneNumberKit.swift */; };
-		D1471F9527353F9803BC6207C1591B2F /* CVVFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBD087AF30C174DE4F12020A1C93E4D /* CVVFormatter.swift */; };
-		D631A9B660CFE0E3151C397891877868 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32DE834CDF7982C8143CCFCCDA92AF5 /* PhoneNumberKit.framework */; };
-		D840F5E142538A61C906C4693ED06139 /* UIImage+CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540ECFD9E26CC355315748258C1B2D84 /* UIImage+CardEntry.swift */; };
-		DDBA333D79625DC30629D72A03C31E9D /* FormattableTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204888C01F6CFC6F4077B2F7F85024B2 /* FormattableTextFieldDelegate.swift */; };
+		DA6658646A3B563BE77E5BD599295D30 /* CardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80970C6261649BC138A4FCCF2B1BEBF5 /* CardParser.swift */; };
+		DDA3C5FB2D4461529B02887F9B8E923A /* CardEntry.strings in Sources */ = {isa = PBXBuildFile; fileRef = 53EA520924BFF9C3CC4FD7EAA6DC247C /* CardEntry.strings */; };
+		EEDABEC40C261367BDA16F2B2B2F272A /* MetadataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D60F9A8872E6A093ECC22C6EFEFB5D /* MetadataManager.swift */; };
+		EF4B530767C56EB987A79AC9BAB177B6 /* CardEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEE76F785C32D1C3A0C4D75FC2863C6 /* CardEntryView.swift */; };
 		F005D87D989C4898664D1084A6944EEC /* AnchorGroupProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6161A81B4D82F4AD015CC427C01BB48C /* AnchorGroupProvider.swift */; };
 		F02492BF8A3E31AEC939B557C93F57A5 /* Anchorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F56E419C8A9E38295633C4044C95E5 /* Anchorage.swift */; };
-		F77BE64FE77EEE6E25BA8D5B8085C91F /* CardEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3DD16398508111F16BC9623A6ED76 /* CardEntryViewController.swift */; };
+		F7D4B2B18379EB84C633E674958FED60 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC3885367F633124FF245D90BE866C7 /* CoreTelephony.framework */; };
 		F9E15BE4C8AB2A75D19911A94755E9D3 /* Pods-FrictionLess_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B011DD6786BA7AEC8E2F1164A88AD /* Pods-FrictionLess_Example-dummy.m */; };
-		FB5551C52B276F7C8006EBF89DEC4B4A /* MetadataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D795774FD44FAF5CD4FBA6C188DDA /* MetadataTypes.swift */; };
+		FACF3B9A30C8A33AB7F5762D07AF9E73 /* EmailFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E506A253E82B320EF94C5F331E78FA /* EmailFormatter.swift */; };
 		FE6D0D4F50A48C090B09B97218566A66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A986AAF9B0E82338CECC2D2106A71 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		454FBAFEC334301B17EA8598CF91BCF8 /* PBXContainerItemProxy */ = {
+		2F9C365EA76F231F15993523BA8E2EE6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DECC29CFA3DC071B6F184ADDAC44EF78;
+			remoteGlobalIDString = 2BA551AC21EC573D372C22914CC1E446;
+			remoteInfo = Anchorage;
+		};
+		5B1FE4149E500E29C422FB6DCF42643A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3593C944E232C5B00780D10752B4499;
 			remoteInfo = PhoneNumberKit;
 		};
 		807F7808DF7DDC3FEF723E9D8307D432 /* PBXContainerItemProxy */ = {
@@ -90,138 +100,123 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 91396376DF7E6F4913440201B83EC339;
+			remoteGlobalIDString = 10DF37BDD4DCCA2B70FCB11AFC571445;
 			remoteInfo = FrictionLess;
-		};
-		ADC2927918250E2144558EE16E7E9CF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BA551AC21EC573D372C22914CC1E446;
-			remoteInfo = Anchorage;
 		};
 		DE3A82353853D7498CD0FDA53C1F5FB1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DECC29CFA3DC071B6F184ADDAC44EF78;
+			remoteGlobalIDString = A3593C944E232C5B00780D10752B4499;
 			remoteInfo = PhoneNumberKit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		006EFF001F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FormattableTextField+LayoutMargins.swift"; path = "../FormattableTextField+LayoutMargins.swift"; sourceTree = "<group>"; };
+		006EFF101F29303B004A95DE /* FormUI.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FormUI.strings; sourceTree = "<group>"; };
+		006EFF111F29303B004A95DE /* FrictionLessFormUIStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrictionLessFormUIStrings.swift; sourceTree = "<group>"; };
+		006EFF131F2930D3004A95DE /* CardEntry.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CardEntry.xcassets; sourceTree = "<group>"; };
 		028A4D93D724F6C03B411330C582CA3B /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		058F0213025C3755566D4C2D1F55799F /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
-		079C47ECAAF7386AD4F194962C4134CE /* FormattableTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextField.swift; sourceTree = "<group>"; };
-		0AB374137AEF1FFE2F22D91D34FFBBBA /* CardEntryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardEntryView.swift; sourceTree = "<group>"; };
-		0F9E5CA6A5D1231CBC3C5A448A73A84C /* FrictionLess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FrictionLess.xcconfig; sourceTree = "<group>"; };
+		0674BA585E7721200C8CBA50661BE1BC /* String+Filtering.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Filtering.swift"; sourceTree = "<group>"; };
+		0CA5B42429F6B260C635FB142DFE655C /* ZipFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ZipFormatter.swift; sourceTree = "<group>"; };
+		105E51F7ABD8FADC170217716A0B422D /* TextFieldFormatterDataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatterDataTypes.swift; sourceTree = "<group>"; };
+		1467772448E96658F015FDF6B508D777 /* CVVFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CVVFormatter.swift; sourceTree = "<group>"; };
 		148F78CE6B628779490939CA6CDDD79F /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		179B4EBB4B84B46ECB924B1E577D8ED4 /* FormattableTextField+LayoutMargins.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "FormattableTextField+LayoutMargins.swift"; sourceTree = "<group>"; };
 		19577EC160A3390F1DCF333AD8875E22 /* Pods-FrictionLess_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FrictionLess_Tests-umbrella.h"; sourceTree = "<group>"; };
 		19C1DFB5DE2CEFD3DDDD68067F83D24B /* Anchorage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Anchorage-prefix.pch"; sourceTree = "<group>"; };
 		1A952574FDADB2933C58C1F8B2A73313 /* Pods-FrictionLess_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.release.xcconfig"; sourceTree = "<group>"; };
-		1EBD087AF30C174DE4F12020A1C93E4D /* CVVFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CVVFormatter.swift; sourceTree = "<group>"; };
-		204888C01F6CFC6F4077B2F7F85024B2 /* FormattableTextFieldDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextFieldDelegate.swift; sourceTree = "<group>"; };
+		1EEE76F785C32D1C3A0C4D75FC2863C6 /* CardEntryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardEntryView.swift; sourceTree = "<group>"; };
 		22F56E419C8A9E38295633C4044C95E5 /* Anchorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Anchorage.swift; path = Source/Anchorage.swift; sourceTree = "<group>"; };
 		264CB46A3E8ED0CEBE0280566012B9E9 /* Priority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Priority.swift; path = Source/Priority.swift; sourceTree = "<group>"; };
 		2FC3885367F633124FF245D90BE866C7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
-		35A5D36FAAD9F90FA71264AD9C26DFC1 /* String+CursorFingerprint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+CursorFingerprint.swift"; sourceTree = "<group>"; };
-		39B647F85A263C43228775C4BE312B28 /* CardImageViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardImageViewModel.swift; sourceTree = "<group>"; };
 		3A137818D9BC7BC842973C36C45ECA1E /* ParseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseManager.swift; path = PhoneNumberKit/ParseManager.swift; sourceTree = "<group>"; };
-		3F249EB4BBDCC73770D79D0A65A5F823 /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FrictionLess.modulemap; sourceTree = "<group>"; };
-		42A8536CD9569C531F9DC229CA1F3CAA /* RangeHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RangeHelpers.swift; sourceTree = "<group>"; };
+		3ADA78E6DF2FD225343371DCC9BD03C5 /* FrictionLessFormComponent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FrictionLessFormComponent.swift; sourceTree = "<group>"; };
+		43647F14507FC9264BA2D8E90F421CAB /* Strings+CardEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Strings+CardEntry.swift"; sourceTree = "<group>"; };
 		43C065769006F841D1997DFCD1BB2248 /* Pods-FrictionLess_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FrictionLess_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		45597DBC15B320F5D2E57A00DB688453 /* Anchorage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Anchorage-dummy.m"; sourceTree = "<group>"; };
 		4626CC7E1AE03FB3300B4B278160887F /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4751E8E909C84B40512160008DC81EEA /* PhoneNumberKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-umbrella.h"; sourceTree = "<group>"; };
-		48F70F0F067F636C4FD97B007630B8ED /* EmailFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EmailFormatter.swift; sourceTree = "<group>"; };
 		4D7D795774FD44FAF5CD4FBA6C188DDA /* MetadataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataTypes.swift; path = PhoneNumberKit/MetadataTypes.swift; sourceTree = "<group>"; };
+		51225107A925B685F6166876583E53F1 /* PhoneFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		514A986AAF9B0E82338CECC2D2106A71 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		51A29AC39E11468245F8FE2DC7E4B133 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		540ECFD9E26CC355315748258C1B2D84 /* UIImage+CardEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+CardEntry.swift"; sourceTree = "<group>"; };
+		53EA520924BFF9C3CC4FD7EAA6DC247C /* CardEntry.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; path = CardEntry.strings; sourceTree = "<group>"; };
 		54DEAA91F9F7A269C18BC0286DB5D019 /* Compatability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compatability.swift; path = Source/Compatability.swift; sourceTree = "<group>"; };
 		566084B891429EE11E0EAE8F87D2E7CE /* Anchorage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Anchorage.modulemap; sourceTree = "<group>"; };
 		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
 		583A9EE91D98931461FFCD5857C015FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		5874093B436CCFF810F4F11A88B3E472 /* Anchorage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Anchorage-umbrella.h"; sourceTree = "<group>"; };
 		5A5D4B6BA0A27606BA2D46B0ADC46E75 /* Anchorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Anchorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC0660AE11E342E809FDEFD6DD3F458 /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FrictionLess.modulemap; sourceTree = "<group>"; };
 		5F517227306395C9650398379A55C319 /* PhoneNumberKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberKit.swift; path = PhoneNumberKit/PhoneNumberKit.swift; sourceTree = "<group>"; };
 		6161A81B4D82F4AD015CC427C01BB48C /* AnchorGroupProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnchorGroupProvider.swift; path = Source/AnchorGroupProvider.swift; sourceTree = "<group>"; };
+		62041A332A6849077B425B498547955C /* FormComponent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormComponent.swift; sourceTree = "<group>"; };
+		69063734519AFF30DBFDD2B86ECBA89E /* FrictionLess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-prefix.pch"; sourceTree = "<group>"; };
 		6BCEFD66E1F1B41B399B0F3101CFBFB4 /* PhoneNumberKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PhoneNumberKit-dummy.m"; sourceTree = "<group>"; };
-		6C72311D0D094C00493867E9574ABEFF /* FrictionLessFormComponent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FrictionLessFormComponent.swift; sourceTree = "<group>"; };
-		6F5723DAAE143CA446F71571B715D703 /* CardEntry.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; path = CardEntry.strings; sourceTree = "<group>"; };
-		74DDA234CE4D078ABAB63F5C52643859 /* PhoneFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
-		76A9D1276EAC34B902CE68ABC69EE9E5 /* CreditCardFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditCardFormatter.swift; sourceTree = "<group>"; };
+		7129A9E67EB6DD1738687ED45ECC8F56 /* CardImageViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardImageViewModel.swift; sourceTree = "<group>"; };
 		7ACEAB809A84806F1CC57ACAC4AFF5BC /* Pods-FrictionLess_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EDF2B30BE70BF7ABB0DBC4AC315943A /* Pods-FrictionLess_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Tests-resources.sh"; sourceTree = "<group>"; };
+		80970C6261649BC138A4FCCF2B1BEBF5 /* CardParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
 		80E6D49EC900DFDCE2595803E5F9B82A /* Pods-FrictionLess_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		841F6743297AB39A3CA710671823A474 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
-		86D5AF77FB5A1BBCA1181D5ACF7B5142 /* CreditEntryViewState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditEntryViewState.swift; sourceTree = "<group>"; };
+		88AC8EB184D884E344BF50CF2FFF8C6A /* UIImage+CardEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+CardEntry.swift"; sourceTree = "<group>"; };
 		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
+		8E997EE3F3B0D2817CDACE827AA89093 /* FrictionLess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FrictionLess.xcconfig; sourceTree = "<group>"; };
 		91D60F9A8872E6A093ECC22C6EFEFB5D /* MetadataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataManager.swift; path = PhoneNumberKit/MetadataManager.swift; sourceTree = "<group>"; };
-		934B968AA2DA6B7936BEB86551CA2E38 /* FrictionLess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-umbrella.h"; sourceTree = "<group>"; };
 		9379A88D4483BD5C19A2CE4A84435BD2 /* Pods-FrictionLess_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9468D1C340D729C5B224A7344C2AC9D7 /* TextFieldFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatter.swift; sourceTree = "<group>"; };
+		96F09453B0E4F9F0D2DF312642CE47FA /* RangeHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RangeHelpers.swift; sourceTree = "<group>"; };
 		97BE3465BB35BEB07949788E86024F28 /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = PhoneNumberKit/UI/TextField.swift; sourceTree = "<group>"; };
-		99D19E733F43E8A1D6655208A8FE2773 /* CardParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
 		9A9F0CF170AA5124F4852C206CD6915B /* PhoneNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumber.swift; path = PhoneNumberKit/PhoneNumber.swift; sourceTree = "<group>"; };
 		9C6A1B50349DB0C700A91145BCC23766 /* PartialFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PartialFormatter.swift; path = PhoneNumberKit/PartialFormatter.swift; sourceTree = "<group>"; };
 		9C71D56062604DFFE019340FBC8483AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D82CFB81506E585E4B56093FEF6A472 /* NameFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NameFormatter.swift; sourceTree = "<group>"; };
+		A06A90C238C65A2E71397824139FB507 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
 		A3E9A0B5FE9FB38061E34661BCE439F9 /* Pods-FrictionLess_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FrictionLess_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A828E21578A4EEDBA9555840EE007CE3 /* PhoneNumberParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberParser.swift; path = PhoneNumberKit/PhoneNumberParser.swift; sourceTree = "<group>"; };
 		A9CB401E1FCFC3B43CEBA26097C8B9CC /* Pods-FrictionLess_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Example-resources.sh"; sourceTree = "<group>"; };
 		AB854EEAF10E3AAE80DBFCA2252B0876 /* NSRegularExpression+Swift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSRegularExpression+Swift.swift"; path = "PhoneNumberKit/NSRegularExpression+Swift.swift"; sourceTree = "<group>"; };
 		AC94E887A643438FE98C961DFF3C669D /* Pods-FrictionLess_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FrictionLess_Example-umbrella.h"; sourceTree = "<group>"; };
+		ACFB6826DFD03130FC39132C2BAB31E5 /* String+CursorFingerprint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+CursorFingerprint.swift"; sourceTree = "<group>"; };
+		AD6C4B5E13A3625395019FD7733CAF9A /* CardEntryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardEntryViewController.swift; sourceTree = "<group>"; };
+		AFD9DD6B7A2FA7B0297C1D258D0A293D /* NameFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NameFormatter.swift; sourceTree = "<group>"; };
+		B1B5F7C73E0566129AA2312108ED021F /* FormattableTextFieldDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextFieldDelegate.swift; sourceTree = "<group>"; };
 		B480F0992122A83E0BF6A34127BBB8C8 /* Pods-FrictionLess_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FrictionLess_Tests-dummy.m"; sourceTree = "<group>"; };
+		B48DE195241EEC721F584EEDE6120CEC /* FormattableTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextField.swift; sourceTree = "<group>"; };
+		B57273D5DA562E40A572E13A1655755F /* FrictionLess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FrictionLess-dummy.m"; sourceTree = "<group>"; };
 		B57FED9F3000723FC60AF32CA873DBF7 /* Anchorage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Anchorage.xcconfig; sourceTree = "<group>"; };
 		B5F8C8297173FBD66EA4B4A4E6A21A09 /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8349E15EC2AF7BA058D33D901CFA394 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
 		BD96581F6B160D0B4FBF64D404516FAC /* Pods-FrictionLess_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrictionLess_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C2BF614FC9148A2F033D598523D8126B /* RegexManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegexManager.swift; path = PhoneNumberKit/RegexManager.swift; sourceTree = "<group>"; };
 		C4B08CA6580615694ECC0DA4752FB6A4 /* Internal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Internal.swift; path = Source/Internal.swift; sourceTree = "<group>"; };
 		C57B96C0F3750FED954F249A829BCDC5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C67F3E307DD030931D3C3C0CBB62B41F /* FrictionLess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-prefix.pch"; sourceTree = "<group>"; };
-		C7A4EF153E4942489B6FD8FA708EFC0C /* TextFieldFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatter.swift; sourceTree = "<group>"; };
-		CE228FA12179F98249CE5449D2E5D4D0 /* FormComponent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormComponent.swift; sourceTree = "<group>"; };
-		CED3DD16398508111F16BC9623A6ED76 /* CardEntryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardEntryViewController.swift; sourceTree = "<group>"; };
+		CCFFE13F6FF731EC96B5EC94E8E5D4DF /* FrictionLess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-umbrella.h"; sourceTree = "<group>"; };
 		D562200B2AD2030034845489BC5CF654 /* PhoneNumberKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PhoneNumberKit.xcconfig; sourceTree = "<group>"; };
 		D57E83A93B05597F13F5262DC8FA2FC4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7C0A15B309FFA25A89E7797D90CE878 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = PhoneNumberKit/Constants.swift; sourceTree = "<group>"; };
 		DB41F52021AD728AFC291A9A9555BC55 /* Pods-FrictionLess_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Example-frameworks.sh"; sourceTree = "<group>"; };
 		DBD75F37A5A434078F251A891EB25DA8 /* Formatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Formatter.swift; path = PhoneNumberKit/Formatter.swift; sourceTree = "<group>"; };
-		E0FE14A6082B8D21BDE0490948ED101D /* TextFieldFormatterDataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextFieldFormatterDataTypes.swift; sourceTree = "<group>"; };
 		E12B011DD6786BA7AEC8E2F1164A88AD /* Pods-FrictionLess_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FrictionLess_Example-dummy.m"; sourceTree = "<group>"; };
-		E17049FF810C3C291B9F03F4F51E2DED /* Strings+CardEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Strings+CardEntry.swift"; sourceTree = "<group>"; };
 		E32DE834CDF7982C8143CCFCCDA92AF5 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4351B824F2D38BD4DD642B71837A030 /* Pods-FrictionLess_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		E752C7B9034AFFDF9B877FAF18DAFB6D /* ZipFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ZipFormatter.swift; sourceTree = "<group>"; };
 		EC753BA98C8EB251BF99E38EB9A36D43 /* Pods-FrictionLess_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrictionLess_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		EFBC0DAE588782F9CE924F212184B324 /* String+Filtering.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Filtering.swift"; sourceTree = "<group>"; };
+		F2E506A253E82B320EF94C5F331E78FA /* EmailFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EmailFormatter.swift; sourceTree = "<group>"; };
 		F4FF4ED0802519DD417177779C4D9F8A /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
 		F586524428C80F4750102554471D04B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5E7C129606599CA5BEDAA59E5C8D680 /* Anchorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Anchorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8A548B2FC88ABE1198ACAFD157E1883 /* FrictionLess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FrictionLess-dummy.m"; sourceTree = "<group>"; };
+		F84480E91A0CD6CC0535BA08D9B34B13 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAD8041DAA78FBF72C1BC8F4D5CE386E /* CreditCardFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditCardFormatter.swift; sourceTree = "<group>"; };
+		FE246935F815940B4098277F50CD7E71 /* CreditEntryViewState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditEntryViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		218550BD630D2B27EC3FECD8E81CF069 /* Frameworks */ = {
+		5F98D0813B8A26257D05523B347D40EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				473893437F0F45236954F85552D205A7 /* CoreTelephony.framework in Frameworks */,
-				5DA40F39019723CC560EBA79EF0B59C8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F7C33B27AF13B24FDBF76AEDEF6B2E4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				69B01A16F6C181EF48B4EE0F6F46C83F /* Anchorage.framework in Frameworks */,
-				21EA9FB7A1C26ADD90DFAAA8A2ED55FE /* Foundation.framework in Frameworks */,
-				D631A9B660CFE0E3151C397891877868 /* PhoneNumberKit.framework in Frameworks */,
-				A8AAD9A281283F1B03C45E6D2974DD78 /* UIKit.framework in Frameworks */,
+				F7D4B2B18379EB84C633E674958FED60 /* CoreTelephony.framework in Frameworks */,
+				B66B70DDD6E14AAA75BC8ED230ED0105 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,18 +244,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D0C860EC78D53ECDC6C1535D4A0E302E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				713033058285814A8E8850CAB2DADC01 /* Anchorage.framework in Frameworks */,
+				48090870ABCD1FE9259946BE15DD431A /* Foundation.framework in Frameworks */,
+				4864B61EA6F890D4DCFA027EB05B4B3F /* PhoneNumberKit.framework in Frameworks */,
+				3B8FD1AF00936CAF6CE35F45805DF4F1 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0AF76E6B05146DB2A60796B4CB8430B0 /* Classes */ = {
+		006EFF0F1F293025004A95DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				079C47ECAAF7386AD4F194962C4134CE /* FormattableTextField.swift */,
-				204888C01F6CFC6F4077B2F7F85024B2 /* FormattableTextFieldDelegate.swift */,
-				C7A4EF153E4942489B6FD8FA708EFC0C /* TextFieldFormatter.swift */,
-				E0FE14A6082B8D21BDE0490948ED101D /* TextFieldFormatterDataTypes.swift */,
-				E3CFF00642CAD3289B1F94767D133B76 /* Formatters */,
-				81D36E43E2D97D4F82E9B567A22F2326 /* Utilities */,
+				006EFF101F29303B004A95DE /* FormUI.strings */,
+				006EFF111F29303B004A95DE /* FrictionLessFormUIStrings.swift */,
+			);
+			name = Resources;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0695D4EFD09D4BE1DAEE3E9E1626BB85 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1EEE76F785C32D1C3A0C4D75FC2863C6 /* CardEntryView.swift */,
+				AD6C4B5E13A3625395019FD7733CAF9A /* CardEntryViewController.swift */,
+				7129A9E67EB6DD1738687ED45ECC8F56 /* CardImageViewModel.swift */,
+				80970C6261649BC138A4FCCF2B1BEBF5 /* CardParser.swift */,
+				FE246935F815940B4098277F50CD7E71 /* CreditEntryViewState.swift */,
+				F9F5F5B6F4B1AAB41A0E006D5C2C8AB0 /* Formatters */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0779AB252DF8B062158FDE3A61F51BD3 /* FrictionLess */ = {
+			isa = PBXGroup;
+			children = (
+				F8CDB1FBC22E51CDADCEB8BE2D0F8B19 /* FormattableTextField */,
+			);
+			path = FrictionLess;
+			sourceTree = "<group>";
+		};
+		09CF2C62D020BE043D547A91503FC5BD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				51225107A925B685F6166876583E53F1 /* PhoneFormatter.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -273,16 +305,21 @@
 			name = UIKit;
 			sourceTree = "<group>";
 		};
-		1631B133CAC409DE553007EB609C20E1 /* FrictionLess */ = {
+		16F8A047D307204FDE69FEA89E347D67 /* CardEntry */ = {
 			isa = PBXGroup;
 			children = (
-				5AB37F556A37E4F785482B2DB36CE96E /* CardEntry */,
-				CBA5308036459BA496D9969A0151C177 /* FormattableTextField */,
-				3823AD12DD9E5D7DBF17CFD04DE0E71F /* PhoneFormatter */,
-				F989C847EE8E5E520CFB6D43D7904F4E /* Support Files */,
+				0695D4EFD09D4BE1DAEE3E9E1626BB85 /* Classes */,
+				F0027EE9B254C4E22EE007E3AF1A38F9 /* Resources */,
 			);
-			name = FrictionLess;
-			path = ../..;
+			path = CardEntry;
+			sourceTree = "<group>";
+		};
+		1752454C27FF042B57CCF0D62F89FDBD /* PhoneFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				09CF2C62D020BE043D547A91503FC5BD /* Classes */,
+			);
+			path = PhoneFormatter;
 			sourceTree = "<group>";
 		};
 		2181A70686A786105E0B67EB96230DD3 /* Frameworks */ = {
@@ -295,22 +332,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		319089EF4036F060D4B481D40A8CC453 /* FrictionLess */ = {
+		265C49E961E5CB715CD3385FA5156CED /* CardEntry */ = {
 			isa = PBXGroup;
 			children = (
-				9EE8975C9707F3E056757FB31260297F /* CardEntry */,
+				B857C55440231AC20FFABA3136D6CD4D /* FrictionLess */,
 			);
-			path = FrictionLess;
+			name = CardEntry;
 			sourceTree = "<group>";
 		};
-		32817A27986C326D1DA10F9A60DA258E /* Resources */ = {
+		33EB1693C35C97D039E91753A93779A3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6F5723DAAE143CA446F71571B715D703 /* CardEntry.strings */,
-				E17049FF810C3C291B9F03F4F51E2DED /* Strings+CardEntry.swift */,
-				540ECFD9E26CC355315748258C1B2D84 /* UIImage+CardEntry.swift */,
+				B48DE195241EEC721F584EEDE6120CEC /* FormattableTextField.swift */,
+				179B4EBB4B84B46ECB924B1E577D8ED4 /* FormattableTextField+LayoutMargins.swift */,
+				B1B5F7C73E0566129AA2312108ED021F /* FormattableTextFieldDelegate.swift */,
+				9468D1C340D729C5B224A7344C2AC9D7 /* TextFieldFormatter.swift */,
+				105E51F7ABD8FADC170217716A0B422D /* TextFieldFormatterDataTypes.swift */,
+				4166A4FDD2205934222F12B53B778953 /* Formatters */,
+				E2D2D14476263CB63FAC708F8C7C4406 /* Utilities */,
 			);
-			path = Resources;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		35C255195117A003805CA742A0250739 /* Pods-FrictionLess_Tests */ = {
@@ -331,14 +372,6 @@
 			path = "Target Support Files/Pods-FrictionLess_Tests";
 			sourceTree = "<group>";
 		};
-		3823AD12DD9E5D7DBF17CFD04DE0E71F /* PhoneFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				D50673B6192ECE32200E196CAD64B129 /* FrictionLess */,
-			);
-			name = PhoneFormatter;
-			sourceTree = "<group>";
-		};
 		38373019C077F322D5E6CEAAEEAB96DF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +379,31 @@
 				DBF03B8DD545AC6C96879F964C2ABFF6 /* PhoneNumberKit */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		388A4FDDB89E4D9D693CA164A8D0D94D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DEF2C07574DD34DC10175F526A160657 /* FrictionLess */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		3F0F3DBB20794B614B6E7833EC069E6D /* FrictionLess */ = {
+			isa = PBXGroup;
+			children = (
+				ED0406B1745DCD8D737B2183E8100790 /* FormUI */,
+			);
+			path = FrictionLess;
+			sourceTree = "<group>";
+		};
+		4166A4FDD2205934222F12B53B778953 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				F2E506A253E82B320EF94C5F331E78FA /* EmailFormatter.swift */,
+				AFD9DD6B7A2FA7B0297C1D258D0A293D /* NameFormatter.swift */,
+			);
+			path = Formatters;
 			sourceTree = "<group>";
 		};
 		56C59B0DE2CE479E671C268BFF1F2496 /* Support Files */ = {
@@ -362,12 +420,12 @@
 			path = "../Target Support Files/Anchorage";
 			sourceTree = "<group>";
 		};
-		5AB37F556A37E4F785482B2DB36CE96E /* CardEntry */ = {
+		5A0763F200D526941715048FBF647C14 /* FormUI */ = {
 			isa = PBXGroup;
 			children = (
-				319089EF4036F060D4B481D40A8CC453 /* FrictionLess */,
+				3F0F3DBB20794B614B6E7833EC069E6D /* FrictionLess */,
 			);
-			name = CardEntry;
+			name = FormUI;
 			sourceTree = "<group>";
 		};
 		648E231B94DD27C712ED1604EC68185C /* Pods-FrictionLess_Example */ = {
@@ -388,23 +446,12 @@
 			path = "Target Support Files/Pods-FrictionLess_Example";
 			sourceTree = "<group>";
 		};
-		6A0A8922BD54D85FAF1E4D89D1508913 /* Formatters */ = {
+		721ADBAB8D6C18A4EEA5152497A83FD1 /* PhoneFormatter */ = {
 			isa = PBXGroup;
 			children = (
-				76A9D1276EAC34B902CE68ABC69EE9E5 /* CreditCardFormatter.swift */,
-				1EBD087AF30C174DE4F12020A1C93E4D /* CVVFormatter.swift */,
-				B8349E15EC2AF7BA058D33D901CFA394 /* ExpirationDateFormatter.swift */,
-				E752C7B9034AFFDF9B877FAF18DAFB6D /* ZipFormatter.swift */,
+				937414573A5ECD727FA0F3EF5DB877B2 /* FrictionLess */,
 			);
-			path = Formatters;
-			sourceTree = "<group>";
-		};
-		6D3FC308D30986BD68A59977CE05D4BB /* PhoneFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				CAD2E9AA5AF5A1C33D9BFCABB1F2BBB6 /* Classes */,
-			);
-			path = PhoneFormatter;
+			name = PhoneFormatter;
 			sourceTree = "<group>";
 		};
 		75867ABEABE1264F44D58523C7FEFDD2 /* Support Files */ = {
@@ -437,23 +484,12 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				A7D35B5231811E7360759499203B3354 /* Development Pods */,
+				388A4FDDB89E4D9D693CA164A8D0D94D /* Development Pods */,
 				2181A70686A786105E0B67EB96230DD3 /* Frameworks */,
 				38373019C077F322D5E6CEAAEEAB96DF /* Pods */,
 				795B3DA926665CB7AC246FAA2C604C5C /* Products */,
 				B64AEC4A1C2EE890D343A8E8F57EA17F /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		81D36E43E2D97D4F82E9B567A22F2326 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				006EFF001F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift */,
-				42A8536CD9569C531F9DC229CA1F3CAA /* RangeHelpers.swift */,
-				35A5D36FAAD9F90FA71264AD9C26DFC1 /* String+CursorFingerprint.swift */,
-				EFBC0DAE588782F9CE924F212184B324 /* String+Filtering.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		824EAB8ABA090799C1299EB422A89310 /* PhoneNumberKitCore */ = {
@@ -475,13 +511,29 @@
 			name = PhoneNumberKitCore;
 			sourceTree = "<group>";
 		};
-		9EE8975C9707F3E056757FB31260297F /* CardEntry */ = {
+		870B881EA222552DFB0248879B54278B /* FormattableTextField */ = {
 			isa = PBXGroup;
 			children = (
-				E1394B3B7A8A774424AA74FC67D3F881 /* Classes */,
-				32817A27986C326D1DA10F9A60DA258E /* Resources */,
+				0779AB252DF8B062158FDE3A61F51BD3 /* FrictionLess */,
 			);
-			path = CardEntry;
+			name = FormattableTextField;
+			sourceTree = "<group>";
+		};
+		937414573A5ECD727FA0F3EF5DB877B2 /* FrictionLess */ = {
+			isa = PBXGroup;
+			children = (
+				1752454C27FF042B57CCF0D62F89FDBD /* PhoneFormatter */,
+			);
+			path = FrictionLess;
+			sourceTree = "<group>";
+		};
+		A292E2B715BF7918A79E6C15F0FE0089 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				62041A332A6849077B425B498547955C /* FormComponent.swift */,
+				3ADA78E6DF2FD225343371DCC9BD03C5 /* FrictionLessFormComponent.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		A53AB8DB5C109E04463A942C500763F6 /* iOS */ = {
@@ -502,14 +554,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		A7D35B5231811E7360759499203B3354 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1631B133CAC409DE553007EB609C20E1 /* FrictionLess */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		B64AEC4A1C2EE890D343A8E8F57EA17F /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,34 +563,10 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		BFE8B58A307A7CFFBE235A370AB51951 /* FrictionLess */ = {
+		B857C55440231AC20FFABA3136D6CD4D /* FrictionLess */ = {
 			isa = PBXGroup;
 			children = (
-				DFB1B261699506201FF8E8373FD3BCD6 /* FormattableTextField */,
-			);
-			path = FrictionLess;
-			sourceTree = "<group>";
-		};
-		CAD2E9AA5AF5A1C33D9BFCABB1F2BBB6 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				74DDA234CE4D078ABAB63F5C52643859 /* PhoneFormatter.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		CBA5308036459BA496D9969A0151C177 /* FormattableTextField */ = {
-			isa = PBXGroup;
-			children = (
-				BFE8B58A307A7CFFBE235A370AB51951 /* FrictionLess */,
-			);
-			name = FormattableTextField;
-			sourceTree = "<group>";
-		};
-		D50673B6192ECE32200E196CAD64B129 /* FrictionLess */ = {
-			isa = PBXGroup;
-			children = (
-				6D3FC308D30986BD68A59977CE05D4BB /* PhoneFormatter */,
+				16F8A047D307204FDE69FEA89E347D67 /* CardEntry */,
 			);
 			path = FrictionLess;
 			sourceTree = "<group>";
@@ -561,50 +581,80 @@
 			path = PhoneNumberKit;
 			sourceTree = "<group>";
 		};
-		DFB1B261699506201FF8E8373FD3BCD6 /* FormattableTextField */ = {
+		DEF2C07574DD34DC10175F526A160657 /* FrictionLess */ = {
 			isa = PBXGroup;
 			children = (
-				0AF76E6B05146DB2A60796B4CB8430B0 /* Classes */,
+				265C49E961E5CB715CD3385FA5156CED /* CardEntry */,
+				870B881EA222552DFB0248879B54278B /* FormattableTextField */,
+				5A0763F200D526941715048FBF647C14 /* FormUI */,
+				721ADBAB8D6C18A4EEA5152497A83FD1 /* PhoneFormatter */,
+				EACA38418B0578AD7D44AE17EA395D22 /* Support Files */,
+			);
+			name = FrictionLess;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		E2D2D14476263CB63FAC708F8C7C4406 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				96F09453B0E4F9F0D2DF312642CE47FA /* RangeHelpers.swift */,
+				ACFB6826DFD03130FC39132C2BAB31E5 /* String+CursorFingerprint.swift */,
+				0674BA585E7721200C8CBA50661BE1BC /* String+Filtering.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EACA38418B0578AD7D44AE17EA395D22 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5BC0660AE11E342E809FDEFD6DD3F458 /* FrictionLess.modulemap */,
+				8E997EE3F3B0D2817CDACE827AA89093 /* FrictionLess.xcconfig */,
+				B57273D5DA562E40A572E13A1655755F /* FrictionLess-dummy.m */,
+				69063734519AFF30DBFDD2B86ECBA89E /* FrictionLess-prefix.pch */,
+				CCFFE13F6FF731EC96B5EC94E8E5D4DF /* FrictionLess-umbrella.h */,
+				F84480E91A0CD6CC0535BA08D9B34B13 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/FrictionLess";
+			sourceTree = "<group>";
+		};
+		ED0406B1745DCD8D737B2183E8100790 /* FormUI */ = {
+			isa = PBXGroup;
+			children = (
+				A292E2B715BF7918A79E6C15F0FE0089 /* Classes */,
+				006EFF0F1F293025004A95DE /* Resources */,
+			);
+			path = FormUI;
+			sourceTree = "<group>";
+		};
+		F0027EE9B254C4E22EE007E3AF1A38F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				53EA520924BFF9C3CC4FD7EAA6DC247C /* CardEntry.strings */,
+				43647F14507FC9264BA2D8E90F421CAB /* Strings+CardEntry.swift */,
+				88AC8EB184D884E344BF50CF2FFF8C6A /* UIImage+CardEntry.swift */,
+				006EFF131F2930D3004A95DE /* CardEntry.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8CDB1FBC22E51CDADCEB8BE2D0F8B19 /* FormattableTextField */ = {
+			isa = PBXGroup;
+			children = (
+				33EB1693C35C97D039E91753A93779A3 /* Classes */,
 			);
 			path = FormattableTextField;
 			sourceTree = "<group>";
 		};
-		E1394B3B7A8A774424AA74FC67D3F881 /* Classes */ = {
+		F9F5F5B6F4B1AAB41A0E006D5C2C8AB0 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				0AB374137AEF1FFE2F22D91D34FFBBBA /* CardEntryView.swift */,
-				CED3DD16398508111F16BC9623A6ED76 /* CardEntryViewController.swift */,
-				39B647F85A263C43228775C4BE312B28 /* CardImageViewModel.swift */,
-				99D19E733F43E8A1D6655208A8FE2773 /* CardParser.swift */,
-				86D5AF77FB5A1BBCA1181D5ACF7B5142 /* CreditEntryViewState.swift */,
-				CE228FA12179F98249CE5449D2E5D4D0 /* FormComponent.swift */,
-				6C72311D0D094C00493867E9574ABEFF /* FrictionLessFormComponent.swift */,
-				6A0A8922BD54D85FAF1E4D89D1508913 /* Formatters */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		E3CFF00642CAD3289B1F94767D133B76 /* Formatters */ = {
-			isa = PBXGroup;
-			children = (
-				48F70F0F067F636C4FD97B007630B8ED /* EmailFormatter.swift */,
-				9D82CFB81506E585E4B56093FEF6A472 /* NameFormatter.swift */,
+				FAD8041DAA78FBF72C1BC8F4D5CE386E /* CreditCardFormatter.swift */,
+				1467772448E96658F015FDF6B508D777 /* CVVFormatter.swift */,
+				A06A90C238C65A2E71397824139FB507 /* ExpirationDateFormatter.swift */,
+				0CA5B42429F6B260C635FB142DFE655C /* ZipFormatter.swift */,
 			);
 			path = Formatters;
-			sourceTree = "<group>";
-		};
-		F989C847EE8E5E520CFB6D43D7904F4E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3F249EB4BBDCC73770D79D0A65A5F823 /* FrictionLess.modulemap */,
-				0F9E5CA6A5D1231CBC3C5A448A73A84C /* FrictionLess.xcconfig */,
-				F8A548B2FC88ABE1198ACAFD157E1883 /* FrictionLess-dummy.m */,
-				C67F3E307DD030931D3C3C0CBB62B41F /* FrictionLess-prefix.pch */,
-				934B968AA2DA6B7936BEB86551CA2E38 /* FrictionLess-umbrella.h */,
-				51A29AC39E11468245F8FE2DC7E4B133 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/FrictionLess";
 			sourceTree = "<group>";
 		};
 		FED05E7EB9DEB4F6FE2F912D4645F6E5 /* Anchorage */ = {
@@ -631,19 +681,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		419E52CB9BB27CC922E2694ABF126821 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C6E7FDD87DF27DCF4B5A0874891CF2C /* PhoneNumberKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		458B92E4BAACAA572535F0202CD7A947 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AA658F8789F0F444ED355C0E09F51021 /* Pods-FrictionLess_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A8426D526F6EC202276AA65FC0E6F81F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A05F08587A4A22446D324C950BD24A9C /* FrictionLess-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,17 +705,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3CA7BB4460C82D861B79951B657C7B2 /* Headers */ = {
+		ECE852A33053D21FE84BBE7E34ACD534 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA3EAE30AEB3028C961CDECB9B5E3E7F /* PhoneNumberKit-umbrella.h in Headers */,
+				175ECFE4FEA3E7938071FEFF398B464B /* FrictionLess-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		10DF37BDD4DCCA2B70FCB11AFC571445 /* FrictionLess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 932093CF17553A8E362827F93DF40CA1 /* Build configuration list for PBXNativeTarget "FrictionLess" */;
+			buildPhases = (
+				6D24B5E47E25DEC5FC58494149399AB1 /* Sources */,
+				D0C860EC78D53ECDC6C1535D4A0E302E /* Frameworks */,
+				ECE852A33053D21FE84BBE7E34ACD534 /* Headers */,
+				006EFF151F293246004A95DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A579F40B285DA3F7D57C760ED761374 /* PBXTargetDependency */,
+				373FA4E7C67FD001CC926959BFEBDD6D /* PBXTargetDependency */,
+			);
+			name = FrictionLess;
+			productName = FrictionLess;
+			productReference = B5F8C8297173FBD66EA4B4A4E6A21A09 /* FrictionLess.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		2BA551AC21EC573D372C22914CC1E446 /* Anchorage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5051424FD2B4C8624350898316E6FB4 /* Build configuration list for PBXNativeTarget "Anchorage" */;
@@ -720,33 +790,14 @@
 			productReference = 4626CC7E1AE03FB3300B4B278160887F /* Pods_FrictionLess_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		91396376DF7E6F4913440201B83EC339 /* FrictionLess */ = {
+		A3593C944E232C5B00780D10752B4499 /* PhoneNumberKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E03B2E937407A7737854A28A196EB0E4 /* Build configuration list for PBXNativeTarget "FrictionLess" */;
+			buildConfigurationList = E6558058FFC2130DF00BC0FBA1A021CB /* Build configuration list for PBXNativeTarget "PhoneNumberKit" */;
 			buildPhases = (
-				2EA3F8AA2E9F570B0F7DEB3949388C1F /* Sources */,
-				5F7C33B27AF13B24FDBF76AEDEF6B2E4 /* Frameworks */,
-				A8426D526F6EC202276AA65FC0E6F81F /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2A03B415F818A0FFFDBCF95DD8D35B14 /* PBXTargetDependency */,
-				C126FC13AEB30ED33D8B86D11CCFBBE6 /* PBXTargetDependency */,
-			);
-			name = FrictionLess;
-			productName = FrictionLess;
-			productReference = B5F8C8297173FBD66EA4B4A4E6A21A09 /* FrictionLess.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DECC29CFA3DC071B6F184ADDAC44EF78 /* PhoneNumberKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0C1A14E5FAC11FE333AE63CFBF6F6F3C /* Build configuration list for PBXNativeTarget "PhoneNumberKit" */;
-			buildPhases = (
-				E9FD50D6859A135D29ABC07B9660D4B5 /* Sources */,
-				218550BD630D2B27EC3FECD8E81CF069 /* Frameworks */,
-				12D85324CCB10E3430A9A6FDCF3CB6F1 /* Resources */,
-				C3CA7BB4460C82D861B79951B657C7B2 /* Headers */,
+				D9C9855A71858EF02A8360E336B63D30 /* Sources */,
+				5F98D0813B8A26257D05523B347D40EF /* Frameworks */,
+				F1A44F90BFDF8314901F90B2E94F9DDE /* Resources */,
+				419E52CB9BB27CC922E2694ABF126821 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -778,9 +829,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				10DF37BDD4DCCA2B70FCB11AFC571445 /* FrictionLess */,
 				2BA551AC21EC573D372C22914CC1E446 /* Anchorage */,
-				91396376DF7E6F4913440201B83EC339 /* FrictionLess */,
-				DECC29CFA3DC071B6F184ADDAC44EF78 /* PhoneNumberKit */,
+				A3593C944E232C5B00780D10752B4499 /* PhoneNumberKit */,
 				51436EA0A88C3542D80A5FB1215E37DC /* Pods-FrictionLess_Example */,
 				354348EBB487D7F620C4A4912217ECAF /* Pods-FrictionLess_Tests */,
 			);
@@ -788,11 +839,20 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		12D85324CCB10E3430A9A6FDCF3CB6F1 /* Resources */ = {
+		006EFF151F293246004A95DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4F5A5C89C472560371043443E07C8CC /* PhoneNumberMetadata.json in Resources */,
+				006EFF171F293389004A95DE /* FormUI.strings in Resources */,
+				006EFF161F293250004A95DE /* CardEntry.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1A44F90BFDF8314901F90B2E94F9DDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6FE44269085A8A501BA6921EADB4B4F /* PhoneNumberMetadata.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,39 +864,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9E15BE4C8AB2A75D19911A94755E9D3 /* Pods-FrictionLess_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2EA3F8AA2E9F570B0F7DEB3949388C1F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42308B435D371ED7A5DEC716CE4DEB1C /* CardEntry.strings in Sources */,
-				28F0EF32994A88823CA902870A12FE7B /* CardEntryView.swift in Sources */,
-				F77BE64FE77EEE6E25BA8D5B8085C91F /* CardEntryViewController.swift in Sources */,
-				4781446CD3B7665A5A25FDC9AD966B97 /* CardImageViewModel.swift in Sources */,
-				4F08F80BD20E8BC9A10AEF6335C1E73F /* CardParser.swift in Sources */,
-				63AB7DF169958AC3EACBB3614E02573B /* CreditCardFormatter.swift in Sources */,
-				7D3B65680229A74B5AAC5CC5118F87E1 /* CreditEntryViewState.swift in Sources */,
-				D1471F9527353F9803BC6207C1591B2F /* CVVFormatter.swift in Sources */,
-				7BA8C3A74BB6CCA5BA2A7AD88BD1AB69 /* EmailFormatter.swift in Sources */,
-				C9898F5D57A7C563579AFC70C8057181 /* ExpirationDateFormatter.swift in Sources */,
-				79186C57698CDA15B015705B10D8840A /* FormattableTextField.swift in Sources */,
-				DDBA333D79625DC30629D72A03C31E9D /* FormattableTextFieldDelegate.swift in Sources */,
-				59087C853FAF16294F53AE9E0F53A70C /* FormComponent.swift in Sources */,
-				29BB1E574E4D554A6618DE38F12F8CA3 /* FrictionLess-dummy.m in Sources */,
-				65334BD89B16E99998EAAA0753C393F3 /* FrictionLessFormComponent.swift in Sources */,
-				0258FF9DB50A6729A7605E5A14968E90 /* NameFormatter.swift in Sources */,
-				2122C61530D5309625DB365D9C86905A /* PhoneFormatter.swift in Sources */,
-				08534D0ACA860F30655B3DC10EBE12F7 /* RangeHelpers.swift in Sources */,
-				30E9BCE377CCE813A1CBFAF681CE02D9 /* String+CursorFingerprint.swift in Sources */,
-				006EFF011F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift in Sources */,
-				96BF1AF4EB3C090652BDFF4E4857D2AD /* String+Filtering.swift in Sources */,
-				8E70998F85EC75C5C81A3F5C16E4F4F6 /* Strings+CardEntry.swift in Sources */,
-				63B39408AC212B7161F24B09C690E3BC /* TextFieldFormatter.swift in Sources */,
-				2A8AF97283F13153D8D7BDBE07CB7DC8 /* TextFieldFormatterDataTypes.swift in Sources */,
-				D840F5E142538A61C906C4693ED06139 /* UIImage+CardEntry.swift in Sources */,
-				7F4B759BCAC33F37F8BBE9F8821B0BB1 /* ZipFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -853,23 +880,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9FD50D6859A135D29ABC07B9660D4B5 /* Sources */ = {
+		6D24B5E47E25DEC5FC58494149399AB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81DC24AE42402C6F07C9AD15FA803BB2 /* Constants.swift in Sources */,
-				1D71569CBD5AA395E5B3353C865791AC /* Formatter.swift in Sources */,
-				4A931AD737C6BA70E5653994FE36A600 /* MetadataManager.swift in Sources */,
-				FB5551C52B276F7C8006EBF89DEC4B4A /* MetadataTypes.swift in Sources */,
-				BF0648FC13FE571E26ED9D69365BFC2E /* NSRegularExpression+Swift.swift in Sources */,
-				98F60E2798C1A540D53B6E0EF0AA103F /* ParseManager.swift in Sources */,
-				2EE674C6A5BD94C7D1FDFA0D016D9ADA /* PartialFormatter.swift in Sources */,
-				A6957920372B4D55E5DAACB1B64ECAFE /* PhoneNumber.swift in Sources */,
-				5DE708E822BDE03B44F0EB612E7A2A62 /* PhoneNumberKit-dummy.m in Sources */,
-				CBE46F910C5372E9DA821AC68BFEAC85 /* PhoneNumberKit.swift in Sources */,
-				68695906123C6573E89347D2B12AA280 /* PhoneNumberParser.swift in Sources */,
-				56A6EFBEBD7942E4734AC1E9F9AEF7D3 /* RegexManager.swift in Sources */,
-				9D43DC04DFD822265E4FE12A76F30E5C /* TextField.swift in Sources */,
+				DDA3C5FB2D4461529B02887F9B8E923A /* CardEntry.strings in Sources */,
+				EF4B530767C56EB987A79AC9BAB177B6 /* CardEntryView.swift in Sources */,
+				9DAA2816FC9BEF658D033020DB31EF9A /* CardEntryViewController.swift in Sources */,
+				50A03B75AC242F84E61839FBCCDE2943 /* CardImageViewModel.swift in Sources */,
+				DA6658646A3B563BE77E5BD599295D30 /* CardParser.swift in Sources */,
+				8804D2DAC7E3F62C69D58D1893E54DE9 /* CreditCardFormatter.swift in Sources */,
+				006EFF121F29303B004A95DE /* FrictionLessFormUIStrings.swift in Sources */,
+				3D5FF162127AF3166D31565DD8A56F55 /* CreditEntryViewState.swift in Sources */,
+				B9AC46C961E17BBF2B50F98C3057A5F8 /* CVVFormatter.swift in Sources */,
+				FACF3B9A30C8A33AB7F5762D07AF9E73 /* EmailFormatter.swift in Sources */,
+				63ED7FEF9CEC7DBEB1E9A3451AC486CE /* ExpirationDateFormatter.swift in Sources */,
+				3F897DBF4E8D42530F1CC2EDD080AEFE /* FormattableTextField+LayoutMargins.swift in Sources */,
+				C63680B17BD7BCF2514F41124CEB82A8 /* FormattableTextField.swift in Sources */,
+				3D6094F4E620F9803F18EE3491707C71 /* FormattableTextFieldDelegate.swift in Sources */,
+				6837D90ECE7E948FA2B6B738CB2CE1B7 /* FormComponent.swift in Sources */,
+				3AEDF6FFFD8887EAFB144436F370E61C /* FrictionLess-dummy.m in Sources */,
+				33E45F98818EEE8C73768813E3330BFF /* FrictionLessFormComponent.swift in Sources */,
+				C07A399F6F6FFC110BD0C7D918B32110 /* NameFormatter.swift in Sources */,
+				1E6EA4E4815E6011D2A9DC11844AAF7E /* PhoneFormatter.swift in Sources */,
+				40DB18128C7045F973604BF69D4E35BE /* RangeHelpers.swift in Sources */,
+				0568DE4001FB04A06E7644865A2AEE31 /* String+CursorFingerprint.swift in Sources */,
+				A83F256800F53CEEA9CA2781208104C4 /* String+Filtering.swift in Sources */,
+				1F0AA2205E41230EF7E59EBA8A42B56E /* Strings+CardEntry.swift in Sources */,
+				13359FC7DD57131B28BA12976270CC5F /* TextFieldFormatter.swift in Sources */,
+				3EC9AFE9114EDF2CF2164803CF2D306F /* TextFieldFormatterDataTypes.swift in Sources */,
+				0E3036487BFA540F04F702DB68BCBBF4 /* UIImage+CardEntry.swift in Sources */,
+				90DA2A9B4F1E6838273566294462983E /* ZipFormatter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9C9855A71858EF02A8360E336B63D30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0603C642A7E53B7E935B5EDA6F457BF2 /* Constants.swift in Sources */,
+				4A2BEDF34E59C1521078102F8612CCA0 /* Formatter.swift in Sources */,
+				EEDABEC40C261367BDA16F2B2B2F272A /* MetadataManager.swift in Sources */,
+				AD30AC02FA3ADD50C1571BDDC7A03427 /* MetadataTypes.swift in Sources */,
+				61E314AFE23BA402925BBEE37220E42A /* NSRegularExpression+Swift.swift in Sources */,
+				822E6A9ABCA8D0E9520CE50277F17ACC /* ParseManager.swift in Sources */,
+				178EB64884BDD16BAA876873E0915988 /* PartialFormatter.swift in Sources */,
+				4074B10DCBA2D453012787050806A600 /* PhoneNumber.swift in Sources */,
+				9EC0B3A7BA4D210F14CAF2FDE7600C6D /* PhoneNumberKit-dummy.m in Sources */,
+				858154ED54A802C7939523912AA1EC35 /* PhoneNumberKit.swift in Sources */,
+				5516EADFCF89DEFDBD776E04A92DD54E /* PhoneNumberParser.swift in Sources */,
+				904C4068F3BDDCC62F120B7EF1460699 /* RegexManager.swift in Sources */,
+				9921317FD7462AB84474F26968B7FBBB /* TextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,11 +945,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2A03B415F818A0FFFDBCF95DD8D35B14 /* PBXTargetDependency */ = {
+		373FA4E7C67FD001CC926959BFEBDD6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PhoneNumberKit;
+			target = A3593C944E232C5B00780D10752B4499 /* PhoneNumberKit */;
+			targetProxy = 5B1FE4149E500E29C422FB6DCF42643A /* PBXContainerItemProxy */;
+		};
+		3A579F40B285DA3F7D57C760ED761374 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Anchorage;
 			target = 2BA551AC21EC573D372C22914CC1E446 /* Anchorage */;
-			targetProxy = ADC2927918250E2144558EE16E7E9CF0 /* PBXContainerItemProxy */;
+			targetProxy = 2F9C365EA76F231F15993523BA8E2EE6 /* PBXContainerItemProxy */;
 		};
 		78A5031C1DC9974346A3F24357F8E7B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -899,59 +966,18 @@
 		7FBA5E23F5C27360096996254FC43ED4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PhoneNumberKit;
-			target = DECC29CFA3DC071B6F184ADDAC44EF78 /* PhoneNumberKit */;
+			target = A3593C944E232C5B00780D10752B4499 /* PhoneNumberKit */;
 			targetProxy = DE3A82353853D7498CD0FDA53C1F5FB1 /* PBXContainerItemProxy */;
 		};
 		8D7F48973988073D2BA92BA61434F362 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FrictionLess;
-			target = 91396376DF7E6F4913440201B83EC339 /* FrictionLess */;
+			target = 10DF37BDD4DCCA2B70FCB11AFC571445 /* FrictionLess */;
 			targetProxy = 95D57A0FC2DAC7CCF356A69A3CBA18DC /* PBXContainerItemProxy */;
-		};
-		C126FC13AEB30ED33D8B86D11CCFBBE6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PhoneNumberKit;
-			target = DECC29CFA3DC071B6F184ADDAC44EF78 /* PhoneNumberKit */;
-			targetProxy = 454FBAFEC334301B17EA8598CF91BCF8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0C98180C3EF2345010CEABEBA7C05D74 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D562200B2AD2030034845489BC5CF654 /* PhoneNumberKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PhoneNumberKit/PhoneNumberKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PhoneNumberKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PhoneNumberKit/PhoneNumberKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PhoneNumberKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		15287E76D20D432DFE08AAD99F57BD3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9379A88D4483BD5C19A2CE4A84435BD2 /* Pods-FrictionLess_Example.debug.xcconfig */;
@@ -980,6 +1006,41 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_FrictionLess_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2D6D9F3293EF6A645D888A01416CCEE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E997EE3F3B0D2817CDACE827AA89093 /* FrictionLess.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FrictionLess/FrictionLess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FrictionLess/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FrictionLess/FrictionLess.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = FrictionLess;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1024,6 +1085,41 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		4EA9502963173DD3254A65505A961C46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D562200B2AD2030034845489BC5CF654 /* PhoneNumberKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PhoneNumberKit/PhoneNumberKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PhoneNumberKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PhoneNumberKit/PhoneNumberKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PhoneNumberKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		53B1C3D917CBF7193358F5507E284938 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1182,44 +1278,9 @@
 			};
 			name = Debug;
 		};
-		A00857C762C981D1D3A2135F1A2A7B0B /* Debug */ = {
+		B71F96A9B18B758134CDDBB969EBFE02 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F9E5CA6A5D1231CBC3C5A448A73A84C /* FrictionLess.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FrictionLess/FrictionLess-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FrictionLess/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FrictionLess/FrictionLess.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = FrictionLess;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BC40C14A715172215278C813DAEFDD84 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F9E5CA6A5D1231CBC3C5A448A73A84C /* FrictionLess.xcconfig */;
+			baseConfigurationReference = 8E997EE3F3B0D2817CDACE827AA89093 /* FrictionLess.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1331,7 +1392,7 @@
 			};
 			name = Debug;
 		};
-		F8F982070014042A0AE9DE266610840C /* Release */ = {
+		F928D6A5A9ED8B67594E2530309D9D01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D562200B2AD2030034845489BC5CF654 /* PhoneNumberKit.xcconfig */;
 			buildSettings = {
@@ -1368,15 +1429,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C1A14E5FAC11FE333AE63CFBF6F6F3C /* Build configuration list for PBXNativeTarget "PhoneNumberKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0C98180C3EF2345010CEABEBA7C05D74 /* Debug */,
-				F8F982070014042A0AE9DE266610840C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1391,6 +1443,15 @@
 			buildConfigurations = (
 				15287E76D20D432DFE08AAD99F57BD3C /* Debug */,
 				55524B2C5BA1121E42EA71B4B250A121 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		932093CF17553A8E362827F93DF40CA1 /* Build configuration list for PBXNativeTarget "FrictionLess" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D6D9F3293EF6A645D888A01416CCEE6 /* Debug */,
+				B71F96A9B18B758134CDDBB969EBFE02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1413,11 +1474,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E03B2E937407A7737854A28A196EB0E4 /* Build configuration list for PBXNativeTarget "FrictionLess" */ = {
+		E6558058FFC2130DF00BC0FBA1A021CB /* Build configuration list for PBXNativeTarget "PhoneNumberKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A00857C762C981D1D3A2135F1A2A7B0B /* Debug */,
-				BC40C14A715172215278C813DAEFDD84 /* Release */,
+				4EA9502963173DD3254A65505A961C46 /* Debug */,
+				F928D6A5A9ED8B67594E2530309D9D01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

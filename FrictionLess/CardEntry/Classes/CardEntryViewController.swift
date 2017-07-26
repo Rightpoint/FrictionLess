@@ -98,7 +98,7 @@ open class CardEntryViewController: UIViewController {
             case .valid:
                 component.state = .valid
             case .invalid(let error):
-                let errorString = cardEntryState.errorString(forFormatter: component.textField.formatter!, error: error) ??
+                let errorString = cardEntryState.errorString(forFormatter: component.textField.formatter, error: error) ??
                     component.genericErrorString
                 component.state = .invalid(errorString: errorString)
                 component.textField.shakeIfFirstResponder()
@@ -203,7 +203,7 @@ extension CardEntryViewController: FormattableTextFieldDelegate {
                 component.state = .inactive
             }
             else {
-                let errorMessage = cardEntryState.errorString(forFormatter: textField.formatter, error: error)
+                let errorMessage = cardEntryState.errorString(forFormatter: textField.formatter, error: error) ?? component.genericErrorString
                 component.state = .invalid(errorString: errorMessage)
                 textField.shake()
             }
