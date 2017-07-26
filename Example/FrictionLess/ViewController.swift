@@ -36,6 +36,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         fieldAppearance.backgroundColor = .white
         fieldAppearance.cornerRadius = 5
 
+        let componentAppearance = FrictionLessFormComponent.appearance()
+        componentAppearance.titleToTextFieldPadding = 3
+
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         view.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         view.layer.cornerRadius = 10

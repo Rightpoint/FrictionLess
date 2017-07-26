@@ -50,6 +50,11 @@ open class FrictionLessFormComponent: UIView, FormComponent {
         return label
     }()
 
+    fileprivate var paddingConstraints: (
+        titleToTextField: NSLayoutConstraint?,
+        textFieldToValidation: NSLayoutConstraint?
+    )
+
     public init() {
         super.init(frame: .zero)
         configureView()
@@ -80,6 +85,26 @@ extension FrictionLessFormComponent {
 
 }
 
+// MARK: - Appearance
+extension FrictionLessFormComponent {
+
+    fileprivate enum Default {
+        static let titleToTextFieldPadding = CGFloat(3)
+        static let textFieldToValidationPadding = CGFloat(4)
+    }
+
+    public dynamic var titleToTextFieldPadding: CGFloat {
+        set { paddingConstraints.titleToTextField?.constant = newValue }
+        get { return paddingConstraints.titleToTextField?.constant ?? Default.titleToTextFieldPadding }
+    }
+
+    public dynamic var textFieldToValidationPadding: CGFloat {
+        set { paddingConstraints.textFieldToValidation?.constant = newValue }
+        get { return paddingConstraints.textFieldToValidation?.constant ?? Default.textFieldToValidationPadding }
+    }
+    
+}
+
 extension FrictionLessFormComponent {
 
     func configureView() {
@@ -90,10 +115,12 @@ extension FrictionLessFormComponent {
         titleLabel.topAnchor == layoutMarginsGuide.topAnchor
         titleLabel.horizontalAnchors == layoutMarginsGuide.horizontalAnchors
 
-        textField.topAnchor == titleLabel.bottomAnchor
+        paddingConstraints.titleToTextField =
+            textField.topAnchor == titleLabel.bottomAnchor + titleToTextFieldPadding
         textField.horizontalAnchors == layoutMarginsGuide.horizontalAnchors
 
-        validationLabel.topAnchor == textField.bottomAnchor
+        paddingConstraints.textFieldToValidation =
+            validationLabel.topAnchor == textField.bottomAnchor + textFieldToValidationPadding
         validationLabel.horizontalAnchors == layoutMarginsGuide.horizontalAnchors
         validationLabel.heightAnchor == validationLabel.font.pointSize
         validationLabel.bottomAnchor == layoutMarginsGuide.bottomAnchor
