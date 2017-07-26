@@ -41,19 +41,24 @@ A collection of swift UI/UX components for reducing friction in "user work": for
 
   s.subspec "CardEntry" do |ss|
     ss.source_files = 'FrictionLess/CardEntry/**/*.{swift,strings}'
-    ss.frameworks = ["UIKit"]
-    ss.dependency 'Anchorage'
-    ss.dependency 'FrictionLess/FormattableTextField'
-    ss.resources = "FrictionLess/CardEntry/Assets/CardEntry.xcassets"
+    ss.dependency 'FrictionLess/FormUI'
+    ss.resources = "FrictionLess/CardEntry/Resources/CardEntry.xcassets"
   end
 
   # Phone Number Formatter
 
   s.subspec "PhoneFormatter" do |ss|
     ss.source_files = 'FrictionLess/PhoneFormatter/Classes/**/*'
-    ss.frameworks = ["UIKit"]
     ss.dependency 'FrictionLess/FormattableTextField'
     ss.dependency 'PhoneNumberKit'
+  end
+
+  # Form UI
+
+  s.subspec "FormUI" do |ss|
+    ss.source_files = 'FrictionLess/FormUI/Classes/**/*.{swift,strings}'
+    ss.dependency 'Anchorage'
+    ss.dependency 'FrictionLess/FormattableTextField'
   end
 
   # Catch All
@@ -62,6 +67,7 @@ A collection of swift UI/UX components for reducing friction in "user work": for
     ss.dependency 'FrictionLess/FormattableTextField'
     ss.dependency 'FrictionLess/CardEntry'
     ss.dependency 'FrictionLess/PhoneFormatter'
+    ss.dependency 'FrictionLess/FormUI'
   end
 
 end

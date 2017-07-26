@@ -96,11 +96,10 @@ extension FrictionLessFormComponent {
     var genericErrorString: String? {
         if let title = title, !textField.isValid {
             if textField.text?.isEmpty ?? true {
-                return ""
-                    // TODO Localized.Form.Validation.Generic.required(title)
+                return FrictionLessFormUIStrings.Frictionless.Formui.Validation.required(title)
             }
             else {
-                return "" //TODO Localized.Form.Validation.Generic.invalid(title)
+                return FrictionLessFormUIStrings.Frictionless.Formui.Validation.invalid(title)
             }
         }
         return nil
