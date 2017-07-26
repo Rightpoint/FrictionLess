@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006EFF011F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EFF001F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift */; };
 		0258FF9DB50A6729A7605E5A14968E90 /* NameFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D82CFB81506E585E4B56093FEF6A472 /* NameFormatter.swift */; };
 		08534D0ACA860F30655B3DC10EBE12F7 /* RangeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8536CD9569C531F9DC229CA1F3CAA /* RangeHelpers.swift */; };
 		1D71569CBD5AA395E5B3353C865791AC /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD75F37A5A434078F251A891EB25DA8 /* Formatter.swift */; };
@@ -109,12 +110,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		028A4D93D724F6C03B411330C582CA3B /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrictionLess_Tests.framework; path = "Pods-FrictionLess_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		058F0213025C3755566D4C2D1F55799F /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
+		006EFF001F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FormattableTextField+LayoutMargins.swift"; path = "../FormattableTextField+LayoutMargins.swift"; sourceTree = "<group>"; };
+		028A4D93D724F6C03B411330C582CA3B /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		058F0213025C3755566D4C2D1F55799F /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
 		079C47ECAAF7386AD4F194962C4134CE /* FormattableTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextField.swift; sourceTree = "<group>"; };
 		0AB374137AEF1FFE2F22D91D34FFBBBA /* CardEntryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardEntryView.swift; sourceTree = "<group>"; };
 		0F9E5CA6A5D1231CBC3C5A448A73A84C /* FrictionLess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FrictionLess.xcconfig; sourceTree = "<group>"; };
-		148F78CE6B628779490939CA6CDDD79F /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PhoneNumberKit.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		148F78CE6B628779490939CA6CDDD79F /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19577EC160A3390F1DCF333AD8875E22 /* Pods-FrictionLess_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FrictionLess_Tests-umbrella.h"; sourceTree = "<group>"; };
 		19C1DFB5DE2CEFD3DDDD68067F83D24B /* Anchorage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Anchorage-prefix.pch"; sourceTree = "<group>"; };
 		1A952574FDADB2933C58C1F8B2A73313 /* Pods-FrictionLess_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,11 +128,11 @@
 		35A5D36FAAD9F90FA71264AD9C26DFC1 /* String+CursorFingerprint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+CursorFingerprint.swift"; sourceTree = "<group>"; };
 		39B647F85A263C43228775C4BE312B28 /* CardImageViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardImageViewModel.swift; sourceTree = "<group>"; };
 		3A137818D9BC7BC842973C36C45ECA1E /* ParseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseManager.swift; path = PhoneNumberKit/ParseManager.swift; sourceTree = "<group>"; };
-		3F249EB4BBDCC73770D79D0A65A5F823 /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FrictionLess.modulemap; sourceTree = "<group>"; };
+		3F249EB4BBDCC73770D79D0A65A5F823 /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FrictionLess.modulemap; sourceTree = "<group>"; };
 		42A8536CD9569C531F9DC229CA1F3CAA /* RangeHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RangeHelpers.swift; sourceTree = "<group>"; };
 		43C065769006F841D1997DFCD1BB2248 /* Pods-FrictionLess_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FrictionLess_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		45597DBC15B320F5D2E57A00DB688453 /* Anchorage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Anchorage-dummy.m"; sourceTree = "<group>"; };
-		4626CC7E1AE03FB3300B4B278160887F /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrictionLess_Example.framework; path = "Pods-FrictionLess_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4626CC7E1AE03FB3300B4B278160887F /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4751E8E909C84B40512160008DC81EEA /* PhoneNumberKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-umbrella.h"; sourceTree = "<group>"; };
 		48F70F0F067F636C4FD97B007630B8ED /* EmailFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EmailFormatter.swift; sourceTree = "<group>"; };
 		4D7D795774FD44FAF5CD4FBA6C188DDA /* MetadataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataTypes.swift; path = PhoneNumberKit/MetadataTypes.swift; sourceTree = "<group>"; };
@@ -138,8 +140,8 @@
 		51A29AC39E11468245F8FE2DC7E4B133 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		540ECFD9E26CC355315748258C1B2D84 /* UIImage+CardEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+CardEntry.swift"; sourceTree = "<group>"; };
 		54DEAA91F9F7A269C18BC0286DB5D019 /* Compatability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compatability.swift; path = Source/Compatability.swift; sourceTree = "<group>"; };
-		566084B891429EE11E0EAE8F87D2E7CE /* Anchorage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Anchorage.modulemap; sourceTree = "<group>"; };
-		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
+		566084B891429EE11E0EAE8F87D2E7CE /* Anchorage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Anchorage.modulemap; sourceTree = "<group>"; };
+		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
 		583A9EE91D98931461FFCD5857C015FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		5874093B436CCFF810F4F11A88B3E472 /* Anchorage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Anchorage-umbrella.h"; sourceTree = "<group>"; };
 		5A5D4B6BA0A27606BA2D46B0ADC46E75 /* Anchorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Anchorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,13 +155,13 @@
 		7ACEAB809A84806F1CC57ACAC4AFF5BC /* Pods-FrictionLess_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EDF2B30BE70BF7ABB0DBC4AC315943A /* Pods-FrictionLess_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FrictionLess_Tests-resources.sh"; sourceTree = "<group>"; };
 		80E6D49EC900DFDCE2595803E5F9B82A /* Pods-FrictionLess_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		841F6743297AB39A3CA710671823A474 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
+		841F6743297AB39A3CA710671823A474 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
 		86D5AF77FB5A1BBCA1181D5ACF7B5142 /* CreditEntryViewState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreditEntryViewState.swift; sourceTree = "<group>"; };
-		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
+		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
 		91D60F9A8872E6A093ECC22C6EFEFB5D /* MetadataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataManager.swift; path = PhoneNumberKit/MetadataManager.swift; sourceTree = "<group>"; };
 		934B968AA2DA6B7936BEB86551CA2E38 /* FrictionLess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-umbrella.h"; sourceTree = "<group>"; };
 		9379A88D4483BD5C19A2CE4A84435BD2 /* Pods-FrictionLess_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97BE3465BB35BEB07949788E86024F28 /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = PhoneNumberKit/UI/TextField.swift; sourceTree = "<group>"; };
 		99D19E733F43E8A1D6655208A8FE2773 /* CardParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
 		9A9F0CF170AA5124F4852C206CD6915B /* PhoneNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumber.swift; path = PhoneNumberKit/PhoneNumber.swift; sourceTree = "<group>"; };
@@ -173,7 +175,7 @@
 		AC94E887A643438FE98C961DFF3C669D /* Pods-FrictionLess_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FrictionLess_Example-umbrella.h"; sourceTree = "<group>"; };
 		B480F0992122A83E0BF6A34127BBB8C8 /* Pods-FrictionLess_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FrictionLess_Tests-dummy.m"; sourceTree = "<group>"; };
 		B57FED9F3000723FC60AF32CA873DBF7 /* Anchorage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Anchorage.xcconfig; sourceTree = "<group>"; };
-		B5F8C8297173FBD66EA4B4A4E6A21A09 /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FrictionLess.framework; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5F8C8297173FBD66EA4B4A4E6A21A09 /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8349E15EC2AF7BA058D33D901CFA394 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
 		BD96581F6B160D0B4FBF64D404516FAC /* Pods-FrictionLess_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrictionLess_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C2BF614FC9148A2F033D598523D8126B /* RegexManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RegexManager.swift; path = PhoneNumberKit/RegexManager.swift; sourceTree = "<group>"; };
@@ -198,7 +200,7 @@
 		EFBC0DAE588782F9CE924F212184B324 /* String+Filtering.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Filtering.swift"; sourceTree = "<group>"; };
 		F4FF4ED0802519DD417177779C4D9F8A /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
 		F586524428C80F4750102554471D04B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F5E7C129606599CA5BEDAA59E5C8D680 /* Anchorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Anchorage.framework; path = Anchorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5E7C129606599CA5BEDAA59E5C8D680 /* Anchorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Anchorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A548B2FC88ABE1198ACAFD157E1883 /* FrictionLess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FrictionLess-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,7 +262,6 @@
 				E3CFF00642CAD3289B1F94767D133B76 /* Formatters */,
 				81D36E43E2D97D4F82E9B567A22F2326 /* Utilities */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -299,7 +300,6 @@
 			children = (
 				9EE8975C9707F3E056757FB31260297F /* CardEntry */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -310,7 +310,6 @@
 				E17049FF810C3C291B9F03F4F51E2DED /* Strings+CardEntry.swift */,
 				540ECFD9E26CC355315748258C1B2D84 /* UIImage+CardEntry.swift */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
@@ -397,7 +396,6 @@
 				B8349E15EC2AF7BA058D33D901CFA394 /* ExpirationDateFormatter.swift */,
 				E752C7B9034AFFDF9B877FAF18DAFB6D /* ZipFormatter.swift */,
 			);
-			name = Formatters;
 			path = Formatters;
 			sourceTree = "<group>";
 		};
@@ -406,7 +404,6 @@
 			children = (
 				CAD2E9AA5AF5A1C33D9BFCABB1F2BBB6 /* Classes */,
 			);
-			name = PhoneFormatter;
 			path = PhoneFormatter;
 			sourceTree = "<group>";
 		};
@@ -451,11 +448,11 @@
 		81D36E43E2D97D4F82E9B567A22F2326 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				006EFF001F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift */,
 				42A8536CD9569C531F9DC229CA1F3CAA /* RangeHelpers.swift */,
 				35A5D36FAAD9F90FA71264AD9C26DFC1 /* String+CursorFingerprint.swift */,
 				EFBC0DAE588782F9CE924F212184B324 /* String+Filtering.swift */,
 			);
-			name = Utilities;
 			path = Utilities;
 			sourceTree = "<group>";
 		};
@@ -484,7 +481,6 @@
 				E1394B3B7A8A774424AA74FC67D3F881 /* Classes */,
 				32817A27986C326D1DA10F9A60DA258E /* Resources */,
 			);
-			name = CardEntry;
 			path = CardEntry;
 			sourceTree = "<group>";
 		};
@@ -528,7 +524,6 @@
 			children = (
 				DFB1B261699506201FF8E8373FD3BCD6 /* FormattableTextField */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -537,7 +532,6 @@
 			children = (
 				74DDA234CE4D078ABAB63F5C52643859 /* PhoneFormatter.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -554,7 +548,6 @@
 			children = (
 				6D3FC308D30986BD68A59977CE05D4BB /* PhoneFormatter */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -565,7 +558,6 @@
 				75867ABEABE1264F44D58523C7FEFDD2 /* Support Files */,
 				0E922129C5CB7CE51B5B4FEB9786F379 /* UIKit */,
 			);
-			name = PhoneNumberKit;
 			path = PhoneNumberKit;
 			sourceTree = "<group>";
 		};
@@ -574,7 +566,6 @@
 			children = (
 				0AF76E6B05146DB2A60796B4CB8430B0 /* Classes */,
 			);
-			name = FormattableTextField;
 			path = FormattableTextField;
 			sourceTree = "<group>";
 		};
@@ -590,7 +581,6 @@
 				6C72311D0D094C00493867E9574ABEFF /* FrictionLessFormComponent.swift */,
 				6A0A8922BD54D85FAF1E4D89D1508913 /* Formatters */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -600,7 +590,6 @@
 				48F70F0F067F636C4FD97B007630B8ED /* EmailFormatter.swift */,
 				9D82CFB81506E585E4B56093FEF6A472 /* NameFormatter.swift */,
 			);
-			name = Formatters;
 			path = Formatters;
 			sourceTree = "<group>";
 		};
@@ -628,7 +617,6 @@
 				264CB46A3E8ED0CEBE0280566012B9E9 /* Priority.swift */,
 				56C59B0DE2CE479E671C268BFF1F2496 /* Support Files */,
 			);
-			name = Anchorage;
 			path = Anchorage;
 			sourceTree = "<group>";
 		};
@@ -842,6 +830,7 @@
 				2122C61530D5309625DB365D9C86905A /* PhoneFormatter.swift in Sources */,
 				08534D0ACA860F30655B3DC10EBE12F7 /* RangeHelpers.swift in Sources */,
 				30E9BCE377CCE813A1CBFAF681CE02D9 /* String+CursorFingerprint.swift in Sources */,
+				006EFF011F28DDA2004A95DE /* FormattableTextField+LayoutMargins.swift in Sources */,
 				96BF1AF4EB3C090652BDFF4E4857D2AD /* String+Filtering.swift in Sources */,
 				8E70998F85EC75C5C81A3F5C16E4F4F6 /* Strings+CardEntry.swift in Sources */,
 				63B39408AC212B7161F24B09C690E3BC /* TextFieldFormatter.swift in Sources */,

@@ -27,7 +27,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         form.didMove(toParentViewController: self)
 
         form.view.topAnchor == view.layoutMarginsGuide.topAnchor + 60
-        form.horizontalAnchors == view.layoutMarginsGuide.horizontalAnchors
+        form.view.horizontalAnchors == view.layoutMarginsGuide.horizontalAnchors
+        style(cardEntryView: form.cardEntryView)
+    }
+
+    func style(cardEntryView view: CardEntryView) {
+        view.backgroundColor = .white
+        view.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
+        view.layer.cornerRadius = 10
     }
 
 }

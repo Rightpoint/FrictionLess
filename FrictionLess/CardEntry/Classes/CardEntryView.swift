@@ -79,7 +79,7 @@ extension CardEntryView {
         static let verticalSpacing = CGFloat(15)
         static let horizontalSpacing = CGFloat(30)
         static let cardImageWidth = CGFloat(40)
-        static let cardImagePadding: (left: CGFloat, right: CGFloat) = (10, 10)
+        static let cardImagePadding = CGFloat(10)
     }
 
     func configureView() {
@@ -89,7 +89,7 @@ extension CardEntryView {
 
         //The inset of the credit card text field accounts for the card image.
         var layoutMargins = creditCard.textField.layoutMargins
-        let leadingCardNumberInset = Constant.cardImageWidth + Constant.cardImagePadding.left
+        let leadingCardNumberInset = Constant.cardImageWidth + Constant.cardImagePadding
         layoutMargins.left = leadingCardNumberInset
         creditCard.textField.layoutMargins = layoutMargins
 
@@ -103,7 +103,7 @@ extension CardEntryView {
         outerStackView.spacing = Constant.verticalSpacing
         addSubview(outerStackView)
 
-        outerStackView.edgeAnchors == edgeAnchors
+        outerStackView.edgeAnchors == layoutMarginsGuide.edgeAnchors
     }
 
 }

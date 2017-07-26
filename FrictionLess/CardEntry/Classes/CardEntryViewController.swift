@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import Anchorage
 
 protocol CardEntryViewControllderDelegate: class {
 
@@ -17,7 +17,7 @@ protocol CardEntryViewControllderDelegate: class {
 open class CardEntryViewController: UIViewController {
 
     weak var delegate: CardEntryViewControllderDelegate?
-    lazy var cardEntryView = CardEntryView()
+    public lazy var cardEntryView = CardEntryView()
 
     var cardImageViewState: CardImageViewState? {
         didSet {
@@ -81,7 +81,9 @@ open class CardEntryViewController: UIViewController {
     }
 
     open override func loadView() {
-        view = cardEntryView
+        view = UIView()
+        view.addSubview(cardEntryView)
+        cardEntryView.edgeAnchors == view.edgeAnchors
     }
 
     override open func becomeFirstResponder() -> Bool {
