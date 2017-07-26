@@ -67,6 +67,7 @@ A collection of swift UI/UX components for reducing friction in "user work": for
     ss.dependency 'FrictionLess/FormattableTextField'
     ss.dependency 'FrictionLess/CardEntry'
     ss.dependency 'FrictionLess/PhoneFormatter'
+    ss.dependency 'FrictionLess/FormUI'
   end
 
 end
