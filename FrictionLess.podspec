@@ -42,6 +42,7 @@ A collection of swift UI/UX components for reducing friction in "user work": for
   s.subspec "CardEntry" do |ss|
     ss.source_files = 'FrictionLess/CardEntry/**/*.{swift,strings}'
     ss.frameworks = ["UIKit"]
+    ss.dependency 'Anchorage'
     ss.dependency 'FrictionLess/FormattableTextField'
     ss.resources = "FrictionLess/CardEntry/Assets/CardEntry.xcassets"
   end

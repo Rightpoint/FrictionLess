@@ -15,6 +15,27 @@ enum FormattableTextFieldError: Error {
 
 // MARK: - FormattableTextField
 open class FormattableTextField: UITextField {
+
+    // MARK: Appearance
+    public dynamic var cornerRadius: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
+    }
+
+    public dynamic var borderColor: UIColor = .clear {
+        didSet {
+            layer.borderColor = borderColor.cgColor
+        }
+    }
+
+    public dynamic var borderWidth: CGFloat = 0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
+
+    // MARK: Initialization
     fileprivate let delegateProxy: DelegateProxy
 
     public init(formatter: TextFieldFormatter? = nil) {
@@ -28,6 +49,7 @@ open class FormattableTextField: UITextField {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 }
 
 // MARK: Accessors
@@ -64,7 +86,7 @@ extension FormattableTextField {
         }
     }
 
-    override open var delegate: UITextFieldDelegate? {
+    override weak open var delegate: UITextFieldDelegate? {
         get {
             return delegateProxy.delegate
         }
