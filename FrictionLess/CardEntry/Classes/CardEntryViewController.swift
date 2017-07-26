@@ -36,7 +36,7 @@ open class CardEntryViewController: UIViewController {
 
             switch (oldValue.isAccepted, cardEntryState.isAccepted) {
             case (true, false):
-                cardEntryView.creditCard.state = .invalid(errorString: "")// TODO creditCardState.notAcceptedErrorMessage)
+                cardEntryView.creditCard.state = .invalid(errorString:cardEntryState.notAcceptedErrorMessage)
                 cardEntryView.creditCard.textField.shakeIfFirstResponder()
             case (false, false):
                 cardEntryView.creditCard.state = .invalid(errorString: cardEntryState.notAcceptedErrorMessage)
