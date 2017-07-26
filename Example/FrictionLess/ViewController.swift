@@ -13,12 +13,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        title = "Card Entry"
     }
 
     override func loadView() {
         view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.white.withAlphaComponent(0.9)
 
         let form = CardEntryViewController()
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         addChildViewController(form)
         form.didMove(toParentViewController: self)
 
-        form.view.topAnchor == view.layoutMarginsGuide.topAnchor + 60
+        form.view.topAnchor == view.layoutMarginsGuide.topAnchor + 80
         form.view.horizontalAnchors == view.layoutMarginsGuide.horizontalAnchors
         style(cardEntryView: form.cardEntryView)
     }
@@ -38,6 +38,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         let componentAppearance = FrictionLessFormComponent.appearance()
         componentAppearance.titleToTextFieldPadding = 3
+
+        let validationAppearance = FrictionLessFormValidationLabel.appearance()
+        validationAppearance.textColor = .red
 
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         view.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)

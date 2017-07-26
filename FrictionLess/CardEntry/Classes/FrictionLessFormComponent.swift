@@ -9,6 +9,9 @@
 import Foundation
 import Anchorage
 
+public class FrictionLessFormTitleLabel: UILabel {}
+public class FrictionLessFormValidationLabel: UILabel {}
+
 open class FrictionLessFormComponent: UIView, FormComponent {
 
     public var state: FormComponentState = .inactive {
@@ -38,13 +41,13 @@ open class FrictionLessFormComponent: UIView, FormComponent {
     public var textField = FormattableTextField()
 
     public let titleLabel: UILabel = {
-        let label = UILabel()
+        let label = FrictionLessFormTitleLabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
 
     public let validationLabel: UILabel = {
-        let label = UILabel()
+        let label = FrictionLessFormValidationLabel()
         label.font = UIFont.preferredFont(forTextStyle: .caption2)
         label.textColor = .red
         return label
@@ -102,7 +105,7 @@ extension FrictionLessFormComponent {
         set { paddingConstraints.textFieldToValidation?.constant = newValue }
         get { return paddingConstraints.textFieldToValidation?.constant ?? Default.textFieldToValidationPadding }
     }
-    
+
 }
 
 extension FrictionLessFormComponent {
