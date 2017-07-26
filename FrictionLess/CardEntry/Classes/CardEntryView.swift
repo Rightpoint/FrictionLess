@@ -49,6 +49,10 @@ open class CardEntryView: UIView {
         return [creditCard, expiration, cvv]
     }
 
+    fileprivate var layout = Constraints()
+    fileprivate let outerStackView = UIStackView()
+    fileprivate let bottomRowStackView = UIStackView()
+
     init() {
         super.init(frame: .zero)
         configureView()
@@ -73,41 +77,110 @@ open class CardEntryView: UIView {
 
 }
 
+// MARK: Appearance
 extension CardEntryView {
 
-    enum Constant {
+    public struct Constraints {
+        var card = Card()
+
+        struct Card {
+            var width: NSLayoutConstraint? = nil
+            var padding = Padding()
+
+            struct Padding {
+                var top: NSLayoutConstraint? = nil
+                var left: NSLayoutConstraint? = nil
+                var bottom: NSLayoutConstraint? = nil
+                var right: NSLayoutConstraint? = nil
+            }
+        }
+        
+    }
+
+    fileprivate enum Default {
         static let verticalSpacing = CGFloat(15)
         static let horizontalSpacing = CGFloat(30)
         static let cardImageWidth = CGFloat(40)
-        static let cardImagePadding: (left: CGFloat, right: CGFloat) = (10, 10)
+        static let cardImagePadding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
 
+    public dynamic var verticalSpacing: CGFloat {
+        set { outerStackView.spacing = newValue }
+        get { return outerStackView.spacing }
+    }
+
+    public dynamic var horizontalSpacing: CGFloat {
+        set { bottomRowStackView.spacing = newValue }
+        get { return bottomRowStackView.spacing }
+    }
+
+    public dynamic var cardImageWidth: CGFloat {
+        set {
+            layout.card.width?.constant = newValue
+            updateCardInsets()
+        }
+        get { return layout.card.width?.constant ?? Default.cardImageWidth }
+    }
+
+    public dynamic var cardImageInsets: UIEdgeInsets {
+        set {
+            layout.card.padding.top?.constant = newValue.top
+            layout.card.padding.left?.constant = newValue.left
+            layout.card.padding.bottom?.constant = newValue.bottom
+            layout.card.padding.right?.constant = newValue.right
+            updateCardInsets()
+        }
+        get {
+            return UIEdgeInsets(
+                top: layout.card.padding.top?.constant ?? Default.cardImagePadding.top,
+                left: layout.card.padding.left?.constant ?? Default.cardImagePadding.left,
+                bottom: layout.card.padding.bottom?.constant ?? Default.cardImagePadding.bottom,
+                right: layout.card.padding.right?.constant ?? Default.cardImagePadding.right
+            )
+        }
+    }
+
+    fileprivate func updateCardInsets() {
+        //The inset of the credit card text field accounts for the card image.
+        var layoutMargins = creditCard.textField.layoutMargins
+        let leadingCardNumberInset = cardImageWidth + cardImageInsets.left + cardImageInsets.right
+        layoutMargins.left = leadingCardNumberInset
+        creditCard.textField.layoutMargins = layoutMargins
+    }
+}
+
+extension CardEntryView {
+
     func configureView() {
-        cardImageView.widthAnchor == Constant.cardImageWidth
+        layout.card.width =
+            cardImageView.widthAnchor == cardImageWidth
         creditCard.textField.leftView = {
             let view = UIView()
             view.addSubview(cardImageView)
-            cardImageView.verticalAnchors >= view.verticalAnchors
-            view.leadingAnchor == cardImageView.leadingAnchor - Constant.cardImagePadding.left
-            view.trailingAnchor == cardImageView.trailingAnchor - Constant.cardImagePadding.right
+            layout.card.padding.top =
+                cardImageView.topAnchor >= view.topAnchor + cardImageInsets.top
+            layout.card.padding.left =
+                cardImageView.leadingAnchor == view.leadingAnchor + cardImageInsets.left
+            layout.card.padding.bottom =
+                view.bottomAnchor >= cardImageView.bottomAnchor + cardImageInsets.bottom
+            layout.card.padding.right =
+                view.trailingAnchor == cardImageView.trailingAnchor + cardImageInsets.right
             return view
         }()
+
         creditCard.textField.leftViewMode = .always
+        updateCardInsets()
 
-        //The inset of the credit card text field accounts for the card image.
-        var layoutMargins = creditCard.textField.layoutMargins
-        let leadingCardNumberInset = Constant.cardImageWidth + Constant.cardImagePadding.left + Constant.cardImagePadding.right
-        layoutMargins.left = leadingCardNumberInset
-        creditCard.textField.layoutMargins = layoutMargins
-
-        let bottomRowStackView = UIStackView(arrangedSubviews: [expiration, cvv])
+        bottomRowStackView.addArrangedSubview(expiration)
+        bottomRowStackView.addArrangedSubview(cvv)
         bottomRowStackView.axis = .horizontal
         bottomRowStackView.distribution = .fillEqually
-        bottomRowStackView.spacing = Constant.horizontalSpacing
+        bottomRowStackView.spacing = Default.horizontalSpacing
 
-        let outerStackView = UIStackView(arrangedSubviews: [creditCard, bottomRowStackView])
+        outerStackView.addArrangedSubview(creditCard)
+        outerStackView.addArrangedSubview(bottomRowStackView)
         outerStackView.axis = .vertical
-        outerStackView.spacing = Constant.verticalSpacing
+        outerStackView.spacing = Default.verticalSpacing
         addSubview(outerStackView)
 
         outerStackView.edgeAnchors == layoutMarginsGuide.edgeAnchors
