@@ -11,9 +11,17 @@ import Anchorage
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    var doneButton: UIBarButtonItem?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Card Entry"
+
+        doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                        target: self,
+                        action: #selector(doneButtonPressed))
+        navigationItem.rightBarButtonItem = doneButton
+        doneButton?.isEnabled = false
     }
 
     override func loadView() {
@@ -21,6 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = UIColor.white.withAlphaComponent(0.9)
 
         let form = CardEntryViewController()
+        form.delegate = self
         view.addSubview(form.view)
         addChildViewController(form)
         form.didMove(toParentViewController: self)
@@ -29,6 +38,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         form.view.horizontalAnchors == view.layoutMarginsGuide.horizontalAnchors
         style(cardEntryView: form.cardEntryView)
     }
+
+}
+
+extension ViewController: CardEntryViewControllderDelegate {
+
+    func cardEntryViewController(_ vc: CardEntryViewController, creditCardValid: Bool) {
+        doneButton?.isEnabled = creditCardValid
+    }
+
+}
+
+fileprivate extension ViewController {
 
     func style(cardEntryView view: CardEntryView) {
         let fieldAppearance = FormattableTextField.appearance()
@@ -46,6 +67,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.layer.cornerRadius = 10
 
         view.creditCard.titleLabel.layoutMargins.bottom = 30
+    }
+
+    @objc func doneButtonPressed() {
+        let alert = UIAlertController(title: "Card Submitted",
+                                      message: nil,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Hooray!", style: UIAlertActionStyle.default))
+        present(alert, animated: true, completion: nil)
     }
 
 }

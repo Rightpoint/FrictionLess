@@ -8,7 +8,7 @@
 
 import Anchorage
 
-protocol CardEntryViewControllderDelegate: class {
+public protocol CardEntryViewControllderDelegate: class {
 
     func cardEntryViewController(_ vc: CardEntryViewController, creditCardValid: Bool)
 
@@ -16,7 +16,7 @@ protocol CardEntryViewControllderDelegate: class {
 
 open class CardEntryViewController: UIViewController {
 
-    weak var delegate: CardEntryViewControllderDelegate?
+    public weak var delegate: CardEntryViewControllderDelegate?
     public lazy var cardEntryView = CardEntryView()
 
     var cardImageViewState: CardImageViewState? {
@@ -92,7 +92,7 @@ open class CardEntryViewController: UIViewController {
     }
 
     /// force validation on all components and set to either invalid or valid
-    func validate() {
+    public func validate() {
         cardEntryView.components.flatMap({$0}).forEach { component in
             switch component.textField.validation {
             case .valid:
