@@ -21,9 +21,7 @@ public struct ExpirationDateFormatter: TextFieldFormatter {
     let requiredLength = 4
     let validFutureExpYearRange = 30
 
-    public var inputCharacterSet: CharacterSet {
-        return .decimalDigits
-    }
+    public var inputCharacterSet: CharacterSet = .decimalDigits
 
     public var formattingCharacterSet: CharacterSet {
         return CharacterSet(charactersIn: "/")
