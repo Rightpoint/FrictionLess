@@ -1,9 +1,22 @@
 # FrictionLess
-
 [![CI Status](http://img.shields.io/travis/jason.clark@raizlabs.com/FrictionLess.svg?style=flat)](https://travis-ci.org/jason.clark@raizlabs.com/FrictionLess)
 [![Version](https://img.shields.io/cocoapods/v/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
 [![License](https://img.shields.io/cocoapods/l/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
 [![Platform](https://img.shields.io/cocoapods/p/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
+
+A collection of UX-focused swift components for reducing friction in "user work".
+## Components
+# [Card Entry](FrictionLess/CardEntry/)
+A drop-in, customizable card entry widget.
+
+![Card Entry Demo](Documentation/CardEntryDemo.gif)
+
+# [FormattableTextField](FrictionLess/FormattableTextField/)
+A UX-focused textfield formatter/validator built for as-you-type formatting. 
+
+![PhoneFormatter Demo](Documentation/PhoneFormatter.gif)
+
+![EmailFormatter Demo](Documentation/EmailFormatter.gif)
 
 ## Example
 
