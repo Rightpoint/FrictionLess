@@ -1,0 +1,41 @@
+PODS:
+  - Anchorage (4.0.0)
+  - FrictionLess (0.1.0):
+    - FrictionLess/All (= 0.1.0)
+  - FrictionLess/All (0.1.0):
+    - FrictionLess/CardEntry
+    - FrictionLess/FormattableTextField
+    - FrictionLess/FormUI
+    - FrictionLess/PhoneFormatter
+  - FrictionLess/CardEntry (0.1.0):
+    - FrictionLess/FormUI
+  - FrictionLess/FormattableTextField (0.1.0)
+  - FrictionLess/FormUI (0.1.0):
+    - Anchorage
+    - FrictionLess/FormattableTextField
+  - FrictionLess/PhoneFormatter (0.1.0):
+    - FrictionLess/FormattableTextField
+    - PhoneNumberKit
+  - PhoneNumberKit (1.3.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 1.3.0)
+    - PhoneNumberKit/UIKit (= 1.3.0)
+  - PhoneNumberKit/PhoneNumberKitCore (1.3.0)
+  - PhoneNumberKit/UIKit (1.3.0):
+    - PhoneNumberKit/PhoneNumberKitCore
+
+DEPENDENCIES:
+  - Anchorage
+  - FrictionLess (from `../`)
+
+EXTERNAL SOURCES:
+  FrictionLess:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Anchorage: fe50dca4e20846b8cb15c859d26fec5132b41577
+  FrictionLess: 67e8ba3405cf5dfda91070f391cbcace578be7b6
+  PhoneNumberKit: 08aaf1968ea41a114327e9223cbb0391d76ae145
+
+PODFILE CHECKSUM: f208593ae0b01d05e3b9f88ac99038748963b697
+
+COCOAPODS: 1.2.1
