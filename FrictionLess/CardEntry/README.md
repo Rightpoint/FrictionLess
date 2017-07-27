@@ -4,7 +4,7 @@ A drop-in, customizable card entry widget.
 ![Card Entry Demo](../../Documentation/CardEntryDemo.gif)
 
 # Usage
-See [CardEntryExampleViewController](/CardEntryExampleViewController.swift) in the example project.
+See [CardEntryExampleViewController](https://github.com/Raizlabs/FrictionLess/blob/develop/Example/FrictionLess/CardEntryExampleViewController.swift) in the example project.
 
 To implement, add the `CardEntryViewController` as a child to your `UIViewController`:
 ```swift
