@@ -67,6 +67,7 @@ final class FormattableTextFieldExampleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "FormattableTextField"
         view.backgroundColor = #colorLiteral(red: 0.9228180647, green: 0.9228180647, blue: 0.9228180647, alpha: 1)
 
         components.forEach {
