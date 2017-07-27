@@ -10,6 +10,18 @@ import Anchorage
 
 open class CardEntryView: UIView {
 
+    public dynamic var cornerRadius: CGFloat = 0 {
+        didSet {  layer.cornerRadius = cornerRadius }
+    }
+
+    public dynamic var borderColor: UIColor = .clear {
+        didSet { layer.borderColor = borderColor.cgColor }
+    }
+
+    public dynamic var borderWidth: CGFloat = 0 {
+        didSet { layer.borderWidth = borderWidth }
+    }
+
     public var creditCard: FrictionLessFormComponent = {
         let component = FrictionLessFormComponent()
         component.textField.formatter = CreditCardFormatter()
