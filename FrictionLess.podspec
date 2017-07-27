@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FrictionLess'
-  s.version          = '0.1.0'
+  s.version          = '0.0.1'
   s.summary          = 'A collection of UX-focused swift components for reducing friction in "user work".'
   s.description      = <<-DESC
 Reduce friction with auto-formatting data entry, auto-advancing forms, and proactive user feedback for valid/invalid input.
