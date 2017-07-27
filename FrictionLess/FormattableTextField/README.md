@@ -1,12 +1,6 @@
 # FormattableTextField
 A UX-focused textfield formatter/validator built for bulletproof as-you-type formatting.
 
-![PhoneFormatter Demo](../../Documentation/PhoneFormatter.gif)
-
-![EmailFormatter Demo](../../Documentation/EmailFormatter.gif)
-
-![Card Entry Demo](../../Documentation/CardEntryDemo.gif)
-
 ## Features
 - Built for as-you-type formatting
 - Build your own bullet-proof formatters
@@ -15,6 +9,12 @@ A UX-focused textfield formatter/validator built for bulletproof as-you-type for
 - Support for auto-advancing for complete textfields
 - Support for interpreting backspace in an empty textfield as navigation to previous field
 - Support for overflowing input from the end of a complete textfield to the next field
+
+![PhoneFormatter Demo](../../Documentation/PhoneFormatter.gif)
+
+![EmailFormatter Demo](../../Documentation/EmailFormatter.gif)
+
+![Card Entry Demo](../../Documentation/CardEntryDemo.gif)
 
 ## Usage
 Create a `FormattableTextField` and assign it a `TextFieldFormatter` conforming formatter
