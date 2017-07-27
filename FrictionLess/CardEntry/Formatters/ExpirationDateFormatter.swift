@@ -22,14 +22,8 @@ public struct ExpirationDateFormatter: TextFieldFormatter {
     let validFutureExpYearRange = 30
 
     public var inputCharacterSet: CharacterSet = .decimalDigits
-
-    public var formattingCharacterSet: CharacterSet {
-        return CharacterSet(charactersIn: "/")
-    }
-
-    public var deletingShouldRemoveTrailingCharacters: Bool {
-        return true
-    }
+    public var formattingCharacterSet = CharacterSet(charactersIn: "/")
+    public var deletingShouldRemoveTrailingCharacters = true
 
     public func validate(_ string: String) -> ValidationResult {
         let unformatted = removeFormatting(string)

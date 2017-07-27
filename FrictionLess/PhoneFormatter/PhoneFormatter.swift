@@ -29,9 +29,7 @@ public struct PhoneFormatter: TextFieldFormatter {
         return decimalSet.union(symbolSet)
     }
 
-    public var formattingCharacterSet: CharacterSet {
-        return CharacterSet(charactersIn: "()- ")
-    }
+    public var formattingCharacterSet = CharacterSet(charactersIn: "()- ")
 
     public func format(editingEvent: EditingEvent) -> FormattingResult {
         let formatted = partialFormatter.formatPartial(editingEvent.newValue)

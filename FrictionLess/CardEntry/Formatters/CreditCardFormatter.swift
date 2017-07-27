@@ -15,13 +15,8 @@ enum CreditCardFormatterError: Error {
 
 public struct CreditCardFormatter: TextFieldFormatter {
 
-    public var inputCharacterSet: CharacterSet {
-        return .decimalDigits
-    }
-
-    public var formattingCharacterSet: CharacterSet {
-        return .whitespaces
-    }
+    public var inputCharacterSet = CharacterSet.decimalDigits
+    public var formattingCharacterSet = CharacterSet.whitespaces
 
     public func format(editingEvent: EditingEvent) -> FormattingResult {
         let newCardNumber = editingEvent.newValue

@@ -17,9 +17,7 @@ public struct CVVFormatter: TextFieldFormatter {
 
     var requiredLength = 3
 
-    public var inputCharacterSet: CharacterSet {
-        return .decimalDigits
-    }
+    public var inputCharacterSet = CharacterSet.decimalDigits
 
     public func validate(_ string: String) -> ValidationResult {
         let length = string.characters.count
