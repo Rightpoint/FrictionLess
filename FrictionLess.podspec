@@ -18,7 +18,7 @@ Reduce friction with auto-formatting data entry, auto-advancing forms, and proac
   # FormattableTextField
 
   s.subspec "FormattableTextField" do |ss|
-    ss.source_files = 'FrictionLess/FormattableTextField/Classes/**/*'
+    ss.source_files = 'FrictionLess/FormattableTextField/**/*'
     ss.frameworks = ["UIKit"]
   end
 
@@ -27,13 +27,13 @@ Reduce friction with auto-formatting data entry, auto-advancing forms, and proac
   s.subspec "CardEntry" do |ss|
     ss.source_files = 'FrictionLess/CardEntry/**/*.{swift,strings}'
     ss.dependency 'FrictionLess/FormUI'
-    ss.resources = "FrictionLess/CardEntry/Resources/CardEntry.xcassets"
+    ss.resources = "FrictionLess/CardEntry/CardEntry.xcassets"
   end
 
   # Phone Number Formatter
 
   s.subspec "PhoneFormatter" do |ss|
-    ss.source_files = 'FrictionLess/PhoneFormatter/Classes/**/*'
+    ss.source_files = 'FrictionLess/PhoneFormatter/**/*'
     ss.dependency 'FrictionLess/FormattableTextField'
     ss.dependency 'PhoneNumberKit'
   end
@@ -41,7 +41,7 @@ Reduce friction with auto-formatting data entry, auto-advancing forms, and proac
   # Form UI
 
   s.subspec "FormUI" do |ss|
-    ss.source_files = 'FrictionLess/FormUI/Classes/**/*.{swift,strings}'
+    ss.source_files = 'FrictionLess/FormUI/**/*.{swift,strings}'
     ss.dependency 'Anchorage'
     ss.dependency 'FrictionLess/FormattableTextField'
   end

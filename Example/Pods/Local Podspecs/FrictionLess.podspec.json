@@ -1,8 +1,8 @@
 {
   "name": "FrictionLess",
   "version": "0.1.0",
-  "summary": "A short description of FrictionLess.",
-  "description": "A collection of swift UI/UX components for reducing friction in \"user work\": forms, payment, checkout.",
+  "summary": "A collection of UX-focused swift components for reducing friction in \"user work\".",
+  "description": "Reduce friction with auto-formatting data entry, auto-advancing forms, and proactive user feedback for valid/invalid input.",
   "homepage": "https://github.com/Raizlabs/FrictionLess",
   "license": {
     "type": "MIT",
@@ -22,7 +22,7 @@
   "subspecs": [
     {
       "name": "FormattableTextField",
-      "source_files": "FrictionLess/FormattableTextField/Classes/**/*",
+      "source_files": "FrictionLess/FormattableTextField/**/*",
       "frameworks": [
         "UIKit"
       ]
@@ -35,14 +35,11 @@
 
         ]
       },
-      "resources": "FrictionLess/CardEntry/Assets/CardEntry.xcassets"
+      "resources": "FrictionLess/CardEntry/CardEntry.xcassets"
     },
     {
       "name": "PhoneFormatter",
-      "source_files": "FrictionLess/PhoneFormatter/Classes/**/*",
-      "frameworks": [
-        "UIKit"
-      ],
+      "source_files": "FrictionLess/PhoneFormatter/**/*",
       "dependencies": {
         "FrictionLess/FormattableTextField": [
 
@@ -54,7 +51,7 @@
     },
     {
       "name": "FormUI",
-      "source_files": "FrictionLess/FormUI/Classes/**/*.{swift,strings}",
+      "source_files": "FrictionLess/FormUI/**/*.{swift,strings}",
       "dependencies": {
         "Anchorage": [
 
@@ -74,6 +71,9 @@
 
         ],
         "FrictionLess/PhoneFormatter": [
+
+        ],
+        "FrictionLess/FormUI": [
 
         ]
       }
