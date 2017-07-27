@@ -1,6 +1,6 @@
 //
 //  PhoneFormatter.swift
-//  SimpliSafe
+//  Raizlabs
 //
 //  Created by Jason Clark on 4/20/17.
 //

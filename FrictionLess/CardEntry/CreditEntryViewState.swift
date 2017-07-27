@@ -1,6 +1,6 @@
 //
 //  CardEntryViewState.swift
-//  SimpliSafe
+//  Raizlabs
 //
 //  Created by Jason Clark on 3/29/17.
 //
