@@ -22,8 +22,6 @@ A UX-focused textfield formatter/validator built for as-you-type formatting.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
 ## Installation
 
 FrictionLess is available through [CocoaPods](http://cocoapods.org). To install
@@ -35,7 +33,7 @@ pod "FrictionLess"
 
 ## Author
 
-jason.clark@raizlabs.com, jason.clark@raizlabs.com
+jason.clark@raizlabs.com
 
 ## License
 
