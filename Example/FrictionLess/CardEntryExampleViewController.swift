@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CardEntryExampleViewController.swift
 //  FrictionLess
 //
 //  Created by jason.clark@raizlabs.com on 07/17/2017.
@@ -9,7 +9,7 @@
 import FrictionLess
 import Anchorage
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class CardEntryExampleViewController: UIViewController, UITextFieldDelegate {
 
     var doneButton: UIBarButtonItem?
 
@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 }
 
-extension ViewController: CardEntryViewControllderDelegate {
+extension CardEntryExampleViewController: CardEntryViewControllderDelegate {
 
     func cardEntryViewController(_ vc: CardEntryViewController, creditCardValid: Bool) {
         doneButton?.isEnabled = creditCardValid
@@ -49,7 +49,7 @@ extension ViewController: CardEntryViewControllderDelegate {
 
 }
 
-fileprivate extension ViewController {
+fileprivate extension CardEntryExampleViewController {
 
     func style(cardEntryView view: CardEntryView) {
         let fieldAppearance = FormattableTextField.appearance()
@@ -65,8 +65,6 @@ fileprivate extension ViewController {
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         view.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         view.layer.cornerRadius = 10
-
-        view.creditCard.titleLabel.layoutMargins.bottom = 30
     }
 
     @objc func doneButtonPressed() {

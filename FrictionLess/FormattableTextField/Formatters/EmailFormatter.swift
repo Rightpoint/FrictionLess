@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum EmailFormatterError: Error {
+public enum EmailFormatterError: Error {
     case invalidEmail
 }
 

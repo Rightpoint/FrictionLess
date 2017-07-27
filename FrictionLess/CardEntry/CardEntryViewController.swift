@@ -156,10 +156,9 @@ extension CardEntryViewController: FormattableTextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         updateCardImageState()
 
-        if let view = viewForTextField(textField) {
-            if case .inactive = view.state {
-                view.state = .active
-            }
+        if let view = viewForTextField(textField),
+            case .inactive = view.state {
+            view.state = .active
         }
     }
 

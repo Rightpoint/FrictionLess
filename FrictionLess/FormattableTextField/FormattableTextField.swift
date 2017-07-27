@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Errors
-enum FormattableTextFieldError: Error {
+public enum FormattableTextFieldError: Error {
     case invalidInput
 }
 

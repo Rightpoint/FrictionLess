@@ -93,7 +93,7 @@ open class FrictionLessFormComponent: UIView, FormComponent {
 
 extension FrictionLessFormComponent {
 
-    var genericErrorString: String? {
+    public var genericErrorString: String? {
         if let title = title, !textField.isValid {
             if textField.text?.isEmpty ?? true {
                 return FrictionLessFormUIStrings.Frictionless.Formui.Validation.required(title)
@@ -184,13 +184,13 @@ extension FrictionLessFormComponent {
 
 extension UITextField {
 
-    func shakeIfFirstResponder() {
+    public func shakeIfFirstResponder() {
         if isFirstResponder {
             shake()
         }
     }
 
-    func shake() {
+    public func shake() {
         let animationKey = "shake"
         layer.removeAnimation(forKey: animationKey)
 

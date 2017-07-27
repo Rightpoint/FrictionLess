@@ -12,8 +12,10 @@
 		00182A161F1D489E00782485 /* CreditCardFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00182A111F1D489E00782485 /* CreditCardFormatterTests.swift */; };
 		00182A171F1D489E00782485 /* ExpirationDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00182A121F1D489E00782485 /* ExpirationDateFormatterTests.swift */; };
 		00182A181F1D489E00782485 /* FormattableTextFieldTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00182A131F1D489E00782485 /* FormattableTextFieldTestHelpers.swift */; };
+		006EFF1D1F2A39DB004A95DE /* ExampleMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EFF1C1F2A39DB004A95DE /* ExampleMenuViewController.swift */; };
+		006EFF1F1F2A40A2004A95DE /* FormattableTextFieldExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EFF1E1F2A40A2004A95DE /* FormattableTextFieldExampleViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* CardEntryExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* CardEntryExampleViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		940F7C1F3A6BE1DF2C093E9C /* Pods_FrictionLess_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C624E1FBEED9733B7A3545 /* Pods_FrictionLess_Tests.framework */; };
@@ -36,6 +38,8 @@
 		00182A111F1D489E00782485 /* CreditCardFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreditCardFormatterTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		00182A121F1D489E00782485 /* ExpirationDateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ExpirationDateFormatterTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		00182A131F1D489E00782485 /* FormattableTextFieldTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FormattableTextFieldTestHelpers.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		006EFF1C1F2A39DB004A95DE /* ExampleMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMenuViewController.swift; sourceTree = "<group>"; };
+		006EFF1E1F2A40A2004A95DE /* FormattableTextFieldExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormattableTextFieldExampleViewController.swift; sourceTree = "<group>"; };
 		14FA7442BC66736E6B23D7DD /* FrictionLess.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FrictionLess.podspec; path = ../FrictionLess.podspec; sourceTree = "<group>"; };
 		45A0666FB629DB974BFF4D36 /* Pods-FrictionLess_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrictionLess_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrictionLess_Example/Pods-FrictionLess_Example.release.xcconfig"; sourceTree = "<group>"; };
 		47C624E1FBEED9733B7A3545 /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,7 +47,7 @@
 		607FACD01AFB9204008FA782 /* FrictionLess_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrictionLess_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* CardEntryExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEntryExampleViewController.swift; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* FrictionLess_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionLess_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				607FACD71AFB9204008FA782 /* CardEntryExampleViewController.swift */,
+				006EFF1C1F2A39DB004A95DE /* ExampleMenuViewController.swift */,
+				006EFF1E1F2A40A2004A95DE /* FormattableTextFieldExampleViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -369,8 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				607FACD81AFB9204008FA782 /* CardEntryExampleViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				006EFF1D1F2A39DB004A95DE /* ExampleMenuViewController.swift in Sources */,
+				006EFF1F1F2A40A2004A95DE /* FormattableTextFieldExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

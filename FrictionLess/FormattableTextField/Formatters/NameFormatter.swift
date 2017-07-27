@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NameFormatterError: Error {
+public enum NameFormatterError: Error {
     case empty
 }
 
