@@ -1,8 +1,9 @@
 # FrictionLess
-[![CircleCI](https://circleci.com/gh/Raizlabs/FrictionLess.svg?style=svg&circle-token=67f52625cfa62cbe9923076983017deee0a515df)](https://circleci.com/gh/Raizlabs/FirctionLess)
+[![CircleCI](https://circleci.com/gh/Raizlabs/FrictionLess.svg?style=svg)](https://circleci.com/gh/Raizlabs/FrictionLess)
 [![Version](https://img.shields.io/cocoapods/v/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
 [![License](https://img.shields.io/cocoapods/l/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
 [![Platform](https://img.shields.io/cocoapods/p/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 A collection of UX-focused swift components for reducing friction in "user work".
 ## Components
