@@ -2,7 +2,7 @@
 
 set -o pipefail && \
   xcodebuild clean build test \
-  -project Example/FrictionLess.xcodeproj \
+  -workspace Example/FrictionLess.xcworkspace \
   -scheme FrictionLess-Example \
   -sdk iphonesimulator \
   -destination "platform=iOS Simulator,name=iPhone 6S,OS=10.3" \
