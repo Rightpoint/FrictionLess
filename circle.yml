@@ -10,9 +10,7 @@ dependencies:
 
 test:
   override:
-    - ./scripts/macOS.sh
     - ./scripts/iOS.sh
-    - ./scripts/tvOS.sh
   post:
     - carthage build --no-skip-current && for platform in iOS tvOS; do test -d Carthage/Build/${platform}/FrictionLess.framework || exit 1; done
     # This is to work around the fact that CocoaPods wants to set up the master CocoaPods specs
