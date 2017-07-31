@@ -13,4 +13,5 @@ test:
     - ./scripts/iOS.sh
   post:
     - carthage build --no-skip-current && for platform in iOS; do test -d Carthage/Build/${platform}/FrictionLess.framework || exit 1; done
-    - bundle exec pod lib lint
+    - bundle exec pod lib lint --sources="https://github.com/Raizlabs/FrictionLess","https://github.com/Raizlabs/Anchorage","https://github.com/marmelroy/PhoneNumberKit"
+
