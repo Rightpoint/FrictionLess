@@ -2,8 +2,8 @@
 
 set -o pipefail && \
   xcodebuild clean build test \
-  -project Anchorage.xcodeproj \
-  -scheme Anchorage-iOS \
+  -project Example/FrictionLess.xcodeproj \
+  -scheme FrictionLess-Example \
   -sdk iphonesimulator \
   -destination "platform=iOS Simulator,name=iPhone 6S,OS=10.3" \
   CODE_SIGNING_REQUIRED=NO \
