@@ -1,5 +1,5 @@
 # FrictionLess
-[![CI Status](http://img.shields.io/travis/jason.clark@raizlabs.com/FrictionLess.svg?style=flat)](https://travis-ci.org/jason.clark@raizlabs.com/FrictionLess)
+[![CircleCI](https://circleci.com/gh/Raizlabs/FrictionLess.svg?style=svg&circle-token=67f52625cfa62cbe9923076983017deee0a515df)](https://circleci.com/gh/Raizlabs/FirctionLess)
 [![Version](https://img.shields.io/cocoapods/v/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
 [![License](https://img.shields.io/cocoapods/l/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
 [![Platform](https://img.shields.io/cocoapods/p/FrictionLess.svg?style=flat)](http://cocoapods.org/pods/FrictionLess)
