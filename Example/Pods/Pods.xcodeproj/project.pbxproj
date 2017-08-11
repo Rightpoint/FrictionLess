@@ -19,7 +19,6 @@
 		0F76144210DF4717E3D71D72202E7743 /* MDCFontTraits.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AE1460B02FC7653C9E0EA9137A2AF7F /* MDCFontTraits.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0F954E879BB3C77E3620C85992E1BC7D /* MDCTextInputArt.h in Headers */ = {isa = PBXBuildFile; fileRef = 40826E06079E779A6320DC35E17362AF /* MDCTextInputArt.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		10C4A43F50E32ED6F7BC076F60829432 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B4A8F6A2ADA12A076FFEBACF3313BF /* CoreTelephony.framework */; };
-		117291D20A2B6AC57286C1BD4FFE779B /* FormattableTextField+LayoutMargins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AC71C1E33FF3B5303E64284CFB4C6A /* FormattableTextField+LayoutMargins.swift */; };
 		118E7D8AA1AA0E818CFC0A92FBD8B0A1 /* MDCTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CFB5A9DE4771CEDF0DF2438B0776E4DF /* MDCTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		141A00C8CBD31AB019F2886C1287BB03 /* MDCMath.h in Headers */ = {isa = PBXBuildFile; fileRef = C77F70BF47D6DAA7EE5646A8EA76DD35 /* MDCMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		149A2E73AD1E77588DD2BCBF171FC188 /* MDCTextInputUnderlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 267ABE27AFFEFB46768C107946D09B5B /* MDCTextInputUnderlineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -198,11 +197,10 @@
 /* Begin PBXFileReference section */
 		00D423C420A8B417F8A35B201B362DA4 /* MDCRTL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCRTL.m; path = components/private/RTL/src/MDCRTL.m; sourceTree = "<group>"; };
 		01BC6A7414C70218E3BE1222E425783E /* MDCTextInputControllerDefault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCTextInputControllerDefault.h; path = components/TextFields/src/MDCTextInputControllerDefault.h; sourceTree = "<group>"; };
-		01E4374475FDC2D8EDD6A50107F5E10B /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FrictionLess.framework; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01E4374475FDC2D8EDD6A50107F5E10B /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D9A421C1C47024F7CC74815C3C79BD /* UIFont+MaterialTypography.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+MaterialTypography.h"; path = "components/Typography/src/UIFont+MaterialTypography.h"; sourceTree = "<group>"; };
 		044684E3EA17CCA1CB9A11C5717E02CF /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		06AC71C1E33FF3B5303E64284CFB4C6A /* FormattableTextField+LayoutMargins.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "FormattableTextField+LayoutMargins.swift"; sourceTree = "<group>"; };
-		089713CA8C968252F0BDB4AC84901F48 /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FrictionLess.modulemap; sourceTree = "<group>"; };
+		089713CA8C968252F0BDB4AC84901F48 /* FrictionLess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FrictionLess.modulemap; sourceTree = "<group>"; };
 		0ABFBBACB558B605F3B518195BC1B7D0 /* MDCMultilineTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCMultilineTextField.m; path = components/TextFields/src/MDCMultilineTextField.m; sourceTree = "<group>"; };
 		0B77E0C61FD7A5B45D810D2EF180C43F /* UIFont+MaterialTypography.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIFont+MaterialTypography.m"; path = "components/Typography/src/UIFont+MaterialTypography.m"; sourceTree = "<group>"; };
 		0C5EA9592EC3DA80EDD2BA2120DE4AF4 /* String+Filtering.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Filtering.swift"; sourceTree = "<group>"; };
@@ -230,7 +228,7 @@
 		323B724D6973D2980E873A7266FBF9F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3290EE1ACF7A975CE75FFEAED603DFCD /* MDCTonalPalette.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCTonalPalette.h; path = components/Themes/src/MDCTonalPalette.h; sourceTree = "<group>"; };
 		3690C48709BA421D6418149716A2F64E /* FrictionLessFormUIStrings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FrictionLessFormUIStrings.swift; sourceTree = "<group>"; };
-		36A7DF795EEA94D2B57EA4B261A96A53 /* MaterialComponents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MaterialComponents.modulemap; sourceTree = "<group>"; };
+		36A7DF795EEA94D2B57EA4B261A96A53 /* MaterialComponents.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MaterialComponents.modulemap; sourceTree = "<group>"; };
 		3730C376681548B61F07338562FBC573 /* MaterialTypography.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialTypography.h; path = components/Typography/src/MaterialTypography.h; sourceTree = "<group>"; };
 		38448120A4AD037E2716F5088768F953 /* UIFont+MaterialTypographyPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+MaterialTypographyPrivate.h"; path = "components/Typography/src/private/UIFont+MaterialTypographyPrivate.h"; sourceTree = "<group>"; };
 		3BFC97DEB87C70343845BAC0F2DE34D0 /* PhoneNumberKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberKit.swift; path = PhoneNumberKit/PhoneNumberKit.swift; sourceTree = "<group>"; };
@@ -245,11 +243,11 @@
 		45A5F9B922DDD398D4A993A1D81B211D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		474B25C13D109C333ECA2A67616FAB5E /* MaterialTextFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialTextFields.h; path = components/TextFields/src/MaterialTextFields.h; sourceTree = "<group>"; };
 		49561070973816A0A43B16FB069DA6FE /* MDCTypography.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCTypography.m; path = components/Typography/src/MDCTypography.m; sourceTree = "<group>"; };
-		4E4537D3C492FBAA383502CF6493CB59 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		4E4537D3C492FBAA383502CF6493CB59 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5247B2B36BD3627EEB49D9EB4618ED9A /* UIView+MDCTimingFunction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MDCTimingFunction.h"; path = "components/AnimationTiming/src/UIView+MDCTimingFunction.h"; sourceTree = "<group>"; };
 		5379600FFF7B0A86C05E382B93849472 /* MaterialApplication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialApplication.h; path = components/private/Application/src/MaterialApplication.h; sourceTree = "<group>"; };
-		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
-		5985B647B7096109981083DFA1A5FDF6 /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrictionLess_Example.framework; path = "Pods-FrictionLess_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56EE2D6E70EF4F3535540399C5F22A8C /* Pods-FrictionLess_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Example.modulemap"; sourceTree = "<group>"; };
+		5985B647B7096109981083DFA1A5FDF6 /* Pods_FrictionLess_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D21911F6FDDDE18BDD502AB535E78A /* CardParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardParser.swift; sourceTree = "<group>"; };
 		5A90771871E8E73326C1953F199313D3 /* FormattableTextFieldDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormattableTextFieldDelegate.swift; sourceTree = "<group>"; };
 		5F904CE4BAAF3FC8730D3ED94A21526B /* CardEntryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardEntryView.swift; sourceTree = "<group>"; };
@@ -259,8 +257,8 @@
 		633AFD10E1BD2EE93630E0DA4D875E3B /* MDCTextInputControllerFullWidth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCTextInputControllerFullWidth.h; path = components/TextFields/src/MDCTextInputControllerFullWidth.h; sourceTree = "<group>"; };
 		65787016C023F85A2893675D8829AE88 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = PhoneNumberKit/Constants.swift; sourceTree = "<group>"; };
 		6AFF7086868413F3FAB773AC12B76F24 /* MaterialComponents-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MaterialComponents-dummy.m"; sourceTree = "<group>"; };
-		6BA2A018AF629613488AE5CB63123AB3 /* Anchorage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Anchorage.modulemap; sourceTree = "<group>"; };
-		6FFF4167CCFB1BCB03971A031BF1C81D /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MaterialComponents.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BA2A018AF629613488AE5CB63123AB3 /* Anchorage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Anchorage.modulemap; sourceTree = "<group>"; };
+		6FFF4167CCFB1BCB03971A031BF1C81D /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7032BA942DEFBFAB0AEEC7285606B1BF /* UIFont+MaterialTypographyPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIFont+MaterialTypographyPrivate.m"; path = "components/Typography/src/private/UIFont+MaterialTypographyPrivate.m"; sourceTree = "<group>"; };
 		7113D34E3F53F316803EE026CDC53B6A /* MDCTextInputCharacterCounter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCTextInputCharacterCounter.h; path = components/TextFields/src/MDCTextInputCharacterCounter.h; sourceTree = "<group>"; };
 		7210330EC7CDC2FBC2D1AF220618EC4A /* MetadataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataManager.swift; path = PhoneNumberKit/MetadataManager.swift; sourceTree = "<group>"; };
@@ -280,7 +278,7 @@
 		858A41B71861EBF94C64049E61C530D8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86BA3ABCCFECAB19FF7877297CA8D5FB /* EmailFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EmailFormatter.swift; sourceTree = "<group>"; };
 		8A545C12898F93657AEF5699503ABCCE /* CardEntry.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = CardEntry.xcassets; sourceTree = "<group>"; };
-		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
+		8DA5774CB78625906F647BEC42B19DC8 /* Pods-FrictionLess_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FrictionLess_Tests.modulemap"; sourceTree = "<group>"; };
 		8DA71E72C7C96D838E2755AC215DBDD1 /* FrictionLess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FrictionLess-prefix.pch"; sourceTree = "<group>"; };
 		8F16B328DC3C2C5D3788C643C2AA2C7C /* MDCColorScheme.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCColorScheme.m; path = components/Themes/src/MDCColorScheme.m; sourceTree = "<group>"; };
 		8FD3EFD36ECA87D058FB1B0AD5022560 /* MDCTextInputCommonFundament.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCTextInputCommonFundament.m; path = components/TextFields/src/private/MDCTextInputCommonFundament.m; sourceTree = "<group>"; };
@@ -288,9 +286,9 @@
 		91CDC2E4015395F28AFFE2924FC0E8CC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9309BC2080FF481277171E5B969DF630 /* MDCTextInputController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCTextInputController.h; path = components/TextFields/src/MDCTextInputController.h; sourceTree = "<group>"; };
 		9379A88D4483BD5C19A2CE4A84435BD2 /* Pods-FrictionLess_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FrictionLess_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94855F3D5BE1DCE6A726E7892C9B513E /* UIApplication+AppExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+AppExtensions.h"; path = "components/private/Application/src/UIApplication+AppExtensions.h"; sourceTree = "<group>"; };
-		992955CA52167E30D275604C8E27D340 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		992955CA52167E30D275604C8E27D340 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		995E0BD851F3D128D1E7C5D9C4A0BA91 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C71D56062604DFFE019340FBC8483AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E469DB07D0751845C555B9E833677E4 /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
@@ -310,14 +308,14 @@
 		B0EE47D4E8AC7E69E175C66D7F330732 /* MDCTonalPalette.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCTonalPalette.m; path = components/Themes/src/MDCTonalPalette.m; sourceTree = "<group>"; };
 		B293F24B4A7EF11E73FE1DC12721E4BE /* Anchorage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Anchorage.xcconfig; sourceTree = "<group>"; };
 		B480F0992122A83E0BF6A34127BBB8C8 /* Pods-FrictionLess_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FrictionLess_Tests-dummy.m"; sourceTree = "<group>"; };
-		B5C317D6B325D77DF76A0DD98C71C4B3 /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FrictionLess_Tests.framework; path = "Pods-FrictionLess_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5C317D6B325D77DF76A0DD98C71C4B3 /* Pods_FrictionLess_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrictionLess_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61A69EEE6DA6D7F1908B083EC4436D2 /* MDCColorScheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCColorScheme.h; path = components/Themes/src/MDCColorScheme.h; sourceTree = "<group>"; };
 		B820495CC16EB389E75BDD2E0D9F75EA /* UIFontDescriptor+MaterialTypography.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFontDescriptor+MaterialTypography.h"; path = "components/Typography/src/UIFontDescriptor+MaterialTypography.h"; sourceTree = "<group>"; };
 		B859D89888A92E17558FBC1C1BA27B7B /* UIImage+MaterialRTL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MaterialRTL.h"; path = "components/private/RTL/src/UIImage+MaterialRTL.h"; sourceTree = "<group>"; };
 		B917FE8B7E7CDDCAEADE83871EE84D6C /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
 		B9187D2CED17203E64DFE0D959721ADE /* FormUI.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; path = FormUI.strings; sourceTree = "<group>"; };
 		B95C33DE2C007A72C85BC37C3290A275 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		BA15E1DB7398108CFB533EFE63E4A126 /* Anchorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Anchorage.framework; path = Anchorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA15E1DB7398108CFB533EFE63E4A126 /* Anchorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Anchorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD96581F6B160D0B4FBF64D404516FAC /* Pods-FrictionLess_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrictionLess_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C588E2CEED35D64B30BF0B168A30E754 /* FrictionLess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FrictionLess-dummy.m"; sourceTree = "<group>"; };
 		C6248AE8F326AC07218E386ECDC1218B /* MDCTextInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCTextInput.h; path = components/TextFields/src/MDCTextInput.h; sourceTree = "<group>"; };
@@ -343,7 +341,7 @@
 		DCF0F038894997CA315C340E490A52E0 /* PhoneFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		DD6F8A27DDBA9DFB5187F56FD206C3FC /* MDCPalettes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCPalettes.m; path = components/Palettes/src/MDCPalettes.m; sourceTree = "<group>"; };
 		DD7677D8CF75785198857D78355193A5 /* MDCTextInputAllCharactersCounter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCTextInputAllCharactersCounter.m; path = components/TextFields/src/private/MDCTextInputAllCharactersCounter.m; sourceTree = "<group>"; };
-		DE24FA171DCD1727C25344783D0F71D8 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
+		DE24FA171DCD1727C25344783D0F71D8 /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
 		E0E24CA6D4985B3467BD0C3287506376 /* Anchorage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Anchorage-dummy.m"; sourceTree = "<group>"; };
 		E12B011DD6786BA7AEC8E2F1164A88AD /* Pods-FrictionLess_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FrictionLess_Example-dummy.m"; sourceTree = "<group>"; };
 		E23D408018519CF127FC6ECE3BE41635 /* PhoneNumberParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberParser.swift; path = PhoneNumberKit/PhoneNumberParser.swift; sourceTree = "<group>"; };
@@ -356,12 +354,12 @@
 		EC753BA98C8EB251BF99E38EB9A36D43 /* Pods-FrictionLess_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FrictionLess_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		ED431E367427C2E459AE007DE75176D2 /* ZipFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ZipFormatter.swift; sourceTree = "<group>"; };
 		EE061A47D88D7EF765F97C86C0CB4BED /* MaterialThemes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialThemes.h; path = components/Themes/src/MaterialThemes.h; sourceTree = "<group>"; };
-		EE624E1DE7BDE59500F99354C8AC7A85 /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
+		EE624E1DE7BDE59500F99354C8AC7A85 /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
 		F1E13A72907356C26D709C7F340CF807 /* MaterialMath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialMath.h; path = components/private/Math/src/MaterialMath.h; sourceTree = "<group>"; };
 		F22A366C60209BC5CCC82C5E13C1EB40 /* String+CursorFingerprint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+CursorFingerprint.swift"; sourceTree = "<group>"; };
 		F586524428C80F4750102554471D04B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6321ABE7578BAA94ECBC71F7831F315 /* PhoneNumberKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-umbrella.h"; sourceTree = "<group>"; };
-		F6C6FB819CF51FB26630247AB8B3B350 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PhoneNumberKit.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6C6FB819CF51FB26630247AB8B3B350 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E09AC83D2D4F93C270FC48FC637F19 /* FrictionLess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FrictionLess.xcconfig; sourceTree = "<group>"; };
 		F910ACEB91A7ACAD0DBA7E8AADACD1CA /* Anchorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Anchorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9482A569A9893EC232EF933443DC2F /* MetadataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataTypes.swift; path = PhoneNumberKit/MetadataTypes.swift; sourceTree = "<group>"; };
@@ -525,7 +523,6 @@
 				F0BCB3DE92D9C501C71B1D90BE0EFA36 /* Formatters */,
 				AB412B75DBB23863B523394B3E32B698 /* Utilities */,
 			);
-			name = FormattableTextField;
 			path = FormattableTextField;
 			sourceTree = "<group>";
 		};
@@ -608,7 +605,6 @@
 				0E63B158E26C0E930A77BBEECFF428DD /* Themes */,
 				4699D0330FC73E582ECCED156BB50F43 /* Typography */,
 			);
-			name = MaterialComponents;
 			path = MaterialComponents;
 			sourceTree = "<group>";
 		};
@@ -617,7 +613,6 @@
 			children = (
 				6C17BB489A0204D4454D13F1C94EEE59 /* CardEntry */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -656,7 +651,6 @@
 				9E58DB294B340E4749A08287029A9807 /* UIImage+CardEntry.swift */,
 				95F6447532CC45DCF2C3DF42D4B4ABFA /* Formatters */,
 			);
-			name = CardEntry;
 			path = CardEntry;
 			sourceTree = "<group>";
 		};
@@ -675,7 +669,6 @@
 				0118E729057683B82E6AED303BC34D37 /* Support Files */,
 				C2A36224020A7073154966487D481F41 /* UIKit */,
 			);
-			name = PhoneNumberKit;
 			path = PhoneNumberKit;
 			sourceTree = "<group>";
 		};
@@ -712,7 +705,6 @@
 			children = (
 				8A545C12898F93657AEF5699503ABCCE /* CardEntry.xcassets */,
 			);
-			name = CardEntry;
 			path = CardEntry;
 			sourceTree = "<group>";
 		};
@@ -735,7 +727,6 @@
 			children = (
 				5E4A3821C2222F9CED756B4C4322623F /* CardEntry */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -832,7 +823,6 @@
 			children = (
 				B57862C03081E2EB640CE18EAB2ACAD8 /* FormUI */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -844,7 +834,6 @@
 				B917FE8B7E7CDDCAEADE83871EE84D6C /* ExpirationDateFormatter.swift */,
 				ED431E367427C2E459AE007DE75176D2 /* ZipFormatter.swift */,
 			);
-			name = Formatters;
 			path = Formatters;
 			sourceTree = "<group>";
 		};
@@ -877,19 +866,16 @@
 				DCF0F038894997CA315C340E490A52E0 /* PhoneFormatter.swift */,
 				992955CA52167E30D275604C8E27D340 /* README.md */,
 			);
-			name = PhoneFormatter;
 			path = PhoneFormatter;
 			sourceTree = "<group>";
 		};
 		AB412B75DBB23863B523394B3E32B698 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				06AC71C1E33FF3B5303E64284CFB4C6A /* FormattableTextField+LayoutMargins.swift */,
 				AE9034DE413F0727D7213C2921F79B3D /* RangeHelpers.swift */,
 				F22A366C60209BC5CCC82C5E13C1EB40 /* String+CursorFingerprint.swift */,
 				0C5EA9592EC3DA80EDD2BA2120DE4AF4 /* String+Filtering.swift */,
 			);
-			name = Utilities;
 			path = Utilities;
 			sourceTree = "<group>";
 		};
@@ -901,7 +887,6 @@
 				A16F0F139879721C3784A1A564EBAC73 /* FrictionLessFormComponent.swift */,
 				3690C48709BA421D6418149716A2F64E /* FrictionLessFormUIStrings.swift */,
 			);
-			name = FormUI;
 			path = FormUI;
 			sourceTree = "<group>";
 		};
@@ -940,7 +925,6 @@
 			children = (
 				A70EFC93E4539D37A9E1FD7EE724C64F /* PhoneFormatter */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -949,7 +933,6 @@
 			children = (
 				26DC527B93E9FA4CA1861AC51ADCD2EA /* FormattableTextField */,
 			);
-			name = FrictionLess;
 			path = FrictionLess;
 			sourceTree = "<group>";
 		};
@@ -963,7 +946,6 @@
 				DB4B749E4540F83A1C55F651AEBB3115 /* Priority.swift */,
 				5BAA8919F8046B91B06E01BAF8AEF46D /* Support Files */,
 			);
-			name = Anchorage;
 			path = Anchorage;
 			sourceTree = "<group>";
 		};
@@ -993,7 +975,6 @@
 				86BA3ABCCFECAB19FF7877297CA8D5FB /* EmailFormatter.swift */,
 				C693465690E980151FDA93DA191CA86F /* NameFormatter.swift */,
 			);
-			name = Formatters;
 			path = Formatters;
 			sourceTree = "<group>";
 		};
@@ -1349,7 +1330,6 @@
 				A4453F36FE4BE0FDBB4A7CD0E98BB8D2 /* CVVFormatter.swift in Sources */,
 				55A1EAA9FD55A1774560EDB790F12ABE /* EmailFormatter.swift in Sources */,
 				B0258755191EB9ED0504877787755B19 /* ExpirationDateFormatter.swift in Sources */,
-				117291D20A2B6AC57286C1BD4FFE779B /* FormattableTextField+LayoutMargins.swift in Sources */,
 				F99E72804E734A1AA9C15AC80C4F5331 /* FormattableTextField.swift in Sources */,
 				8F7FD6C0DD66BD8AC58D86241B234E18 /* FormattableTextFieldDelegate.swift in Sources */,
 				046AE61DA08E7354F2378EF49CB01335 /* FormComponent.swift in Sources */,
