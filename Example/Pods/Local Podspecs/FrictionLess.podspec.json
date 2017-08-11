@@ -1,6 +1,6 @@
 {
   "name": "FrictionLess",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "A collection of UX-focused swift components for reducing friction in \"user work\".",
   "description": "Reduce friction with auto-formatting data entry, auto-advancing forms, and proactive user feedback for valid/invalid input.",
   "homepage": "https://github.com/Raizlabs/FrictionLess",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/raizlabs/FrictionLess.git",
-    "tag": "0.1.0"
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "10.0"
@@ -32,6 +32,9 @@
       "source_files": "FrictionLess/CardEntry/**/*.{swift,strings}",
       "dependencies": {
         "FrictionLess/FormUI": [
+
+        ],
+        "MaterialComponents/TextFields": [
 
         ]
       },

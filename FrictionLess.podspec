@@ -27,6 +27,7 @@ Reduce friction with auto-formatting data entry, auto-advancing forms, and proac
   s.subspec "CardEntry" do |ss|
     ss.source_files = 'FrictionLess/CardEntry/**/*.{swift,strings}'
     ss.dependency 'FrictionLess/FormUI'
+    ss.dependency 'MaterialComponents/TextFields'
     ss.resources = "FrictionLess/CardEntry/CardEntry.xcassets"
   end
 

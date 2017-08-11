@@ -6,7 +6,7 @@
 //
 //
 
-import UIKit
+import MaterialComponents
 
 // MARK: - Errors
 public enum FormattableTextFieldError: Error {
@@ -14,7 +14,7 @@ public enum FormattableTextFieldError: Error {
 }
 
 // MARK: - FormattableTextField
-open class FormattableTextField: UITextField {
+open class FormattableTextField: MDCTextField {
 
     // MARK: Appearance
     public dynamic var cornerRadius: CGFloat = 0 {
