@@ -55,6 +55,8 @@ fileprivate extension CardEntryExampleViewController {
         let fieldAppearance = FormattableTextField.appearance()
         fieldAppearance.backgroundColor = .white
         fieldAppearance.cornerRadius = 5
+        fieldAppearance.borderWidth = 2
+        fieldAppearance.borderColor = .clear
 
         let componentAppearance = FrictionLessFormComponent.appearance()
         componentAppearance.titleToTextFieldPadding = 3

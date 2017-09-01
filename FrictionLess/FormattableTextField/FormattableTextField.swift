@@ -13,47 +13,69 @@ public enum FormattableTextFieldError: Error {
     case invalidInput
 }
 
+public protocol FormattableTextFieldProtocol: class {}
+
 // MARK: - FormattableTextField
-open class FormattableTextField: MDCTextField {
+open class FormattableTextField: UITextField, FormattableTextFieldProtocol {
 
-    // MARK: Appearance
-    public dynamic var cornerRadius: CGFloat = 0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-        }
-    }
-
-    public dynamic var borderColor: UIColor = .clear {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
-
-    public dynamic var borderWidth: CGFloat = 0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
-
-    // MARK: Initialization
-    fileprivate let delegateProxy: DelegateProxy
-
-    public init(formatter: TextFieldFormatter? = nil) {
-        self.delegateProxy = DelegateProxy()
+    init(formatter: TextFieldFormatter? = nil) {
         super.init(frame: .zero)
-        self.formatter = formatter
+        self.delegateProxy = FormattableTextFieldDelegateProxy()
+        self.delegateProxy?.formatter = formatter
         self.delegate = self.delegateProxy
-        addTarget(delegateProxy, action: #selector(DelegateProxy.editingChanged(textField:)), for: .editingChanged)
+        addTarget(delegateProxy, action: #selector(FormattableTextFieldDelegateProxy.editingChanged(textField:)), for: .editingChanged)
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override weak open var delegate: UITextFieldDelegate? {
+        get {
+            return delegateProxy?.delegate
+        }
+        set {
+            super.delegate = delegateProxy
+            if !(newValue is FormattableTextFieldDelegateProxy) {
+                delegateProxy?.delegate = newValue
+            }
+        }
+    }
+
+    override open func deleteBackward() {
+        super.deleteBackward()
+
+        if text?.characters.count == 0 {
+            (delegate as? FormattableTextFieldDelegate)?.textFieldShouldNavigateBackwards(self)
+        }
+    }
+
 }
 
-// MARK: Accessors
-extension FormattableTextField {
+private var key = "com.raizlabs.frictionless.delegateproxy"
+public extension FormattableTextFieldProtocol where Self: UITextField {
+
+    fileprivate var delegateProxy: FormattableTextFieldDelegateProxy? {
+        get {
+            return objc_getAssociatedObject(self, &key) as? FormattableTextFieldDelegateProxy
+        }
+        set {
+            objc_setAssociatedObject(self, &key, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+
+    public var formatter: TextFieldFormatter? {
+        get {
+            return delegateProxy?.formatter
+        }
+        set {
+            delegateProxy?.formatter = newValue
+        }
+    }
+
+}
+
+public extension FormattableTextFieldProtocol where Self: UITextField {
 
     public var isValid: Bool {
         if case ValidationResult.valid = validation {
@@ -77,31 +99,10 @@ extension FormattableTextField {
         return formatter?.removeFormatting(text) ?? text
     }
 
-    public var formatter: TextFieldFormatter? {
-        get {
-            return delegateProxy.formatter
-        }
-        set {
-            delegateProxy.formatter = newValue
-        }
-    }
-
-    override weak open var delegate: UITextFieldDelegate? {
-        get {
-            return delegateProxy.delegate
-        }
-        set {
-            super.delegate = delegateProxy
-            if !(newValue is DelegateProxy) {
-                delegateProxy.delegate = newValue
-            }
-        }
-    }
-
 }
 
 // MARK: Methods
-public extension FormattableTextField {
+public extension FormattableTextFieldProtocol where Self: UITextField {
 
     /// Programmatically set text and format. Forgo the delegate and validation responder train.
     public func setTextAndFormat(text: String) {
@@ -136,37 +137,20 @@ public extension FormattableTextField {
     /// Simulate the manual entry of text in an optional subrange. Format, validate, and report up the responder chain.
     public func simulateInput(text: String, range: NSRange? = nil) {
         let editRange = range ?? self.textRange
-        _ = delegateProxy.textField(self, shouldChangeCharactersIn: editRange, replacementString: text)
-    }
-
-}
-
-// MARK: Overrides
-extension FormattableTextField {
-
-    override open func deleteBackward() {
-        super.deleteBackward()
-
-        if text?.characters.count == 0 {
-            (delegate as? FormattableTextFieldDelegate)?.textFieldShouldNavigateBackwards(self)
-        }
+        _ = delegateProxy?.textField(self, shouldChangeCharactersIn: editRange, replacementString: text)
     }
 
 }
 
 // MARK: Delegate Proxy Private Implementation
-fileprivate extension FormattableTextField {
+public class FormattableTextFieldDelegateProxy: NSObject, UITextFieldDelegate {
 
-    class DelegateProxy: NSObject, UITextFieldDelegate {
-
-        weak var delegate: UITextFieldDelegate?
-        var formatter: TextFieldFormatter?
-
-    }
+    weak var delegate: UITextFieldDelegate?
+    var formatter: TextFieldFormatter?
 
 }
 
-extension FormattableTextField.DelegateProxy {
+public extension FormattableTextFieldDelegateProxy {
 
     @objc func editingChanged(textField: UITextField) {
         guard let textField = textField as? FormattableTextField else {
@@ -252,7 +236,7 @@ extension FormattableTextField.DelegateProxy {
 }
 
 // MARK: Delegate Proxy Forwarding
-extension FormattableTextField.DelegateProxy {
+public extension FormattableTextFieldDelegateProxy {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return delegate?.textFieldShouldBeginEditing?(textField) ?? true

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00FE4CEB1F59DAC0004234DA /* UIView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FE4CE91F59DA97004234DA /* UIView+Appearance.swift */; };
 		01715700BDBB97B465DF9B52549247F1 /* MDCMultilineTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABFBBACB558B605F3B518195BC1B7D0 /* MDCMultilineTextField.m */; };
 		02BF81DBE404F9B1CFA37395869A8D95 /* MDCTextInputControllerDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = 01BC6A7414C70218E3BE1222E425783E /* MDCTextInputControllerDefault.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		046AE61DA08E7354F2378EF49CB01335 /* FormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7B224F1082D0AF64850A247692D60 /* FormComponent.swift */; };
@@ -15,7 +16,6 @@
 		09E12ECE05AD029DFF0FA9D152B12FF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323B724D6973D2980E873A7266FBF9F4 /* Foundation.framework */; };
 		0A80605A6D2C59E8C3DE30494914633E /* NameFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C693465690E980151FDA93DA191CA86F /* NameFormatter.swift */; };
 		0CB2D36F41165EF65EE0A809B976FF9C /* PhoneNumberKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFC97DEB87C70343845BAC0F2DE34D0 /* PhoneNumberKit.swift */; };
-		0F26B8DA0E6A2449AB36D90E33671A2A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 992955CA52167E30D275604C8E27D340 /* README.md */; };
 		0F76144210DF4717E3D71D72202E7743 /* MDCFontTraits.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AE1460B02FC7653C9E0EA9137A2AF7F /* MDCFontTraits.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0F954E879BB3C77E3620C85992E1BC7D /* MDCTextInputArt.h in Headers */ = {isa = PBXBuildFile; fileRef = 40826E06079E779A6320DC35E17362AF /* MDCTextInputArt.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		10C4A43F50E32ED6F7BC076F60829432 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B4A8F6A2ADA12A076FFEBACF3313BF /* CoreTelephony.framework */; };
@@ -196,6 +196,7 @@
 
 /* Begin PBXFileReference section */
 		00D423C420A8B417F8A35B201B362DA4 /* MDCRTL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCRTL.m; path = components/private/RTL/src/MDCRTL.m; sourceTree = "<group>"; };
+		00FE4CE91F59DA97004234DA /* UIView+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Appearance.swift"; sourceTree = "<group>"; };
 		01BC6A7414C70218E3BE1222E425783E /* MDCTextInputControllerDefault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCTextInputControllerDefault.h; path = components/TextFields/src/MDCTextInputControllerDefault.h; sourceTree = "<group>"; };
 		01E4374475FDC2D8EDD6A50107F5E10B /* FrictionLess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FrictionLess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D9A421C1C47024F7CC74815C3C79BD /* UIFont+MaterialTypography.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+MaterialTypography.h"; path = "components/Typography/src/UIFont+MaterialTypography.h"; sourceTree = "<group>"; };
@@ -875,6 +876,7 @@
 				AE9034DE413F0727D7213C2921F79B3D /* RangeHelpers.swift */,
 				F22A366C60209BC5CCC82C5E13C1EB40 /* String+CursorFingerprint.swift */,
 				0C5EA9592EC3DA80EDD2BA2120DE4AF4 /* String+Filtering.swift */,
+				00FE4CE91F59DA97004234DA /* UIView+Appearance.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1340,14 +1342,13 @@
 				0A80605A6D2C59E8C3DE30494914633E /* NameFormatter.swift in Sources */,
 				64AC2AF4D12AF770CC12068B50157DAC /* PhoneFormatter.swift in Sources */,
 				5B6361F8E6FFC233F2CAB2B3E25362CF /* RangeHelpers.swift in Sources */,
-				0F26B8DA0E6A2449AB36D90E33671A2A /* README.md in Sources */,
-				0F26B8DA0E6A2449AB36D90E33671A2A /* README.md in Sources */,
 				4CDF1FFCBD7396E684252C523D3D2117 /* String+CursorFingerprint.swift in Sources */,
 				BA5AB17E5B3210E56FAB7444B6B2BAAB /* String+Filtering.swift in Sources */,
 				31114959E4DD77E7E058FE4A6EE4CFB7 /* Strings+CardEntry.swift in Sources */,
 				F3B4EBC47E65B27305BF761FF9D10D2B /* TextFieldFormatter.swift in Sources */,
 				7B9666946203C71CD293B1197996BB67 /* TextFieldFormatterDataTypes.swift in Sources */,
 				ED58BABF928A5080FEA279D84C099647 /* UIImage+CardEntry.swift in Sources */,
+				00FE4CEB1F59DAC0004234DA /* UIView+Appearance.swift in Sources */,
 				1F27B73C5242BED006B555457E079B65 /* ZipFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

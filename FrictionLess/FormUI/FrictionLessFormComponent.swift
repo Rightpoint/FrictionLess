@@ -56,7 +56,6 @@ open class FrictionLessFormComponent: UIView, FormComponent {
     public dynamic var outlineActive = #colorLiteral(red: 0.2976710107, green: 0.679473315, blue: 0.9589569291, alpha: 1)
     public dynamic var outlineInvalid  = #colorLiteral(red: 1, green: 0.4039215686, blue: 0.3647058824, alpha: 1)
     public dynamic var outlineValid = #colorLiteral(red: 0, green: 0.7568627451, blue: 0.368627451, alpha: 1)
-    public dynamic var borderWidth: CGFloat = 2
 
     public var textField = FormattableTextField()
 
