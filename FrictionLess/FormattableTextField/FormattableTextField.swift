@@ -65,7 +65,7 @@ extension FormattableTextField {
     }
 
     public var isComplete: Bool {
-        return formatter?.isComplete(unformattedText) ?? true
+        return formatter?.isComplete(unformattedText) ?? false
     }
 
     public var validation: ValidationResult {
